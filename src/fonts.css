@@ -1,0 +1,202 @@
+﻿/**
+*
+*	Name:			Kook Fonts
+*	Version:			2.4
+*	Author:			Moslem Ebrahimi (moslemebrahimi.com)
+*	Created on:		Aug 02, 2022
+*	Updated on:		Aug 02, 2022
+*	Website:			http://fontiran.com
+*	Copyright:		Commercial/Proprietary Software
+--------------------------------------------------------------------------------------
+فونت ایران یکان X  یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید
+--------------------------------------------------------------------------------------
+Kook fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com 
+--------------------------------------------------------------------------------------
+This set of fonts are used in this project under the license: (.....)
+------------------------------------------------------------------------------------- fonts/-
+*	
+**/
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 100;
+  src: url("/fonts/KookPro/KookFaNum-Regular.woff") format("woff"),
+    url("/fonts/KookPro/KookFaNum-Regular.woff2") format("woff2");
+}
+
+/* @font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 200;
+  src: url("/fonts/KookPro/woff/Kook-UltraLight.woff") format("woff"),
+    url("/fonts/KookPro/woff2/Kook-UltraLight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/KookPro/woff/Kook-Light.woff") format("woff"),
+    url("/fonts/KookPro/woff2/Kook-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/KookPro/woff/Kook-Medium.woff") format("woff"),
+    url("/fonts/KookPro/woff2/Kook-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/KookPro/woff/Kook-DemiBold.woff") format("woff"),
+    url("/fonts/KookPro/woff2/Kook-DemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 800;
+  src: url("/fonts/KookPro/woff/Kook-ExtraBold.woff") format("woff"),
+    url("/fonts/KookPro/woff2/Kook-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/KookPro/woff/Kook-Black.woff") format("woff"),
+    url("/fonts/KookPro/woff2/Kook-Black.woff2") format("woff2");
+}
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 950;
+  src: url("/fonts/KookPro/woff/Kook-ExtraBlack.woff") format("woff"),
+    url("/fonts/KookPro/woff2/Kook-ExtraBlack.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 1000;
+  src: url("/fonts/KookPro/woff/Kook-Heavy.woff") format("woff"),
+    url("/fonts/KookPro/woff2/Kook-Heavy.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: bold;
+  src: url("/fonts/KookPro/woff/Kook-Bold.woff") format("woff"),
+    url("/fonts/KookPro/woff2/Kook-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/KookPro/woff/Kook-Regular.woff") format("woff"),
+    url("/fonts/KookPro/woff2/Kook-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 100;
+  src: url("/fonts/KookPro/woff/KookFaNum-Thin.woff") format("woff"),
+    url("/fonts/KookPro/woff2/KookFaNum-Thin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 200;
+  src: url("/fonts/KookPro/woff/KookFaNum-UltraLight.woff")
+      format("woff"),
+    url("/fonts/KookPro/woff2/KookFaNum-UltraLight.woff2")
+      format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/KookPro/woff/KookFaNum-Light.woff") format("woff"),
+    url("/fonts/KookPro/woff2/KookFaNum-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/KookPro/woff/KookFaNum-Medium.woff") format("woff"),
+    url("/fonts/KookPro/woff2/KookFaNum-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/KookPro/woff/KookFaNum-DemiBold.woff")
+      format("woff"),
+    url("/fonts/KookPro/woff2/KookFaNum-DemiBold.woff2")
+      format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 800;
+  src: url("/fonts/KookPro/woff/KookFaNum-ExtraBold.woff")
+      format("woff"),
+    url("/fonts/KookPro/woff2/KookFaNum-ExtraBold.woff2")
+      format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/KookPro/woff/KookFaNum-Black.woff") format("woff"),
+    url("/fonts/KookPro/woff2/KookFaNum-Black.woff2") format("woff2");
+}
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 950;
+  src: url("/fonts/KookPro/woff/KookFaNum-ExtraBlack.woff")
+      format("woff"),
+    url("/fonts/KookPro/woff2/KookFaNum-ExtraBlack.woff2")
+      format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: 1000;
+  src: url("/fonts/KookPro/woff/KookFaNum-Heavy.woff") format("woff"),
+    url("/fonts/KookPro/woff2/KookFaNum-Heavy.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: bold;
+  src: url("/fonts/KookPro/woff/KookFaNum-Bold.woff") format("woff"),
+    url("/fonts/KookPro/woff2/KookFaNum-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Kook;
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/KookPro/woff/KookFaNum-Regular.woff")
+      format("woff"),
+    url("/fonts/KookPro/woff2/KookFaNum-Regular.woff2")
+      format("woff2");
+} */
