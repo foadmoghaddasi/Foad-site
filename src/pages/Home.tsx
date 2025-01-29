@@ -9,7 +9,7 @@ const Home = () => {
         {/* ویدیو در پس‌زمینه */}
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
-          src="/src/videos/background.mp4" // مسیر ویدیو را اینجا تنظیم کن
+          src="/background.mp4" // مسیر ویدیو را اینجا تنظیم کن
           autoPlay
           loop
           muted
