@@ -2,6 +2,7 @@ import Frame from "../assets/images/Framelg.png";
 import frame from "../assets/images/Framesm.png";
 
 const About = () => {
+  
   return (
     <section className="relative w-full h-auto bg-black flex items-center justify-center text-center">
       <img src={Frame} alt="Frame" className="hidden md:block w-full h-auto" />

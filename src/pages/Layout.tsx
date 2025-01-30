@@ -9,6 +9,12 @@ const Layout: React.FC = () => {
           <li>
             <Link to="/"></Link>
           </li>
+          <li>
+          <Link to="/app"></Link>
+          </li>
+          <li>
+          <Link to="/panel"></Link>
+          </li>
         </ul>
       </nav>
       <Outlet />

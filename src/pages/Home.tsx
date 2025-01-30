@@ -1,9 +1,18 @@
+import { useRef } from "react";
 import { ArrowCircleDown, DocumentDownload } from "iconsax-react";
 import Cards from "../components/Cards";
 import Navbar from "../components/Navbar";
 import About from "../components/About";
 
 const Home = () => {
+  const cardsRef = useRef<any>(null);
+
+  const scrollToCards = () => {
+    if (cardsRef.current) {
+      cardsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
       <div className="w-full h-[800px] md:h-screen flex flex-col justify-start items-center md:justify-start px-4 bg-black">
@@ -33,7 +42,8 @@ const Home = () => {
         <div className="relative flex flex-col items-center md:mt-90 mt-30 z-10">
           <h2 className="text-white text-lg md:text-xl font-[200] md:font-semibold mb-4">Case Studies</h2>
 
-          <div className="relative w-[34px] h-[53px]">
+          {/* دکمه اسکرول */}
+          <div className="relative w-[34px] h-[53px] cursor-pointer" onClick={scrollToCards}>
             <div className="w-[34px] h-[53px] left-0 top-0 absolute bg-white/20 rounded-[76px] border border-white backdrop-blur-sm"></div>
             <div className="w-6 h-6 left-[5px] top-[23px] absolute justify-center items-center inline-flex">
               <div className="w-6 h-6 items-center ml-1 mb-1">
@@ -43,8 +53,12 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <About/>
-      <Cards/>
+
+      <About />
+
+      <div ref={cardsRef}>
+        <Cards />
+      </div>
     </>
   );
 };
