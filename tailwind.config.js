@@ -8,3 +8,13 @@ export default {
   },
   plugins: [require("tailwindcss-rtl")],
 };
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        kook: ["Kook", "sans-serif"],
+      },
+    },
+  },
+};
+
