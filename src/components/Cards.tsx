@@ -24,6 +24,9 @@ import img21 from "../assets/images/img21.webp";
 import img22 from "../assets/images/img22.webp";
 import img23 from "../assets/images/img23.webp";
 import img24 from "../assets/images/img24.webp";
+import img25 from "../assets/images/img25.png";
+import img26 from "../assets/images/img26.png";
+import img27 from "../assets/images/img27.png";
 import panleimage from "../assets/images/panel-card.png";
 import qursatimage from "../assets/images/qursat-card.png";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -106,57 +109,47 @@ const Cards = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 md:flex-row justify-center gap-6">
-            {/* کارت تصویر 1 */}
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
-                src={img1}
+                src={img26}
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">طراحی داشبورد مدیریت</h3>
-              <p className="text-gray-300 text-sm">تحلیل و بازطراحی فرآیند‌های مدیریتی</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی اپلیکیشن دل به دل (لندن)</h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۳</p>
             </div>
-
-            {/* کارت تصویر 2 */}
-            <div className="flex flex-col items-start mt-6 md:mt-0">
+            <div className="flex flex-col items-start mt-6 md:mt-12">
+              <img
+                src={img27}
+                alt="Image"
+                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
+              />
+              <h3 className="text-white text-lg font-bold mt-1 text-left">بازطراحی فروشگاه اینترنتی سارمو استایل</h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۳</p>
+            </div>
+            <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
                 src={img2}
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی سایت آموزش برنامه‌نویسی</h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۲</p>
             </div>
 
             {/* کارت تصویر 3 */}
-            <div className="flex flex-col items-start mt-6 md:mt-0">
-              <img
-                src={img3}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
-            </div>
+       
 
             {/* کارت تصویر 4 */}
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img4}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
-            </div>
+        
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
                 src={img5}
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی پلتفرم صرافی آنلاین</h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۲</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -164,17 +157,55 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی سایت همگرام</h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۱</p>
             </div>
+       
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
                 src={img7}
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی پلتفرم همگرام</h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۱</p>
+            </div>
+      
+            <div className="flex flex-col items-start mt-6 md:mt-12">
+              <img
+                src={img12}
+                alt="Image"
+                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
+              />
+              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی لندینگ دانلود اپلیکیشن حسابو</h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۱</p>
+            </div>
+            <div className="flex flex-col items-start mt-6 md:mt-12">
+              <img
+                src={img4}
+                alt="Image"
+                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
+              />
+              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی فروشگاه اینترنتی خشکبار ناتژی</h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
+            </div>
+            <div className="flex flex-col items-start mt-6 md:mt-12">
+              <img
+                src={img25}
+                alt="Image"
+                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
+              />
+              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی فروشگاه کیک نظری</h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
+            </div>
+            <div className="flex flex-col items-start mt-6 md:mt-12">
+              <img
+                src={img3}
+                alt="Image"
+                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
+              />
+              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی سایت Voices to Action</h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -182,17 +213,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img9}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی سایت رزرو آنلاین وقت دکتر - جان‌افزا</h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -200,8 +222,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی سایت کاریزما کراد</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -209,26 +231,36 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی فروشگاه اینترنتی ویگال</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
-                src={img12}
+                src={img1}
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت نئومورفیسم iOS</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
+            <div className="flex flex-col items-start mt-6 md:mt-12">
+              <img
+                src={img9}
+                alt="Image"
+                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
+              />
+              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی پنل های مدیریتی کاریزما کراد</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
+            </div>
+        
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
                 src={img13}
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت اپلیکیشن مدیریت خواب</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -236,8 +268,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت اپلیکیشن پایش سلامت</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -245,8 +277,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت اپلیکیشن وضعیت آب و هوا</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -254,8 +286,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی سایت صرافی کنزکس</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -263,8 +295,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت فروشگاه برنامه های موبایل</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -272,8 +304,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">بازطراحی گوگل کروم به سبک نئومورفیسم</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -281,8 +313,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت فروشگاه بازی های آنلاین</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -290,8 +322,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت اپلیکیشن سفارش قهوه</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -299,8 +331,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت موزیک پلیر به سبک نئومورفیسم</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -308,8 +340,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت قندشکن</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -317,8 +349,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت اپلیکیشن ساعت به سبک نئومورفیسم</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
@@ -326,8 +358,8 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-4 text-left">بهینه‌سازی تجربه کاربری</h3>
-              <p className="text-gray-300 text-sm">پژوهش و آزمایش برای بهبود دسترسی‌پذیری</p>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه کارآموزی شرکت ستاره اول</h3>
+              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
           </div>
         </div>
