@@ -19,3 +19,9 @@
   mix-blend-mode: difference;
   transition: transform 0.1s linear;
 }
+
+@media (max-width: 768px) {
+  .cursor-circle {
+    display: none;
+  }
+}
