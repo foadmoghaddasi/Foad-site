@@ -32,14 +32,15 @@ import qursatimage from "../assets/images/qursat-card.png";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const Cards = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div>
       {/* عنوان بخش کیس استادی‌ها */}
       <div className="w-full h-15 md:h-20 pt-10 text-2xl bg-black font-bold flex items-center justify-center">
-        <h1 className="text-white text-center items-end md:mt-0 mt-0">کیس استادی‌ها</h1>
+        <h1 className="text-white text-center items-end md:mt-0 mt-0">
+          کیس استادی‌ها
+        </h1>
       </div>
 
       {/* کارت‌های اصلی */}
@@ -56,9 +57,14 @@ const Cards = () => {
               فرآیند طراحی اپلیکیشن حسابو
             </h1>
             <div className="flex justify-center mb-8">
-              <button className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] hover:bg-gray-700 transition flex gap-2 items-center"  onClick={() => navigate("/app")}>
+              <button
+                className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] hover:bg-gray-700 transition flex gap-2 items-center"
+                onClick={() => {
+                  navigate("/app");
+                }}
+              >
                 مطالعه کیس استادی
-                <ArrowCircleLeft size="24" color="#FFF" variant="Broken"/>
+                <ArrowCircleLeft size="24" color="#FFF" variant="Broken" />
               </button>
             </div>
           </div>
@@ -71,12 +77,15 @@ const Cards = () => {
               className="w-full h-50 object-cover rounded-2xl mb-4"
             />
             <h1 className="text-white text-xl font-bold text-center mb-2">
-             طراحی پنل های مدیریت حسابو
+              طراحی پنل های مدیریت حسابو
             </h1>
             <div className="flex justify-center mb-8">
-              <button className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] hover:bg-gray-700 transition flex gap-2 items-center" onClick={() => navigate("/panel")}>
+              <button
+                className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] hover:bg-gray-700 transition flex gap-2 items-center"
+                onClick={() => navigate("/panel")}
+              >
                 مطالعه کیس استادی
-                <ArrowCircleLeft size="24" color="#FFF" variant="Broken"/>
+                <ArrowCircleLeft size="24" color="#FFF" variant="Broken" />
               </button>
             </div>
           </div>
@@ -99,13 +108,11 @@ const Cards = () => {
           </div>
         </div>
 
-        
-
         {/* 🔹 بخش جدید: دو کارت با متن زیر هر عکس */}
         <div className="w-full flex flex-col items-center mt-12">
           {/* عنوان بخش جدید */}
           <h2 className="text-white text-2xl md:text-2xl font-bold text-center mb-6">
-          پروژه هایUI/UX  من
+            پروژه هایUI/UX من
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 md:flex-row justify-center gap-6">
@@ -115,7 +122,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی اپلیکیشن دل به دل (لندن)</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                پروژه طراحی اپلیکیشن دل به دل (لندن)
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۳</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -124,7 +133,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">بازطراحی فروشگاه اینترنتی سارمو استایل</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                بازطراحی فروشگاه اینترنتی سارمو استایل
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۳</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -133,22 +144,25 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی سایت آموزش برنامه‌نویسی</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                پروژه طراحی سایت آموزش برنامه‌نویسی
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۲</p>
             </div>
 
             {/* کارت تصویر 3 */}
-       
 
             {/* کارت تصویر 4 */}
-        
+
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
                 src={img5}
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی پلتفرم صرافی آنلاین</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                پروژه طراحی پلتفرم صرافی آنلاین
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۲</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -157,27 +171,33 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی سایت همگرام</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                طراحی سایت همگرام
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۱</p>
             </div>
-       
+
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
                 src={img7}
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی پلتفرم همگرام</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                پروژه طراحی پلتفرم همگرام
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۱</p>
             </div>
-      
+
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
                 src={img12}
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی لندینگ دانلود اپلیکیشن حسابو</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                طراحی لندینگ دانلود اپلیکیشن حسابو
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۱</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -186,7 +206,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی فروشگاه اینترنتی خشکبار ناتژی</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                پروژه طراحی فروشگاه اینترنتی خشکبار ناتژی
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -195,7 +217,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی فروشگاه کیک نظری</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                پروژه طراحی فروشگاه کیک نظری
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -204,7 +228,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی سایت Voices to Action</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                پروژه طراحی سایت Voices to Action
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -213,7 +239,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی سایت رزرو آنلاین وقت دکتر - جان‌افزا</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                طراحی سایت رزرو آنلاین وقت دکتر - جان‌افزا
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -222,7 +250,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی سایت کاریزما کراد</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                طراحی سایت کاریزما کراد
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -231,7 +261,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی فروشگاه اینترنتی ویگال</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                طراحی فروشگاه اینترنتی ویگال
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -240,7 +272,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت نئومورفیسم iOS</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                کانسپت نئومورفیسم iOS
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -249,17 +283,21 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه طراحی پنل های مدیریتی کاریزما کراد</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                پروژه طراحی پنل های مدیریتی کاریزما کراد
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
-        
+
             <div className="flex flex-col items-start mt-6 md:mt-12">
               <img
                 src={img13}
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت اپلیکیشن مدیریت خواب</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                کانسپت اپلیکیشن مدیریت خواب
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -268,7 +306,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت اپلیکیشن پایش سلامت</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                کانسپت اپلیکیشن پایش سلامت
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -277,7 +317,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت اپلیکیشن وضعیت آب و هوا</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                کانسپت اپلیکیشن وضعیت آب و هوا
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -286,7 +328,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">طراحی سایت صرافی کنزکس</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                طراحی سایت صرافی کنزکس
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -295,7 +339,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت فروشگاه برنامه های موبایل</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                کانسپت فروشگاه برنامه های موبایل
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -304,7 +350,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">بازطراحی گوگل کروم به سبک نئومورفیسم</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                بازطراحی گوگل کروم به سبک نئومورفیسم
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -313,7 +361,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت فروشگاه بازی های آنلاین</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                کانسپت فروشگاه بازی های آنلاین
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -322,7 +372,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت اپلیکیشن سفارش قهوه</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                کانسپت اپلیکیشن سفارش قهوه
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -331,7 +383,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت موزیک پلیر به سبک نئومورفیسم</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                کانسپت موزیک پلیر به سبک نئومورفیسم
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -340,7 +394,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت قندشکن</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                کانسپت قندشکن
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -349,7 +405,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">کانسپت اپلیکیشن ساعت به سبک نئومورفیسم</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                کانسپت اپلیکیشن ساعت به سبک نئومورفیسم
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
             <div className="flex flex-col items-start mt-6 md:mt-12">
@@ -358,7 +416,9 @@ const Cards = () => {
                 alt="Image"
                 className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
               />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">پروژه کارآموزی شرکت ستاره اول</h3>
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                پروژه کارآموزی شرکت ستاره اول
+              </h3>
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
           </div>
