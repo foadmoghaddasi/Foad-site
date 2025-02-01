@@ -28,7 +28,7 @@ const Home = () => {
 
         {/* توضیحات */}
         <div className="relative mt-5 max-w-2xl sm:max-w-3xl lg:max-w-4xl z-10 text-center">
-          <p className="text-white font-[200] leading-8 text-2xl md:text-4xl">
+          <p className="text-white font-[200] leading-4 md:leading-16 text-2xl md:text-4xl">
             <span>Product Designer @Hesabo</span>
             <span className="block text-xl md:text-3xl">
               previously at Jabama and Asanito

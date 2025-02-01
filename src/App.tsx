@@ -4,6 +4,7 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import HeasboApp from "./pages/HesaboApp";
 import HeasboPanel from "./pages/HesaboPanel";
+import { Lock1 } from "iconsax-react";
 const hashPassword = async (password: string): Promise<string> => {
   const encoder = new TextEncoder();
   const data = encoder.encode(password);
@@ -33,20 +34,25 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
   if (!isAuthenticated) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80">
-        <div className="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
-          <h2 className="text-xl font-semibold mb-4">رمز خود را وارد کنید</h2>
+      <div className="fixed inset-0 flex items-center flex-col justify-center bg-black bg-opacity-80">
+        <Lock1 size="60" color="#D62828" variant="Broken" />
+        <div className="bg-black p-6 shadow-lg w-96 rounded-full border-[1px] text-center">
+          <h2 className="text-xl text-white leading-8 font-semibold mb-4">
+            ها ها! دیدیییی؟
+            <br />
+            باید رمزو از فواد بگیری
+          </h2>
           <form onSubmit={handleSubmit}>
             <input
               type="password"
-              className="w-full p-2 border rounded-md mb-4"
-              placeholder="رمز خود را وارد کنید"
+              className="w-full text-white px-4 py-2 border text-base font-[600] sm:text-lg rounded-full mb-4"
+              placeholder="رمز عبور را وارد کنید"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md"
+              className="w-full rounded-full border-[1px] text-base font-[600] sm:text-lg bg-white text-black py-2 "
             >
               ورود
             </button>

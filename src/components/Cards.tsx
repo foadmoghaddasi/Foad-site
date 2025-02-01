@@ -1,5 +1,5 @@
 import { ArrowCircleLeft } from "iconsax-react";
-import Image from "../assets/images/Slide.png";
+import Image from "../assets/images/Slide.webp";
 import img1 from "../assets/images/img1.webp";
 import img2 from "../assets/images/img2.webp";
 import img3 from "../assets/images/img3.webp";
@@ -24,11 +24,11 @@ import img21 from "../assets/images/img21.webp";
 import img22 from "../assets/images/img22.webp";
 import img23 from "../assets/images/img23.webp";
 import img24 from "../assets/images/img24.webp";
-import img25 from "../assets/images/img25.png";
-import img26 from "../assets/images/img26.png";
-import img27 from "../assets/images/img27.png";
-import panleimage from "../assets/images/panel-card.png";
-import qursatimage from "../assets/images/qursat-card.png";
+import img25 from "../assets/images/img25.webp";
+import img26 from "../assets/images/img26.webp";
+import img27 from "../assets/images/img27.webp";
+import panleimage from "../assets/images/panel-card.webp";
+import qursatimage from "../assets/images/qursat-card.webp";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const Cards = () => {
