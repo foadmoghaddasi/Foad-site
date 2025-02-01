@@ -3,6 +3,7 @@ import { ArrowCircleDown, DocumentDownload } from "iconsax-react";
 import Cards from "../components/Cards";
 import Navbar from "../components/Navbar";
 import About from "../components/About";
+import CustomCursor from "../components/CustomCursor";
 
 const Home = () => {
   const cardsRef = useRef<any>(null);
@@ -28,7 +29,7 @@ const Home = () => {
 
         {/* توضیحات */}
         <div className="relative mt-5 max-w-2xl sm:max-w-3xl lg:max-w-4xl z-10 text-center">
-          <p className="text-white font-[200] leading-4 md:leading-16 text-2xl md:text-4xl">
+          <p className="text-white font-[200] leading-11 md:leading-16 text-3xl md:text-5xl">
             <span>Product Designer @Hesabo</span>
             <span className="block text-xl md:text-3xl">
               previously at Jabama and Asanito
@@ -38,9 +39,9 @@ const Home = () => {
 
         {/* دکمه دانلود CV */}
         <div className="relative mt-10 z-10">
-          <button className="px-6 py-3 bg-white/20 text-white text-base font-[600] sm:text-lg rounded-full border-[1px] hover:bg-gray-700 transition flex gap-2">
+          <button className="px-6 py-3 bg-white/20 text-white text-base font-[600] sm:text-lg rounded-full border-[1px] hover:bg-white hover:text-black transition flex gap-2">
             Download CV
-            <DocumentDownload size="24" color="#FFF" variant="Broken" />
+            <DocumentDownload size="24" variant="Broken" />
           </button>
         </div>
 

@@ -2,4 +2,20 @@
 @import "tailwindcss";
 * {
   font-family: Kook;
+  cursor: none; /* پنهان کردن نشانگر موس پیش‌فرض */
+}
+/* styles.css */
+.custom-cursor {
+}
+
+.cursor-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: transform 0.1s linear;
 }

@@ -47,56 +47,62 @@ const Cards = () => {
       <div className="w-full bg-black py-8 flex flex-col justify-center">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
           {/* کارت 1 */}
-          <div className="w-[345px] h-[410px] bg-[#4F34E3]/20 backdrop-blur-[14px] border border-white/10 p-2 rounded-3xl shadow-md hover:shadow-lg transition flex flex-col justify-between">
-            <img
-              src={Image}
-              alt="Image"
-              className="w-full h-50 object-cover rounded-2xl mb-4"
-            />
+          <div className="w-[345px] h-[410px] overflow-x-hidden bg-[#4F34E3]/20 backdrop-blur-[14px] border border-white/10 p-2 rounded-3xl shadow-md hover:shadow-lg transition flex flex-col justify-between">
+            <div className="h-50 overflow-hidden rounded-2xl">
+              <img
+                src={Image}
+                alt="Image"
+                className="w-full h-50 hover:scale-110 duration-200 scale-100 object-cover rounded-2xl mb-4"
+              />
+            </div>
             <h1 className="text-white text-xl font-bold text-center mb-2">
               فرآیند طراحی اپلیکیشن حسابو
             </h1>
             <div className="flex justify-center mb-8">
               <button
-                className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] hover:bg-gray-700 transition flex gap-2 items-center"
+                className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] hover:bg-white hover:text-black transition flex gap-2 items-center"
                 onClick={() => {
                   navigate("/app");
                 }}
               >
                 مطالعه کیس استادی
-                <ArrowCircleLeft size="24" color="#FFF" variant="Broken" />
+                <ArrowCircleLeft size="24" variant="Broken" />
               </button>
             </div>
           </div>
 
           {/* کارت 2 */}
           <div className="w-[345px] h-[410px] bg-[#00A7FA]/20 backdrop-blur-[14px] border border-white/10 p-2 rounded-3xl shadow-md hover:shadow-lg transition flex flex-col justify-between">
-            <img
-              src={panleimage}
-              alt="Image"
-              className="w-full h-50 object-cover rounded-2xl mb-4"
-            />
+            <div className="h-50 overflow-hidden rounded-2xl">
+              <img
+                src={panleimage}
+                alt="Image"
+                className="w-full h-50 hover:scale-110 duration-200 scale-100 object-cover rounded-2xl mb-4"
+              />
+            </div>
             <h1 className="text-white text-xl font-bold text-center mb-2">
               طراحی پنل های مدیریت حسابو
             </h1>
             <div className="flex justify-center mb-8">
               <button
-                className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] hover:bg-gray-700 transition flex gap-2 items-center"
+                className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] hover:bg-white hover:text-black transition flex gap-2 items-center"
                 onClick={() => navigate("/panel")}
               >
                 مطالعه کیس استادی
-                <ArrowCircleLeft size="24" color="#FFF" variant="Broken" />
+                <ArrowCircleLeft size="24" variant="Broken" />
               </button>
             </div>
           </div>
 
           {/* کارت 3 */}
           <div className="w-[345px] h-[410px] bg-[#38A3A5]/20 backdrop-blur-[14px] border border-white/10 p-2 rounded-3xl shadow-md hover:shadow-lg transition flex flex-col justify-between">
-            <img
-              src={qursatimage}
-              alt="Image"
-              className="w-full h-50 object-cover rounded-2xl mb-4"
-            />
+            <div className="h-50 overflow-hidden rounded-2xl">
+              <img
+                src={qursatimage}
+                alt="Image"
+                className="w-full h-50 hover:scale-110 duration-200 scale-100 object-cover rounded-2xl mb-4"
+              />
+            </div>
             <h1 className="text-white text-xl font-bold text-center mb-2">
               قرصات | اپلیکیشن مدیریت دارو ها
             </h1>
@@ -422,6 +428,32 @@ const Cards = () => {
               <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
             </div>
           </div>
+          <div className="flex justify-center items-center mt-16 w-full mb-8">
+            <a
+              href="https://dribbble.com/foadmoghaddasi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] 
+                   hover:bg-white hover:text-black transition flex gap-2 items-center"
+            >
+              Dribbble
+              <ArrowCircleLeft size="24" variant="Broken" />
+            </a>
+          </div>
+        </div>
+        <div className="bg-black text-white items-center text-lg leading-12 font-[300] text-center mt-20 mb-10">
+          Foadmoghaddasi.com <br />
+          Email: moghadasi.foad@gmail.com
+          <br />
+          Linkedin:{" "}
+          <a
+            href="https://www.linkedin.com/in/foadmoghaddasi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline"
+          >
+            www.linkedin.com/in/foadmoghaddasi
+          </a>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import HeasboApp from "./pages/HesaboApp";
 import HeasboPanel from "./pages/HesaboPanel";
 import { Lock1 } from "iconsax-react";
+import CustomCursor from "./components/CustomCursor";
 const hashPassword = async (password: string): Promise<string> => {
   const encoder = new TextEncoder();
   const data = encoder.encode(password);
@@ -68,30 +69,35 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 const App: React.FC = () => {
   hashPassword("0000").then((hashed) => console.log("Stored Hash:", hashed));
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-        </Route>
+    <>
+      <div className="custom-cursor z-50 relative">
+        <CustomCursor />
+      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+          </Route>
 
-        <Route
-          path="/app"
-          element={
-            <ProtectedRoute>
-              <HeasboApp />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/panel"
-          element={
-            <ProtectedRoute>
-              <HeasboPanel />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+          <Route
+            path="/app"
+            element={
+              <ProtectedRoute>
+                <HeasboApp />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/panel"
+            element={
+              <ProtectedRoute>
+                <HeasboPanel />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 

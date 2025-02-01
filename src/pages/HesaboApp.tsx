@@ -1,4 +1,4 @@
-import Image from "../assets/images/appcase.webp";
+import Image from "../assets/images/appcase.png";
 import { useEffect } from "react";
 
 const HesaboApp = () => {
