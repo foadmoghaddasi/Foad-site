@@ -436,12 +436,12 @@ const Cards = () => {
               className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] 
                    hover:bg-white hover:text-black transition flex gap-2 items-center"
             >
-              Dribbble
+              مشاهده بیشتر در Dribbble
               <ArrowCircleLeft size="24" variant="Broken" />
             </a>
           </div>
         </div>
-        <div className="bg-black text-white items-center text-lg leading-12 font-[300] text-center mt-20 mb-10">
+        <div className="bg-black text-white items-center text-lg leading-8 font-[300] text-center mt-20 mb-10">
           Foadmoghaddasi.com <br />
           Email: moghadasi.foad@gmail.com
           <br />

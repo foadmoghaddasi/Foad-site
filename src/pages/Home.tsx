@@ -14,6 +14,15 @@ const Home = () => {
     }
   };
 
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/FoadMoghaddasi-CV.pdf"; // Ensure the file is in the 'public' folder
+    link.download = "Foad_Moghaddasi_CV.pdf"; // Set the filename for download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <>
       <div className="w-full min-h-screen flex flex-col justify-start items-center px-4 bg-black">
@@ -39,7 +48,10 @@ const Home = () => {
 
         {/* دکمه دانلود CV */}
         <div className="relative mt-10 z-10">
-          <button className="px-6 py-3 bg-white/20 text-white text-base font-[600] sm:text-lg rounded-full border-[1px] hover:bg-white hover:text-black transition flex gap-2">
+          <button
+            onClick={handleDownload}
+            className="px-6 py-3 bg-white/20 text-white text-base font-[600] sm:text-lg rounded-full border-[1px] hover:bg-white hover:text-black transition flex gap-2"
+          >
             Download CV
             <DocumentDownload size="24" variant="Broken" />
           </button>

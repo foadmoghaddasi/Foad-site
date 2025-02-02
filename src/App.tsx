@@ -28,7 +28,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
       if (hashed === correctPassword) {
         setIsAuthenticated(true);
       } else {
-        setError("رمز اشتباه است");
+        setError("آخ آخ! رمز عبوری که دادی اشتباهه");
       }
     });
   };
@@ -38,15 +38,17 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
       <div className="fixed inset-0 flex items-center flex-col justify-center bg-black bg-opacity-80">
         <Lock1 size="60" color="#D62828" variant="Broken" />
         <div className="bg-black p-6 shadow-lg w-96 rounded-full border-[1px] text-center">
-          <h2 className="text-xl text-white leading-8 font-semibold mb-4">
-            ها ها! دیدیییی؟
-            <br />
-            باید رمزو از فواد بگیری
+          <h2 className="text-xl text-white leading-8 font-semibold mb-۱">
+            لطفا رمز عبور را در کادر زیر وارد کنید
+          </h2>
+          <h2 className="text-xl text-white leading-6 font-[200] mb-4">
+            جهت دریافت رمز عبور به شماره موبایل موجود در رزومه، در تلگرام پیام
+            دهید
           </h2>
           <form onSubmit={handleSubmit}>
             <input
               type="password"
-              className="w-full text-white px-4 py-2 border text-base font-[600] sm:text-lg rounded-full mb-4"
+              className="w-full text-white px-4 py-2 bg-white/30 text-base font-[300] sm:text-lg rounded-full mb-4"
               placeholder="رمز عبور را وارد کنید"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
