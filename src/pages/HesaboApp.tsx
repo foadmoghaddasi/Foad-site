@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const HesaboApp = () => {
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: any) => {
       if (
         event.keyCode === 123 || // F12
         (event.ctrlKey && event.shiftKey && event.key === "I") || // Ctrl + Shift + I
@@ -14,7 +14,7 @@ const HesaboApp = () => {
       }
     };
 
-    const handleContextMenu = (event) => {
+    const handleContextMenu = (event: any) => {
       event.preventDefault();
       alert("Right Click is disabled! 🚫");
     };
@@ -45,7 +45,7 @@ const HesaboApp = () => {
       <img
         src={Image}
         alt="Large Image"
-        className="w-full md:w-full object-cover mb-6 select-none"
+        className="container w-full md:w-full object-cover mb-6 select-none"
         onContextMenu={(e) => e.preventDefault()}
         draggable="false"
       />
