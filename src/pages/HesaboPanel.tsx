@@ -20,7 +20,10 @@ const HeasboPanel = () => {
     };
 
     const checkDevTools = setInterval(() => {
-      if (window.outerWidth - window.innerWidth > 200 || window.outerHeight - window.innerHeight > 200) {
+      if (
+        window.outerWidth - window.innerWidth > 200 ||
+        window.outerHeight - window.innerHeight > 200
+      ) {
         alert("Developer Tools Detected! Closing Page...");
         window.close(); // Closes the tab when DevTools is detected
       }
