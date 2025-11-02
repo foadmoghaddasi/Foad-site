@@ -104,11 +104,18 @@ const Cards = () => {
               />
             </div>
             <h1 className="text-white text-xl font-bold text-center mb-2">
-              قرصات | اپلیکیشن مدیریت دارو ها
+              Limevee <br />
+              راه حل تماشای گروهی فیلم و سریال
             </h1>
             <div className="flex justify-center mb-8">
-              <button className="py-3 px-4 bg-white/20 text-white/60 text-[14px] font-[600] sm:text-sm rounded-full  transition flex gap-2 items-center">
-                به زودی
+              <button
+                className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] hover:bg-white hover:text-black transition flex gap-2 items-center"
+                onClick={() => {
+                  navigate("/Limevee");
+                }}
+              >
+                مطالعه کیس استادی
+                <ArrowCircleLeft size="24" variant="Broken" />
               </button>
             </div>
           </div>

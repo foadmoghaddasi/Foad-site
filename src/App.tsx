@@ -6,6 +6,7 @@ import HeasboApp from "./pages/HesaboApp";
 import HeasboPanel from "./pages/HesaboPanel";
 import { Lock1 } from "iconsax-react";
 import CustomCursor from "./components/CustomCursor";
+import Limevee from "./pages/Limevee";
 const hashPassword = async (password: string): Promise<string> => {
   const encoder = new TextEncoder();
   const data = encoder.encode(password);
@@ -106,6 +107,7 @@ const App: React.FC = () => {
               </ProtectedRoute>
             }
           />
+          <Route path="/limevee" element={<Limevee />} />
         </Routes>
       </BrowserRouter>
     </>
