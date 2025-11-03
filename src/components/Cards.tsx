@@ -27,6 +27,8 @@ import img24 from "../assets/images/img24.webp";
 import img25 from "../assets/images/img25.webp";
 import img26 from "../assets/images/img26.webp";
 import img27 from "../assets/images/img27.webp";
+import img28 from "../assets/images/img28.webp";
+import img29 from "../assets/images/img29.webp";
 import panleimage from "../assets/images/panel-card.webp";
 import qursatimage from "../assets/images/qursat-card.webp";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -124,12 +126,34 @@ const Cards = () => {
         {/* 🔹 بخش جدید: دو کارت با متن زیر هر عکس */}
         <div className="w-full flex flex-col items-center mt-12">
           {/* عنوان بخش جدید */}
-          <h2 className="text-white text-2xl md:text-2xl font-bold text-center mb-6">
+          <h2 className="text-white text-2xl md:text-2xl font-bold text-center">
             پروژه هایUI/UX من
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 md:flex-row justify-center gap-6">
-            <div className="flex flex-col items-start mt-6 md:mt-12">
+            <div className="flex flex-col items-start mt-4 md:mt-6">
+              <img
+                src={img29}
+                alt="Image"
+                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
+              />
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                پروژه طراحی اپلیکیشن تاداتون (کانادا)
+              </h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۴</p>
+            </div>
+            <div className="flex flex-col items-start mt-6 md:mt-6">
+              <img
+                src={img28}
+                alt="Image"
+                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
+              />
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                پروژه طراحی اپلیکیشن تاداتون (کانادا)
+              </h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۴</p>
+            </div>
+            <div className="flex flex-col items-start mt-6 md:mt-6">
               <img
                 src={img26}
                 alt="Image"

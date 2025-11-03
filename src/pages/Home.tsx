@@ -58,7 +58,7 @@ const Home = () => {
         </div>
 
         {/* بخش اسکرول */}
-        <div className="relative flex flex-col items-center mt-50 md:mt-20 2xl:mt-[250px] z-10">
+        <div className="relative flex flex-col items-center mt-50 md:mt-24 lg:mt-24 2xl:mt-[150px] z-10">
           <h2 className="text-white text-lg md:text-xl font-[200] md:font-semibold mb-4">
             Case Studies
           </h2>
