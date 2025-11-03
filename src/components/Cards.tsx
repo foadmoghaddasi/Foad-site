@@ -29,6 +29,8 @@ import img26 from "../assets/images/img26.webp";
 import img27 from "../assets/images/img27.webp";
 import img28 from "../assets/images/img28.webp";
 import img29 from "../assets/images/img29.webp";
+import img30 from "../assets/images/img30.webp";
+import img31 from "../assets/images/img31.webp";
 import panleimage from "../assets/images/panel-card.webp";
 import qursatimage from "../assets/images/qursat-card.webp";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -150,6 +152,28 @@ const Cards = () => {
               />
               <h3 className="text-white text-lg font-bold mt-1 text-left">
                 پروژه طراحی اپلیکیشن تاداتون (کانادا)
+              </h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۴</p>
+            </div>
+            <div className="flex flex-col items-start mt-6 md:mt-6">
+              <img
+                src={img31}
+                alt="Image"
+                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
+              />
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                طراحی وب‌اپلیکیشن قرصات
+              </h3>
+              <p className="text-gray-300 text-sm">سال ۱۴۰۴</p>
+            </div>
+            <div className="flex flex-col items-start mt-6 md:mt-6">
+              <img
+                src={img30}
+                alt="Image"
+                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
+              />
+              <h3 className="text-white text-lg font-bold mt-1 text-left">
+                طراحی پنل ادمین قرصات
               </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۴</p>
             </div>
