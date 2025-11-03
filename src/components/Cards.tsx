@@ -177,7 +177,7 @@ const Cards = () => {
               </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۴</p>
             </div>
-            <div className="flex flex-col items-start mt-6 md:mt-6">
+            <div className="flex flex-col items-start mt-1 md:mt-6">
               <img
                 src={img26}
                 alt="Image"
@@ -188,7 +188,7 @@ const Cards = () => {
               </h3>
               <p className="text-gray-300 text-sm">سال ۱۴۰۳</p>
             </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
+            <div className="flex flex-col items-start mt-6 md:mt-6">
               <img
                 src={img27}
                 alt="Image"
