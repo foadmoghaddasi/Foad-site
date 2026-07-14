@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun1 } from "iconsax-react";
 import { Switch } from "@heroui/react/switch";
+import { Link } from "react-router-dom";
 import Logo from "../assets/images/fm-logo.png";
 import LightLogo from "../assets/images/fm-logo-light.png";
 import { useTheme } from "../context/ThemeContext";
@@ -24,7 +25,12 @@ const Navbar = () => {
         isScrolled ? "is-scrolled" : "is-top"
       }`}
     >
-      <div className="mr-auto flex min-w-0 items-center">
+      <Link
+        to="/"
+        aria-label="Back to home"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="mr-auto flex min-w-0 items-center rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      >
         <img
           src={theme === "light" ? LightLogo : Logo}
           alt="Foad Moghaddasi"
@@ -36,7 +42,7 @@ const Navbar = () => {
             Foad Moghaddasi
           </span>
         </div>
-      </div>
+      </Link>
       <Switch
         isSelected={theme === "light"}
         onChange={() => toggleTheme()}
@@ -45,18 +51,22 @@ const Navbar = () => {
         {({ isSelected }) => (
           <Switch.Content>
             <Switch.Control
-              className={`h-[31px] w-[51px] bg-blue-500 ${
+              className={`h-[31px] w-[51px] transition-colors duration-300 ${
                 isSelected
-                  ? "bg-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.5)]"
-                  : ""
+                  ? "bg-amber-400 shadow-[0_0_14px_rgba(251,191,36,0.55)]"
+                  : "bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.35)]"
               }`}
             >
               <Switch.Thumb
-                className={`!ms-0.5 size-[27px] rounded-lg bg-white shadow-sm ${
+                className={`!ms-0.5 size-[27px] rounded-lg bg-white shadow-sm transition-transform duration-300 ${
                   isSelected ? "translate-x-5 shadow-lg" : ""
                 }`}
               >
-                <Switch.Icon className="flex size-full items-center justify-center text-blue-500">
+                <Switch.Icon
+                  className={`flex size-full items-center justify-center transition-colors duration-300 ${
+                    isSelected ? "text-amber-400" : "text-blue-500"
+                  }`}
+                >
                   {isSelected ? (
                     <Sun1 size="16" color="currentColor" variant="Bold" />
                   ) : (

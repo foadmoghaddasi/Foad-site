@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@heroui/react/button";
 import { Surface } from "@heroui/react/surface";
 import { ArrowCircleDown, DocumentDownload } from "iconsax-react";
@@ -9,6 +10,7 @@ import Reveal from "../components/Reveal";
 
 const Home = () => {
   const cardsRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const scrollToCards = () => {
     if (cardsRef.current) {
@@ -22,7 +24,10 @@ const Home = () => {
     link.download = "Foad_Moghaddasi_CV.pdf"; // Set the filename for download
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
+    window.setTimeout(() => {
+      document.body.removeChild(link);
+      navigate("/cv");
+    }, 150);
   };
 
   return (
@@ -41,7 +46,10 @@ const Home = () => {
           </Reveal>
 
           {/* توضیحات */}
-          <Reveal delay={80} className="hero-description relative mt-5 max-w-2xl sm:max-w-3xl lg:max-w-4xl z-10 text-center">
+          <Reveal
+            delay={80}
+            className="hero-description relative mt-5 max-w-2xl sm:max-w-3xl lg:max-w-4xl z-10 text-center"
+          >
             <p className="text-foreground font-[200] leading-10 text-2xl md:leading-16 md:text-5xl">
               <span>Product Designer @Hesabo</span>
               <span className="block text-base sm:text-xl md:text-3xl">
@@ -59,13 +67,20 @@ const Home = () => {
               className="hero-glass-button !h-14 px-7"
             >
               Download CV
-              <DocumentDownload size="32" color="currentColor" variant="Broken" />
+              <DocumentDownload
+                size="32"
+                color="currentColor"
+                variant="Broken"
+              />
             </Button>
           </Reveal>
         </div>
 
         {/* بخش اسکرول */}
-        <Reveal delay={220} className="case-studies-control relative flex flex-col items-center mt-50 md:mt-24 lg:mt-24 2xl:mt-[150px] z-10">
+        <Reveal
+          delay={220}
+          className="case-studies-control relative flex flex-col items-center mt-50 md:mt-24 lg:mt-24 2xl:mt-[150px] z-10"
+        >
           <h2 className="text-muted text-lg md:text-xl font-[200] md:font-semibold mb-4">
             Case Studies
           </h2>

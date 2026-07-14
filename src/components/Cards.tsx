@@ -3,9 +3,14 @@ import { Avatar } from "@heroui/react/avatar";
 import { Card } from "@heroui/react/card";
 import { Link } from "@heroui/react/link";
 import { Surface } from "@heroui/react/surface";
-import { ArrowCircleLeft, ArrowUp2, QuoteUp, Sms, Verify } from "iconsax-react";
-import { FaLinkedinIn } from "react-icons/fa6";
+import {
+  ArrowCircleDown,
+  ArrowCircleLeft,
+  QuoteUp,
+  Verify,
+} from "iconsax-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Image from "../assets/images/Slide.webp";
 import img1 from "../assets/images/img1.webp";
 import img2 from "../assets/images/img2.webp";
@@ -42,27 +47,52 @@ import panelImage from "../assets/images/panel-card.webp";
 import qursatImage from "../assets/images/qursat-card.webp";
 import maryamAvatar from "../assets/images/recom - maryam.jpeg";
 import Reveal from "./Reveal";
+import Footer from "./Footer";
 
 const projects = [
-  { image: img29, title: "پروژه طراحی اپلیکیشن تاداتون (کانادا)", year: "۱۴۰۴" },
-  { image: img28, title: "پروژه طراحی اپلیکیشن تاداتون (کانادا)", year: "۱۴۰۴" },
+  {
+    image: img29,
+    title: "پروژه طراحی اپلیکیشن تاداتون (کانادا)",
+    year: "۱۴۰۴",
+  },
+  {
+    image: img28,
+    title: "پروژه طراحی اپلیکیشن تاداتون (کانادا)",
+    year: "۱۴۰۴",
+  },
   { image: img31, title: "طراحی وب‌اپلیکیشن قرصات", year: "۱۴۰۴" },
   { image: img30, title: "طراحی پنل ادمین قرصات", year: "۱۴۰۴" },
   { image: img26, title: "پروژه طراحی اپلیکیشن دل به دل (لندن)", year: "۱۴۰۳" },
-  { image: img27, title: "بازطراحی فروشگاه اینترنتی سارمو استایل", year: "۱۴۰۳" },
+  {
+    image: img27,
+    title: "بازطراحی فروشگاه اینترنتی سارمو استایل",
+    year: "۱۴۰۳",
+  },
   { image: img2, title: "پروژه طراحی سایت آموزش برنامه‌نویسی", year: "۱۴۰۲" },
   { image: img5, title: "پروژه طراحی پلتفرم صرافی آنلاین", year: "۱۴۰۲" },
   { image: img6, title: "طراحی سایت همگرام", year: "۱۴۰۱" },
   { image: img7, title: "پروژه طراحی پلتفرم همگرام", year: "۱۴۰۱" },
   { image: img12, title: "طراحی لندینگ دانلود اپلیکیشن حسابو", year: "۱۴۰۱" },
-  { image: img4, title: "پروژه طراحی فروشگاه اینترنتی خشکبار ناتژی", year: "۱۴۰۰" },
+  {
+    image: img4,
+    title: "پروژه طراحی فروشگاه اینترنتی خشکبار ناتژی",
+    year: "۱۴۰۰",
+  },
   { image: img25, title: "پروژه طراحی فروشگاه کیک نظری", year: "۱۴۰۰" },
   { image: img3, title: "پروژه طراحی سایت Voices to Action", year: "۱۴۰۰" },
-  { image: img8, title: "طراحی سایت رزرو آنلاین وقت دکتر - جان‌افزا", year: "۱۴۰۰" },
+  {
+    image: img8,
+    title: "طراحی سایت رزرو آنلاین وقت دکتر - جان‌افزا",
+    year: "۱۴۰۰",
+  },
   { image: img10, title: "طراحی سایت کاریزما کراد", year: "۱۳۹۹" },
   { image: img11, title: "طراحی فروشگاه اینترنتی ویگال", year: "۱۳۹۹" },
   { image: img1, title: "کانسپت نئومورفیسم iOS", year: "۱۳۹۹" },
-  { image: img9, title: "پروژه طراحی پنل های مدیریتی کاریزما کراد", year: "۱۳۹۹" },
+  {
+    image: img9,
+    title: "پروژه طراحی پنل های مدیریتی کاریزما کراد",
+    year: "۱۳۹۹",
+  },
   { image: img13, title: "کانسپت اپلیکیشن مدیریت خواب", year: "۱۳۹۹" },
   { image: img14, title: "کانسپت اپلیکیشن پایش سلامت", year: "۱۳۹۹" },
   { image: img15, title: "کانسپت اپلیکیشن وضعیت آب و هوا", year: "۱۳۹۹" },
@@ -73,131 +103,260 @@ const projects = [
   { image: img20, title: "کانسپت اپلیکیشن سفارش قهوه", year: "۱۳۹۹" },
   { image: img21, title: "کانسپت موزیک پلیر به سبک نئومورفیسم", year: "۱۳۹۹" },
   { image: img22, title: "کانسپت قندشکن", year: "۱۳۹۹" },
-  { image: img23, title: "کانسپت اپلیکیشن ساعت به سبک نئومورفیسم", year: "۱۳۹۹" },
+  {
+    image: img23,
+    title: "کانسپت اپلیکیشن ساعت به سبک نئومورفیسم",
+    year: "۱۳۹۹",
+  },
   { image: img24, title: "پروژه کارآموزی شرکت ستاره اول", year: "۱۳۹۹" },
 ];
 
 const Cards = () => {
   const navigate = useNavigate();
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const [visibleProjects, setVisibleProjects] = useState(3);
+  const hasMoreProjects = visibleProjects < projects.length;
 
   return (
     <Surface className="w-full bg-background py-14 text-foreground">
-      <section className="mx-auto max-w-6xl px-4">
+      <section
+        id="case-studies"
+        className="mx-auto max-w-6xl scroll-mt-28 px-4"
+      >
         <Reveal>
           <h2 className="mb-8 text-center text-2xl font-bold">کیس استادی‌ها</h2>
         </Reveal>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <Reveal className="h-full">
-          <Card variant="transparent" className="case-study-card group h-full p-0">
-            <Card.Content className="absolute inset-0 p-0">
-              <img src={qursatImage} alt="Limevee case study" className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
-            </Card.Content>
-            <div className="case-study-overlay" aria-hidden="true" />
-            <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">Limevee</p>
-              <Card.Title className="text-lg font-semibold leading-7 text-white">راه حل تماشای گروهی فیلم و سریال</Card.Title>
-            </Card.Header>
-            <Card.Footer className="relative z-10 mt-auto justify-end p-4">
-              <Button size="lg" variant="secondary" className="case-study-action" onPress={() => navigate("/limevee")}>
-                مطالعه کیس استادی
-                <ArrowCircleLeft size="22" color="currentColor" variant="Broken" />
-              </Button>
-            </Card.Footer>
-          </Card>
+            <Card
+              variant="transparent"
+              className="case-study-card group h-full p-0"
+            >
+              <Card.Content className="absolute inset-0 p-0">
+                <img
+                  src={qursatImage}
+                  alt="Limevee case study"
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+              </Card.Content>
+              <div className="case-study-overlay" aria-hidden="true" />
+              <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">
+                  Limevee
+                </p>
+                <Card.Title className="text-lg font-semibold leading-7 text-white">
+                  راه حل تماشای گروهی فیلم و سریال
+                </Card.Title>
+              </Card.Header>
+              <Card.Footer className="relative z-10 mt-auto justify-end p-4">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="case-study-action"
+                  onPress={() => navigate("/limevee")}
+                >
+                  مطالعه کیس استادی
+                  <ArrowCircleLeft
+                    size="22"
+                    color="currentColor"
+                    variant="Broken"
+                  />
+                </Button>
+              </Card.Footer>
+            </Card>
           </Reveal>
 
           <Reveal delay={70} className="h-full">
-          <Card variant="transparent" className="case-study-card group h-full p-0">
-            <Card.Content className="absolute inset-0 p-0">
-              <img src={Image} alt="فرآیند طراحی اپلیکیشن حسابو" className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
-            </Card.Content>
-            <div className="case-study-overlay" aria-hidden="true" />
-            <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">Hesabo App</p>
-              <Card.Title className="text-lg font-semibold leading-7 text-white">فرآیند طراحی اپلیکیشن حسابو</Card.Title>
-            </Card.Header>
-            <Card.Footer className="relative z-10 mt-auto justify-end p-4">
-              <Button size="lg" variant="secondary" className="case-study-action" isDisabled>غیرقابل انتشار (NDA)</Button>
-            </Card.Footer>
-          </Card>
+            <Card
+              variant="transparent"
+              className="case-study-card group h-full p-0"
+            >
+              <Card.Content className="absolute inset-0 p-0">
+                <img
+                  src={Image}
+                  alt="فرآیند طراحی اپلیکیشن حسابو"
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+              </Card.Content>
+              <div className="case-study-overlay" aria-hidden="true" />
+              <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">
+                  Hesabo App
+                </p>
+                <Card.Title className="text-lg font-semibold leading-7 text-white">
+                  فرآیند طراحی اپلیکیشن حسابو
+                </Card.Title>
+              </Card.Header>
+              <Card.Footer className="relative z-10 mt-auto justify-end p-4">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="case-study-action"
+                  isDisabled
+                >
+                  غیرقابل انتشار (NDA)
+                </Button>
+              </Card.Footer>
+            </Card>
           </Reveal>
 
           <Reveal delay={140} className="h-full">
-          <Card variant="transparent" className="case-study-card group h-full p-0">
-            <Card.Content className="absolute inset-0 p-0">
-              <img src={panelImage} alt="طراحی پنل‌های مدیریت حسابو" className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
-            </Card.Content>
-            <div className="case-study-overlay" aria-hidden="true" />
-            <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">Hesabo Panel</p>
-              <Card.Title className="text-lg font-semibold leading-7 text-white">طراحی پنل‌های مدیریت حسابو</Card.Title>
-            </Card.Header>
-            <Card.Footer className="relative z-10 mt-auto justify-end p-4">
-              <Button size="lg" variant="secondary" className="case-study-action" isDisabled>غیرقابل انتشار (NDA)</Button>
-            </Card.Footer>
-          </Card>
+            <Card
+              variant="transparent"
+              className="case-study-card group h-full p-0"
+            >
+              <Card.Content className="absolute inset-0 p-0">
+                <img
+                  src={panelImage}
+                  alt="طراحی پنل‌های مدیریت حسابو"
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+              </Card.Content>
+              <div className="case-study-overlay" aria-hidden="true" />
+              <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">
+                  Hesabo Panel
+                </p>
+                <Card.Title className="text-lg font-semibold leading-7 text-white">
+                  طراحی پنل‌های مدیریت حسابو
+                </Card.Title>
+              </Card.Header>
+              <Card.Footer className="relative z-10 mt-auto justify-end p-4">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="case-study-action"
+                  isDisabled
+                >
+                  غیرقابل انتشار (NDA)
+                </Button>
+              </Card.Footer>
+            </Card>
           </Reveal>
         </div>
 
         <Reveal>
-          <h2 className="mb-8 mt-20 text-center text-2xl font-bold">پروژه‌های UI/UX من</h2>
+          <h2 className="mb-8 mt-20 text-center text-2xl font-bold">
+            پروژه‌های UI/UX من
+          </h2>
         </Reveal>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <Reveal key={`${project.title}-${project.image}`} delay={(index % 3) * 60}>
-            <Card variant="transparent" className="overflow-hidden p-0">
-              <Card.Content className="p-0">
-                <img src={project.image} alt={project.title} loading="lazy" className="h-64 w-full rounded-xl object-cover" />
-              </Card.Content>
-              <Card.Header className="items-start px-1">
-                <div>
-                  <Card.Title>{project.title}</Card.Title>
-                  <Card.Description>سال {project.year}</Card.Description>
-                </div>
-              </Card.Header>
-            </Card>
+          {projects.slice(0, visibleProjects).map((project, index) => (
+            <Reveal
+              key={`${project.title}-${project.image}`}
+              delay={(index % 3) * 60}
+            >
+              <Card variant="transparent" className="overflow-hidden p-0">
+                <Card.Content className="p-0">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    className="h-64 w-full rounded-xl object-cover"
+                  />
+                </Card.Content>
+                <Card.Header className="items-start px-1">
+                  <div>
+                    <Card.Title>{project.title}</Card.Title>
+                    <Card.Description>سال {project.year}</Card.Description>
+                  </div>
+                </Card.Header>
+              </Card>
             </Reveal>
           ))}
         </div>
 
-        <Reveal className="mt-16 flex justify-center">
-          <Button
-            variant="secondary"
-            onPress={() => window.open("https://dribbble.com/foadmoghaddasi", "_blank", "noopener,noreferrer")}
-          >
-            مشاهده بیشتر در Dribbble
-            <ArrowCircleLeft size="22" color="currentColor" variant="Broken" />
-          </Button>
-        </Reveal>
+        {hasMoreProjects && (
+          <Reveal className="mt-10 flex justify-center">
+            <Button
+              size="lg"
+              variant="secondary"
+              onPress={() =>
+                setVisibleProjects((current) =>
+                  Math.min(current + 3, projects.length),
+                )
+              }
+            >
+              مشاهده بیشتر
+              <ArrowCircleDown
+                size="22"
+                color="currentColor"
+                variant="Broken"
+              />
+            </Button>
+          </Reveal>
+        )}
+
+        {!hasMoreProjects && (
+          <Reveal className="mt-10 flex justify-center">
+            <Button
+              variant="secondary"
+              onPress={() =>
+                window.open(
+                  "https://dribbble.com/foadmoghaddasi",
+                  "_blank",
+                  "noopener,noreferrer",
+                )
+              }
+            >
+              مشاهده بیشتر در Dribbble
+              <ArrowCircleLeft
+                size="22"
+                color="currentColor"
+                variant="Broken"
+              />
+            </Button>
+          </Reveal>
+        )}
 
         <Reveal className="mt-24">
           <section dir="ltr" aria-labelledby="recommendation-title">
             <div className="mb-6 flex items-center gap-3">
-              <h2 id="recommendation-title" className="shrink-0 text-xl font-bold md:text-2xl">
+              <h2
+                id="recommendation-title"
+                className="shrink-0 text-xl font-bold md:text-2xl"
+              >
                 Recommendation
               </h2>
               <span className="h-px w-full bg-border" aria-hidden="true" />
             </div>
 
-            <Card variant="tertiary" className="recommendation-card shadow-none">
+            <Card
+              variant="tertiary"
+              className="recommendation-card shadow-none"
+            >
               <Card.Header className="items-start gap-4 pb-3">
-                <Avatar size="lg" color="accent" variant="soft" className="shrink-0">
-                  <Avatar.Image src={maryamAvatar} alt="Maryam Gashas" className="object-cover" />
-                  <Avatar.Fallback className="font-semibold">MG</Avatar.Fallback>
+                <Avatar
+                  size="lg"
+                  color="accent"
+                  variant="soft"
+                  className="shrink-0"
+                >
+                  <Avatar.Image
+                    src={maryamAvatar}
+                    alt="Maryam Gashas"
+                    className="object-cover"
+                  />
+                  <Avatar.Fallback className="font-semibold">
+                    MG
+                  </Avatar.Fallback>
                 </Avatar>
 
                 <div className="min-w-0 flex-1 text-left">
                   <div className="flex items-center gap-1.5">
-                    <Card.Title className="text-base font-semibold md:text-lg">Maryam Gashas</Card.Title>
-                    <Verify size="18" color="currentColor" variant="Bold" className="shrink-0 text-link" />
+                    <Card.Title className="text-base font-semibold md:text-lg">
+                      Maryam Gashas
+                    </Card.Title>
+                    <Verify
+                      size="18"
+                      color="currentColor"
+                      variant="Bold"
+                      className="shrink-0 text-link"
+                    />
                   </div>
                   <Card.Description className="mt-1 leading-5">
-                    Co-Founder &amp; CEO at tadatoon · EdTech · Management and strategy
+                    Co-Founder &amp; CEO at tadatoon · EdTech · Management and
+                    strategy
                   </Card.Description>
                   <p className="mt-1.5 text-xs text-muted">
                     February 24, 2025 · Maryam managed Foad directly
@@ -211,59 +370,19 @@ const Cards = () => {
 
               <Card.Content className="pt-2 text-left">
                 <blockquote className="max-w-4xl text-sm leading-7 text-foreground/85 md:text-base md:leading-8">
-                  Having a product designer who is both creative and an excellent communicator is a valuable asset to any
-                  team. Foad embodies these qualities perfectly. Not only does he create innovative and user-centric
-                  designs, but he also enhances the product development process through effective collaboration with
-                  various teams.
+                  Having a product designer who is both creative and an
+                  excellent communicator is a valuable asset to any team. Foad
+                  embodies these qualities perfectly. Not only does he create
+                  innovative and user-centric designs, but he also enhances the
+                  product development process through effective collaboration
+                  with various teams.
                 </blockquote>
               </Card.Content>
             </Card>
           </section>
         </Reveal>
 
-        <Reveal className="mt-12">
-          <footer dir="ltr" className="footer-panel p-6 md:p-8">
-            <div className="flex flex-col items-center justify-between gap-7 md:flex-row">
-              <div className="text-center md:text-left">
-                <p className="text-lg font-semibold text-foreground">Foad Moghaddasi</p>
-                <p className="mt-1 text-sm text-muted">Product Designer</p>
-                <nav aria-label="Contact links" className="mt-4 flex items-center justify-center gap-3 md:justify-start">
-                  <Link
-                    href="mailto:moghadasi.foad@gmail.com"
-                    className="footer-social-link"
-                    aria-label="Send email"
-                  >
-                    <Sms size="22" color="currentColor" variant="Broken" />
-                  </Link>
-                  <Link
-                    href="https://www.linkedin.com/in/foadmoghaddasi"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-social-link"
-                    aria-label="LinkedIn profile"
-                  >
-                    <FaLinkedinIn size="20" aria-hidden="true" />
-                  </Link>
-                </nav>
-              </div>
-
-              <Button
-                isIconOnly
-                size="lg"
-                variant="outline"
-                className="footer-top-button"
-                onPress={scrollToTop}
-                aria-label="Back to top"
-              >
-                <ArrowUp2 size="24" color="currentColor" variant="Broken" />
-              </Button>
-            </div>
-
-            <p className="mt-8 text-center text-xs text-muted md:text-left">
-              © {new Date().getFullYear()} Foadmoghaddasi.com
-            </p>
-          </footer>
-        </Reveal>
+        <Footer />
       </section>
     </Surface>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import HeasboApp from "./pages/HesaboApp";
@@ -13,6 +13,29 @@ import { Link } from "@heroui/react/link";
 import { Surface } from "@heroui/react/surface";
 import CustomCursor from "./components/CustomCursor";
 import Limevee from "./pages/Limevee";
+import CV from "./pages/CV";
+
+const ScrollToTop = () => {
+  const { pathname, hash } = useLocation();
+
+  React.useLayoutEffect(() => {
+    if (hash) {
+      const frame = window.requestAnimationFrame(() => {
+        document.querySelector(hash)?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+
+      return () => window.cancelAnimationFrame(frame);
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname, hash]);
+
+  return null;
+};
+
 const hashPassword = async (password: string): Promise<string> => {
   const encoder = new TextEncoder();
   const data = encoder.encode(password);
@@ -43,35 +66,43 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   if (!isAuthenticated) {
     return (
       <Surface className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/95 px-4">
-        <Lock1 size="56" color="currentColor" className="mb-4 text-danger" variant="Broken" />
+        <Lock1
+          size="56"
+          color="currentColor"
+          className="mb-4 text-danger"
+          variant="Broken"
+        />
         <Card variant="tertiary" className="w-full max-w-sm text-center">
           <Card.Header className="flex-col">
             <Card.Title>Please enter the password</Card.Title>
             <Card.Description>
-            To get the password <br /> send me a message on LinkedIn
+              To get the password <br /> send me a message on LinkedIn
             </Card.Description>
           </Card.Header>
           <Card.Content>
-          <Form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            <Input
-              type="password"
-              fullWidth
-              variant="secondary"
-              aria-label="Password"
-              placeholder="Enter the password here"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {error && (
-              <p className="w-full text-left text-sm text-danger">{error}</p>
-            )}
-            <Button type="submit" fullWidth variant="primary">
-              Continue
-            </Button>
-          </Form>
+            <Form onSubmit={handleSubmit} className="flex flex-col gap-3">
+              <Input
+                type="password"
+                fullWidth
+                variant="secondary"
+                aria-label="Password"
+                placeholder="Enter the password here"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {error && (
+                <p className="w-full text-left text-sm text-danger">{error}</p>
+              )}
+              <Button type="submit" fullWidth variant="primary">
+                Continue
+              </Button>
+            </Form>
           </Card.Content>
           <Card.Footer className="justify-center">
-            <Link href="https://www.linkedin.com/in/foadmoghaddasi" target="_blank">
+            <Link
+              href="https://www.linkedin.com/in/foadmoghaddasi"
+              target="_blank"
+            >
               My LinkedIn Profile
             </Link>
           </Card.Footer>
@@ -87,6 +118,7 @@ const App: React.FC = () => {
     <>
       <CustomCursor />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -109,6 +141,7 @@ const App: React.FC = () => {
             }
           />
           <Route path="/limevee" element={<Limevee />} />
+          <Route path="/cv" element={<CV />} />
         </Routes>
       </BrowserRouter>
     </>
