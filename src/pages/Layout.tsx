@@ -1,24 +1,12 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Surface } from "@heroui/react/surface";
 
 const Layout: React.FC = () => {
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/"></Link>
-          </li>
-          <li>
-          <Link to="/app"></Link>
-          </li>
-          <li>
-          <Link to="/panel"></Link>
-          </li>
-        </ul>
-      </nav>
+    <Surface className="min-h-screen bg-background text-foreground">
       <Outlet />
-    </div>
+    </Surface>
   );
 };
 

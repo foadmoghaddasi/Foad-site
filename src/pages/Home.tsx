@@ -1,12 +1,14 @@
 import { useRef } from "react";
+import { Button } from "@heroui/react/button";
+import { Surface } from "@heroui/react/surface";
 import { ArrowCircleDown, DocumentDownload } from "iconsax-react";
 import Cards from "../components/Cards";
 import Navbar from "../components/Navbar";
 import About from "../components/About";
-import CustomCursor from "../components/CustomCursor";
+import Reveal from "../components/Reveal";
 
 const Home = () => {
-  const cardsRef = useRef<any>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
 
   const scrollToCards = () => {
     if (cardsRef.current) {
@@ -25,56 +27,62 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-full min-h-screen flex flex-col justify-start items-center px-4 bg-black">
-        <Navbar />
+      <Navbar />
 
+      <Surface className="relative isolate w-full min-h-screen overflow-hidden flex flex-col justify-start items-center px-4 bg-background text-foreground">
         {/* پس‌زمینه گرادینت */}
-        <div className="text-center z-10 mt-40 md:mt-40 2xl:mt-50 relative">
-          <div className="w-[320px] h-[200px] md:w-[400px] md:h-[300px] absolute -top-10 bg-gradient-to-b from-[#cc00ff] to-[#00b7ff] rounded-full blur-[200px]"></div>
-          <h1 className="relative text-4xl font-[800] sm:text-5xl md:text-6xl lg:text-7xl text-white drop-shadow-lg">
-            Foad Moghaddasi
-          </h1>
-        </div>
+        <div aria-hidden="true" className="hero-mesh" />
 
-        {/* توضیحات */}
-        <div className="relative mt-5 max-w-2xl sm:max-w-3xl lg:max-w-4xl z-10 text-center">
-          <p className="text-white font-[200] leading-11 md:leading-16 text-3xl md:text-5xl">
-            <span>Product Designer @Hesabo</span>
-            <span className="block text-xl md:text-3xl">
-              previously at Jabama and Asanito
-            </span>
-          </p>
-        </div>
+        <div className="hero-content">
+          <Reveal className="hero-title text-center z-10 mt-40 md:mt-40 2xl:mt-50 relative">
+            <h1 className="relative text-3xl font-[800] sm:text-5xl md:text-6xl lg:text-7xl text-foreground">
+              Foad Moghaddasi
+            </h1>
+          </Reveal>
 
-        {/* دکمه دانلود CV */}
-        <div className="relative mt-10 z-10">
-          <button
-            onClick={handleDownload}
-            className="px-6 py-3 bg-white/20 text-white text-base font-[600] sm:text-lg rounded-full border-[1px] hover:bg-white hover:text-black transition flex gap-2"
-          >
-            Download CV
-            <DocumentDownload size="24" variant="Broken" />
-          </button>
+          {/* توضیحات */}
+          <Reveal delay={80} className="hero-description relative mt-5 max-w-2xl sm:max-w-3xl lg:max-w-4xl z-10 text-center">
+            <p className="text-foreground font-[200] leading-10 text-2xl md:leading-16 md:text-5xl">
+              <span>Product Designer @Hesabo</span>
+              <span className="block text-base sm:text-xl md:text-3xl">
+                previously at Jabama and Asanito
+              </span>
+            </p>
+          </Reveal>
+
+          {/* دکمه دانلود CV */}
+          <Reveal delay={160} className="hero-download relative mt-10 z-10">
+            <Button
+              onPress={handleDownload}
+              variant="secondary"
+              size="lg"
+              className="hero-glass-button !h-14 px-7"
+            >
+              Download CV
+              <DocumentDownload size="32" color="currentColor" variant="Broken" />
+            </Button>
+          </Reveal>
         </div>
 
         {/* بخش اسکرول */}
-        <div className="relative flex flex-col items-center mt-50 md:mt-24 lg:mt-24 2xl:mt-[150px] z-10">
-          <h2 className="text-white text-lg md:text-xl font-[200] md:font-semibold mb-4">
+        <Reveal delay={220} className="case-studies-control relative flex flex-col items-center mt-50 md:mt-24 lg:mt-24 2xl:mt-[150px] z-10">
+          <h2 className="text-muted text-lg md:text-xl font-[200] md:font-semibold mb-4">
             Case Studies
           </h2>
 
           {/* دکمه اسکرول */}
-          <div
-            className="relative w-[34px] h-[53px] cursor-pointer"
-            onClick={scrollToCards}
+          <Button
+            isIconOnly
+            variant="outline"
+            size="lg"
+            onPress={scrollToCards}
+            aria-label="Scroll to case studies"
+            className="hero-glass-button"
           >
-            <div className="w-[34px] h-[53px] left-0 top-0 absolute bg-white/20 rounded-[76px] border border-white backdrop-blur-sm"></div>
-            <div className="w-6 h-6 left-[5px] top-[23px] absolute flex justify-center items-center">
-              <ArrowCircleDown size="28" color="#FFF" variant="Broken" />
-            </div>
-          </div>
-        </div>
-      </div>
+            <ArrowCircleDown size="26" color="currentColor" variant="Broken" />
+          </Button>
+        </Reveal>
+      </Surface>
 
       <About />
 

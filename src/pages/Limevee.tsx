@@ -1,5 +1,6 @@
 import Image from "../assets/images/Frame18.jpg";
 import { useEffect } from "react";
+import { Surface } from "@heroui/react/surface";
 
 const Limevee = () => {
   useEffect(() => {
@@ -40,7 +41,7 @@ const Limevee = () => {
   }, []);
 
   return (
-    <div className="w-full h-full text-white bg-black flex flex-col items-center relative">
+    <Surface className="w-full h-full text-foreground bg-background flex flex-col items-center relative">
       {/* Large Image */}
       <img
         src={Image}
@@ -51,7 +52,7 @@ const Limevee = () => {
       />
       {/* Transparent Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-transparent"></div>
-    </div>
+    </Surface>
   );
 };
 

@@ -5,6 +5,12 @@ import Home from "./pages/Home";
 import HeasboApp from "./pages/HesaboApp";
 import HeasboPanel from "./pages/HesaboPanel";
 import { Lock1 } from "iconsax-react";
+import { Button } from "@heroui/react/button";
+import { Card } from "@heroui/react/card";
+import { Form } from "@heroui/react/form";
+import { Input } from "@heroui/react/input";
+import { Link } from "@heroui/react/link";
+import { Surface } from "@heroui/react/surface";
 import CustomCursor from "./components/CustomCursor";
 import Limevee from "./pages/Limevee";
 const hashPassword = async (password: string): Promise<string> => {
@@ -36,55 +42,50 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
   if (!isAuthenticated) {
     return (
-      <div className="fixed inset-0 flex items-center flex-col justify-center bg-black bg-opacity-80">
-        <Lock1 size="60" color="#D62828" variant="Broken" />
-        <div className="bg-black p-6 shadow-lg w-95 rounded-full border-[1px] text-center">
-          <h2 className="text-xl text-white leading-8 font-semibold mb-1">
-            Please enter the password{" "}
-          </h2>
-          <h2 className="text-lg text-white leading-6 font-[200] mb-4">
+      <Surface className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/95 px-4">
+        <Lock1 size="56" color="currentColor" className="mb-4 text-danger" variant="Broken" />
+        <Card variant="tertiary" className="w-full max-w-sm text-center">
+          <Card.Header className="flex-col">
+            <Card.Title>Please enter the password</Card.Title>
+            <Card.Description>
             To get the password <br /> send me a message on LinkedIn
-          </h2>
-          <form onSubmit={handleSubmit}>
-            <input
+            </Card.Description>
+          </Card.Header>
+          <Card.Content>
+          <Form onSubmit={handleSubmit} className="flex flex-col gap-3">
+            <Input
               type="password"
-              className="w-full text-white placeholder-white/25 px-4 py-2 bg-white/20 text-base font-[300] sm:text-lg rounded-full text-left mb-3"
+              fullWidth
+              variant="secondary"
+              aria-label="Password"
               placeholder="Enter the password here"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             {error && (
-              <p className="text-red-500 mb-2 text-left ml-3">{error}</p>
+              <p className="w-full text-left text-sm text-danger">{error}</p>
             )}
-            <button
-              type="submit"
-              className="w-full rounded-full border-[1px] text-base font-[600] sm:text-lg bg-white text-black py-2 "
-            >
+            <Button type="submit" fullWidth variant="primary">
               Continue
-            </button>
-          </form>
-          <a href="https://www.linkedin.com/in/foadmoghaddasi">
-            <button
-              type="button"
-              className="w-full rounded-full text-base font-[600] sm:text-lg bg-[#1666C2] text-white py-2 mt-2 "
-            >
+            </Button>
+          </Form>
+          </Card.Content>
+          <Card.Footer className="justify-center">
+            <Link href="https://www.linkedin.com/in/foadmoghaddasi" target="_blank">
               My LinkedIn Profile
-            </button>
-          </a>
-        </div>
-      </div>
+            </Link>
+          </Card.Footer>
+        </Card>
+      </Surface>
     );
   }
 
   return <>{children}</>;
 };
 const App: React.FC = () => {
-  hashPassword("0000").then((hashed) => console.log("Stored Hash:", hashed));
   return (
     <>
-      <div className="custom-cursor z-50 relative">
-        <CustomCursor />
-      </div>
+      <CustomCursor />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>

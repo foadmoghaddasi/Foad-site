@@ -1,9 +1,10 @@
 import panelimg from "../assets/images/panelcase.png";
 import { useEffect } from "react";
+import { Surface } from "@heroui/react/surface";
 
 const HeasboPanel = () => {
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (
         event.keyCode === 123 || // F12
         (event.ctrlKey && event.shiftKey && event.key === "I") || // Ctrl + Shift + I
@@ -14,7 +15,7 @@ const HeasboPanel = () => {
       }
     };
 
-    const handleContextMenu = (event) => {
+    const handleContextMenu = (event: MouseEvent) => {
       event.preventDefault();
       alert("Right Click is disabled! 🚫");
     };
@@ -40,7 +41,7 @@ const HeasboPanel = () => {
   }, []);
 
   return (
-    <div className="w-full h-full text-white bg-black flex flex-col items-center relative">
+    <Surface className="w-full h-full text-foreground bg-background flex flex-col items-center relative">
       {/* Large Image */}
       <img
         src={panelimg}
@@ -51,7 +52,7 @@ const HeasboPanel = () => {
       />
       {/* Transparent Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-transparent"></div>
-    </div>
+    </Surface>
   );
 };
 

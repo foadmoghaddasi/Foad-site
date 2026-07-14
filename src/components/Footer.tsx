@@ -1,11 +1,15 @@
+import { Link } from "@heroui/react/link";
+import { Surface } from "@heroui/react/surface";
+
 const Footer = () => {
   return (
-    <div className="bg-black text-white items-center text-lg leading-12 font-[300] text-center mt-20 mb-10">
-      Foadmoghaddasi.com <br />
-      Email: moghadasi.foad@gmail.com
-      <br />
-      Linkedin: Foad Moghaddasi
-    </div>
+    <Surface variant="secondary" className="flex flex-col items-center gap-1 py-10 text-center text-muted">
+      <p>Foadmoghaddasi.com</p>
+      <Link href="mailto:mogadasi.foad@gmail.com">mogadasi.foad@gmail.com</Link>
+      <Link href="https://www.linkedin.com/in/foadmoghaddasi" target="_blank">
+        LinkedIn
+      </Link>
+    </Surface>
   );
 };
 

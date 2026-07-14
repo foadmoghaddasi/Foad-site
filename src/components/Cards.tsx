@@ -1,4 +1,11 @@
-import { ArrowCircleLeft } from "iconsax-react";
+import { Button } from "@heroui/react/button";
+import { Avatar } from "@heroui/react/avatar";
+import { Card } from "@heroui/react/card";
+import { Link } from "@heroui/react/link";
+import { Surface } from "@heroui/react/surface";
+import { ArrowCircleLeft, ArrowUp2, QuoteUp, Sms, Verify } from "iconsax-react";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 import Image from "../assets/images/Slide.webp";
 import img1 from "../assets/images/img1.webp";
 import img2 from "../assets/images/img2.webp";
@@ -31,484 +38,234 @@ import img28 from "../assets/images/img28.webp";
 import img29 from "../assets/images/img29.webp";
 import img30 from "../assets/images/img30.webp";
 import img31 from "../assets/images/img31.webp";
-import panleimage from "../assets/images/panel-card.webp";
-import qursatimage from "../assets/images/qursat-card.webp";
-import { Navigate, useNavigate } from "react-router-dom";
+import panelImage from "../assets/images/panel-card.webp";
+import qursatImage from "../assets/images/qursat-card.webp";
+import maryamAvatar from "../assets/images/recom - maryam.jpeg";
+import Reveal from "./Reveal";
+
+const projects = [
+  { image: img29, title: "پروژه طراحی اپلیکیشن تاداتون (کانادا)", year: "۱۴۰۴" },
+  { image: img28, title: "پروژه طراحی اپلیکیشن تاداتون (کانادا)", year: "۱۴۰۴" },
+  { image: img31, title: "طراحی وب‌اپلیکیشن قرصات", year: "۱۴۰۴" },
+  { image: img30, title: "طراحی پنل ادمین قرصات", year: "۱۴۰۴" },
+  { image: img26, title: "پروژه طراحی اپلیکیشن دل به دل (لندن)", year: "۱۴۰۳" },
+  { image: img27, title: "بازطراحی فروشگاه اینترنتی سارمو استایل", year: "۱۴۰۳" },
+  { image: img2, title: "پروژه طراحی سایت آموزش برنامه‌نویسی", year: "۱۴۰۲" },
+  { image: img5, title: "پروژه طراحی پلتفرم صرافی آنلاین", year: "۱۴۰۲" },
+  { image: img6, title: "طراحی سایت همگرام", year: "۱۴۰۱" },
+  { image: img7, title: "پروژه طراحی پلتفرم همگرام", year: "۱۴۰۱" },
+  { image: img12, title: "طراحی لندینگ دانلود اپلیکیشن حسابو", year: "۱۴۰۱" },
+  { image: img4, title: "پروژه طراحی فروشگاه اینترنتی خشکبار ناتژی", year: "۱۴۰۰" },
+  { image: img25, title: "پروژه طراحی فروشگاه کیک نظری", year: "۱۴۰۰" },
+  { image: img3, title: "پروژه طراحی سایت Voices to Action", year: "۱۴۰۰" },
+  { image: img8, title: "طراحی سایت رزرو آنلاین وقت دکتر - جان‌افزا", year: "۱۴۰۰" },
+  { image: img10, title: "طراحی سایت کاریزما کراد", year: "۱۳۹۹" },
+  { image: img11, title: "طراحی فروشگاه اینترنتی ویگال", year: "۱۳۹۹" },
+  { image: img1, title: "کانسپت نئومورفیسم iOS", year: "۱۳۹۹" },
+  { image: img9, title: "پروژه طراحی پنل های مدیریتی کاریزما کراد", year: "۱۳۹۹" },
+  { image: img13, title: "کانسپت اپلیکیشن مدیریت خواب", year: "۱۳۹۹" },
+  { image: img14, title: "کانسپت اپلیکیشن پایش سلامت", year: "۱۳۹۹" },
+  { image: img15, title: "کانسپت اپلیکیشن وضعیت آب و هوا", year: "۱۳۹۹" },
+  { image: img16, title: "طراحی سایت صرافی کنزکس", year: "۱۳۹۹" },
+  { image: img17, title: "کانسپت فروشگاه برنامه های موبایل", year: "۱۳۹۹" },
+  { image: img18, title: "بازطراحی گوگل کروم به سبک نئومورفیسم", year: "۱۳۹۹" },
+  { image: img19, title: "کانسپت فروشگاه بازی های آنلاین", year: "۱۳۹۹" },
+  { image: img20, title: "کانسپت اپلیکیشن سفارش قهوه", year: "۱۳۹۹" },
+  { image: img21, title: "کانسپت موزیک پلیر به سبک نئومورفیسم", year: "۱۳۹۹" },
+  { image: img22, title: "کانسپت قندشکن", year: "۱۳۹۹" },
+  { image: img23, title: "کانسپت اپلیکیشن ساعت به سبک نئومورفیسم", year: "۱۳۹۹" },
+  { image: img24, title: "پروژه کارآموزی شرکت ستاره اول", year: "۱۳۹۹" },
+];
 
 const Cards = () => {
   const navigate = useNavigate();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <div>
-      {/* عنوان بخش کیس استادی‌ها */}
-      <div className="w-full h-15 md:h-20 pt-10 text-2xl bg-black font-bold flex items-center justify-center">
-        <h1 className="text-white text-center items-end md:mt-0 mt-0">
-          کیس استادی‌ها
-        </h1>
-      </div>
+    <Surface className="w-full bg-background py-14 text-foreground">
+      <section className="mx-auto max-w-6xl px-4">
+        <Reveal>
+          <h2 className="mb-8 text-center text-2xl font-bold">کیس استادی‌ها</h2>
+        </Reveal>
 
-      {/* کارت‌های اصلی */}
-      <div className="w-full bg-black py-8 flex flex-col justify-center">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-          {/* کارت 3 */}
-          <div className="w-[345px] h-[410px] bg-[#38A3A5]/20 backdrop-blur-[14px] border border-white/10 p-2 rounded-3xl shadow-md hover:shadow-lg transition flex flex-col justify-between">
-            <div className="h-50 overflow-hidden rounded-2xl">
-              <img
-                src={qursatimage}
-                alt="Image"
-                className="w-full h-50 hover:scale-110 duration-200 scale-100 object-cover rounded-2xl mb-4"
-              />
-            </div>
-            <h1 className="text-white text-xl font-bold text-center mb-2">
-              Limevee <br />
-              راه حل تماشای گروهی فیلم و سریال
-            </h1>
-            <div className="flex justify-center mb-8">
-              <button
-                className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] hover:bg-white hover:text-black transition flex gap-2 items-center"
-                onClick={() => {
-                  navigate("/Limevee");
-                }}
-              >
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <Reveal className="h-full">
+          <Card variant="transparent" className="case-study-card group h-full p-0">
+            <Card.Content className="absolute inset-0 p-0">
+              <img src={qursatImage} alt="Limevee case study" className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+            </Card.Content>
+            <div className="case-study-overlay" aria-hidden="true" />
+            <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">Limevee</p>
+              <Card.Title className="text-lg font-semibold leading-7 text-white">راه حل تماشای گروهی فیلم و سریال</Card.Title>
+            </Card.Header>
+            <Card.Footer className="relative z-10 mt-auto justify-end p-4">
+              <Button size="lg" variant="secondary" className="case-study-action" onPress={() => navigate("/limevee")}>
                 مطالعه کیس استادی
-                <ArrowCircleLeft size="24" variant="Broken" />
-              </button>
-            </div>
-          </div>
-          {/* کارت 1 */}
-          <div className="w-[345px] h-[410px] overflow-x-hidden bg-[#4F34E3]/20 backdrop-blur-[14px] border border-white/10 p-2 rounded-3xl shadow-md hover:shadow-lg transition flex flex-col justify-between">
-            <div className="h-50 overflow-hidden rounded-2xl">
-              <img
-                src={Image}
-                alt="Image"
-                className="w-full h-50 hover:scale-110 duration-200 scale-100 object-cover rounded-2xl mb-4"
-              />
-            </div>
-            <h1 className="text-white text-xl font-bold text-center mb-2">
-              فرآیند طراحی اپلیکیشن حسابو
-            </h1>
-            <div className="flex justify-center mb-8">
-              <button
-                className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] transition flex gap-2 items-center"
-                //onClick={() => {
-                //navigate("/app");
-                //}}
-              >
-                غیرقابل انتشار(NDA)
-              </button>
-            </div>
-          </div>
+                <ArrowCircleLeft size="22" color="currentColor" variant="Broken" />
+              </Button>
+            </Card.Footer>
+          </Card>
+          </Reveal>
 
-          {/* کارت 2 */}
-          <div className="w-[345px] h-[410px] bg-[#00A7FA]/20 backdrop-blur-[14px] border border-white/10 p-2 rounded-3xl shadow-md hover:shadow-lg transition flex flex-col justify-between">
-            <div className="h-50 overflow-hidden rounded-2xl">
-              <img
-                src={panleimage}
-                alt="Image"
-                className="w-full h-50 hover:scale-110 duration-200 scale-100 object-cover rounded-2xl mb-4"
-              />
-            </div>
-            <h1 className="text-white text-xl font-bold text-center mb-2">
-              طراحی پنل های مدیریت حسابو
-            </h1>
-            <div className="flex justify-center mb-8">
-              <button
-                className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] transition flex gap-2 items-center"
-                //onClick={() => navigate("/panel")}
-              >
-                غیرقابل انتشار(NDA)
-              </button>
-            </div>
-          </div>
+          <Reveal delay={70} className="h-full">
+          <Card variant="transparent" className="case-study-card group h-full p-0">
+            <Card.Content className="absolute inset-0 p-0">
+              <img src={Image} alt="فرآیند طراحی اپلیکیشن حسابو" className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+            </Card.Content>
+            <div className="case-study-overlay" aria-hidden="true" />
+            <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">Hesabo App</p>
+              <Card.Title className="text-lg font-semibold leading-7 text-white">فرآیند طراحی اپلیکیشن حسابو</Card.Title>
+            </Card.Header>
+            <Card.Footer className="relative z-10 mt-auto justify-end p-4">
+              <Button size="lg" variant="secondary" className="case-study-action" isDisabled>غیرقابل انتشار (NDA)</Button>
+            </Card.Footer>
+          </Card>
+          </Reveal>
+
+          <Reveal delay={140} className="h-full">
+          <Card variant="transparent" className="case-study-card group h-full p-0">
+            <Card.Content className="absolute inset-0 p-0">
+              <img src={panelImage} alt="طراحی پنل‌های مدیریت حسابو" className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+            </Card.Content>
+            <div className="case-study-overlay" aria-hidden="true" />
+            <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">Hesabo Panel</p>
+              <Card.Title className="text-lg font-semibold leading-7 text-white">طراحی پنل‌های مدیریت حسابو</Card.Title>
+            </Card.Header>
+            <Card.Footer className="relative z-10 mt-auto justify-end p-4">
+              <Button size="lg" variant="secondary" className="case-study-action" isDisabled>غیرقابل انتشار (NDA)</Button>
+            </Card.Footer>
+          </Card>
+          </Reveal>
         </div>
 
-        {/* 🔹 بخش جدید: دو کارت با متن زیر هر عکس */}
-        <div className="w-full flex flex-col items-center mt-12">
-          {/* عنوان بخش جدید */}
-          <h2 className="text-white text-2xl md:text-2xl font-bold text-center">
-            پروژه هایUI/UX من
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 md:flex-row justify-center gap-6">
-            <div className="flex flex-col items-start mt-4 md:mt-6">
-              <img
-                src={img29}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                پروژه طراحی اپلیکیشن تاداتون (کانادا)
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۴</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-6">
-              <img
-                src={img28}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                پروژه طراحی اپلیکیشن تاداتون (کانادا)
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۴</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-6">
-              <img
-                src={img31}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                طراحی وب‌اپلیکیشن قرصات
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۴</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-6">
-              <img
-                src={img30}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                طراحی پنل ادمین قرصات
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۴</p>
-            </div>
-            <div className="flex flex-col items-start mt-1 md:mt-6">
-              <img
-                src={img26}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                پروژه طراحی اپلیکیشن دل به دل (لندن)
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۳</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-6">
-              <img
-                src={img27}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                بازطراحی فروشگاه اینترنتی سارمو استایل
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۳</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img2}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                پروژه طراحی سایت آموزش برنامه‌نویسی
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۲</p>
-            </div>
-
-            {/* کارت تصویر 3 */}
-
-            {/* کارت تصویر 4 */}
-
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img5}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                پروژه طراحی پلتفرم صرافی آنلاین
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۲</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img6}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                طراحی سایت همگرام
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۱</p>
-            </div>
-
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img7}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                پروژه طراحی پلتفرم همگرام
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۱</p>
-            </div>
-
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img12}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                طراحی لندینگ دانلود اپلیکیشن حسابو
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۱</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img4}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                پروژه طراحی فروشگاه اینترنتی خشکبار ناتژی
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img25}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                پروژه طراحی فروشگاه کیک نظری
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img3}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                پروژه طراحی سایت Voices to Action
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img8}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                طراحی سایت رزرو آنلاین وقت دکتر - جان‌افزا
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۴۰۰</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img10}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                طراحی سایت کاریزما کراد
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img11}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                طراحی فروشگاه اینترنتی ویگال
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img1}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                کانسپت نئومورفیسم iOS
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img9}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                پروژه طراحی پنل های مدیریتی کاریزما کراد
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img13}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                کانسپت اپلیکیشن مدیریت خواب
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img14}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                کانسپت اپلیکیشن پایش سلامت
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img15}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                کانسپت اپلیکیشن وضعیت آب و هوا
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img16}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                طراحی سایت صرافی کنزکس
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img17}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                کانسپت فروشگاه برنامه های موبایل
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img18}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                بازطراحی گوگل کروم به سبک نئومورفیسم
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img19}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                کانسپت فروشگاه بازی های آنلاین
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img20}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                کانسپت اپلیکیشن سفارش قهوه
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img21}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                کانسپت موزیک پلیر به سبک نئومورفیسم
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img22}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                کانسپت قندشکن
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img23}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                کانسپت اپلیکیشن ساعت به سبک نئومورفیسم
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-            <div className="flex flex-col items-start mt-6 md:mt-12">
-              <img
-                src={img24}
-                alt="Image"
-                className="w-[335px] md:w-[348px] h-64 md:h-65 object-cover rounded-2xl"
-              />
-              <h3 className="text-white text-lg font-bold mt-1 text-left">
-                پروژه کارآموزی شرکت ستاره اول
-              </h3>
-              <p className="text-gray-300 text-sm">سال ۱۳۹۹</p>
-            </div>
-          </div>
-          <div className="flex justify-center items-center mt-16 w-full mb-8">
-            <a
-              href="https://dribbble.com/foadmoghaddasi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3 px-4 bg-white/20 text-white text-[14px] font-[600] sm:text-sm rounded-full border-[1px] 
-                   hover:bg-white hover:text-black transition flex gap-2 items-center"
-            >
-              مشاهده بیشتر در Dribbble
-              <ArrowCircleLeft size="24" variant="Broken" />
-            </a>
-          </div>
+        <Reveal>
+          <h2 className="mb-8 mt-20 text-center text-2xl font-bold">پروژه‌های UI/UX من</h2>
+        </Reveal>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <Reveal key={`${project.title}-${project.image}`} delay={(index % 3) * 60}>
+            <Card variant="transparent" className="overflow-hidden p-0">
+              <Card.Content className="p-0">
+                <img src={project.image} alt={project.title} loading="lazy" className="h-64 w-full rounded-xl object-cover" />
+              </Card.Content>
+              <Card.Header className="items-start px-1">
+                <div>
+                  <Card.Title>{project.title}</Card.Title>
+                  <Card.Description>سال {project.year}</Card.Description>
+                </div>
+              </Card.Header>
+            </Card>
+            </Reveal>
+          ))}
         </div>
-        <div className="bg-black text-white items-center text-lg leading-8 font-[300] text-center mt-20 mb-10">
-          Foadmoghaddasi.com <br />
-          Email: moghadasi.foad@gmail.com
-          <br />
-          Linkedin:{" "}
-          <a
-            href="https://www.linkedin.com/in/foadmoghaddasi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline"
+
+        <Reveal className="mt-16 flex justify-center">
+          <Button
+            variant="secondary"
+            onPress={() => window.open("https://dribbble.com/foadmoghaddasi", "_blank", "noopener,noreferrer")}
           >
-            www.linkedin.com/in/foadmoghaddasi
-          </a>
-        </div>
-      </div>
-    </div>
+            مشاهده بیشتر در Dribbble
+            <ArrowCircleLeft size="22" color="currentColor" variant="Broken" />
+          </Button>
+        </Reveal>
+
+        <Reveal className="mt-24">
+          <section dir="ltr" aria-labelledby="recommendation-title">
+            <div className="mb-6 flex items-center gap-3">
+              <h2 id="recommendation-title" className="shrink-0 text-xl font-bold md:text-2xl">
+                Recommendation
+              </h2>
+              <span className="h-px w-full bg-border" aria-hidden="true" />
+            </div>
+
+            <Card variant="tertiary" className="recommendation-card shadow-none">
+              <Card.Header className="items-start gap-4 pb-3">
+                <Avatar size="lg" color="accent" variant="soft" className="shrink-0">
+                  <Avatar.Image src={maryamAvatar} alt="Maryam Gashas" className="object-cover" />
+                  <Avatar.Fallback className="font-semibold">MG</Avatar.Fallback>
+                </Avatar>
+
+                <div className="min-w-0 flex-1 text-left">
+                  <div className="flex items-center gap-1.5">
+                    <Card.Title className="text-base font-semibold md:text-lg">Maryam Gashas</Card.Title>
+                    <Verify size="18" color="currentColor" variant="Bold" className="shrink-0 text-link" />
+                  </div>
+                  <Card.Description className="mt-1 leading-5">
+                    Co-Founder &amp; CEO at tadatoon · EdTech · Management and strategy
+                  </Card.Description>
+                  <p className="mt-1.5 text-xs text-muted">
+                    February 24, 2025 · Maryam managed Foad directly
+                  </p>
+                </div>
+
+                <span className="recommendation-quote" aria-hidden="true">
+                  <QuoteUp size="24" color="currentColor" variant="Bold" />
+                </span>
+              </Card.Header>
+
+              <Card.Content className="pt-2 text-left">
+                <blockquote className="max-w-4xl text-sm leading-7 text-foreground/85 md:text-base md:leading-8">
+                  Having a product designer who is both creative and an excellent communicator is a valuable asset to any
+                  team. Foad embodies these qualities perfectly. Not only does he create innovative and user-centric
+                  designs, but he also enhances the product development process through effective collaboration with
+                  various teams.
+                </blockquote>
+              </Card.Content>
+            </Card>
+          </section>
+        </Reveal>
+
+        <Reveal className="mt-12">
+          <footer dir="ltr" className="footer-panel p-6 md:p-8">
+            <div className="flex flex-col items-center justify-between gap-7 md:flex-row">
+              <div className="text-center md:text-left">
+                <p className="text-lg font-semibold text-foreground">Foad Moghaddasi</p>
+                <p className="mt-1 text-sm text-muted">Product Designer</p>
+                <nav aria-label="Contact links" className="mt-4 flex items-center justify-center gap-3 md:justify-start">
+                  <Link
+                    href="mailto:moghadasi.foad@gmail.com"
+                    className="footer-social-link"
+                    aria-label="Send email"
+                  >
+                    <Sms size="22" color="currentColor" variant="Broken" />
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/in/foadmoghaddasi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-social-link"
+                    aria-label="LinkedIn profile"
+                  >
+                    <FaLinkedinIn size="20" aria-hidden="true" />
+                  </Link>
+                </nav>
+              </div>
+
+              <Button
+                isIconOnly
+                size="lg"
+                variant="outline"
+                className="footer-top-button"
+                onPress={scrollToTop}
+                aria-label="Back to top"
+              >
+                <ArrowUp2 size="24" color="currentColor" variant="Broken" />
+              </Button>
+            </div>
+
+            <p className="mt-8 text-center text-xs text-muted md:text-left">
+              © {new Date().getFullYear()} Foadmoghaddasi.com
+            </p>
+          </footer>
+        </Reveal>
+      </section>
+    </Surface>
   );
 };
 
