@@ -10,7 +10,7 @@ import About from "../components/About";
 import Reveal from "../components/Reveal";
 import babakPhoto from "../assets/images/babak.png";
 import dorsaPhoto from "../assets/images/dorsa.png";
-import shahrokhPhoto from "../assets/images/shahrokh.png";
+import kianPhoto from "../assets/images/shahrokh.png";
 import foadPhoto from "../assets/images/about-pic.jpeg";
 
 const heroWords = [
@@ -86,7 +86,7 @@ const Home = () => {
                 <Avatar.Fallback>B</Avatar.Fallback>
               </Avatar>
               <Avatar size="sm" className="hero-team-avatar">
-                <Avatar.Image src={shahrokhPhoto} alt="Shahrokh" />
+                <Avatar.Image src={kianPhoto} alt="Kian" />
                 <Avatar.Fallback>S</Avatar.Fallback>
               </Avatar>
             </button>
@@ -97,7 +97,7 @@ const Home = () => {
               <i />
               <div className="hero-collab-cursor hero-collab-cursor--foad">
                 <i />
-                <span>shahrokh</span>
+                <span>kian</span>
               </div>
               <div className="hero-collab-cursor hero-collab-cursor--pm">
                 <i />

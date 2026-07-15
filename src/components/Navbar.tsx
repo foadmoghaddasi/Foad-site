@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { Moon, Sun1 } from "iconsax-react";
+import { Book, Home2, Moon, Sun1 } from "iconsax-react";
 import { Switch } from "@heroui/react/switch";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/images/fm-logo.png";
 import LightLogo from "../assets/images/fm-logo-light.png";
 import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const isArticlesPage = pathname.startsWith("/articles");
 
   useEffect(() => {
     const updateNavbar = () => setIsScrolled(window.scrollY > 24);
@@ -43,6 +45,25 @@ const Navbar = () => {
           </span>
         </div>
       </Link>
+      {isArticlesPage ? (
+        <Link
+          to="/"
+          className="navbar-icon-link"
+          aria-label="رفتن به صفحه اصلی"
+          title="صفحه اصلی"
+        >
+          <Home2 size="18" color="currentColor" variant="Broken" />
+        </Link>
+      ) : (
+        <Link
+          to="/articles"
+          className="navbar-icon-link"
+          aria-label="رفتن به صفحه مقاله‌ها"
+          title="مقاله‌ها"
+        >
+          <Book size="19" color="currentColor" variant="Broken" />
+        </Link>
+      )}
       <Switch
         isSelected={theme === "light"}
         onChange={() => toggleTheme()}

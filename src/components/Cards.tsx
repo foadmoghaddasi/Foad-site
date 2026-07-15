@@ -49,6 +49,7 @@ import maryamAvatar from "../assets/images/recom - maryam.jpeg";
 import Reveal from "./Reveal";
 import Footer from "./Footer";
 import Team from "./Team";
+import LatestArticles from "./LatestArticles";
 
 const projects = [
   {
@@ -311,6 +312,8 @@ const Cards = () => {
         )}
 
         <Team />
+
+        <LatestArticles />
 
         <Reveal className="mt-24">
           <section dir="ltr" aria-labelledby="recommendation-title">

@@ -14,6 +14,8 @@ import { Surface } from "@heroui/react/surface";
 import CustomCursor from "./components/CustomCursor";
 import Limevee from "./pages/Limevee";
 import CV from "./pages/CV";
+import Articles from "./pages/Articles";
+import ArticleDetail from "./pages/ArticleDetail";
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -142,6 +144,8 @@ const App: React.FC = () => {
           />
           <Route path="/limevee" element={<Limevee />} />
           <Route path="/cv" element={<CV />} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/articles/:slug" element={<ArticleDetail />} />
         </Routes>
       </BrowserRouter>
     </>
