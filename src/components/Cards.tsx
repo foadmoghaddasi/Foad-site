@@ -48,6 +48,7 @@ import qursatImage from "../assets/images/qursat-card.webp";
 import maryamAvatar from "../assets/images/recom - maryam.jpeg";
 import Reveal from "./Reveal";
 import Footer from "./Footer";
+import Team from "./Team";
 
 const projects = [
   {
@@ -117,7 +118,7 @@ const Cards = () => {
   const hasMoreProjects = visibleProjects < projects.length;
 
   return (
-    <Surface className="w-full bg-background py-14 text-foreground">
+    <Surface className="w-full bg-background pt-8 pb-14 text-foreground md:py-14">
       <section
         id="case-studies"
         className="mx-auto max-w-6xl scroll-mt-28 px-4"
@@ -308,6 +309,8 @@ const Cards = () => {
             </Button>
           </Reveal>
         )}
+
+        <Team />
 
         <Reveal className="mt-24">
           <section dir="ltr" aria-labelledby="recommendation-title">

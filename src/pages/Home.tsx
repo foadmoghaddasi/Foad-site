@@ -1,21 +1,48 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@heroui/react/button";
+import { Avatar } from "@heroui/react/avatar";
 import { Surface } from "@heroui/react/surface";
 import { ArrowCircleDown, DocumentDownload } from "iconsax-react";
 import Cards from "../components/Cards";
 import Navbar from "../components/Navbar";
 import About from "../components/About";
 import Reveal from "../components/Reveal";
+import babakPhoto from "../assets/images/babak.png";
+import dorsaPhoto from "../assets/images/dorsa.png";
+import shahrokhPhoto from "../assets/images/shahrokh.png";
+import foadPhoto from "../assets/images/about-pic.jpeg";
+
+const heroWords = [
+  "that feel effortless",
+  "that make sense",
+  "people enjoy using",
+  "for real-world impact",
+];
 
 const Home = () => {
   const cardsRef = useRef<HTMLDivElement>(null);
+  const [activeHeroWord, setActiveHeroWord] = useState(0);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveHeroWord((current) => (current + 1) % heroWords.length);
+    }, 3000);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   const scrollToCards = () => {
     if (cardsRef.current) {
       cardsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  };
+
+  const scrollToTeam = () => {
+    document
+      .getElementById("team")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const handleDownload = () => {
@@ -40,8 +67,58 @@ const Home = () => {
 
         <div className="hero-content">
           <Reveal className="hero-title text-center z-10 mt-40 md:mt-40 2xl:mt-50 relative">
-            <h1 className="relative text-3xl font-[800] sm:text-5xl md:text-6xl lg:text-7xl text-foreground">
-              Foad Moghaddasi
+            <button
+              type="button"
+              className="hero-team-avatars"
+              aria-label="Meet the product team"
+              onClick={scrollToTeam}
+            >
+              <Avatar size="sm" className="hero-team-avatar">
+                <Avatar.Image src={foadPhoto} alt="Foad Moghaddasi" />
+                <Avatar.Fallback>FM</Avatar.Fallback>
+              </Avatar>
+              <Avatar size="sm" className="hero-team-avatar">
+                <Avatar.Image src={dorsaPhoto} alt="Dorsa" />
+                <Avatar.Fallback>D</Avatar.Fallback>
+              </Avatar>
+              <Avatar size="sm" className="hero-team-avatar">
+                <Avatar.Image src={babakPhoto} alt="Babak" />
+                <Avatar.Fallback>B</Avatar.Fallback>
+              </Avatar>
+              <Avatar size="sm" className="hero-team-avatar">
+                <Avatar.Image src={shahrokhPhoto} alt="Shahrokh" />
+                <Avatar.Fallback>S</Avatar.Fallback>
+              </Avatar>
+            </button>
+            <div className="hero-design-frame" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+              <i />
+              <div className="hero-collab-cursor hero-collab-cursor--foad">
+                <i />
+                <span>shahrokh</span>
+              </div>
+              <div className="hero-collab-cursor hero-collab-cursor--pm">
+                <i />
+                <span>dorsa</span>
+              </div>
+            </div>
+            <h1
+              aria-label="Designing products that feel effortless"
+              dir="ltr"
+              className="relative text-3xl font-[800] sm:text-5xl md:text-6xl lg:text-7xl text-foreground"
+            >
+              <span className="hero-static-title">Designing products</span>
+              <br />
+              <span
+                className={`hero-rotating-word hero-rotating-word-${activeHeroWord}`}
+                aria-hidden="true"
+              >
+                <span key={heroWords[activeHeroWord]}>
+                  {heroWords[activeHeroWord]}
+                </span>
+              </span>
             </h1>
           </Reveal>
 
@@ -60,6 +137,24 @@ const Home = () => {
 
           {/* دکمه دانلود CV */}
           <Reveal delay={160} className="hero-download relative mt-10 z-10">
+            <div className="hero-radius-control" aria-hidden="true">
+              <svg viewBox="0 0 52 52">
+                <path d="M2 2h15c18 0 33 15 33 33v15" />
+                <circle cx="17" cy="2" r="2.5" />
+              </svg>
+              <div className="hero-radius-value" lang="en" dir="ltr">
+                <span>16 px</span>
+                <span>28 px</span>
+                <span>12 px</span>
+              </div>
+            </div>
+            <div
+              className="hero-collab-cursor hero-collab-cursor--dev"
+              aria-hidden="true"
+            >
+              <i />
+              <span>babak</span>
+            </div>
             <Button
               onPress={handleDownload}
               variant="secondary"

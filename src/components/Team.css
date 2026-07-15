@@ -1,0 +1,181 @@
+.team-section {
+  position: relative;
+  scroll-margin-top: 96px;
+  margin-top: 96px;
+  padding: 72px 48px 52px;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 8% 10%, color-mix(in oklab, #2563eb 18%, transparent), transparent 32%),
+    radial-gradient(circle at 92% 90%, color-mix(in oklab, #7c3aed 16%, transparent), transparent 34%),
+    color-mix(in oklab, var(--foreground) 3%, var(--background));
+}
+
+.team-heading {
+  max-width: 620px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.team-heading > span {
+  color: #6f8fff;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.team-heading h2 {
+  margin: 10px 0 8px;
+  color: var(--foreground);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.team-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.team-reveal {
+  height: 100%;
+}
+
+.team-card {
+  height: 100%;
+  padding: 10px 10px 20px;
+  border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+  border-radius: 24px;
+  background: color-mix(in oklab, var(--foreground) 5%, transparent);
+  box-shadow: 0 18px 45px color-mix(in oklab, black 12%, transparent);
+  transition:
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 350ms ease,
+    box-shadow 350ms ease;
+}
+
+.team-card:hover {
+  border-color: color-mix(in oklab, #7596ff 46%, transparent);
+  box-shadow: 0 24px 55px color-mix(in oklab, #1d4ed8 14%, transparent);
+  transform: translateY(-7px);
+}
+
+.team-photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 4.6;
+  border-radius: 17px;
+  background: color-mix(in oklab, var(--foreground) 7%, transparent);
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-photo-placeholder {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  background:
+    linear-gradient(135deg, transparent 40%, color-mix(in oklab, white 9%, transparent)),
+    linear-gradient(145deg, #172554, #312e81 56%, #164e63);
+}
+
+.team-reveal:nth-child(2) .team-photo-placeholder {
+  background:
+    linear-gradient(135deg, transparent 40%, color-mix(in oklab, white 9%, transparent)),
+    linear-gradient(145deg, #3b164f, #6d285f 56%, #7c2d12);
+}
+
+.team-reveal:nth-child(3) .team-photo-placeholder {
+  background:
+    linear-gradient(135deg, transparent 40%, color-mix(in oklab, white 9%, transparent)),
+    linear-gradient(145deg, #064e3b, #155e75 56%, #1e3a8a);
+}
+
+.team-photo-placeholder span {
+  color: color-mix(in oklab, white 92%, transparent);
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 750;
+  letter-spacing: -0.06em;
+}
+
+.team-role-chip {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  padding: 8px 10px;
+  border: 1px solid #ffffff24;
+  border-radius: 11px;
+  background: #090b10a8;
+  backdrop-filter: blur(12px);
+  color: #f8fafc;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.team-card-copy {
+  padding: 17px 8px 0;
+  text-align: left;
+}
+
+.team-card-copy h3 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.18rem;
+  font-weight: 700;
+}
+
+.team-card-copy p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.84rem;
+}
+
+[data-theme="light"] .team-section {
+  background:
+    radial-gradient(circle at 8% 10%, #2563eb12, transparent 32%),
+    radial-gradient(circle at 92% 90%, #7c3aed10, transparent 34%),
+    #f8faff;
+}
+
+[data-theme="light"] .team-card {
+  background: #ffffffb8;
+  box-shadow: 0 18px 45px #1e3a8a0b;
+}
+
+@media (max-width: 800px) {
+  .team-section {
+    padding: 56px 22px 32px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 430px;
+    margin-inline: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-card {
+    transition: none;
+  }
+}

@@ -107,6 +107,10 @@
   font-size: 0.9rem;
 }
 .cv-stat-grid {
+  /* Keep the stats centered against the two-line name, not the copy/actions. */
+  align-self: start;
+  position: relative;
+  left: 26px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   border: 1px solid #ffffff12;
@@ -433,6 +437,9 @@
   }
   .cv-hero-grid {
     gap: 55px;
+  }
+  .cv-stat-grid {
+    left: 0;
   }
   .cv-content {
     gap: 30px;

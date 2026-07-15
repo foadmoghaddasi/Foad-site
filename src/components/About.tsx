@@ -8,7 +8,7 @@ const About = () => {
   return (
     <Surface
       variant="secondary"
-      className="about-section w-full px-4 py-16 md:py-24"
+      className="about-section w-full px-4 pt-16 pb-8 md:py-24"
     >
       <Reveal className="mx-auto w-full max-w-3xl text-foreground">
         <div dir="rtl" className="mb-6 flex items-center gap-3">
