@@ -31,12 +31,18 @@ const DailyDesignChallengePage = () => {
     .slice(-5)
     .reverse();
 
-  const formatDate = (value: string) =>
-    new Intl.DateTimeFormat(isFa ? "fa-IR-u-ca-persian" : "en-US", {
+  const formatDateRange = (value: string) => {
+    const startDate = new Date(`${value}T12:00:00Z`);
+    const endDate = new Date(startDate);
+    endDate.setUTCDate(endDate.getUTCDate() + 6);
+    const formatter = new Intl.DateTimeFormat(isFa ? "fa-IR-u-ca-persian" : "en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
-    }).format(new Date(`${value}T12:00:00Z`));
+    });
+
+    return `${formatter.format(startDate)} ${isFa ? "تا" : "–"} ${formatter.format(endDate)}`;
+  };
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -108,7 +114,7 @@ const DailyDesignChallengePage = () => {
                     <div className="daily-challenge-archive-meta">
                       <span>
                         <Calendar size="15" color="currentColor" variant="Broken" />
-                        {formatDate(item.date)}
+                        {formatDateRange(item.date)}
                       </span>
                       {timebox && (
                         <span>

@@ -28,11 +28,15 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
   const [isCopied, setIsCopied] = useState(false);
 
   const formattedDate = useMemo(() => {
-    const date = new Date(`${challenge.date}T12:00:00Z`);
-    return new Intl.DateTimeFormat(
+    const startDate = new Date(`${challenge.date}T12:00:00Z`);
+    const endDate = new Date(startDate);
+    endDate.setUTCDate(endDate.getUTCDate() + 6);
+    const formatter = new Intl.DateTimeFormat(
       isFa ? "fa-IR-u-ca-persian" : "en-US",
       { year: "numeric", month: "long", day: "numeric" },
-    ).format(date);
+    );
+
+    return `${formatter.format(startDate)} ${isFa ? "تا" : "–"} ${formatter.format(endDate)}`;
   }, [isFa]);
 
   useEffect(() => {
