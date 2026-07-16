@@ -192,7 +192,6 @@
   min-height: 27px;
   align-items: center;
   gap: 6px;
-  margin-bottom: 8px;
   padding: 0 9px;
   border: 1px solid color-mix(in oklab, #35d083 30%, transparent);
   border-radius: 999px;
@@ -200,6 +199,21 @@
   color: #53dc98;
   font-size: 0.64rem;
   font-weight: 700;
+}
+
+.daily-challenge-eyebrow-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 9px;
+}
+
+.daily-challenge-category {
+  color: #7596ff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .daily-challenge-archive {

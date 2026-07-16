@@ -28,7 +28,7 @@ const DailyDesignChallengePage = () => {
       const titleEn = item.title?.en ?? item.titleEn;
       return !(item.date === currentChallenge.date && titleEn === currentChallenge.title.en);
     })
-    .slice()
+    .slice(-5)
     .reverse();
 
   const formatDate = (value: string) =>

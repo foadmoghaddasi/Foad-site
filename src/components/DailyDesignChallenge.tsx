@@ -151,11 +151,15 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
               <MagicStar size="26" color="currentColor" variant="Broken" />
             </div>
             <div className="daily-challenge-title-wrap">
-              <div className="daily-challenge-current-status">
-                <TickCircle size="15" color="currentColor" variant="Bold" />
-                {isFa ? "چالش امروز" : "Today’s challenge"}
+              <div className="daily-challenge-eyebrow-row">
+                <div className="daily-challenge-current-status">
+                  <TickCircle size="15" color="currentColor" variant="Bold" />
+                  {isFa ? "چالش امروز" : "Today’s challenge"}
+                </div>
+                <span className="daily-challenge-category">
+                  {challenge.category[language]}
+                </span>
               </div>
-              <span>{challenge.category[language]}</span>
               <Card.Title>{challenge.title[language]}</Card.Title>
               <div className="daily-challenge-meta">
                 <span>
