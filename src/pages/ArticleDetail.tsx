@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight } from "iconsax-react";
+import { ArrowLeft, ArrowRight } from "iconsax-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getArticleBySlug, type ArticleBlock } from "../content/articles";
+import { useLanguage } from "../context/LanguageContext";
 import "./Articles.css";
 
 const ArticleContentBlock = ({ block }: { block: ArticleBlock }) => {
@@ -56,7 +57,8 @@ const ArticleContentBlock = ({ block }: { block: ArticleBlock }) => {
 
 const ArticleDetail = () => {
   const { slug } = useParams();
-  const article = getArticleBySlug(slug);
+  const { language, isFa, direction } = useLanguage();
+  const article = getArticleBySlug(slug, language);
 
   useEffect(() => {
     if (!article) return;
@@ -69,12 +71,14 @@ const ArticleDetail = () => {
 
   if (!article) {
     return (
-      <main className="articles-page article-not-found" dir="ltr">
+      <main className="articles-page article-not-found" dir={direction}>
         <Navbar />
         <div>
           <span>404</span>
-          <h1>مقاله پیدا نشد</h1>
-          <Link to="/articles">بازگشت به مقاله‌ها</Link>
+          <h1>{isFa ? "مقاله پیدا نشد" : "Article not found"}</h1>
+          <Link to="/articles">
+            {isFa ? "بازگشت به مقاله‌ها" : "Back to articles"}
+          </Link>
         </div>
       </main>
     );
@@ -89,10 +93,14 @@ const ArticleDetail = () => {
           <Link
             to="/articles"
             className="article-back-link"
-            aria-label="بازگشت به مقاله‌ها"
-            title="بازگشت به مقاله‌ها"
+            aria-label={isFa ? "بازگشت به مقاله‌ها" : "Back to articles"}
+            title={isFa ? "بازگشت به مقاله‌ها" : "Back to articles"}
           >
-            <ArrowRight size="20" color="currentColor" variant="Broken" />
+            {isFa ? (
+              <ArrowRight size="20" color="currentColor" variant="Broken" />
+            ) : (
+              <ArrowLeft size="20" color="currentColor" variant="Broken" />
+            )}
           </Link>
           <h1>{article.title}</h1>
           <p>{article.excerpt}</p>
@@ -114,8 +122,12 @@ const ArticleDetail = () => {
         </div>
 
         <footer className="article-end">
-          <span>ممنون که مطالعه کردید.</span>
-          <Link to="/articles">مشاهده مقاله‌های بیشتر ←</Link>
+          <span>
+            {isFa ? "ممنون که مطالعه کردید." : "Thanks for reading."}
+          </span>
+          <Link to="/articles">
+            {isFa ? "مشاهده مقاله‌های بیشتر ←" : "Read more articles →"}
+          </Link>
         </footer>
       </article>
 

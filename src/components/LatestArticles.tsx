@@ -1,23 +1,27 @@
 import { Card } from "@heroui/react/card";
 import { ArrowLeft } from "iconsax-react";
 import { Link } from "react-router-dom";
-import { articles } from "../content/articles";
+import { getArticles } from "../content/articles";
 import Reveal from "./Reveal";
 import "./LatestArticles.css";
+import { useLanguage } from "../context/LanguageContext";
 
 const LatestArticles = () => {
-  const latestArticles = articles.slice(0, 2);
+  const { language, isFa, direction } = useLanguage();
+  const latestArticles = getArticles(language).slice(0, 2);
 
   return (
     <section
       className="latest-articles-section"
-      dir="rtl"
+      dir={direction}
       aria-labelledby="latest-articles-title"
     >
       <Reveal className="latest-articles-heading">
         <div>
-          <span>تازه‌های مجله</span>
-          <h2 id="latest-articles-title">آخرین مقاله‌ها</h2>
+          <span>{isFa ? "تازه‌های مجله" : "FROM THE JOURNAL"}</span>
+          <h2 id="latest-articles-title">
+            {isFa ? "آخرین مقاله‌ها" : "Latest articles"}
+          </h2>
         </div>
       </Reveal>
 
@@ -33,7 +37,7 @@ const LatestArticles = () => {
             <Link
               to={`/articles/${article.slug}`}
               className="latest-article-link"
-              aria-label={`مطالعه مقاله: ${article.title}`}
+              aria-label={`${isFa ? "مطالعه مقاله" : "Read article"}: ${article.title}`}
             >
               <Card variant="default" className="latest-article-card">
                 <div className="latest-article-image">
@@ -57,7 +61,7 @@ const LatestArticles = () => {
 
       <Reveal className="latest-articles-action">
         <Link to="/articles" className="latest-articles-all">
-          مشاهده همه مقاله‌ها
+          {isFa ? "مشاهده همه مقاله‌ها" : "View all articles"}
           <ArrowLeft size="18" color="currentColor" variant="Broken" />
         </Link>
       </Reveal>

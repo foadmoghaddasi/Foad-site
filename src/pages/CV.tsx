@@ -6,8 +6,9 @@ import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
 import Certifications from "../components/Certifications";
 import "./CV.css";
+import { useLanguage } from "../context/LanguageContext";
 
-const experiences = [
+const experiencesEn = [
   {
     company: "Hesabo",
     location: "Tehran",
@@ -75,7 +76,7 @@ const experiences = [
   },
 ];
 
-const skillGroups = [
+const skillGroupsEn = [
   [
     "Product Design & UX Research",
     [
@@ -115,7 +116,7 @@ const skillGroups = [
   ],
 ];
 
-const projects = [
+const projectsEn = [
   ["Charisma Crowd", "Crowdfunding platform optimized for user engagement."],
   ["Nazari Cake", "E-commerce experience for an online cake business."],
   ["Sarmo Store", "Storefront with an improved checkout experience."],
@@ -124,11 +125,103 @@ const projects = [
   ["Voices to Action", "Campaign-based advocacy application."],
 ];
 
+const experiencesFa = [
+  {
+    company: "حسابو",
+    location: "تهران",
+    role: "طراح محصول",
+    date: "تیر ۱۴۰۱ — اکنون",
+    duration: "",
+    intro:
+      "حسابو یک پلتفرم فین‌تک است که دسترسی روزانه کارکنان به حقوق کسب‌شده‌شان را فراهم می‌کند.",
+    work: [
+      "طراحی و توسعه یک دیزاین سیستم جامع برای افزایش هماهنگی و سرعت در محصولات.",
+      "اجرای تست کاربردپذیری، A/B تست و تحقیق کاربر برای بهبود ماندگاری و تعامل.",
+      "رهبری بازطراحی و ری‌برندینگ با هدف بهبود کاربردپذیری و کیفیت بصری محصول.",
+      "همکاری نزدیک با تیم‌های مهندسی، کسب‌وکار و محصول برای هم‌راستایی اهداف طراحی.",
+    ],
+    achievements: [
+      "افزایش ۳۵٪ تعامل کاربران با بازطراحی کامل UI/UX و بهبود کاربردپذیری.",
+      "کاهش ۴۰٪ زمان برداشت حقوق با ساده‌سازی جریان‌ها و ناوبری.",
+      "کاهش ۴۰٪ زمان توسعه فرانت‌اند با ساخت دیزاین سیستم اختصاصی.",
+    ],
+  },
+  {
+    company: "آسانیتو",
+    location: "تهران",
+    role: "طراح UI/UX",
+    date: "تیر ۱۴۰۱ — فروردین ۱۴۰۲",
+    duration: "۱۰ ماه",
+    intro:
+      "طراحی و بهبود تجربه محصولات سازمانی SaaS با پروتوتایپ‌های دقیق و تکرار راه‌حل‌ها بر اساس ارزیابی کاربردپذیری.",
+    work: [
+      "تحقیق تجربه کاربری و پروتوتایپ برای بهبود ورود مشتری و استفاده از قابلیت‌ها.",
+    ],
+    achievements: [
+      "بازطراحی نمایش داده‌ها برای درک ۲۵٪ سریع‌تر اطلاعات و کاهش ۳۰٪ خطاهای کاربران.",
+    ],
+  },
+  {
+    company: "طراح محصول فریلنسر",
+    location: "دورکاری",
+    role: "طراح UI/UX",
+    date: "آبان ۱۴۰۰ — تیر ۱۴۰۱",
+    duration: "۹ ماه",
+    intro:
+      "همکاری با تیم‌های مختلف در محصولات فین‌تک، تجارت الکترونیک و SaaS برای ساخت تجربه‌های ساده و اثرگذار.",
+    work: [],
+    achievements: [
+      "بهبود کاربردپذیری چند پلتفرم با اصلاح ناوبری و جریان‌های تعامل.",
+      "بازطراحی رابط‌ها برای هماهنگی با استانداردهای جدید طراحی محصول.",
+    ],
+  },
+  {
+    company: "جاباما",
+    location: "تهران",
+    role: "طراح تجربه کارکنان (EXD)",
+    date: "بهمن ۱۳۹۹ — آبان ۱۴۰۰",
+    duration: "۱۰ ماه",
+    intro:
+      "تمرکز بر بهبود تجربه کارکنان با طراحی کاربرمحور، تحقیق و راه‌حل‌های دیجیتال؛ از شناسایی نقاط درد تا بهینه‌سازی ابزارهای داخلی.",
+    work: [],
+    achievements: [
+      "بازطراحی ابزارهای داخلی و ساده‌سازی فرایندهای منابع انسانی.",
+      "بهبود آنبوردینگ با راهنماهای تعاملی برای نیروهای جدید.",
+      "بهینه‌سازی ارتباطات داخلی و جریان اطلاعات.",
+      "افزایش ۴۰٪ رضایت کارکنان با حل نقاط درد کلیدی.",
+    ],
+  },
+];
+
+const skillGroupsFa = [
+  [
+    "طراحی محصول و تحقیق تجربه کاربری",
+    ["تحقیق کاربر", "وایرفریم", "پروتوتایپ", "جریان کاربر", "تست کاربردپذیری", "A/B تست", "UX Writing", "دسترس‌پذیری"],
+  ],
+  [
+    "دیزاین سیستم و توسعه رابط",
+    ["دیزاین سیستم", "Auto Layout", "کتابخانه کامپوننت", "توکن‌ها", "متغیرها"],
+  ],
+  [
+    "ابزارها و فناوری‌ها",
+    ["Figma", "Sketch", "Zeplin", "Adobe XD", "FigJam", "Miro", "Jira", "Clarity", "Hotjar"],
+  ],
+];
+
+const projectsFa = [
+  ["کاریزما کراد", "پلتفرم تأمین مالی جمعی با تمرکز بر تعامل کاربران."],
+  ["کیک نظری", "تجربه تجارت الکترونیک برای یک کسب‌وکار آنلاین کیک."],
+  ["فروشگاه سارمو", "فروشگاه آنلاین با فرایند خرید بهینه‌شده."],
+  ["قرصات", "اپلیکیشن مدیریت دارو و پیگیری نسخه."],
+  ["تاداتون", "پلتفرم داستان‌گویی کودک با کمک هوش مصنوعی."],
+  ["Voices to Action", "اپلیکیشن کنشگری مبتنی بر کمپین."],
+];
+
 const DESIGN_CAREER_START_YEAR = 2021;
 const HESABO_START_YEAR = 2022;
 const HESABO_START_MONTH = 6; // July (JavaScript months are zero-based)
 
-const getDurationSince = (startYear: number, startMonth: number) => {
+const getDurationSince = (startYear: number, startMonth: number, isFa = false) => {
   const now = new Date();
   const totalMonths = Math.max(
     0,
@@ -137,15 +230,22 @@ const getDurationSince = (startYear: number, startMonth: number) => {
   const years = Math.floor(totalMonths / 12);
   const months = totalMonths % 12;
 
-  return `${years} ${years === 1 ? "yr" : "yrs"} ${months} ${months === 1 ? "mo" : "mos"}`;
+  return isFa
+    ? `${years.toLocaleString("fa-IR")} سال و ${months.toLocaleString("fa-IR")} ماه`
+    : `${years} ${years === 1 ? "yr" : "yrs"} ${months} ${months === 1 ? "mo" : "mos"}`;
 };
 
 export default function CV() {
+  const { isFa, direction } = useLanguage();
+  const experiences = isFa ? experiencesFa : experiencesEn;
+  const skillGroups = isFa ? skillGroupsFa : skillGroupsEn;
+  const projects = isFa ? projectsFa : projectsEn;
   const [progress, setProgress] = useState(0);
   const yearsOfExperience = new Date().getFullYear() - DESIGN_CAREER_START_YEAR;
   const hesaboDuration = getDurationSince(
     HESABO_START_YEAR,
     HESABO_START_MONTH,
+    isFa,
   );
 
   useEffect(() => {
@@ -160,7 +260,7 @@ export default function CV() {
   }, []);
 
   return (
-    <main className="cv-page" dir="ltr">
+    <main className="cv-page" dir={direction}>
       <Navbar />
       <div className="cv-reading-progress" style={{ width: `${progress}%` }} />
 
@@ -168,16 +268,18 @@ export default function CV() {
         <div className="cv-hero-glow" aria-hidden="true" />
         <div className="cv-shell cv-hero-grid">
           <Reveal className="cv-hero-copy">
-            <span className="cv-overline">Product Designer · Tehran, Iran</span>
+            <span className="cv-overline">
+              {isFa ? "طراح محصول · تهران، ایران" : "Product Designer · Tehran, Iran"}
+            </span>
             <h1>
-              Foad
+              {isFa ? "فؤاد" : "Foad"}
               <br />
-              Moghaddasi
+              {isFa ? "مقدسی" : "Moghaddasi"}
             </h1>
             <p>
-              Product Designer with {yearsOfExperience} years of experience in
-              UI/UX, digital product development, and design systems. I turn
-              complex product problems into seamless, intuitive experiences.
+              {isFa
+                ? `طراح محصول با ${yearsOfExperience.toLocaleString("fa-IR")} سال تجربه در UI/UX، توسعه محصولات دیجیتال و دیزاین سیستم. مسئله‌های پیچیده محصول را به تجربه‌هایی ساده و قابل‌فهم تبدیل می‌کنم.`
+                : `Product Designer with ${yearsOfExperience} years of experience in UI/UX, digital product development, and design systems. I turn complex product problems into seamless, intuitive experiences.`}
             </p>
             <div className="cv-actions">
               <a
@@ -185,7 +287,7 @@ export default function CV() {
                 download="FoadMoghaddasi-CV.pdf"
                 className="cv-download-button"
               >
-                Download PDF
+                {isFa ? "دانلود PDF" : "Download PDF"}
                 <DocumentDownload
                   size="22"
                   color="currentColor"
@@ -196,26 +298,26 @@ export default function CV() {
                 href="mailto:moghadasi.foad@gmail.com"
                 className="cv-contact-link"
               >
-                Let’s work together ↗
+                {isFa ? "بیایید همکاری کنیم ↗" : "Let’s work together ↗"}
               </Link>
             </div>
           </Reveal>
           <Reveal className="cv-stat-grid" delay={120}>
             <div>
-              <strong>{yearsOfExperience}+</strong>
-              <span>Years of experience</span>
+              <strong>{isFa ? yearsOfExperience.toLocaleString("fa-IR") : yearsOfExperience}+</strong>
+              <span>{isFa ? "سال تجربه" : "Years of experience"}</span>
             </div>
             <div>
               <strong>10+</strong>
-              <span>Products shipped</span>
+              <span>{isFa ? "محصول منتشرشده" : "Products shipped"}</span>
             </div>
             <div>
               <strong>35%</strong>
-              <span>Engagement growth</span>
+              <span>{isFa ? "رشد تعامل" : "Engagement growth"}</span>
             </div>
             <div>
               <strong>40%</strong>
-              <span>Faster key flows</span>
+              <span>{isFa ? "جریان‌های کلیدی سریع‌تر" : "Faster key flows"}</span>
             </div>
           </Reveal>
         </div>
@@ -229,8 +331,8 @@ export default function CV() {
           <Reveal className="cv-section-heading">
             <span>01</span>
             <div>
-              <small>Career timeline</small>
-              <h2 id="experience-heading">Experience</h2>
+              <small>{isFa ? "مسیر حرفه‌ای" : "Career timeline"}</small>
+              <h2 id="experience-heading">{isFa ? "تجربه کاری" : "Experience"}</h2>
             </div>
           </Reveal>
           <div className="cv-timeline">
@@ -251,7 +353,7 @@ export default function CV() {
                   <p>
                     {experience.date}
                     <small>
-                      {experience.company === "Hesabo"
+                      {index === 0
                         ? hesaboDuration
                         : experience.duration}
                     </small>
@@ -266,7 +368,7 @@ export default function CV() {
                   </ul>
                 )}
                 <div className="cv-achievements">
-                  <strong>Selected impact</strong>
+                  <strong>{isFa ? "دستاوردهای منتخب" : "Selected impact"}</strong>
                   <ul>
                     {experience.achievements.map((item) => (
                       <li key={item}>{item}</li>
@@ -280,8 +382,8 @@ export default function CV() {
 
         <aside className="cv-sidebar">
           <Reveal className="cv-side-card cv-contact-card">
-            <small>Contact</small>
-            <h2>Start a conversation.</h2>
+            <small>{isFa ? "تماس" : "Contact"}</small>
+            <h2>{isFa ? "گفت‌وگو را شروع کنیم." : "Start a conversation."}</h2>
             <Link href="tel:+989192463569">+98 919 246 3569</Link>
             <Link href="mailto:moghadasi.foad@gmail.com">
               moghadasi.foad@gmail.com
@@ -290,24 +392,24 @@ export default function CV() {
               href="https://www.linkedin.com/in/foadmoghaddasi"
               target="_blank"
             >
-              LinkedIn ↗
+              {isFa ? "لینکدین ↗" : "LinkedIn ↗"}
             </Link>
           </Reveal>
 
           <Reveal className="cv-side-card" delay={70}>
-            <small>Education</small>
+            <small>{isFa ? "تحصیلات" : "Education"}</small>
             <div className="cv-education">
-              <strong>Master’s Degree in Industrial Design</strong>
-              <span>In progress · Azad University, Central Tehran</span>
+              <strong>{isFa ? "کارشناسی ارشد طراحی صنعتی" : "Master’s Degree in Industrial Design"}</strong>
+              <span>{isFa ? "در حال تحصیل · دانشگاه آزاد تهران مرکز" : "In progress · Azad University, Central Tehran"}</span>
             </div>
             <div className="cv-education">
-              <strong>Bachelor’s Degree in Industrial Design</strong>
-              <span>Azad University, Tehran South</span>
+              <strong>{isFa ? "کارشناسی طراحی صنعتی" : "Bachelor’s Degree in Industrial Design"}</strong>
+              <span>{isFa ? "دانشگاه آزاد تهران جنوب" : "Azad University, Tehran South"}</span>
             </div>
           </Reveal>
 
           <Reveal className="cv-side-card" delay={100}>
-            <small>Skills & Tools</small>
+            <small>{isFa ? "مهارت‌ها و ابزارها" : "Skills & Tools"}</small>
             {skillGroups.map(([title, skills]) => (
               <div className="cv-skill-group" key={title as string}>
                 <strong>{title}</strong>
@@ -329,10 +431,10 @@ export default function CV() {
           <Reveal className="cv-section-heading">
             <span>02</span>
             <div>
-              <small>Selected work</small>
-              <h2>Projects</h2>
+              <small>{isFa ? "کارهای منتخب" : "Selected work"}</small>
+              <h2>{isFa ? "پروژه‌ها" : "Projects"}</h2>
               <p className="cv-section-description">
-                A selection of projects I’ve worked on.
+                {isFa ? "منتخبی از پروژه‌هایی که روی آن‌ها کار کرده‌ام." : "A selection of projects I’ve worked on."}
               </p>
             </div>
           </Reveal>
@@ -343,7 +445,11 @@ export default function CV() {
                 delay={(index % 3) * 60}
                 key={name}
               >
-                <span>0{index + 1}</span>
+                <span>
+                  {isFa
+                    ? `۰${index + 1}`.replace(/[0-9]/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)])
+                    : `0${index + 1}`}
+                </span>
                 <h3>{name}</h3>
                 <p>{description}</p>
               </Reveal>
@@ -351,10 +457,12 @@ export default function CV() {
           </div>
           <Reveal className="cv-portfolio-cta">
             <div>
-              <small>Portfolio & Case Studies</small>
-              <h2>See how the work comes together.</h2>
+              <small>{isFa ? "پورتفولیو و کیس‌استادی‌ها" : "Portfolio & Case Studies"}</small>
+              <h2>{isFa ? "فرایند شکل‌گرفتن پروژه‌ها را ببینید." : "See how the work comes together."}</h2>
             </div>
-            <Link href="/#case-studies">Explore case studies →</Link>
+            <Link href="/#case-studies">
+              {isFa ? "مشاهده کیس‌استادی‌ها ←" : "Explore case studies →"}
+            </Link>
           </Reveal>
         </div>
       </section>

@@ -6,6 +6,7 @@ import { Surface } from "@heroui/react/surface";
 import {
   ArrowCircleDown,
   ArrowCircleLeft,
+  ArrowCircleRight,
   QuoteUp,
   Verify,
 } from "iconsax-react";
@@ -51,6 +52,7 @@ import Footer from "./Footer";
 import Team from "./Team";
 import LatestArticles from "./LatestArticles";
 import Certifications from "./Certifications";
+import { useLanguage } from "../context/LanguageContext";
 
 const projects = [
   {
@@ -114,19 +116,44 @@ const projects = [
   { image: img24, title: "پروژه کارآموزی شرکت ستاره اول", year: "۱۳۹۹" },
 ];
 
+const projectEnglishTitles = [
+  "Tadatoon mobile app design (Canada)", "Tadatoon mobile app design (Canada)",
+  "Qursat web application design", "Qursat admin panel design",
+  "Del Be Del mobile app design (London)", "Sarmo Style online store redesign",
+  "Programming education website design", "Online exchange platform design",
+  "Hamgram website design", "Hamgram platform design",
+  "Hesabo app download landing page", "Natzie nuts online store design",
+  "Nazari Cake store design", "Voices to Action website design",
+  "Janafza online doctor booking website", "Charisma Crowd website design",
+  "Vigal online store design", "iOS neumorphism concept",
+  "Charisma Crowd admin panel design", "Sleep management app concept",
+  "Health monitoring app concept", "Weather app concept",
+  "Kanzex exchange website design", "Mobile app store concept",
+  "Google Chrome neumorphism redesign", "Online game store concept",
+  "Coffee ordering app concept", "Neumorphism music player concept",
+  "Anti-censorship app concept", "Neumorphism watch app concept",
+  "Setareh Aval internship project",
+];
+
+const toEnglishDigits = (value: string) =>
+  value.replace(/[۰-۹]/g, (digit) => String("۰۱۲۳۴۵۶۷۸۹".indexOf(digit)));
+
 const Cards = () => {
+  const { isFa, direction } = useLanguage();
   const navigate = useNavigate();
   const [visibleProjects, setVisibleProjects] = useState(3);
   const hasMoreProjects = visibleProjects < projects.length;
 
   return (
-    <Surface className="w-full bg-background pt-8 pb-14 text-foreground md:py-14">
+    <Surface dir={direction} className="w-full bg-background pt-8 pb-14 text-foreground md:py-14">
       <section
         id="case-studies"
         className="mx-auto max-w-6xl scroll-mt-28 px-4"
       >
         <Reveal>
-          <h2 className="mb-8 text-center text-2xl font-bold">کیس استادی‌ها</h2>
+          <h2 className="mb-8 text-center text-2xl font-bold">
+            {isFa ? "کیس‌استادی‌ها" : "Case studies"}
+          </h2>
         </Reveal>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -138,17 +165,19 @@ const Cards = () => {
               <Card.Content className="absolute inset-0 p-0">
                 <img
                   src={qursatImage}
-                  alt="Limevee case study"
+                  alt={isFa ? "کیس‌استادی Limevee" : "Limevee case study"}
                   className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
               </Card.Content>
               <div className="case-study-overlay" aria-hidden="true" />
-              <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
+              <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-start text-white">
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">
                   Limevee
                 </p>
                 <Card.Title className="text-lg font-semibold leading-7 text-white">
-                  راه حل تماشای گروهی فیلم و سریال
+                  {isFa
+                    ? "راه‌حل تماشای گروهی فیلم و سریال"
+                    : "A better way to choose what to watch together"}
                 </Card.Title>
               </Card.Header>
               <Card.Footer className="relative z-10 mt-auto justify-end p-4">
@@ -158,12 +187,12 @@ const Cards = () => {
                   className="case-study-action"
                   onPress={() => navigate("/limevee")}
                 >
-                  مطالعه کیس استادی
-                  <ArrowCircleLeft
-                    size="22"
-                    color="currentColor"
-                    variant="Broken"
-                  />
+                  {isFa ? "مطالعه کیس‌استادی" : "Read case study"}
+                  {isFa ? (
+                    <ArrowCircleLeft size="22" color="currentColor" variant="Broken" />
+                  ) : (
+                    <ArrowCircleRight size="22" color="currentColor" variant="Broken" />
+                  )}
                 </Button>
               </Card.Footer>
             </Card>
@@ -177,17 +206,17 @@ const Cards = () => {
               <Card.Content className="absolute inset-0 p-0">
                 <img
                   src={Image}
-                  alt="فرآیند طراحی اپلیکیشن حسابو"
+                  alt={isFa ? "فرایند طراحی اپلیکیشن حسابو" : "Hesabo app design process"}
                   className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
               </Card.Content>
               <div className="case-study-overlay" aria-hidden="true" />
-              <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
+              <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-start text-white">
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">
                   Hesabo App
                 </p>
                 <Card.Title className="text-lg font-semibold leading-7 text-white">
-                  فرآیند طراحی اپلیکیشن حسابو
+                  {isFa ? "فرایند طراحی اپلیکیشن حسابو" : "Hesabo app design process"}
                 </Card.Title>
               </Card.Header>
               <Card.Footer className="relative z-10 mt-auto justify-end p-4">
@@ -197,7 +226,7 @@ const Cards = () => {
                   className="case-study-action"
                   isDisabled
                 >
-                  غیرقابل انتشار (NDA)
+                  {isFa ? "غیرقابل انتشار (NDA)" : "Not publishable (NDA)"}
                 </Button>
               </Card.Footer>
             </Card>
@@ -211,17 +240,17 @@ const Cards = () => {
               <Card.Content className="absolute inset-0 p-0">
                 <img
                   src={panelImage}
-                  alt="طراحی پنل‌های مدیریت حسابو"
+                  alt={isFa ? "طراحی پنل‌های مدیریت حسابو" : "Hesabo admin panel design"}
                   className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
               </Card.Content>
               <div className="case-study-overlay" aria-hidden="true" />
-              <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-right text-white">
+              <Card.Header className="relative z-10 flex-col items-start gap-1 p-5 text-start text-white">
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-white/65">
                   Hesabo Panel
                 </p>
                 <Card.Title className="text-lg font-semibold leading-7 text-white">
-                  طراحی پنل‌های مدیریت حسابو
+                  {isFa ? "طراحی پنل‌های مدیریت حسابو" : "Hesabo admin panel design"}
                 </Card.Title>
               </Card.Header>
               <Card.Footer className="relative z-10 mt-auto justify-end p-4">
@@ -231,7 +260,7 @@ const Cards = () => {
                   className="case-study-action"
                   isDisabled
                 >
-                  غیرقابل انتشار (NDA)
+                  {isFa ? "غیرقابل انتشار (NDA)" : "Not publishable (NDA)"}
                 </Button>
               </Card.Footer>
             </Card>
@@ -240,33 +269,38 @@ const Cards = () => {
 
         <Reveal>
           <h2 className="mb-8 mt-20 text-center text-2xl font-bold">
-            پروژه‌های UI/UX من
+            {isFa ? "پروژه‌های UI/UX من" : "My UI/UX projects"}
           </h2>
         </Reveal>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.slice(0, visibleProjects).map((project, index) => (
-            <Reveal
-              key={`${project.title}-${project.image}`}
-              delay={(index % 3) * 60}
-            >
-              <Card variant="transparent" className="overflow-hidden p-0">
-                <Card.Content className="p-0">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    className="h-64 w-full rounded-xl object-cover"
-                  />
-                </Card.Content>
-                <Card.Header className="items-start px-1">
-                  <div>
-                    <Card.Title>{project.title}</Card.Title>
-                    <Card.Description>سال {project.year}</Card.Description>
-                  </div>
-                </Card.Header>
-              </Card>
-            </Reveal>
-          ))}
+          {projects.slice(0, visibleProjects).map((project, index) => {
+            const projectTitle = isFa ? project.title : projectEnglishTitles[index];
+            return (
+              <Reveal
+                key={`${project.title}-${project.image}`}
+                delay={(index % 3) * 60}
+              >
+                <Card variant="transparent" className="overflow-hidden p-0">
+                  <Card.Content className="p-0">
+                    <img
+                      src={project.image}
+                      alt={projectTitle}
+                      loading="lazy"
+                      className="h-64 w-full rounded-xl object-cover"
+                    />
+                  </Card.Content>
+                  <Card.Header className="items-start px-1 text-start">
+                    <div>
+                      <Card.Title>{projectTitle}</Card.Title>
+                      <Card.Description>
+                        {isFa ? `سال ${project.year}` : `Year ${toEnglishDigits(project.year)}`}
+                      </Card.Description>
+                    </div>
+                  </Card.Header>
+                </Card>
+              </Reveal>
+            );
+          })}
         </div>
 
         {hasMoreProjects && (
@@ -280,7 +314,7 @@ const Cards = () => {
                 )
               }
             >
-              مشاهده بیشتر
+              {isFa ? "مشاهده بیشتر" : "Show more"}
               <ArrowCircleDown
                 size="18"
                 color="currentColor"
@@ -302,12 +336,12 @@ const Cards = () => {
                 )
               }
             >
-              مشاهده بیشتر در Dribbble
-              <ArrowCircleLeft
-                size="22"
-                color="currentColor"
-                variant="Broken"
-              />
+              {isFa ? "مشاهده بیشتر در Dribbble" : "View more on Dribbble"}
+              {isFa ? (
+                <ArrowCircleLeft size="22" color="currentColor" variant="Broken" />
+              ) : (
+                <ArrowCircleRight size="22" color="currentColor" variant="Broken" />
+              )}
             </Button>
           </Reveal>
         )}
@@ -319,13 +353,13 @@ const Cards = () => {
         <Certifications />
 
         <Reveal className="mt-24">
-          <section dir="ltr" aria-labelledby="recommendation-title">
+          <section dir={direction} aria-labelledby="recommendation-title">
             <div className="mb-6 flex items-center gap-3">
               <h2
                 id="recommendation-title"
                 className="shrink-0 text-xl font-bold md:text-2xl"
               >
-                Recommendation
+                {isFa ? "توصیه‌نامه" : "Recommendation"}
               </h2>
               <span className="h-px w-full bg-border" aria-hidden="true" />
             </div>
@@ -343,7 +377,7 @@ const Cards = () => {
                 >
                   <Avatar.Image
                     src={maryamAvatar}
-                    alt="Maryam Gashas"
+                    alt={isFa ? "مریم گشاس" : "Maryam Gashas"}
                     className="object-cover"
                   />
                   <Avatar.Fallback className="font-semibold">
@@ -351,10 +385,10 @@ const Cards = () => {
                   </Avatar.Fallback>
                 </Avatar>
 
-                <div className="min-w-0 flex-1 text-left">
+                <div className="min-w-0 flex-1 text-start">
                   <div className="flex items-center gap-1.5">
                     <Card.Title className="text-base font-semibold md:text-lg">
-                      Maryam Gashas
+                      {isFa ? "مریم گشاس" : "Maryam Gashas"}
                     </Card.Title>
                     <Verify
                       size="18"
@@ -364,11 +398,14 @@ const Cards = () => {
                     />
                   </div>
                   <Card.Description className="mt-1 leading-5">
-                    Co-Founder &amp; CEO at tadatoon · EdTech · Management and
-                    strategy
+                    {isFa
+                      ? "هم‌بنیان‌گذار و مدیرعامل تاداتون · فناوری آموزشی · مدیریت و استراتژی"
+                      : "Co-Founder & CEO at Tadatoon · EdTech · Management and strategy"}
                   </Card.Description>
                   <p className="mt-1.5 text-xs text-muted">
-                    February 24, 2025 · Maryam managed Foad directly
+                    {isFa
+                      ? "۲۴ فوریه ۲۰۲۵ · مریم مدیر مستقیم فؤاد بوده است"
+                      : "February 24, 2025 · Maryam managed Foad directly"}
                   </p>
                 </div>
 
@@ -377,14 +414,11 @@ const Cards = () => {
                 </span>
               </Card.Header>
 
-              <Card.Content className="pt-2 text-left">
+              <Card.Content className="pt-2 text-start">
                 <blockquote className="max-w-4xl text-sm leading-7 text-foreground/85 md:text-base md:leading-8">
-                  Having a product designer who is both creative and an
-                  excellent communicator is a valuable asset to any team. Foad
-                  embodies these qualities perfectly. Not only does he create
-                  innovative and user-centric designs, but he also enhances the
-                  product development process through effective collaboration
-                  with various teams.
+                  {isFa
+                    ? "داشتن یک طراح محصول که هم خلاق باشد و هم ارتباط مؤثری برقرار کند، برای هر تیمی ارزشمند است. فؤاد هر دو ویژگی را به‌خوبی دارد. او علاوه بر طراحی راه‌حل‌های نوآورانه و کاربرمحور، با همکاری مؤثر با تیم‌های مختلف فرایند توسعه محصول را هم بهتر می‌کند."
+                    : "Having a product designer who is both creative and an excellent communicator is a valuable asset to any team. Foad embodies these qualities perfectly. Not only does he create innovative and user-centric designs, but he also enhances the product development process through effective collaboration with various teams."}
                 </blockquote>
               </Card.Content>
             </Card>

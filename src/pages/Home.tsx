@@ -12,15 +12,26 @@ import babakPhoto from "../assets/images/babak.png";
 import dorsaPhoto from "../assets/images/dorsa.png";
 import kianPhoto from "../assets/images/shahrokh.png";
 import foadPhoto from "../assets/images/about-pic.jpeg";
+import { useLanguage } from "../context/LanguageContext";
+import LanguageNotice from "../components/LanguageNotice";
 
-const heroWords = [
+const heroWordsEn = [
   "that feel effortless",
   "that make sense",
   "people enjoy using",
   "for real-world impact",
 ];
 
+const heroWordsFa = [
+  "که ساده و روان‌اند",
+  "که قابل‌فهم‌اند",
+  "که مردم دوستشان دارند",
+  "برای اثری واقعی",
+];
+
 const Home = () => {
+  const { isFa, direction } = useLanguage();
+  const heroWords = isFa ? heroWordsFa : heroWordsEn;
   const cardsRef = useRef<HTMLDivElement>(null);
   const [activeHeroWord, setActiveHeroWord] = useState(0);
   const navigate = useNavigate();
@@ -58,8 +69,9 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div dir={direction}>
       <Navbar />
+      <LanguageNotice />
 
       <Surface className="relative isolate w-full min-h-screen overflow-hidden flex flex-col justify-start items-center px-4 bg-background text-foreground">
         {/* پس‌زمینه گرادینت */}
@@ -70,23 +82,23 @@ const Home = () => {
             <button
               type="button"
               className="hero-team-avatars"
-              aria-label="Meet the product team"
+              aria-label={isFa ? "آشنایی با تیم محصول" : "Meet the product team"}
               onClick={scrollToTeam}
             >
               <Avatar size="sm" className="hero-team-avatar">
-                <Avatar.Image src={foadPhoto} alt="Foad Moghaddasi" />
+                <Avatar.Image src={foadPhoto} alt={isFa ? "فؤاد مقدسی" : "Foad Moghaddasi"} />
                 <Avatar.Fallback>FM</Avatar.Fallback>
               </Avatar>
               <Avatar size="sm" className="hero-team-avatar">
-                <Avatar.Image src={dorsaPhoto} alt="Dorsa" />
+                <Avatar.Image src={dorsaPhoto} alt={isFa ? "درسا" : "Dorsa"} />
                 <Avatar.Fallback>D</Avatar.Fallback>
               </Avatar>
               <Avatar size="sm" className="hero-team-avatar">
-                <Avatar.Image src={babakPhoto} alt="Babak" />
+                <Avatar.Image src={babakPhoto} alt={isFa ? "بابک" : "Babak"} />
                 <Avatar.Fallback>B</Avatar.Fallback>
               </Avatar>
               <Avatar size="sm" className="hero-team-avatar">
-                <Avatar.Image src={kianPhoto} alt="Kian" />
+                <Avatar.Image src={kianPhoto} alt={isFa ? "کیان" : "Kian"} />
                 <Avatar.Fallback>S</Avatar.Fallback>
               </Avatar>
             </button>
@@ -97,19 +109,25 @@ const Home = () => {
               <i />
               <div className="hero-collab-cursor hero-collab-cursor--foad">
                 <i />
-                <span>kian</span>
+                <span>{isFa ? "کیان" : "kian"}</span>
               </div>
               <div className="hero-collab-cursor hero-collab-cursor--pm">
                 <i />
-                <span>dorsa</span>
+                <span>{isFa ? "درسا" : "dorsa"}</span>
               </div>
             </div>
             <h1
-              aria-label="Designing products that feel effortless"
-              dir="ltr"
+              aria-label={
+                isFa
+                  ? "طراحی محصولاتی که ساده و روان‌اند"
+                  : "Designing products that feel effortless"
+              }
+              dir={direction}
               className="relative text-3xl font-[800] sm:text-5xl md:text-6xl lg:text-7xl text-foreground"
             >
-              <span className="hero-static-title">Designing products</span>
+              <span className="hero-static-title">
+                {isFa ? "طراحی محصولاتی" : "Designing products"}
+              </span>
               <br />
               <span
                 className={`hero-rotating-word hero-rotating-word-${activeHeroWord}`}
@@ -128,9 +146,11 @@ const Home = () => {
             className="hero-description relative mt-5 max-w-2xl sm:max-w-3xl lg:max-w-4xl z-10 text-center"
           >
             <p className="text-foreground font-[200] leading-10 text-2xl md:leading-16 md:text-5xl">
-              <span>Product Designer @Hesabo</span>
+              <span>{isFa ? "طراح محصول در حسابو" : "Product Designer @Hesabo"}</span>
               <span className="block text-base sm:text-xl md:text-3xl">
-                previously at Jabama and Asanito
+                {isFa
+                  ? "با سابقه همکاری در جاباما و آسانیتو"
+                  : "previously at Jabama and Asanito"}
               </span>
             </p>
           </Reveal>
@@ -153,7 +173,7 @@ const Home = () => {
               aria-hidden="true"
             >
               <i />
-              <span>babak</span>
+              <span>{isFa ? "بابک" : "babak"}</span>
             </div>
             <Button
               onPress={handleDownload}
@@ -161,7 +181,7 @@ const Home = () => {
               size="lg"
               className="hero-glass-button !h-14 px-7"
             >
-              Download CV
+              {isFa ? "دانلود رزومه" : "Download CV"}
               <DocumentDownload
                 size="32"
                 color="currentColor"
@@ -177,7 +197,7 @@ const Home = () => {
           className="case-studies-control relative flex flex-col items-center mt-50 md:mt-24 lg:mt-24 2xl:mt-[150px] z-10"
         >
           <h2 className="text-muted text-lg md:text-xl font-[200] md:font-semibold mb-4">
-            Case Studies
+            {isFa ? "کیس‌استادی‌ها" : "Case Studies"}
           </h2>
 
           {/* دکمه اسکرول */}
@@ -186,7 +206,7 @@ const Home = () => {
             variant="outline"
             size="lg"
             onPress={scrollToCards}
-            aria-label="Scroll to case studies"
+            aria-label={isFa ? "رفتن به کیس‌استادی‌ها" : "Scroll to case studies"}
             className="hero-glass-button"
           >
             <ArrowCircleDown size="26" color="currentColor" variant="Broken" />
@@ -200,7 +220,7 @@ const Home = () => {
       <div ref={cardsRef}>
         <Cards />
       </div>
-    </>
+    </div>
   );
 };
 

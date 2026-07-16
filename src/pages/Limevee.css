@@ -947,3 +947,21 @@
     transition: none;
   }
 }
+
+.limevee-page[dir="ltr"] .lv-flow::before {
+  right: auto;
+  left: 28px;
+}
+
+.limevee-page[dir="ltr"] .lv-artifact span {
+  right: auto;
+  left: 18px;
+}
+
+.limevee-page[dir="ltr"] .lv-section-head,
+.limevee-page[dir="ltr"] .lv-hero-copy,
+.limevee-page[dir="ltr"] .lv-info-card,
+.limevee-page[dir="ltr"] .lv-feature,
+.limevee-page[dir="ltr"] .lv-chart-card {
+  text-align: left;
+}

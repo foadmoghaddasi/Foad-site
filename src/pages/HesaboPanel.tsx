@@ -1,8 +1,10 @@
 import panelimg from "../assets/images/panelcase.png";
 import { useEffect } from "react";
 import { Surface } from "@heroui/react/surface";
+import { useLanguage } from "../context/LanguageContext";
 
 const HeasboPanel = () => {
+  const { isFa, direction } = useLanguage();
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (
@@ -11,13 +13,13 @@ const HeasboPanel = () => {
         (event.ctrlKey && event.key === "U") // Ctrl + U (View Source)
       ) {
         event.preventDefault();
-        alert("Inspect Element is disabled! 🚫");
+        alert(isFa ? "ابزار بررسی غیرفعال است! 🚫" : "Inspect Element is disabled! 🚫");
       }
     };
 
     const handleContextMenu = (event: MouseEvent) => {
       event.preventDefault();
-      alert("Right Click is disabled! 🚫");
+      alert(isFa ? "کلیک راست غیرفعال است! 🚫" : "Right Click is disabled! 🚫");
     };
 
     const checkDevTools = setInterval(() => {
@@ -25,7 +27,7 @@ const HeasboPanel = () => {
         window.outerWidth - window.innerWidth > 200 ||
         window.outerHeight - window.innerHeight > 200
       ) {
-        alert("Developer Tools Detected! Closing Page...");
+        alert(isFa ? "ابزار توسعه‌دهنده شناسایی شد؛ صفحه بسته می‌شود..." : "Developer Tools Detected! Closing Page...");
         window.close(); // Closes the tab when DevTools is detected
       }
     }, 1000);
@@ -38,14 +40,14 @@ const HeasboPanel = () => {
       document.removeEventListener("contextmenu", handleContextMenu);
       clearInterval(checkDevTools);
     };
-  }, []);
+  }, [isFa]);
 
   return (
-    <Surface className="w-full h-full text-foreground bg-background flex flex-col items-center relative">
+    <Surface dir={direction} className="w-full h-full text-foreground bg-background flex flex-col items-center relative">
       {/* Large Image */}
       <img
         src={panelimg}
-        alt="Large Image"
+        alt={isFa ? "فرایند طراحی پنل حسابو" : "Hesabo admin panel design process"}
         className="w-full md:w-full object-cover mb-6 select-none"
         onContextMenu={(e) => e.preventDefault()}
         draggable="false"

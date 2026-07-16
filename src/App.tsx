@@ -16,6 +16,7 @@ import Limevee from "./pages/Limevee";
 import CV from "./pages/CV";
 import Articles from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
+import { useLanguage } from "./context/LanguageContext";
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -47,9 +48,10 @@ const hashPassword = async (password: string): Promise<string> => {
 };
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const { isFa, direction } = useLanguage();
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [error, setError] = useState("");
+  const [hasError, setHasError] = useState(false);
 
   const correctPassword =
     "39f863febc730452f592496af946e176a8d28066cb0db11c02c854b8b0d3168e"; // Set your password here
@@ -60,14 +62,17 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
       if (hashed === correctPassword) {
         setIsAuthenticated(true);
       } else {
-        setError("Oops! The password you entered is incorrect");
+        setHasError(true);
       }
     });
   };
 
   if (!isAuthenticated) {
     return (
-      <Surface className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/95 px-4">
+      <Surface
+        dir={direction}
+        className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/95 px-4"
+      >
         <Lock1
           size="56"
           color="currentColor"
@@ -76,9 +81,15 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
         />
         <Card variant="tertiary" className="w-full max-w-sm text-center">
           <Card.Header className="flex-col">
-            <Card.Title>Please enter the password</Card.Title>
+            <Card.Title>
+              {isFa ? "لطفاً رمز عبور را وارد کنید" : "Please enter the password"}
+            </Card.Title>
             <Card.Description>
-              To get the password <br /> send me a message on LinkedIn
+              {isFa ? "برای دریافت رمز عبور" : "To get the password"}
+              <br />
+              {isFa
+                ? "در لینکدین به من پیام بدهید"
+                : "send me a message on LinkedIn"}
             </Card.Description>
           </Card.Header>
           <Card.Content>
@@ -87,16 +98,20 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
                 type="password"
                 fullWidth
                 variant="secondary"
-                aria-label="Password"
-                placeholder="Enter the password here"
+                aria-label={isFa ? "رمز عبور" : "Password"}
+                placeholder={isFa ? "رمز عبور را اینجا وارد کنید" : "Enter the password here"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {error && (
-                <p className="w-full text-left text-sm text-danger">{error}</p>
+              {hasError && (
+                <p className="w-full text-start text-sm text-danger">
+                  {isFa
+                    ? "رمز عبوری که وارد کردید اشتباه است"
+                    : "Oops! The password you entered is incorrect"}
+                </p>
               )}
               <Button type="submit" fullWidth variant="primary">
-                Continue
+                {isFa ? "ادامه" : "Continue"}
               </Button>
             </Form>
           </Card.Content>
@@ -105,7 +120,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
               href="https://www.linkedin.com/in/foadmoghaddasi"
               target="_blank"
             >
-              My LinkedIn Profile
+              {isFa ? "پروفایل لینکدین من" : "My LinkedIn Profile"}
             </Link>
           </Card.Footer>
         </Card>

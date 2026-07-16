@@ -128,7 +128,7 @@
   flex-direction: column;
   padding: 10px 5px 10px 8px;
   font-family: Kook, Tahoma, Arial, sans-serif;
-  text-align: right;
+  text-align: start;
 }
 
 .latest-article-copy > span {
@@ -140,29 +140,33 @@
 .latest-article-copy h3 {
   display: -webkit-box;
   margin: 8px 0 7px;
-  direction: rtl;
+  direction: inherit;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   font-size: 1.12rem;
   font-weight: 700;
   line-height: 1.35;
-  text-align: right;
+  text-align: start;
   unicode-bidi: isolate;
 }
 
 .latest-article-copy > p {
   display: -webkit-box;
   margin: 0;
-  direction: rtl;
+  direction: inherit;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   color: var(--muted);
   font-size: 0.78rem;
   line-height: 1.65;
-  text-align: right;
+  text-align: start;
   unicode-bidi: isolate;
+}
+
+[dir="ltr"] .latest-articles-all svg {
+  transform: rotate(180deg);
 }
 
 .latest-article-meta {

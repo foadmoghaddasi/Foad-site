@@ -12,6 +12,12 @@
   padding-left: 22px;
 }
 
+[dir="rtl"].certifications-section .certifications-heading {
+  padding-right: 22px;
+  padding-left: 0;
+  text-align: right;
+}
+
 .certifications-heading > div > span {
   color: #7596ff;
   font-size: 0.7rem;
@@ -251,6 +257,11 @@
     align-items: flex-start;
     margin-bottom: 20px;
     padding-left: 18px;
+  }
+
+  [dir="rtl"].certifications-section .certifications-heading {
+    padding-right: 18px;
+    padding-left: 0;
   }
 
   .certifications-heading p {

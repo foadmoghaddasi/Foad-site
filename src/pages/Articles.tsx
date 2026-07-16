@@ -1,14 +1,13 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "@heroui/react/card";
 import { SearchNormal1 } from "iconsax-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
-import { articles } from "../content/articles";
+import { getArticles, type Article } from "../content/articles";
+import { useLanguage } from "../context/LanguageContext";
 import "./Articles.css";
-
-const ALL_CATEGORIES = "همه";
 
 const normalizeSearchText = (value: string) =>
   value
@@ -19,7 +18,7 @@ const normalizeSearchText = (value: string) =>
     .replace(/\s+/g, " ")
     .trim();
 
-const getArticleSearchText = (article: (typeof articles)[number]) => {
+const getArticleSearchText = (article: Article) => {
   const contentText = article.content
     .flatMap((block) => {
       if (block.type === "divider") return [];
@@ -46,48 +45,65 @@ const getArticleSearchText = (article: (typeof articles)[number]) => {
 };
 
 const Articles = () => {
+  const { language, isFa, direction } = useLanguage();
+  const articles = getArticles(language);
+  const allCategories = isFa ? "همه" : "All";
   const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState(ALL_CATEGORIES);
+  const [activeCategory, setActiveCategory] = useState(allCategories);
+
+  useEffect(() => {
+    setQuery("");
+    setActiveCategory(allCategories);
+  }, [allCategories]);
+
   const categories = useMemo(
-    () => [ALL_CATEGORIES, ...new Set(articles.map((article) => article.category))],
-    [],
+    () => [allCategories, ...new Set(articles.map((article) => article.category))],
+    [allCategories, articles],
   );
   const normalizedQuery = normalizeSearchText(query);
   const filteredArticles = useMemo(
     () =>
       articles.filter((article) => {
         const matchesCategory =
-          activeCategory === ALL_CATEGORIES ||
+          activeCategory === allCategories ||
           article.category === activeCategory;
         const matchesQuery =
           normalizedQuery.length === 0 ||
           getArticleSearchText(article).includes(normalizedQuery);
         return matchesCategory && matchesQuery;
       }),
-    [activeCategory, normalizedQuery],
+    [activeCategory, allCategories, articles, normalizedQuery],
   );
   const isFiltering =
-    normalizedQuery.length > 0 || activeCategory !== ALL_CATEGORIES;
+    normalizedQuery.length > 0 || activeCategory !== allCategories;
   const featured = isFiltering ? undefined : filteredArticles[0];
   const rest = isFiltering ? filteredArticles : filteredArticles.slice(1);
 
   return (
-    <main className="articles-page" dir="rtl">
+    <main className="articles-page" dir={direction}>
       <Navbar />
 
       <section className="articles-hero">
         <Reveal>
-          <span className="articles-overline">مقاله‌ها و یادداشت‌ها</span>
-          <h1>ایده‌هایی برای به اشتراک گذاشتن.</h1>
+          <span className="articles-overline">
+            {isFa ? "مقاله‌ها و یادداشت‌ها" : "ARTICLES & NOTES"}
+          </span>
+          <h1>
+            {isFa ? "ایده‌هایی برای به اشتراک گذاشتن." : "Ideas worth sharing."}
+          </h1>
           <p>
-            یادداشت‌هایی درباره طراحی محصول، سیستم‌های طراحی، همکاری تیمی و
-            تصمیم‌هایی که تجربه‌های دیجیتال بهتری می‌سازند.
+            {isFa
+              ? "یادداشت‌هایی درباره طراحی محصول، سیستم‌های طراحی، همکاری تیمی و تصمیم‌هایی که تجربه‌های دیجیتال بهتری می‌سازند."
+              : "Notes on product design, design systems, teamwork, and the decisions that shape better digital experiences."}
           </p>
         </Reveal>
       </section>
 
-      <section className="articles-shell" aria-label="Articles">
-        <div className="article-discovery" dir="rtl">
+      <section
+        className="articles-shell"
+        aria-label={isFa ? "مقاله‌ها" : "Articles"}
+      >
+        <div className="article-discovery" dir={direction}>
           <div className="article-search-box">
             <SearchNormal1
               size="22"
@@ -99,22 +115,31 @@ const Articles = () => {
               type="search"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="جست‌وجو در عنوان و متن مقاله‌ها..."
-              aria-label="جست‌وجوی مقاله‌ها"
+              placeholder={
+                isFa
+                  ? "جست‌وجو در عنوان و متن مقاله‌ها..."
+                  : "Search article titles and content..."
+              }
+              aria-label={isFa ? "جست‌وجوی مقاله‌ها" : "Search articles"}
             />
             {query && (
               <button
                 type="button"
                 onClick={() => setQuery("")}
-                aria-label="پاک کردن جست‌وجو"
+                aria-label={isFa ? "پاک کردن جست‌وجو" : "Clear search"}
               >
                 ×
               </button>
             )}
-            <span>{filteredArticles.length} مقاله</span>
+            <span>
+              {filteredArticles.length} {isFa ? "مقاله" : "articles"}
+            </span>
           </div>
 
-          <div className="article-category-scroll" aria-label="دسته‌بندی مقاله‌ها">
+          <div
+            className="article-category-scroll"
+            aria-label={isFa ? "دسته‌بندی مقاله‌ها" : "Article categories"}
+          >
             <div className="article-category-list">
               {categories.map((category) => (
                 <button
@@ -136,7 +161,7 @@ const Articles = () => {
             <Link
               to={`/articles/${featured.slug}`}
               className="article-card-link"
-              dir="rtl"
+              dir={direction}
             >
               <Card variant="default" className="article-featured-card">
                 <div className="article-featured-image">
@@ -144,7 +169,7 @@ const Articles = () => {
                 </div>
                 <Card.Content
                   className="article-featured-copy"
-                  dir="rtl"
+                  dir={direction}
                 >
                   <span>{featured.category}</span>
                   <h2>{featured.title}</h2>
@@ -166,7 +191,7 @@ const Articles = () => {
               <Link
                 to={`/articles/${article.slug}`}
                 className="article-card-link"
-                dir="rtl"
+                dir={direction}
               >
                 <Card variant="default" className="article-card">
                   <div className="article-card-image">
@@ -174,7 +199,7 @@ const Articles = () => {
                   </div>
                   <Card.Content
                     className="article-card-body"
-                    dir="rtl"
+                    dir={direction}
                   >
                     <span>{article.category}</span>
                     <h2>{article.title}</h2>
@@ -192,17 +217,21 @@ const Articles = () => {
         </div>
 
         {filteredArticles.length === 0 && (
-          <div className="articles-empty-state" dir="rtl">
-            <span>نتیجه‌ای پیدا نشد</span>
-            <p>عبارت دیگری جست‌وجو کن یا دسته‌بندی را تغییر بده.</p>
+          <div className="articles-empty-state" dir={direction}>
+            <span>{isFa ? "نتیجه‌ای پیدا نشد" : "No results found"}</span>
+            <p>
+              {isFa
+                ? "عبارت دیگری جست‌وجو کن یا دسته‌بندی را تغییر بده."
+                : "Try another search term or choose a different category."}
+            </p>
             <button
               type="button"
               onClick={() => {
                 setQuery("");
-                setActiveCategory(ALL_CATEGORIES);
+                setActiveCategory(allCategories);
               }}
             >
-              نمایش همه مقاله‌ها
+              {isFa ? "نمایش همه مقاله‌ها" : "Show all articles"}
             </button>
           </div>
         )}

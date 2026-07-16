@@ -8,11 +8,14 @@ import dorsaVideo from "../assets/images/dorsa.mp4";
 import kianPhoto from "../assets/images/shahrokh.png";
 import kianVideo from "../assets/images/shahrokh.mp4";
 import "./Team.css";
+import { useLanguage } from "../context/LanguageContext";
 
 const teamMembers = [
   {
     name: "Babak",
+    nameFa: "بابک",
     position: "Graphic Designer",
+    positionFa: "طراح گرافیک",
     specialty: "GPT",
     initials: "B",
     image: babakPhoto,
@@ -20,7 +23,9 @@ const teamMembers = [
   },
   {
     name: "Dorsa",
+    nameFa: "درسا",
     position: "Product Designer",
+    positionFa: "طراح محصول",
     specialty: "Figma Agent",
     initials: "D",
     image: dorsaPhoto,
@@ -28,7 +33,9 @@ const teamMembers = [
   },
   {
     name: "Kian",
+    nameFa: "کیان",
     position: "Full-stack Developer",
+    positionFa: "توسعه‌دهنده فول‌استک",
     specialty: "Codex",
     initials: "S",
     image: kianPhoto,
@@ -50,7 +57,9 @@ const TeamPhoto = ({
   isActive: boolean;
   onActiveChange: (name: string | null) => void;
 }) => {
+  const { isFa } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const displayName = isFa ? member.nameFa : member.name;
 
   useEffect(() => {
     const video = videoRef.current;
@@ -77,13 +86,17 @@ const TeamPhoto = ({
       onMouseEnter={() => hasHoverPointer() && onActiveChange(member.name)}
       onMouseLeave={() => hasHoverPointer() && onActiveChange(null)}
       onClick={(event) => toggleForTouchOrKeyboard(event.detail)}
-      aria-label={`${isActive ? "Stop" : "Play"} ${member.name}'s video`}
+      aria-label={
+        isFa
+          ? `${isActive ? "توقف" : "پخش"} ویدیوی ${displayName}`
+          : `${isActive ? "Stop" : "Play"} ${displayName}'s video`
+      }
       aria-pressed={isActive}
     >
       <img
         className="team-photo-image"
         src={member.image}
-        alt={member.name}
+        alt={displayName}
         loading="lazy"
       />
       <video
@@ -103,26 +116,35 @@ const TeamPhoto = ({
 };
 
 const Team = () => {
+  const { isFa, direction } = useLanguage();
   const [activeMember, setActiveMember] = useState<string | null>(null);
 
   return (
     <section
       id="team"
       className="team-section"
-      dir="ltr"
+      dir={direction}
       aria-labelledby="team-title"
     >
       <Reveal className="team-heading">
-        <span>THE PEOPLE BEHIND THE WORK</span>
-        <h2 id="team-title">Meet the team</h2>
+        <span>{isFa ? "آدم‌های پشت این کار" : "THE PEOPLE BEHIND THE WORK"}</span>
+        <h2 id="team-title">{isFa ? "با تیم من آشنا شوید" : "Meet my team"}</h2>
         <p>
-          Different disciplines, one shared goal: building products people
-          enjoy using.
+          {isFa
+            ? "تخصص‌های متفاوت و یک هدف مشترک: ساخت محصولاتی که مردم از استفاده‌شان لذت ببرند."
+            : "Different disciplines, one shared goal: building products people enjoy using."}
         </p>
-        <div className="team-interaction-hint" aria-label="Interactive team photos">
+        <div
+          className="team-interaction-hint"
+          aria-label={isFa ? "عکس‌های تعاملی اعضای تیم" : "Interactive team photos"}
+        >
           <PlayCircle size="17" color="currentColor" variant="Bold" />
-          <span className="team-hint-hover">Hover over a photo — we'll smile back</span>
-          <span className="team-hint-touch">Tap a photo — we'll smile back</span>
+          <span className="team-hint-hover">
+            {isFa ? "نشانگر را روی عکس ببرید — لبخند می‌زنیم" : "Hover over a photo — we'll smile back"}
+          </span>
+          <span className="team-hint-touch">
+            {isFa ? "روی عکس بزنید — لبخند می‌زنیم" : "Tap a photo — we'll smile back"}
+          </span>
         </div>
       </Reveal>
 
@@ -137,8 +159,8 @@ const Team = () => {
               />
 
               <div className="team-card-copy">
-                <h3>{member.name}</h3>
-                <p>{member.position}</p>
+                <h3>{isFa ? member.nameFa : member.name}</h3>
+                <p>{isFa ? member.positionFa : member.position}</p>
               </div>
             </article>
           </Reveal>

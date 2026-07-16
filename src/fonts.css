@@ -25,6 +25,56 @@ This set of fonts are used in this project under the license: (.....)
        url("/fonts/KookPro/KookFaNum-ExtraLight.woff") format("woff");
 }
 
+/* English mode keeps Kook's Latin letterforms but delegates 0–9 to a Latin
+   system font, because the FaNum files intentionally replace ASCII digits. */
+@font-face {
+  font-family: "KookLatin";
+  font-style: normal;
+  font-weight: 200;
+  src: url("/fonts/KookPro/KookFaNum-ExtraLight.woff2") format("woff2");
+  unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+
+@font-face {
+  font-family: "KookLatin";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/KookPro/KookFaNum-Light.woff2") format("woff2");
+  unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+
+@font-face {
+  font-family: "KookLatin";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/KookPro/KookFaNum-Regular.woff2") format("woff2");
+  unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+
+@font-face {
+  font-family: "KookLatin";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/KookPro/KookFaNum-Medium.woff2") format("woff2");
+  unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+
+@font-face {
+  font-family: "KookLatin";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/KookPro/KookFaNum-Bold.woff2") format("woff2");
+  unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+
+@font-face {
+  font-family: "KookLatin";
+  font-style: normal;
+  font-weight: 800;
+  src: url("/fonts/KookPro/KookFaNum-ExtraBold.woff2") format("woff2");
+  unicode-range: U+0000-002F, U+003A-10FFFF;
+}
+
 @font-face {
   font-family: "Kook";
   font-style: normal;

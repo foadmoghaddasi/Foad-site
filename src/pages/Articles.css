@@ -273,13 +273,13 @@
   justify-content: center;
   flex-direction: column;
   padding: 20px 18px;
-  text-align: right;
+  text-align: start;
 }
 
 .article-featured-copy > *,
 .article-card-body > * {
   width: 100%;
-  text-align: right;
+  text-align: start;
 }
 
 .article-featured-copy h2,
@@ -287,7 +287,7 @@
 .article-card-body h2,
 .article-card-body > p,
 .article-card-meta > span {
-  direction: rtl;
+  direction: inherit;
   unicode-bidi: isolate;
 }
 
@@ -383,7 +383,7 @@
   flex-direction: column;
   padding: 12px;
   padding-inline-start: 0;
-  text-align: right;
+  text-align: start;
 }
 
 .article-card-body h2 {
@@ -450,12 +450,12 @@
 
 .article-detail-header h1 {
   margin: 18px 0 22px;
-  direction: rtl;
+  direction: inherit;
   font-size: clamp(2.7rem, 7vw, 5.6rem);
   font-weight: 720;
   line-height: 1.02;
   letter-spacing: -0.055em;
-  text-align: right;
+  text-align: start;
   unicode-bidi: isolate;
 }
 
@@ -799,7 +799,7 @@ h3.article-content-heading {
     align-items: flex-start;
     padding: 1px 2px;
     padding-inline-start: 0;
-    text-align: right;
+    text-align: start;
   }
 
   .article-card-body h2 {

@@ -534,6 +534,73 @@
     width: calc(100% - 2rem);
   }
 }
+
+.cv-page[dir="rtl"],
+.cv-page[dir="rtl"] * {
+  font-family: Kook, Tahoma, Arial, sans-serif;
+}
+
+.cv-page[dir="rtl"] .cv-hero-copy,
+.cv-page[dir="rtl"] .cv-section-heading,
+.cv-page[dir="rtl"] .cv-side-card,
+.cv-page[dir="rtl"] .cv-project-card,
+.cv-page[dir="rtl"] .cv-job {
+  text-align: right;
+}
+
+.cv-page[dir="rtl"] .cv-hero h1 {
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.cv-page[dir="rtl"] .cv-stat-grid {
+  right: 26px;
+  left: auto;
+}
+
+.cv-page[dir="rtl"] .cv-timeline::before {
+  right: 6px;
+  left: auto;
+}
+
+.cv-page[dir="rtl"] .cv-job {
+  padding: 0 45px 52px 0;
+}
+
+.cv-page[dir="rtl"] .cv-job > i {
+  right: 0;
+  left: auto;
+}
+
+.cv-page[dir="rtl"] .cv-job-top > p {
+  text-align: left;
+}
+
+.cv-page[dir="rtl"] .cv-job ul {
+  padding-right: 18px;
+  padding-left: 0;
+}
+
+@media (max-width: 900px) {
+  .cv-page[dir="rtl"] .cv-stat-grid {
+    right: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .cv-page[dir="rtl"] .cv-job {
+    padding: 0 31px 42px 0;
+  }
+
+  .cv-page[dir="rtl"] .cv-job-top > p {
+    text-align: right;
+  }
+
+  .cv-page[dir="rtl"] .cv-projects-section .cv-section-heading {
+    padding-right: 12px;
+    padding-left: 0;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .cv-page * {
     scroll-behavior: auto !important;

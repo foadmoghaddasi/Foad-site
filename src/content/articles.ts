@@ -610,5 +610,123 @@ export const articles: Article[] = [
   },
 ];
 
-export const getArticleBySlug = (slug?: string) =>
-  articles.find((article) => article.slug === slug);
+export const articlesEn: Article[] = [
+  {
+    slug: "what-is-user-flow",
+    title: "What is a User Flow?",
+    excerpt:
+      "A user flow maps the steps, decisions, and system states a person encounters while working toward a goal in a product.",
+    category: "User Experience",
+    publishedAt: "August 28, 2021",
+    readingTime: "5 min read",
+    cover: userFlowCover,
+    direction: "ltr",
+    featured: true,
+    content: [
+      { type: "paragraph", text: "Every time someone signs up, makes a purchase, books a service, or completes a simple task, they move through a path. When that path has not been considered before interface design begins, the result is often a collection of disconnected screens, unclear choices, and frustrating dead ends." },
+      { type: "heading", text: "What is a User Flow?", level: 2 },
+      { type: "paragraph", text: "A user flow is a visual representation of the steps, decisions, and system responses involved in reaching a specific goal. A flow should have a clear scenario and boundary; it does not need to fit an entire product into one diagram." },
+      { type: "image", src: userFlowChart, alt: "A sample flowchart showing paths from entry to different product actions", caption: "A user flow makes paths, decisions, and product states visible.", wide: true },
+      { type: "heading", text: "What should you define first?", level: 2 },
+      { type: "list", ordered: true, items: ["The user’s exact goal and the definition of success", "The entry point, such as search, a notification, or a direct link", "The user’s context, constraints, and information needs", "Business rules and technical limitations", "Errors, cancellations, and alternative paths that need to be supported"] },
+      { type: "paragraph", text: "Answers should come from research, product data, and collaboration with the team—not only from a designer’s assumptions. When evidence is incomplete, write assumptions down so they can be tested later." },
+      { type: "heading", text: "User Flow, Task Flow, and Journey Map", level: 2 },
+      { type: "list", items: ["A task flow is usually a mostly linear route through one specific task.", "A user flow includes branches, decisions, screens, and system responses.", "A journey map looks at a broader experience, often beyond the product, including touchpoints, emotions, and opportunities."] },
+      { type: "heading", text: "Design more than the happy path", level: 2 },
+      { type: "paragraph", text: "Loading, no-results, lost connections, unavailable inventory, validation errors, going back, and cancellation are all part of a real experience. Every important decision needs understandable feedback, and users should know where they are and what happens next." },
+      { type: "quote", text: "A useful flow includes alternative routes and recovery from failure—not only the happy path." },
+      { type: "paragraph", text: "Validate the flow with a clickable prototype and representative users. Funnel data can show where people drop off, but observation and conversation help explain why. Keep the flow updated as the product evolves." },
+    ],
+  },
+  {
+    slug: "what-is-wireframe",
+    title: "What is a Wireframe?",
+    excerpt:
+      "A wireframe is a lightweight blueprint for testing structure, content, and interaction before investing in polished UI.",
+    category: "User Experience",
+    publishedAt: "August 24, 2021",
+    readingTime: "4 min read",
+    cover: wireframeCover,
+    direction: "ltr",
+    featured: true,
+    content: [
+      { type: "paragraph", text: "Moving directly from an idea to polished UI or development increases the chance of spending significant time on a solution before the underlying problem has been validated. Wireframes let teams examine structure and interaction earlier and at a lower cost." },
+      { type: "quote", text: "The earlier a team learns, the less expensive it is to change direction." },
+      { type: "heading", text: "What is a wireframe?", level: 2 },
+      { type: "paragraph", text: "A wireframe is a simplified representation of a screen or flow. It shows what information appears, how content is prioritized, what actions are available, and roughly where major elements belong." },
+      { type: "paragraph", text: "Low-fidelity wireframes limit color, imagery, and visual decoration so discussion stays focused on content, hierarchy, and interaction. Realistic copy is still useful because labels, errors, and title lengths directly affect layout." },
+      { type: "image", src: wireframeFidelity, alt: "A mobile wireframe being drawn with pen and paper", caption: "Choose fidelity based on the question you need the wireframe to answer.", wide: true },
+      { type: "heading", text: "What should a wireframe cover?", level: 2 },
+      { type: "list", items: ["The screen’s goal and primary user action", "Content priority and decision-making information", "Navigation, entry points, back, and cancel behavior", "Empty, loading, error, success, and restricted states", "Responsive behavior across different widths", "Early accessibility considerations such as logical order and clear labels"] },
+      { type: "heading", text: "Tools and workflow", level: 2 },
+      { type: "paragraph", text: "Pen and paper remain the fastest place to start. Figma, FigJam, Penpot, Miro, and similar tools help with collaboration and digital versions. A good tool should make ideas easy to change rather than pulling attention toward unnecessary polish." },
+      { type: "gallery", images: [
+        { src: wireframeSample1, alt: "Structural website wireframe" }, { src: wireframeSample2, alt: "Hand-drawn website screens" },
+        { src: wireframeSample3, alt: "Hand-drawn mobile store flow" }, { src: wireframeSample4, alt: "Hand-drawn storefront home page" },
+        { src: wireframeSample5, alt: "Corporate website home-page wireframe" }, { src: wireframeSample6, alt: "Flow diagram and early wireframes" },
+        { src: wireframeSample7, alt: "A set of mobile application wireframes" },
+      ] },
+    ],
+  },
+  {
+    slug: "user-centered-design-ucd",
+    title: "User-Centered Design (UCD)",
+    excerpt:
+      "User-centered design brings real people, their goals, abilities, limitations, and context into product decisions throughout the lifecycle.",
+    category: "User Experience",
+    publishedAt: "August 24, 2021",
+    readingTime: "6 min read",
+    cover: ucdCover,
+    direction: "ltr",
+    featured: true,
+    content: [
+      { type: "heading", text: "What does user-centered design mean?", level: 2 },
+      { type: "paragraph", text: "User-centered design is an iterative approach that brings people’s needs, abilities, limitations, and context of use into decisions across the product lifecycle. It does not mean implementing every request; it means understanding the right problem and evaluating solutions with evidence." },
+      { type: "paragraph", text: "ISO 9241-210 emphasizes explicit understanding of users, tasks, and environments; ongoing user involvement; user-centered evaluation; and iteration. UCD is therefore not one interview at kickoff or a final test before release." },
+      { type: "image", src: ucdPrinciples, alt: "The overlap of user needs, information, and business goals", caption: "Useful experiences balance human needs, product information, and business goals." },
+      { type: "quote", text: "Invite users into the design process instead of only guessing on their behalf." },
+      { type: "heading", text: "The user-centered design cycle", level: 2 },
+      { type: "list", ordered: true, items: ["Understand who uses the product, why, with what tools, and in which conditions.", "Define user needs, business requirements, constraints, and measurable success criteria.", "Create solutions from sketches and wireframes through prototypes and working products.", "Evaluate whether the solution is effective, efficient, understandable, and satisfying in context."] },
+      { type: "image", src: ucdResearch, alt: "A user at the center of research and design", caption: "Real users and their feedback stay at the center of the process.", wide: true },
+      { type: "heading", text: "Choose the right method for the question", level: 2 },
+      { type: "list", items: ["Interviews and contextual inquiry for needs, motivations, and context", "Analytics and funnels for large-scale patterns and drop-off", "Usability tests for observing task completion and barriers", "Diary studies for experiences that unfold over time", "Surveys for measuring known patterns", "Controlled experiments for comparing defined solutions"] },
+      { type: "heading", text: "Accessibility and inclusion are part of UCD", level: 2 },
+      { type: "paragraph", text: "Usability for a narrow group does not guarantee accessibility for everyone. Accessibility standards and research with people with disabilities should enter the process early. Technical compliance matters, but real participation helps determine whether a solution is usable in practice." },
+      { type: "image", src: ucdDuolingo, alt: "A language-learning product interface", caption: "Learning products demonstrate how goals, feedback, and visible progress can support motivation." },
+      { type: "paragraph", text: "User-centered design turns assumptions into evidence, involves people early and continuously, and measures success by their ability to reach meaningful goals. A failed test is not a failed project; it is a chance to improve before the problem becomes larger." },
+    ],
+  },
+  {
+    slug: "what-is-style-guide",
+    title: "What is a Style Guide?",
+    excerpt:
+      "A style guide documents the visual and content rules that help teams create a coherent product experience.",
+    category: "Design Systems",
+    publishedAt: "August 23, 2021",
+    readingTime: "5 min read",
+    cover: styleGuideCover,
+    direction: "ltr",
+    featured: true,
+    content: [
+      { type: "paragraph", text: "A style guide is a documented set of visual and content rules for a brand or product. It explains how color, typography, spacing, imagery, icons, and voice should be used so the experience remains coherent across screens and channels." },
+      { type: "paragraph", text: "A public UI kit can provide inspiration, but copying one does not create a guide for your product. Rules should grow from brand identity, user needs, platform constraints, accessibility requirements, and the team’s real workflow." },
+      { type: "image", src: styleGuideComponents, alt: "Typography and UI components in a style guide", caption: "A style guide aligns the foundations of visual design.", wide: true },
+      { type: "heading", text: "Style Guide, Component Library, and Design System", level: 2 },
+      { type: "list", items: ["Brand guidelines cover identity, logo, color, imagery, and communication style.", "A UI style guide documents visual and content rules for interfaces.", "A component library contains reusable design or code components and their states.", "A design system also includes foundations, patterns, documentation, contribution, and governance."] },
+      { type: "heading", text: "Foundations and design tokens", level: 2 },
+      { type: "paragraph", text: "Many teams store foundational values as design tokens. A token gives a reusable value a name and role. Semantic tokens such as color-action-primary make themes, multiple brands, and platform changes easier to manage than repeated raw values." },
+      { type: "list", items: ["Primitive and semantic color roles", "Typography roles and multilingual rules", "Spacing, size, radius, elevation, and layering scales", "Responsive grids and breakpoints", "Motion with reduced-motion support", "Modes for light, dark, high-contrast, or multiple brands"] },
+      { type: "heading", text: "What should each component document?", level: 2 },
+      { type: "list", items: ["Anatomy and purpose", "Variants, sizes, and configurable properties", "Default, hover, focus, active, disabled, loading, error, and success states", "Responsive, long-content, and right-to-left behavior", "Content and accessibility guidance", "Code examples, API, and the mapping between design and implementation"] },
+      { type: "image", src: styleGuidePlatforms, alt: "An online environment for documenting a design system", caption: "Shared, living documentation makes collaboration easier.", wide: true },
+      { type: "heading", text: "Start small and keep it alive", level: 2 },
+      { type: "paragraph", text: "Start with an audit, core visual foundations, and a few frequently used components. Version meaningful changes, document migration, and define ownership. A small system that teams trust and use is more valuable than a large library that no one maintains." },
+    ],
+  },
+];
+
+export const getArticles = (language: "fa" | "en" = "fa") =>
+  language === "fa" ? articles : articlesEn;
+
+export const getArticleBySlug = (slug?: string, language: "fa" | "en" = "fa") =>
+  getArticles(language).find((article) => article.slug === slug);

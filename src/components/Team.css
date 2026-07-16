@@ -18,6 +18,11 @@
   text-align: center;
 }
 
+[dir="rtl"] .team-heading,
+[dir="rtl"] .team-card-copy {
+  text-align: right;
+}
+
 .team-heading > span {
   color: #6f8fff;
   font-family: Inter, "Helvetica Neue", Arial, sans-serif;
