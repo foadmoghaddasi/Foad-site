@@ -127,14 +127,14 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
     >
       <Reveal className="daily-challenge-heading">
         <div>
-          <span>{isFa ? "تمرین روزانه طراحی" : "DAILY DESIGN CHALLENGE"}</span>
+          <span>{isFa ? "آرشیو تمرین‌های طراحی" : "DESIGN CHALLENGE ARCHIVE"}</span>
           <h2 id="daily-challenge-title">
-            {isFa ? "هر روز، یک مسئله تازه" : "One fresh problem, every day"}
+            {isFa ? "چالش‌های روزانه طراحی" : "Daily Design Challenges"}
           </h2>
           <p>
             {isFa
-              ? "یک تمرین کوتاه برای تقویت حل مسئله، تصمیم‌گیری و مهارت طراحی محصول."
-              : "A focused exercise for sharpening product thinking, problem-solving, and design decisions."}
+              ? "چالش امروز را کامل ببینید، تمرین کنید و برای ایده گرفتن به چالش‌های قبلی سر بزنید."
+              : "Explore today’s full exercise, then browse previous challenges for more practice and inspiration."}
           </p>
         </div>
         <div className="daily-challenge-ai-badge">
@@ -151,6 +151,10 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
               <MagicStar size="26" color="currentColor" variant="Broken" />
             </div>
             <div className="daily-challenge-title-wrap">
+              <div className="daily-challenge-current-status">
+                <TickCircle size="15" color="currentColor" variant="Bold" />
+                {isFa ? "چالش امروز" : "Today’s challenge"}
+              </div>
               <span>{challenge.category[language]}</span>
               <Card.Title>{challenge.title[language]}</Card.Title>
               <div className="daily-challenge-meta">

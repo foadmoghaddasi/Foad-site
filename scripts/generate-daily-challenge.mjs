@@ -137,7 +137,9 @@ Required JSON shape:
 
 const input = `Create the challenge for ${date} in the Asia/Tehran timezone.
 Recent challenges to avoid:
-${recentTitles.map((item) => `- ${item.titleEn} / ${item.titleFa}`).join("\n")}`;
+${recentTitles
+  .map((item) => `- ${item.title?.en ?? item.titleEn} / ${item.title?.fa ?? item.titleFa}`)
+  .join("\n")}`;
 
 const response = await fetch("https://api.openai.com/v1/responses", {
   method: "POST",
@@ -170,10 +172,12 @@ const result = await response.json();
 const challenge = validateChallenge(JSON.parse(extractOutputText(result)));
 challenge.date = date;
 
-const nextHistory = [
-  ...history,
-  { date, titleFa: challenge.title.fa, titleEn: challenge.title.en },
-].slice(-30);
+const archivedByKey = new Map();
+for (const item of [...history, current]) {
+  const titleEn = item.title?.en ?? item.titleEn;
+  archivedByKey.set(`${item.date}:${titleEn}`, item);
+}
+const nextHistory = [...archivedByKey.values()].slice(-30);
 
 await writeFile(challengePath, `${JSON.stringify(challenge, null, 2)}\n`);
 await writeFile(historyPath, `${JSON.stringify(nextHistory, null, 2)}\n`);
