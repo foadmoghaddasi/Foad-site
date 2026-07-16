@@ -16,6 +16,7 @@ import Limevee from "./pages/Limevee";
 import CV from "./pages/CV";
 import Articles from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
+import DailyDesignChallengePage from "./pages/DailyDesignChallengePage";
 import { useLanguage } from "./context/LanguageContext";
 
 const ScrollToTop = () => {
@@ -161,6 +162,7 @@ const App: React.FC = () => {
           <Route path="/cv" element={<CV />} />
           <Route path="/articles" element={<Articles />} />
           <Route path="/articles/:slug" element={<ArticleDetail />} />
+          <Route path="/daily-design-challenge" element={<DailyDesignChallengePage />} />
         </Routes>
       </BrowserRouter>
     </>

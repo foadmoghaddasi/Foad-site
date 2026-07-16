@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@heroui/react/button";
 import { Card } from "@heroui/react/card";
 import {
+  ArrowLeft,
+  ArrowRight,
   Calendar,
   Clock,
   Copy,
@@ -15,7 +18,11 @@ import { useLanguage } from "../context/LanguageContext";
 import Reveal from "./Reveal";
 import "./DailyDesignChallenge.css";
 
-const DailyDesignChallenge = () => {
+type DailyDesignChallengeProps = {
+  variant?: "preview" | "full";
+};
+
+const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps) => {
   const { isFa, direction } = useLanguage();
   const language = isFa ? "fa" : "en";
   const [isCopied, setIsCopied] = useState(false);
@@ -47,9 +54,74 @@ const DailyDesignChallenge = () => {
     setIsCopied(true);
   };
 
+  if (variant === "preview") {
+    return (
+      <section
+        className="daily-challenge-section daily-challenge-section--preview"
+        dir={direction}
+        aria-labelledby="daily-challenge-preview-title"
+      >
+        <Reveal className="daily-challenge-preview-heading">
+          <div>
+            <span>{isFa ? "تمرین روزانه طراحی" : "DAILY DESIGN CHALLENGE"}</span>
+            <h2 id="daily-challenge-preview-title">
+              {isFa ? "مسئله امروز برای تمرین" : "Today’s problem to solve"}
+            </h2>
+          </div>
+          <div className="daily-challenge-ai-badge">
+            <MagicStar size="16" color="currentColor" variant="Bold" />
+            <span>{isFa ? "ساخته‌شده با هوش مصنوعی" : "AI-generated"}</span>
+          </div>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <Link
+            to="/daily-design-challenge"
+            className="daily-challenge-preview-link"
+            aria-label={`${isFa ? "مشاهده چالش امروز" : "View today’s challenge"}: ${challenge.title[language]}`}
+          >
+            <Card variant="tertiary" className="daily-challenge-preview-card">
+              <div className="daily-challenge-glow" aria-hidden="true" />
+              <Card.Header className="daily-challenge-preview-card-header">
+                <div className="daily-challenge-icon" aria-hidden="true">
+                  <MagicStar size="26" color="currentColor" variant="Broken" />
+                </div>
+                <div className="daily-challenge-title-wrap">
+                  <span>{challenge.category[language]}</span>
+                  <Card.Title>{challenge.title[language]}</Card.Title>
+                </div>
+              </Card.Header>
+
+              <Card.Content className="daily-challenge-preview-content">
+                <p>{challenge.scenario[language]}</p>
+                <div className="daily-challenge-preview-bottom">
+                  <div className="daily-challenge-meta">
+                    <span>
+                      <Clock size="15" color="currentColor" variant="Broken" />
+                      {challenge.timebox[language]}
+                    </span>
+                    <span>{challenge.difficulty[language]}</span>
+                  </div>
+                  <span className="daily-challenge-preview-cta">
+                    {isFa ? "مشاهده چالش امروز" : "View today’s challenge"}
+                    {isFa ? (
+                      <ArrowLeft size="20" color="currentColor" variant="Broken" />
+                    ) : (
+                      <ArrowRight size="20" color="currentColor" variant="Broken" />
+                    )}
+                  </span>
+                </div>
+              </Card.Content>
+            </Card>
+          </Link>
+        </Reveal>
+      </section>
+    );
+  }
+
   return (
     <section
-      className="daily-challenge-section"
+      className="daily-challenge-section daily-challenge-section--full"
       dir={direction}
       aria-labelledby="daily-challenge-title"
     >
