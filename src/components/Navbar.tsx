@@ -11,7 +11,10 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const isArticlesPage = pathname.startsWith("/articles");
-  const showHomeShortcut = pathname === "/cv" || pathname === "/limevee";
+  const showHomeShortcut =
+    pathname === "/cv" ||
+    pathname === "/limevee" ||
+    pathname === "/daily-design-challenge";
 
   useEffect(() => {
     const updateNavbar = () => setIsScrolled(window.scrollY > 24);
