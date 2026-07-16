@@ -371,21 +371,6 @@
   line-height: 1.8;
 }
 
-.daily-challenge-ai-badge {
-  display: inline-flex;
-  min-height: 35px;
-  flex: none;
-  align-items: center;
-  gap: 7px;
-  padding: 0 12px;
-  border: 1px solid color-mix(in oklab, #7596ff 25%, transparent);
-  border-radius: 999px;
-  background: color-mix(in oklab, #315efb 8%, transparent);
-  color: #87a1ff;
-  font-size: 0.68rem;
-  font-weight: 650;
-}
-
 .daily-challenge-card {
   position: relative;
   padding: 10px;

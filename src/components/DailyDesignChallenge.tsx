@@ -65,10 +65,6 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
               {isFa ? "مسئله این هفته برای تمرین" : "This week’s problem to solve"}
             </h2>
           </div>
-          <div className="daily-challenge-ai-badge">
-            <MagicStar size="16" color="currentColor" variant="Bold" />
-            <span>{isFa ? "ساخته‌شده با هوش مصنوعی" : "AI-generated"}</span>
-          </div>
         </Reveal>
 
         <Reveal delay={80}>
@@ -133,10 +129,6 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
               ? "چالش این هفته را کامل ببینید، تمرین کنید و برای ایده گرفتن به چالش‌های قبلی سر بزنید."
               : "Explore this week’s full exercise, then browse previous challenges for more practice and inspiration."}
           </p>
-        </div>
-        <div className="daily-challenge-ai-badge">
-          <MagicStar size="16" color="currentColor" variant="Bold" />
-          <span>{isFa ? "ساخته‌شده با هوش مصنوعی" : "AI-generated"}</span>
         </div>
       </Reveal>
 
