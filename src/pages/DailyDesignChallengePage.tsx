@@ -41,8 +41,8 @@ const DailyDesignChallengePage = () => {
   useEffect(() => {
     const previousTitle = document.title;
     document.title = isFa
-      ? "چالش روزانه طراحی · فؤاد مقدسی"
-      : "Daily Design Challenge · Foad Moghaddasi";
+      ? "چالش هفتگی طراحی · فؤاد مقدسی"
+      : "Weekly Design Challenge · Foad Moghaddasi";
 
     return () => {
       document.title = previousTitle;

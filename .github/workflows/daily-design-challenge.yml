@@ -1,15 +1,15 @@
-name: Generate daily design challenge
+name: Generate weekly design challenge
 
 on:
   schedule:
-    - cron: "30 3 * * *"
+    - cron: "30 3 * * 6"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: daily-design-challenge
+  group: weekly-design-challenge
   cancel-in-progress: false
 
 jobs:
@@ -36,8 +36,8 @@ jobs:
             echo "No challenge changes to commit."
             exit 0
           fi
-          git config user.name "daily-design-bot"
-          git config user.email "daily-design-bot@users.noreply.github.com"
+          git config user.name "weekly-design-bot"
+          git config user.email "weekly-design-bot@users.noreply.github.com"
           git add src/content/daily-challenge.json src/content/daily-challenges-history.json
-          git commit -m "content: generate daily design challenge"
+          git commit -m "content: generate weekly design challenge"
           git push

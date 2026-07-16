@@ -63,9 +63,9 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
       >
         <Reveal className="daily-challenge-preview-heading">
           <div>
-            <span>{isFa ? "تمرین روزانه طراحی" : "DAILY DESIGN CHALLENGE"}</span>
+            <span>{isFa ? "تمرین هفتگی طراحی" : "WEEKLY DESIGN CHALLENGE"}</span>
             <h2 id="daily-challenge-preview-title">
-              {isFa ? "مسئله امروز برای تمرین" : "Today’s problem to solve"}
+              {isFa ? "مسئله این هفته برای تمرین" : "This week’s problem to solve"}
             </h2>
           </div>
           <div className="daily-challenge-ai-badge">
@@ -78,7 +78,7 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
           <Link
             to="/daily-design-challenge"
             className="daily-challenge-preview-link"
-            aria-label={`${isFa ? "مشاهده چالش امروز" : "View today’s challenge"}: ${challenge.title[language]}`}
+            aria-label={`${isFa ? "مشاهده چالش این هفته" : "View this week’s challenge"}: ${challenge.title[language]}`}
           >
             <Card variant="tertiary" className="daily-challenge-preview-card">
               <div className="daily-challenge-glow" aria-hidden="true" />
@@ -103,7 +103,7 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
                     <span>{challenge.difficulty[language]}</span>
                   </div>
                   <span className="daily-challenge-preview-cta">
-                    {isFa ? "مشاهده چالش امروز" : "View today’s challenge"}
+                    {isFa ? "مشاهده چالش این هفته" : "View this week’s challenge"}
                     {isFa ? (
                       <ArrowLeft size="20" color="currentColor" variant="Broken" />
                     ) : (
@@ -129,12 +129,12 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
         <div>
           <span>{isFa ? "آرشیو تمرین‌های طراحی" : "DESIGN CHALLENGE ARCHIVE"}</span>
           <h2 id="daily-challenge-title">
-            {isFa ? "چالش‌های روزانه طراحی" : "Daily Design Challenges"}
+            {isFa ? "چالش‌های هفتگی طراحی" : "Weekly Design Challenges"}
           </h2>
           <p>
             {isFa
-              ? "چالش امروز را کامل ببینید، تمرین کنید و برای ایده گرفتن به چالش‌های قبلی سر بزنید."
-              : "Explore today’s full exercise, then browse previous challenges for more practice and inspiration."}
+              ? "چالش این هفته را کامل ببینید، تمرین کنید و برای ایده گرفتن به چالش‌های قبلی سر بزنید."
+              : "Explore this week’s full exercise, then browse previous challenges for more practice and inspiration."}
           </p>
         </div>
         <div className="daily-challenge-ai-badge">
@@ -154,7 +154,7 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
               <div className="daily-challenge-eyebrow-row">
                 <div className="daily-challenge-current-status">
                   <TickCircle size="15" color="currentColor" variant="Bold" />
-                  {isFa ? "چالش امروز" : "Today’s challenge"}
+                  {isFa ? "چالش این هفته" : "This week’s challenge"}
                 </div>
                 <span className="daily-challenge-category">
                   {challenge.category[language]}
@@ -178,7 +178,7 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
           <Card.Content className="daily-challenge-content">
             <p className="daily-challenge-scenario">{challenge.scenario[language]}</p>
             <div className="daily-challenge-brief">
-              <span>{isFa ? "چالش امروز" : "Today’s challenge"}</span>
+              <span>{isFa ? "چالش این هفته" : "This week’s challenge"}</span>
               <p>{challenge.challenge[language]}</p>
             </div>
 

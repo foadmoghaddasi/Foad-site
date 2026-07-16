@@ -102,7 +102,7 @@ const current = JSON.parse(await readFile(challengePath, "utf8"));
 
 if (process.argv.includes("--validate")) {
   validateChallenge(current);
-  console.log(`Daily challenge is valid: ${current.date} — ${current.title.en}`);
+  console.log(`Weekly challenge is valid: ${current.date} — ${current.title.en}`);
   process.exit(0);
 }
 
@@ -114,7 +114,7 @@ const history = JSON.parse(await readFile(historyPath, "utf8"));
 const recentTitles = history.slice(-30);
 const model = process.env.OPENAI_MODEL || "gpt-5.6-luna";
 
-const instructions = `You create one practical daily product-design exercise for a public portfolio website.
+const instructions = `You create one practical weekly product-design exercise for a public portfolio website.
 Return only valid JSON. Produce original, realistic, inclusive, non-sensitive scenarios suitable for designers at junior-to-mid level.
 Avoid medical diagnosis, financial advice, weapons, politics, dark patterns, manipulative engagement, and ideas that require private user data.
 The Persian and English content must be natural equivalents, not awkward literal translations.
@@ -135,7 +135,7 @@ Required JSON shape:
   "hint": { "fa": "...", "en": "..." }
 }`;
 
-const input = `Create the challenge for ${date} in the Asia/Tehran timezone.
+const input = `Create this week's challenge for ${date} in the Asia/Tehran timezone.
 Recent challenges to avoid:
 ${recentTitles
   .map((item) => `- ${item.title?.en ?? item.titleEn} / ${item.title?.fa ?? item.titleFa}`)
@@ -156,7 +156,7 @@ const response = await fetch("https://api.openai.com/v1/responses", {
     text: {
       format: {
         type: "json_schema",
-        name: "daily_design_challenge",
+        name: "weekly_design_challenge",
         strict: true,
         schema: challengeSchema,
       },
@@ -181,4 +181,4 @@ const nextHistory = [...archivedByKey.values()].slice(-30);
 
 await writeFile(challengePath, `${JSON.stringify(challenge, null, 2)}\n`);
 await writeFile(historyPath, `${JSON.stringify(nextHistory, null, 2)}\n`);
-console.log(`Generated daily challenge with ${model}: ${challenge.title.en}`);
+console.log(`Generated weekly challenge with ${model}: ${challenge.title.en}`);
