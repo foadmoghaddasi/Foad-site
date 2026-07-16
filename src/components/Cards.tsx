@@ -50,6 +50,7 @@ import Reveal from "./Reveal";
 import Footer from "./Footer";
 import Team from "./Team";
 import LatestArticles from "./LatestArticles";
+import Certifications from "./Certifications";
 
 const projects = [
   {
@@ -270,10 +271,10 @@ const Cards = () => {
 
         {hasMoreProjects && (
           <Reveal className="mt-10 flex justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              onPress={() =>
+            <button
+              type="button"
+              className="certification-link portfolio-more-button"
+              onClick={() =>
                 setVisibleProjects((current) =>
                   Math.min(current + 3, projects.length),
                 )
@@ -281,11 +282,11 @@ const Cards = () => {
             >
               مشاهده بیشتر
               <ArrowCircleDown
-                size="22"
+                size="18"
                 color="currentColor"
                 variant="Broken"
               />
-            </Button>
+            </button>
           </Reveal>
         )}
 
@@ -314,6 +315,8 @@ const Cards = () => {
         <Team />
 
         <LatestArticles />
+
+        <Certifications />
 
         <Reveal className="mt-24">
           <section dir="ltr" aria-labelledby="recommendation-title">

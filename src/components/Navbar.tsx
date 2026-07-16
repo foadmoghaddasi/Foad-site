@@ -11,6 +11,7 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const isArticlesPage = pathname.startsWith("/articles");
+  const showHomeShortcut = pathname === "/cv" || pathname === "/limevee";
 
   useEffect(() => {
     const updateNavbar = () => setIsScrolled(window.scrollY > 24);
@@ -45,25 +46,28 @@ const Navbar = () => {
           </span>
         </div>
       </Link>
-      {isArticlesPage ? (
-        <Link
-          to="/"
-          className="navbar-icon-link"
-          aria-label="رفتن به صفحه اصلی"
-          title="صفحه اصلی"
-        >
-          <Home2 size="18" color="currentColor" variant="Broken" />
-        </Link>
-      ) : (
-        <Link
-          to="/articles"
-          className="navbar-icon-link"
-          aria-label="رفتن به صفحه مقاله‌ها"
-          title="مقاله‌ها"
-        >
-          <Book size="19" color="currentColor" variant="Broken" />
-        </Link>
-      )}
+      <nav className="navbar-icon-links" aria-label="دسترسی سریع">
+        {(isArticlesPage || showHomeShortcut) && (
+          <Link
+            to="/"
+            className="navbar-icon-link"
+            aria-label="رفتن به صفحه اصلی"
+            title="صفحه اصلی"
+          >
+            <Home2 size="18" color="currentColor" variant="Broken" />
+          </Link>
+        )}
+        {!isArticlesPage && (
+          <Link
+            to="/articles"
+            className="navbar-icon-link"
+            aria-label="رفتن به صفحه مقاله‌ها"
+            title="مقاله‌ها"
+          >
+            <Book size="19" color="currentColor" variant="Broken" />
+          </Link>
+        )}
+      </nav>
       <Switch
         isSelected={theme === "light"}
         onChange={() => toggleTheme()}

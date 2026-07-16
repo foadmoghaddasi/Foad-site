@@ -4,6 +4,7 @@ import { DocumentDownload } from "iconsax-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
+import Certifications from "../components/Certifications";
 import "./CV.css";
 
 const experiences = [
@@ -320,6 +321,8 @@ export default function CV() {
           </Reveal>
         </aside>
       </div>
+
+      <Certifications context="cv" />
 
       <section className="cv-projects-section">
         <div className="cv-shell">

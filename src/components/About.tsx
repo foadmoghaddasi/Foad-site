@@ -16,13 +16,18 @@ const About = () => {
           <span className="h-px w-full bg-border" aria-hidden="true" />
         </div>
 
-        <div dir="rtl" className="flex items-start gap-3 md:gap-4">
-          <Avatar size="lg" color="accent" variant="soft" className="shrink-0">
+        <div dir="rtl" className="about-message">
+          <Avatar
+            size="lg"
+            color="accent"
+            variant="soft"
+            className="about-avatar shrink-0"
+          >
             <Avatar.Image src={aboutPicture} alt="Foad Moghaddasi" className="object-cover" />
             <Avatar.Fallback className="font-semibold">FM</Avatar.Fallback>
           </Avatar>
 
-          <Card variant="tertiary" className="about-comment min-w-0 flex-1 shadow-none">
+          <Card variant="tertiary" className="about-comment min-w-0 w-full shadow-none">
             <Card.Header className="items-start justify-between gap-4 pb-2">
               <div>
                 <Card.Title className="text-base font-semibold md:text-lg">فؤاد مقدسی</Card.Title>

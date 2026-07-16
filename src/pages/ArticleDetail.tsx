@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ArrowRight } from "iconsax-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getArticleBySlug, type ArticleBlock } from "../content/articles";
@@ -85,10 +86,14 @@ const ArticleDetail = () => {
 
       <article className="article-detail">
         <header className="article-detail-header">
-          <Link to="/articles" className="article-back-link" dir="rtl">
-            همه مقاله‌ها ←
+          <Link
+            to="/articles"
+            className="article-back-link"
+            aria-label="بازگشت به مقاله‌ها"
+            title="بازگشت به مقاله‌ها"
+          >
+            <ArrowRight size="20" color="currentColor" variant="Broken" />
           </Link>
-          <span className="articles-overline">{article.category}</span>
           <h1>{article.title}</h1>
           <p>{article.excerpt}</p>
           <div className="article-detail-meta">
