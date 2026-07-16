@@ -510,6 +510,10 @@ body {
   transform: translateY(0) scale(0.98);
 }
 
+.hero-download .hero-glass-button {
+  flex-direction: row-reverse;
+}
+
 [data-theme="light"] .hero-glass-button {
   background: color-mix(in oklab, white 42%, transparent);
   border-color: color-mix(in oklab, var(--foreground) 13%, transparent);
@@ -949,14 +953,38 @@ body {
   border-radius: 12px;
 }
 
+.footer-credits {
+  margin: 6px 0 0;
+  line-height: 1.7;
+  opacity: 0.82;
+}
+
+.footer-team-link {
+  color: var(--foreground);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, #7596ff 55%, transparent);
+  text-underline-offset: 3px;
+  transition:
+    color 180ms ease,
+    text-decoration-color 180ms ease;
+}
+
+.footer-team-link:hover {
+  color: #7596ff;
+  text-decoration-color: currentColor;
+}
+
 @media (min-width: 768px) {
   [dir="ltr"] .footer-identity,
-  [dir="ltr"] .footer-copyright {
+  [dir="ltr"] .footer-copyright,
+  [dir="ltr"] .footer-credits {
     text-align: left;
   }
 
   [dir="rtl"] .footer-identity,
-  [dir="rtl"] .footer-copyright {
+  [dir="rtl"] .footer-copyright,
+  [dir="rtl"] .footer-credits {
     text-align: right;
   }
 

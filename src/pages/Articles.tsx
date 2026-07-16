@@ -89,7 +89,7 @@ const Articles = () => {
             {isFa ? "مقاله‌ها و یادداشت‌ها" : "ARTICLES & NOTES"}
           </span>
           <h1>
-            {isFa ? "ایده‌هایی برای به اشتراک گذاشتن." : "Ideas worth sharing."}
+            {isFa ? "ایده‌هایی برای به اشتراک گذاشتن" : "Ideas worth sharing"}
           </h1>
           <p>
             {isFa

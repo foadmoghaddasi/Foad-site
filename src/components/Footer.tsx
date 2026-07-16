@@ -80,6 +80,25 @@ const Footer = () => {
         <p className="footer-copyright mt-8 text-center text-xs text-muted">
           © {new Date().getFullYear()} Foadmoghaddasi.com
         </p>
+        <p className="footer-credits text-center text-xs text-muted">
+          {isFa ? (
+            <>
+              این سایت از ۰ تا ۱۰۰ توسط {" "}
+              <Link href="/#team" className="footer-team-link">
+                اعضای تیم
+              </Link>{" "}
+              و با مدیریت فؤاد مقدسی طراحی و اجرا شده است.
+            </>
+          ) : (
+            <>
+              This website was designed and built from start to finish by the {" "}
+              <Link href="/#team" className="footer-team-link">
+                team
+              </Link>
+              , led by Foad Moghaddasi.
+            </>
+          )}
+        </p>
       </footer>
     </Reveal>
   );

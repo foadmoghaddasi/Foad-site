@@ -17,6 +17,9 @@ import wireframeSample6 from "../assets/images/articles/wireframe/sample-6.webp"
 import wireframeSample7 from "../assets/images/articles/wireframe/sample-7.jpeg";
 import userFlowCover from "../assets/images/articles/user-flow/cover.jpeg";
 import userFlowChart from "../assets/images/articles/user-flow/flowchart.png";
+import portfolioProductCover from "../assets/images/articles/portfolio-as-product/cover.jpg";
+import portfolioProductProcess from "../assets/images/articles/portfolio-as-product/process.jpg";
+import portfolioProductAnalytics from "../assets/images/articles/portfolio-as-product/analytics.jpg";
 
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
@@ -44,6 +47,194 @@ export type Article = {
 };
 
 export const articles: Article[] = [
+  {
+    slug: "product-designer-portfolio-as-a-product",
+    title: "پورتفولیوی یک طراح محصول نباید فقط یک ویترین باشد",
+    excerpt:
+      "یک پورتفولیو می‌تواند فراتر از نمایش پروژه‌ها باشد؛ محصولی زنده که مخاطبش را می‌شناسد، از رفتار او یاد می‌گیرد و به‌مرور بهتر می‌شود.",
+    category: "طراحی محصول",
+    publishedAt: "۲۵ تیر ۱۴۰۵",
+    readingTime: "۶ دقیقه مطالعه",
+    cover: portfolioProductCover,
+    direction: "rtl",
+    featured: true,
+    content: [
+      {
+        type: "paragraph",
+        text: "بیشتر پورتفولیوها با یک هدف مشخص ساخته می‌شوند: نمایش پروژه‌ها، معرفی مهارت‌ها و پیدا کردن فرصت‌های شغلی یا همکاری. من هم در ابتدا با همین نگاه به پورتفولیوی شخصی‌ام فکر می‌کردم؛ سایتی که چند پروژه داخل آن قرار بگیرد، درباره من توضیح کوتاهی بدهد و در نهایت راهی برای ارتباط‌گرفتن داشته باشد.",
+      },
+      {
+        type: "paragraph",
+        text: "اما هرچه بیشتر روی محصولات مختلف کار کردم، یک سؤال جدی‌تر برایم شکل گرفت: چرا سایتی که متعلق به یک طراح محصول است، خودش نباید مانند یک محصول طراحی شود؟",
+      },
+      {
+        type: "quote",
+        text: "پورتفولیو می‌تواند از یک ویترین ثابت به یک محصول زنده تبدیل شود؛ محصولی که رفتار کاربر را می‌شناسد، به او کمک می‌کند، از تعاملش یاد می‌گیرد و به‌مرور بهتر می‌شود.",
+      },
+      {
+        type: "heading",
+        text: "مشکل بیشتر پورتفولیوها چیست؟",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "ساختار بسیاری از پورتفولیوهای طراحی تقریباً یکسان است: صفحه اصلی، درباره من، چند پروژه، رزومه و یک فرم تماس. این ساختار لزوماً بد نیست و در بسیاری از مواقع دقیقاً همان چیزی است که کاربر نیاز دارد. مشکل زمانی ایجاد می‌شود که تمام تصمیم‌های سایت براساس نمایش توانایی‌های طراح گرفته شوند، نه نیازهای بازدیدکننده.",
+      },
+      {
+        type: "paragraph",
+        text: "در چنین شرایطی، سایت بیشتر درباره صاحب پورتفولیو صحبت می‌کند تا کاربری که وارد آن شده است؛ درحالی‌که بازدیدکنندگان مختلف، هدف‌های متفاوتی دارند:",
+      },
+      {
+        type: "list",
+        items: [
+          "مدیر محصول می‌خواهد بداند طراح چگونه مسئله را تحلیل می‌کند.",
+          "ریکروتر می‌خواهد سریع به تجربه کاری، مهارت‌ها و رزومه دسترسی داشته باشد.",
+          "یک طراح دیگر شاید به دنبال یادگیری فرایند، ابزارها و تصمیم‌های طراحی باشد.",
+          "مشتری احتمالی می‌خواهد بداند آیا این طراح می‌تواند مسئله کسب‌وکار او را حل کند یا نه.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "اگر همه این افراد یک تجربه کاملاً یکسان داشته باشند، احتمالاً سایت برای هیچ‌کدام تجربه‌ای عالی ایجاد نمی‌کند.",
+      },
+      {
+        type: "heading",
+        text: "پورتفولیو خودش یک مسئله طراحی محصول است",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "وقتی طراحی یک محصول را شروع می‌کنیم، درباره هویت کاربر، هدف ورودش، موانع مسیر، اقدام اصلی و تعریف موفقیت سؤال می‌پرسیم. همین سؤال‌ها را می‌توان درباره یک سایت شخصی نیز مطرح کرد.",
+      },
+      {
+        type: "list",
+        items: [
+          "کاربر چه کسی است و از چه مسیری وارد سایت شده؟",
+          "برای رسیدن به چه هدفی وارد شده و چقدر زمان دارد؟",
+          "چه چیزی ممکن است او را سردرگم یا از ادامه مسیر منصرف کند؟",
+          "مهم‌ترین اقدام بعدی برای او چیست؟",
+          "از کجا می‌فهمیم تجربه‌اش موفق بوده است؟",
+        ],
+      },
+      {
+        type: "image",
+        src: portfolioProductProcess,
+        alt: "دیوار پوشیده از یادداشت‌های رنگی برای تحلیل تجربه کاربر",
+        caption: "پورتفولیو هم مانند هر محصول دیگری با شناخت مخاطب و مرتب‌کردن مسئله‌ها آغاز می‌شود. عکس: Christian Brok / Unsplash",
+        wide: true,
+      },
+      {
+        type: "paragraph",
+        text: "بازدیدکننده ممکن است فقط چند دقیقه برای بررسی سایت وقت داشته باشد. شاید از طریق لینکدین، گوگل، یک پیام یا معرفی دوست وارد شده باشد، هنوز من را نشناسد و چند پورتفولیوی دیگر را هم‌زمان بررسی کند. بنابراین سایت باید خیلی زود بگوید من چه کسی هستم، روی چه مسئله‌هایی کار می‌کنم، چگونه فکر می‌کنم، چه تجربه‌ای دارم و چرا همکاری با من می‌تواند ارزشمند باشد.",
+      },
+      {
+        type: "heading",
+        text: "پروژه‌ها را فقط نمایش ندهیم؛ تصمیم‌ها را توضیح دهیم",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "یکی از رایج‌ترین اشتباه‌ها در پورتفولیوی طراحان، تمرکز بیش از حد روی خروجی نهایی است. اسکرین‌های تمیز، موکاپ‌های جذاب و انیمیشن‌های حرفه‌ای توجه را جلب می‌کنند، اما به‌تنهایی نشان نمی‌دهند طراح چگونه مسئله را حل کرده است.",
+      },
+      {
+        type: "paragraph",
+        text: "ارزش واقعی یک Case Study در توضیح مسیر تصمیم‌گیری است:",
+      },
+      {
+        type: "list",
+        items: [
+          "مسئله اصلی چه بود و چگونه فهمیدیم واقعاً وجود دارد؟",
+          "چه محدودیت‌های فنی، زمانی یا کسب‌وکاری داشتیم؟",
+          "چه راه‌حل‌هایی بررسی شدند و چرا یک گزینه انتخاب شد؟",
+          "بازخورد کاربران چه تغییری در طراحی ایجاد کرد؟",
+          "نتیجه نهایی چه اثری روی کاربر یا کسب‌وکار داشت؟",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "حتی یک پروژه ناموفق، اگر تصمیم‌ها و آموخته‌هایش صادقانه توضیح داده شوند، ممکن است بیشتر از یک پروژه ظاهراً بی‌نقص توانایی طراح را نشان دهد. پورتفولیو نباید فقط ثابت کند که طراح می‌تواند صفحه‌ای زیبا بسازد؛ باید نشان دهد او در شرایط واقعی، با محدودیت‌های واقعی و در کنار افراد مختلف چگونه تصمیم می‌گیرد.",
+      },
+      {
+        type: "heading",
+        text: "تعامل بیشتر همیشه به معنای تجربه بهتر نیست",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "انیمیشن، تغییر نشانگر ماوس، اسکرول‌های متفاوت، عناصر سه‌بعدی و افکت‌های مختلف می‌توانند سایت را به‌یادماندنی کنند، اما هر تعامل باید دلیلی داشته باشد. تعامل زمانی ارزشمند است که به درک محتوا کمک کند، بازخورد بدهد، مسیر را ساده‌تر کند، شخصیت برند را منتقل کند یا کاربر را به کشف بخش تازه‌ای تشویق کند.",
+      },
+      {
+        type: "quote",
+        text: "هدف این نیست که کاربر بگوید «چه افکت جالبی»؛ هدف این است که تجربه برای او واضح، روان و درعین‌حال به‌یادماندنی باشد.",
+      },
+      {
+        type: "heading",
+        text: "محتوا می‌تواند سایت را زنده نگه دارد",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "پروژه‌های پورتفولیو معمولاً با فاصله زمانی زیادی منتشر می‌شوند و بعضی جزئیاتشان هم به‌دلیل محرمانگی قابل انتشار نیست. مقاله‌ها، یادداشت‌های کوتاه و تجربه‌های روزمره می‌توانند فاصله میان پروژه‌ها را پر کنند و طرز فکر طراح را نشان دهند.",
+      },
+      {
+        type: "list",
+        items: [
+          "چگونه بین خواسته کسب‌وکار و نیاز کاربر تعادل برقرار کنیم؟",
+          "چه زمانی باید یک قابلیت را حذف کنیم؟",
+          "چطور درباره یک تصمیم طراحی با تیم فنی صحبت کنیم؟",
+          "چه زمانی Design System به مانع تبدیل می‌شود؟",
+          "چگونه بفهمیم یک بازطراحی واقعاً لازم است؟",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "این تجربه‌ها شاید به‌اندازه یک Case Study بزرگ به نظر نرسند، اما در کنار هم نگرش طراح را آشکار می‌کنند و سایت را به فضایی برای ثبت تجربه، یادگیری و گفت‌وگو تبدیل می‌کنند.",
+      },
+      {
+        type: "heading",
+        text: "سایت باید از رفتار کاربران یاد بگیرد",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "محصول بدون داده و بازخورد، بیشتر مجموعه‌ای از فرضیات است و پورتفولیو نیز از این قاعده مستثنا نیست. می‌توان بررسی کرد کاربران بیشتر وارد کدام پروژه‌ها می‌شوند، چه بخش‌هایی را کامل می‌خوانند، کجا سایت را ترک می‌کنند و کدام مسیر بیشتر به ارتباط یا مشاهده رزومه می‌رسد.",
+      },
+      {
+        type: "image",
+        src: portfolioProductAnalytics,
+        alt: "داشبورد تحلیل داده و رفتار کاربران روی نمایشگر",
+        caption: "معیارها زمانی مفیدند که به یک تعریف روشن از موفقیت متصل باشند. عکس: Luke Chesser / Unsplash",
+        wide: true,
+      },
+      {
+        type: "paragraph",
+        text: "هدف صرفاً افزایش عددهایی مثل زمان حضور در سایت نیست. گاهی کاربری که در کمتر از یک دقیقه اطلاعات موردنیازش را پیدا کرده و پیام فرستاده، تجربه موفق‌تری از کسی داشته که ده دقیقه در سایت سردرگم مانده است. پیش از بررسی هر معیار باید بدانیم موفقیت برای کاربر و صاحب سایت چه معنایی دارد.",
+      },
+      {
+        type: "list",
+        items: [
+          "کاربر پروژه مرتبط با نیازش را پیدا کند.",
+          "طرز فکر طراح را بهتر بشناسد.",
+          "مقاله‌ای مفید بخواند.",
+          "رزومه را مشاهده کند.",
+          "برای همکاری یا گفت‌وگو ارتباط بگیرد.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "از پورتفولیو به محصول",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "تبدیل پورتفولیو به محصول به معنای ساخت یک پلتفرم بزرگ و پیچیده نیست. می‌توان با تغییرهای کوچک شروع کرد: پیشنهاد پروژه براساس علاقه کاربر، جست‌وجو در تجربه‌ها و مقاله‌ها، نمایش نسخه‌های مختلف یک طراحی، انتشار ابزار و تمپلیت، ساخت آزمون‌های کوتاه UX یا ایجاد فضایی برای دریافت بازخورد.",
+      },
+      {
+        type: "paragraph",
+        text: "نکته اصلی تعداد قابلیت‌ها نیست؛ تفاوت واقعی در نوع نگاه است. در نگاه ویترینی، سایت یک بار ساخته و منتشر می‌شود. در نگاه محصولی، سایت نسخه اولیه‌ای است که باید استفاده شود، بازخورد بگیرد و تکامل پیدا کند.",
+      },
+    ],
+  },
   {
     slug: "what-is-user-flow",
     title: "یوزر فلو (User Flow) چیست؟",
@@ -611,6 +802,194 @@ export const articles: Article[] = [
 ];
 
 export const articlesEn: Article[] = [
+  {
+    slug: "product-designer-portfolio-as-a-product",
+    title: "A Product Designer’s Portfolio Should Be More Than a Showcase",
+    excerpt:
+      "A portfolio can be more than a collection of projects—it can become a living product that understands its audience, learns from behavior, and improves over time.",
+    category: "Product Design",
+    publishedAt: "July 16, 2026",
+    readingTime: "6 min read",
+    cover: portfolioProductCover,
+    direction: "ltr",
+    featured: true,
+    content: [
+      {
+        type: "paragraph",
+        text: "Most portfolios are built with a clear goal: present projects, introduce skills, and create new employment or collaboration opportunities. I initially thought about my own portfolio in exactly the same way—a website with a few projects, a short introduction, and a way to get in touch.",
+      },
+      {
+        type: "paragraph",
+        text: "The more products I worked on, however, the more a serious question stayed with me: why shouldn’t a website owned by a product designer be designed like a product itself?",
+      },
+      {
+        type: "quote",
+        text: "A portfolio can move from a static showcase to a living product—one that understands visitor behavior, helps people, learns from interaction, and improves over time.",
+      },
+      {
+        type: "heading",
+        text: "What is wrong with most portfolios?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Many design portfolios share the same structure: a home page, an about section, several projects, a résumé, and a contact form. There is nothing inherently wrong with that structure. The problem begins when every decision is made around displaying the designer’s abilities rather than serving the visitor’s needs.",
+      },
+      {
+        type: "paragraph",
+        text: "At that point, the website talks more about its owner than the person using it, even though different visitors arrive with very different goals:",
+      },
+      {
+        type: "list",
+        items: [
+          "A product manager wants to understand how the designer analyzes problems.",
+          "A recruiter wants quick access to experience, skills, and a résumé.",
+          "Another designer may want to learn about process, tools, and design decisions.",
+          "A potential client wants to know whether this person can solve a real business problem.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "If all of these people receive exactly the same experience, the site is unlikely to create an excellent experience for any of them.",
+      },
+      {
+        type: "heading",
+        text: "A portfolio is a product design problem",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "When we begin designing a product, we ask who the user is, why they have arrived, what stands in their way, which action matters most, and how success should be measured. The same questions apply to a personal website.",
+      },
+      {
+        type: "list",
+        items: [
+          "Who is the visitor, and where did they come from?",
+          "What are they trying to achieve, and how much time do they have?",
+          "What could confuse them or make them leave?",
+          "What is the most valuable next action for them?",
+          "How will we know their visit was successful?",
+        ],
+      },
+      {
+        type: "image",
+        src: portfolioProductProcess,
+        alt: "A wall of colorful notes used to organize user-experience findings",
+        caption: "Like any product, a portfolio starts with understanding its audience and organizing the problem. Photo: Christian Brok / Unsplash",
+        wide: true,
+      },
+      {
+        type: "paragraph",
+        text: "A visitor may have only a few minutes. They may arrive from LinkedIn, Google, a direct message, or a friend’s recommendation. They do not know me yet and may be reviewing several portfolios at once. The site therefore needs to answer quickly: who am I, what problems do I work on, how do I think, what experience do I have, and why might working with me be valuable?",
+      },
+      {
+        type: "heading",
+        text: "Do not only show projects—explain decisions",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "One of the most common portfolio mistakes is placing too much emphasis on final output. Clean screens, polished mockups, and professional animation can attract attention, but they do not reveal how a designer solved the underlying problem.",
+      },
+      {
+        type: "paragraph",
+        text: "The real value of a case study lies in its decision-making story:",
+      },
+      {
+        type: "list",
+        items: [
+          "What was the core problem, and how did we verify that it existed?",
+          "Which technical, time, or business constraints shaped the work?",
+          "Which solutions were explored, and why was one selected?",
+          "How did user feedback change the design?",
+          "What effect did the final result have on users or the business?",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Even an unsuccessful project can demonstrate more ability than a seemingly perfect one when its decisions and lessons are explained honestly. A portfolio should not merely prove that someone can make a beautiful page. It should show how that person makes decisions under real constraints and alongside different disciplines.",
+      },
+      {
+        type: "heading",
+        text: "More interaction does not always mean a better experience",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Animation, custom cursors, unusual scrolling, 3D elements, and visual effects can make a site memorable, but every interaction needs a reason. Interaction is valuable when it improves understanding, provides feedback, simplifies a task, communicates personality, or invites visitors to discover something useful.",
+      },
+      {
+        type: "quote",
+        text: "The goal is not for someone to say, ‘That is a cool effect.’ The goal is to make the experience clear, effortless, and memorable at the same time.",
+      },
+      {
+        type: "heading",
+        text: "Content keeps the site alive",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Portfolio projects are often published months apart, and confidentiality can prevent many details from being shared. Articles, short notes, and everyday observations fill the space between major projects and make a designer’s thinking visible.",
+      },
+      {
+        type: "list",
+        items: [
+          "How do we balance business requests with user needs?",
+          "When should a feature be removed?",
+          "How should a design decision be discussed with engineering?",
+          "When does a design system become an obstacle?",
+          "How do we know whether a redesign is genuinely necessary?",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "These experiences may appear smaller than a full case study, but together they reveal how a designer thinks. They also turn the site into a place for documenting experience, learning, and conversation rather than something abandoned after launch.",
+      },
+      {
+        type: "heading",
+        text: "The site should learn from visitor behavior",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "A product without data or feedback is largely a collection of assumptions, and a portfolio is no exception. We can learn which projects people open, which sections they finish, where they leave, and which paths lead to a conversation or résumé view.",
+      },
+      {
+        type: "image",
+        src: portfolioProductAnalytics,
+        alt: "A user-behavior analytics dashboard on a monitor",
+        caption: "Metrics become useful when they connect to a clear definition of success. Photo: Luke Chesser / Unsplash",
+        wide: true,
+      },
+      {
+        type: "paragraph",
+        text: "The goal is not simply to maximize numbers such as time on site. A visitor who finds the right information and sends a message in under a minute may have a far better experience than someone who spends ten minutes feeling lost. Before tracking a metric, we need to define what success means for both the visitor and the site owner.",
+      },
+      {
+        type: "list",
+        items: [
+          "The visitor finds a project relevant to their needs.",
+          "They understand the designer’s way of thinking.",
+          "They read something genuinely useful.",
+          "They view the résumé.",
+          "They start a conversation or collaboration.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "From portfolio to product",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Turning a portfolio into a product does not require building a large, complex platform. It can begin with small changes: recommending projects based on interest, searching articles and experience, showing iterations of a design, publishing small tools or templates, creating short UX exercises, or adding a thoughtful feedback channel.",
+      },
+      {
+        type: "paragraph",
+        text: "The number of features is not the point. The real difference is the mindset. A showcase is built and published once. A product is a first version—something meant to be used, evaluated, and improved.",
+      },
+    ],
+  },
   {
     slug: "what-is-user-flow",
     title: "What is a User Flow?",

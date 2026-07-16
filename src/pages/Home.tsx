@@ -29,6 +29,8 @@ const heroWordsFa = [
   "برای اثری واقعی",
 ];
 
+let hasAutoDownloadedCvDuringCurrentVisit = false;
+
 const Home = () => {
   const { isFa, direction } = useLanguage();
   const heroWords = isFa ? heroWordsFa : heroWordsEn;
@@ -57,6 +59,12 @@ const Home = () => {
   };
 
   const handleDownload = () => {
+    if (hasAutoDownloadedCvDuringCurrentVisit) {
+      navigate("/cv");
+      return;
+    }
+
+    hasAutoDownloadedCvDuringCurrentVisit = true;
     const link = document.createElement("a");
     link.href = "/FoadMoghaddasi-CV.pdf"; // Ensure the file is in the 'public' folder
     link.download = "Foad_Moghaddasi_CV.pdf"; // Set the filename for download
