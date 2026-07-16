@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Book, Home2, Moon, Sun1 } from "iconsax-react";
+import { Book, Home2, MedalStar, Moon, Sun1 } from "iconsax-react";
 import { Switch } from "@heroui/react/switch";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/images/fm-logo.png";
@@ -13,6 +13,7 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const isArticlesPage = pathname.startsWith("/articles");
+  const isChallengePage = pathname === "/daily-design-challenge";
   const showHomeShortcut =
     pathname === "/cv" ||
     pathname === "/limevee" ||
@@ -67,6 +68,20 @@ const Navbar = () => {
             title={isFa ? "مقاله‌ها" : "Articles"}
           >
             <Book size="19" color="currentColor" variant="Broken" />
+          </Link>
+        )}
+        {!isChallengePage && (
+          <Link
+            to="/daily-design-challenge"
+            className="navbar-icon-link"
+            aria-label={
+              isFa
+                ? "رفتن به صفحه چالش‌های هفتگی طراحی"
+                : "Go to weekly design challenges"
+            }
+            title={isFa ? "چالش‌های هفتگی" : "Weekly challenges"}
+          >
+            <MedalStar size="19" color="currentColor" variant="Broken" />
           </Link>
         )}
       </nav>
