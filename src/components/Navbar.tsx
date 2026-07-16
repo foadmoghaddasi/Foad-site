@@ -42,12 +42,6 @@ const Navbar = () => {
           alt="Foad Moghaddasi"
           className="h-10 shrink-0 object-contain md:h-12"
         />
-        <div className="navbar-identity" aria-hidden={!isScrolled}>
-          <span className="navbar-identity-divider" aria-hidden="true" />
-          <span className="whitespace-nowrap text-base font-light tracking-wide md:text-xl">
-            Foad Moghaddasi
-          </span>
-        </div>
       </Link>
       <nav className="navbar-icon-links" aria-label="دسترسی سریع">
         {(isArticlesPage || showHomeShortcut) && (
