@@ -9,7 +9,7 @@ import {
   Clock,
   Copy,
   LampOn,
-  MagicStar,
+  Medal,
   TaskSquare,
   TickCircle,
 } from "iconsax-react";
@@ -77,7 +77,7 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
               <div className="daily-challenge-glow" aria-hidden="true" />
               <Card.Header className="daily-challenge-preview-card-header">
                 <div className="daily-challenge-icon" aria-hidden="true">
-                  <MagicStar size="26" color="currentColor" variant="Broken" />
+                  <Medal size="26" color="currentColor" variant="Broken" />
                 </div>
                 <div className="daily-challenge-title-wrap">
                   <span>{challenge.category[language]}</span>
@@ -137,7 +137,7 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
           <div className="daily-challenge-glow" aria-hidden="true" />
           <Card.Header className="daily-challenge-card-header">
             <div className="daily-challenge-icon" aria-hidden="true">
-              <MagicStar size="26" color="currentColor" variant="Broken" />
+              <Medal size="26" color="currentColor" variant="Broken" />
             </div>
             <div className="daily-challenge-title-wrap">
               <div className="daily-challenge-eyebrow-row">
