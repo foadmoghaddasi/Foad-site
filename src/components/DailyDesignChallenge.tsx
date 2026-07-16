@@ -15,6 +15,7 @@ import {
 } from "iconsax-react";
 import challenge from "../content/daily-challenge.json";
 import { useLanguage } from "../context/LanguageContext";
+import { formatChallengeDateRange } from "../utils/formatChallengeDateRange";
 import Reveal from "./Reveal";
 import "./DailyDesignChallenge.css";
 
@@ -28,15 +29,7 @@ const DailyDesignChallenge = ({ variant = "preview" }: DailyDesignChallengeProps
   const [isCopied, setIsCopied] = useState(false);
 
   const formattedDate = useMemo(() => {
-    const startDate = new Date(`${challenge.date}T12:00:00Z`);
-    const endDate = new Date(startDate);
-    endDate.setUTCDate(endDate.getUTCDate() + 6);
-    const formatter = new Intl.DateTimeFormat(
-      isFa ? "fa-IR-u-ca-persian" : "en-US",
-      { year: "numeric", month: "long", day: "numeric" },
-    );
-
-    return `${formatter.format(startDate)} ${isFa ? "تا" : "–"} ${formatter.format(endDate)}`;
+    return formatChallengeDateRange(challenge.date, isFa);
   }, [isFa]);
 
   useEffect(() => {
