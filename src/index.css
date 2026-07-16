@@ -804,9 +804,12 @@ body {
 }
 
 .navbar-icon-links {
+  position: absolute;
+  left: 50%;
   display: flex;
   align-items: center;
   gap: 4px;
+  transform: translateX(-50%);
 }
 
 .navbar-brand-link {
