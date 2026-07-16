@@ -1,0 +1,43 @@
+name: Generate daily design challenge
+
+on:
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-design-challenge
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate challenge
+        run: node scripts/generate-daily-challenge.mjs
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-5.6-luna
+
+      - name: Commit new challenge
+        run: |
+          if git diff --quiet; then
+            echo "No challenge changes to commit."
+            exit 0
+          fi
+          git config user.name "daily-design-bot"
+          git config user.email "daily-design-bot@users.noreply.github.com"
+          git add src/content/daily-challenge.json src/content/daily-challenges-history.json
+          git commit -m "content: generate daily design challenge"
+          git push

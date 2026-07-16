@@ -14,6 +14,7 @@ import kianPhoto from "../assets/images/shahrokh.png";
 import foadPhoto from "../assets/images/about-pic.jpeg";
 import { useLanguage } from "../context/LanguageContext";
 import LanguageNotice from "../components/LanguageNotice";
+import DailyDesignChallenge from "../components/DailyDesignChallenge";
 
 const heroWordsEn = [
   "that feel effortless",
@@ -222,6 +223,7 @@ const Home = () => {
         </Reveal>
       </Surface>
 
+      <DailyDesignChallenge />
       <About />
 
       {/* سکشن کارت‌ها */}

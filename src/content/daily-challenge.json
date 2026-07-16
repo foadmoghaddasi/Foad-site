@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-16",
+  "difficulty": { "fa": "متوسط", "en": "Intermediate" },
+  "timebox": { "fa": "۶۰ تا ۹۰ دقیقه", "en": "60–90 minutes" },
+  "category": {
+    "fa": "تجربه کاربری · محصول شهری",
+    "en": "User Experience · Urban Product"
+  },
+  "title": {
+    "fa": "ایستگاه اتوبوسی برای زمان‌های نامطمئن",
+    "en": "A Bus Stop for Uncertain Arrival Times"
+  },
+  "scenario": {
+    "fa": "در یک شهر شلوغ، زمان رسیدن اتوبوس‌ها دقیق نیست و اینترنت موبایل هم همیشه در دسترس نیست. مسافران نمی‌دانند اتوبوس بعدی چه زمانی می‌رسد، چقدر شلوغ است یا آیا بهتر است مسیر دیگری را انتخاب کنند.",
+    "en": "In a busy city, bus arrival times are unreliable and mobile internet is not always available. Passengers cannot tell when the next bus will arrive, how crowded it is, or whether another route would be a better choice."
+  },
+  "challenge": {
+    "fa": "یک تجربه برای نمایشگر کوچک داخل ایستگاه طراحی کنید که با داده ناقص هم به مسافر کمک کند تصمیم مطمئن‌تری بگیرد. راه‌حل شما باید به‌جای نمایش دقت جعلی، میزان اطمینان اطلاعات را شفاف نشان دهد.",
+    "en": "Design an experience for a small display at the bus stop that helps passengers make a confident decision even when data is incomplete. Instead of showing false precision, your solution should communicate how reliable the information is."
+  },
+  "constraints": {
+    "fa": [
+      "نمایشگر فقط ۷ اینچ و غیرلمسی است.",
+      "اطلاعات ممکن است تا ۵ دقیقه تأخیر داشته باشند.",
+      "راه‌حل باید برای افراد کم‌بینا و کاربران ناآشنا با فناوری قابل‌استفاده باشد."
+    ],
+    "en": [
+      "The display is only 7 inches and is not touch-enabled.",
+      "Arrival data may be delayed by up to 5 minutes.",
+      "The solution must work for people with low vision and limited technology experience."
+    ]
+  },
+  "deliverables": {
+    "fa": [
+      "یک User Flow کوتاه برای تصمیم مسافر",
+      "وایرفریم یک صفحه اصلی و یک حالت خطا",
+      "توضیح سه تصمیم مهم طراحی"
+    ],
+    "en": [
+      "A short user flow for the passenger’s decision",
+      "A wireframe for the main screen and one error state",
+      "An explanation of three important design decisions"
+    ]
+  },
+  "hint": {
+    "fa": "قبل از طراحی صفحه، مشخص کنید مسافر در ۱۰ ثانیه اول باید به کدام سؤال پاسخ بدهد.",
+    "en": "Before drawing the screen, decide which question the passenger must answer within the first 10 seconds."
+  }
+}

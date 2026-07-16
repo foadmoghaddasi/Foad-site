@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "challenge:generate": "node scripts/generate-daily-challenge.mjs",
+    "challenge:validate": "node scripts/generate-daily-challenge.mjs --validate",
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "react-scripts start"

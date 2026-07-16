@@ -1,0 +1,316 @@
+.daily-challenge-section {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+  padding: 96px 0 48px;
+  color: var(--foreground);
+}
+
+.daily-challenge-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 24px;
+  padding-inline: 22px;
+  text-align: start;
+}
+
+.daily-challenge-heading > div:first-child > span {
+  color: #7596ff;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.daily-challenge-heading h2 {
+  margin: 7px 0 9px;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 730;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.daily-challenge-heading p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.daily-challenge-ai-badge {
+  display: inline-flex;
+  min-height: 35px;
+  flex: none;
+  align-items: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: 1px solid color-mix(in oklab, #7596ff 25%, transparent);
+  border-radius: 999px;
+  background: color-mix(in oklab, #315efb 8%, transparent);
+  color: #87a1ff;
+  font-size: 0.68rem;
+  font-weight: 650;
+}
+
+.daily-challenge-card {
+  position: relative;
+  padding: 10px;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--foreground) 11%, transparent);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 92% 8%, color-mix(in oklab, #315efb 15%, transparent), transparent 30%),
+    color-mix(in oklab, var(--foreground) 3%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, white 7%, transparent),
+    0 30px 80px color-mix(in oklab, #020617 13%, transparent);
+}
+
+.daily-challenge-glow {
+  position: absolute;
+  top: -100px;
+  inset-inline-end: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: #315efb;
+  filter: blur(100px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.daily-challenge-card-header {
+  position: relative;
+  z-index: 1;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 22px 22px 18px;
+}
+
+.daily-challenge-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  flex: none;
+  place-items: center;
+  border: 1px solid color-mix(in oklab, #7596ff 28%, transparent);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #6689ff22, #315efb0d);
+  color: #87a1ff;
+  box-shadow: inset 0 1px 0 #ffffff12;
+}
+
+.daily-challenge-title-wrap {
+  min-width: 0;
+  flex: 1;
+  text-align: start;
+}
+
+.daily-challenge-title-wrap > span {
+  color: #7596ff;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.daily-challenge-title-wrap [data-slot="card-title"] {
+  margin-top: 5px;
+  font-size: clamp(1.45rem, 3.6vw, 2.25rem);
+  font-weight: 720;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.daily-challenge-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.daily-challenge-meta > span {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  gap: 5px;
+  padding: 0 9px;
+  border: 1px solid color-mix(in oklab, var(--foreground) 9%, transparent);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--foreground) 4%, transparent);
+  color: var(--muted);
+  font-size: 0.66rem;
+}
+
+.daily-challenge-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 22px 22px;
+  text-align: start;
+}
+
+.daily-challenge-scenario {
+  max-width: 880px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+.daily-challenge-brief {
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid color-mix(in oklab, #7596ff 22%, transparent);
+  border-radius: 18px;
+  background: linear-gradient(135deg, color-mix(in oklab, #315efb 10%, transparent), color-mix(in oklab, #7c3aed 6%, transparent));
+}
+
+.daily-challenge-brief > span {
+  color: #87a1ff;
+  font-size: 0.7rem;
+  font-weight: 750;
+}
+
+.daily-challenge-brief p {
+  margin: 7px 0 0;
+  font-size: 1rem;
+  font-weight: 530;
+  line-height: 1.9;
+}
+
+.daily-challenge-columns {
+  display: grid;
+  margin-top: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.daily-challenge-columns > div {
+  padding: 18px;
+  border: 1px solid color-mix(in oklab, var(--foreground) 9%, transparent);
+  border-radius: 18px;
+  background: color-mix(in oklab, var(--foreground) 3%, transparent);
+}
+
+.daily-challenge-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #87a1ff;
+}
+
+.daily-challenge-subtitle h3 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.88rem;
+  font-weight: 680;
+}
+
+.daily-challenge-columns ul {
+  margin: 14px 0 0;
+  padding-inline-start: 1.15rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.8;
+}
+
+.daily-challenge-columns li + li {
+  margin-top: 7px;
+}
+
+.daily-challenge-columns li::marker {
+  color: #7596ff;
+}
+
+.daily-challenge-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 14px;
+  padding-top: 16px;
+  border-top: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
+}
+
+.daily-challenge-hint {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--muted);
+}
+
+.daily-challenge-hint > svg {
+  flex: none;
+  margin-top: 2px;
+  color: #f5b942;
+}
+
+.daily-challenge-hint p {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.75;
+}
+
+.daily-challenge-hint strong {
+  color: var(--foreground);
+}
+
+.daily-challenge-copy {
+  min-height: 40px;
+  flex: none;
+  gap: 7px;
+  border-radius: 12px;
+}
+
+[data-theme="light"] .daily-challenge-card {
+  border-color: #315efb18;
+  background:
+    radial-gradient(circle at 92% 8%, #315efb12, transparent 30%),
+    #ffffffc9;
+  box-shadow: 0 28px 70px #1e3a8a10;
+}
+
+@media (max-width: 720px) {
+  .daily-challenge-section {
+    padding: 72px 0 36px;
+  }
+
+  .daily-challenge-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    padding-inline: 10px;
+  }
+
+  .daily-challenge-card {
+    border-radius: 24px;
+  }
+
+  .daily-challenge-card-header {
+    padding: 16px 12px 14px;
+  }
+
+  .daily-challenge-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+  }
+
+  .daily-challenge-content {
+    padding: 0 12px 14px;
+  }
+
+  .daily-challenge-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .daily-challenge-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .daily-challenge-copy {
+    width: 100%;
+  }
+}
