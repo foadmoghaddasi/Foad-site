@@ -12,12 +12,9 @@ const Navbar = () => {
   const { isFa, direction } = useLanguage();
   const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const isHomePage = pathname === "/";
   const isArticlesPage = pathname.startsWith("/articles");
   const isChallengePage = pathname === "/daily-design-challenge";
-  const showHomeShortcut =
-    pathname === "/cv" ||
-    pathname === "/limevee" ||
-    pathname === "/daily-design-challenge";
 
   useEffect(() => {
     const updateNavbar = () => setIsScrolled(window.scrollY > 24);
@@ -50,40 +47,37 @@ const Navbar = () => {
         className="navbar-icon-links"
         aria-label={isFa ? "دسترسی سریع" : "Quick access"}
       >
-        {(isArticlesPage || showHomeShortcut) && (
-          <Link
-            to="/"
-            className="navbar-icon-link"
-            aria-label={isFa ? "رفتن به صفحه اصلی" : "Go to home page"}
-            title={isFa ? "صفحه اصلی" : "Home"}
-          >
-            <Home2 size="18" color="currentColor" variant="Broken" />
-          </Link>
-        )}
-        {!isArticlesPage && (
-          <Link
-            to="/articles"
-            className="navbar-icon-link"
-            aria-label={isFa ? "رفتن به صفحه مقاله‌ها" : "Go to articles"}
-            title={isFa ? "مقاله‌ها" : "Articles"}
-          >
-            <Book size="19" color="currentColor" variant="Broken" />
-          </Link>
-        )}
-        {!isChallengePage && (
-          <Link
-            to="/daily-design-challenge"
-            className="navbar-icon-link"
-            aria-label={
-              isFa
-                ? "رفتن به صفحه چالش‌های هفتگی طراحی"
-                : "Go to weekly design challenges"
-            }
-            title={isFa ? "چالش‌های هفتگی" : "Weekly challenges"}
-          >
-            <MedalStar size="19" color="currentColor" variant="Broken" />
-          </Link>
-        )}
+        <Link
+          to="/"
+          className={`navbar-icon-link${isHomePage ? " is-selected" : ""}`}
+          aria-label={isFa ? "رفتن به صفحه اصلی" : "Go to home page"}
+          aria-current={isHomePage ? "page" : undefined}
+          title={isFa ? "صفحه اصلی" : "Home"}
+        >
+          <Home2 size="18" color="currentColor" variant="Broken" />
+        </Link>
+        <Link
+          to="/articles"
+          className={`navbar-icon-link${isArticlesPage ? " is-selected" : ""}`}
+          aria-label={isFa ? "رفتن به صفحه مقاله‌ها" : "Go to articles"}
+          aria-current={isArticlesPage ? "page" : undefined}
+          title={isFa ? "مقاله‌ها" : "Articles"}
+        >
+          <Book size="19" color="currentColor" variant="Broken" />
+        </Link>
+        <Link
+          to="/daily-design-challenge"
+          className={`navbar-icon-link${isChallengePage ? " is-selected" : ""}`}
+          aria-label={
+            isFa
+              ? "رفتن به صفحه چالش‌های هفتگی طراحی"
+              : "Go to weekly design challenges"
+          }
+          aria-current={isChallengePage ? "page" : undefined}
+          title={isFa ? "چالش‌های هفتگی" : "Weekly challenges"}
+        >
+          <MedalStar size="19" color="currentColor" variant="Broken" />
+        </Link>
       </nav>
       <Switch
         dir="ltr"
