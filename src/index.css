@@ -809,6 +809,10 @@ body {
   gap: 4px;
 }
 
+.navbar-brand-link {
+  margin-inline-end: auto;
+}
+
 .navbar-icon-link {
   display: inline-grid;
   width: 36px;

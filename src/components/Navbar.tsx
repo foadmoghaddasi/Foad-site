@@ -5,9 +5,11 @@ import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/images/fm-logo.png";
 import LightLogo from "../assets/images/fm-logo-light.png";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const { isFa, direction } = useLanguage();
   const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const isArticlesPage = pathname.startsWith("/articles");
@@ -26,16 +28,16 @@ const Navbar = () => {
 
   return (
     <header
-      dir="ltr"
+      dir={direction}
       className={`glass-navbar fixed left-1/2 z-50 flex h-16 -translate-x-1/2 items-center justify-end gap-3 px-4 md:h-18 md:px-5 ${
         isScrolled ? "is-scrolled" : "is-top"
       }`}
     >
       <Link
         to="/"
-        aria-label="Back to home"
+        aria-label={isFa ? "بازگشت به صفحه اصلی" : "Back to home"}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="mr-auto flex min-w-0 items-center rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        className="navbar-brand-link flex min-w-0 items-center rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
       >
         <img
           src={theme === "light" ? LightLogo : Logo}
@@ -43,13 +45,16 @@ const Navbar = () => {
           className="h-10 shrink-0 object-contain md:h-12"
         />
       </Link>
-      <nav className="navbar-icon-links" aria-label="دسترسی سریع">
+      <nav
+        className="navbar-icon-links"
+        aria-label={isFa ? "دسترسی سریع" : "Quick access"}
+      >
         {(isArticlesPage || showHomeShortcut) && (
           <Link
             to="/"
             className="navbar-icon-link"
-            aria-label="رفتن به صفحه اصلی"
-            title="صفحه اصلی"
+            aria-label={isFa ? "رفتن به صفحه اصلی" : "Go to home page"}
+            title={isFa ? "صفحه اصلی" : "Home"}
           >
             <Home2 size="18" color="currentColor" variant="Broken" />
           </Link>
@@ -58,17 +63,22 @@ const Navbar = () => {
           <Link
             to="/articles"
             className="navbar-icon-link"
-            aria-label="رفتن به صفحه مقاله‌ها"
-            title="مقاله‌ها"
+            aria-label={isFa ? "رفتن به صفحه مقاله‌ها" : "Go to articles"}
+            title={isFa ? "مقاله‌ها" : "Articles"}
           >
             <Book size="19" color="currentColor" variant="Broken" />
           </Link>
         )}
       </nav>
       <Switch
+        dir="ltr"
         isSelected={theme === "light"}
         onChange={() => toggleTheme()}
-        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+        aria-label={
+          isFa
+            ? `تغییر به حالت ${theme === "dark" ? "روشن" : "تیره"}`
+            : `Switch to ${theme === "dark" ? "light" : "dark"} mode`
+        }
       >
         {({ isSelected }) => (
           <Switch.Content>
