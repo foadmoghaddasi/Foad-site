@@ -1,6 +1,12 @@
 name: Generate daily design challenge
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/daily-design-challenge.yml"
+      - "scripts/generate-daily-challenge.mjs"
   schedule:
     - cron: "30 3 * * *"
   workflow_dispatch:
