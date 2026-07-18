@@ -1,14 +1,14 @@
 import { Card } from "@heroui/react/card";
 import { ArrowLeft } from "iconsax-react";
 import { Link } from "react-router-dom";
-import { getArticles } from "../content/articles";
+import { getArticlesNewestFirst } from "../content/articles";
 import Reveal from "./Reveal";
 import "./LatestArticles.css";
 import { useLanguage } from "../context/LanguageContext";
 
 const LatestArticles = () => {
   const { language, isFa, direction } = useLanguage();
-  const latestArticles = getArticles(language).slice(0, 2);
+  const latestArticles = getArticlesNewestFirst(language).slice(0, 2);
 
   return (
     <section

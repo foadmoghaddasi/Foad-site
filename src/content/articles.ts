@@ -2130,5 +2130,41 @@ export const articlesEn: Article[] = [
 export const getArticles = (language: "fa" | "en" = "fa") =>
   language === "fa" ? articles : articlesEn;
 
+const persianMonths = [
+  "فروردین",
+  "اردیبهشت",
+  "خرداد",
+  "تیر",
+  "مرداد",
+  "شهریور",
+  "مهر",
+  "آبان",
+  "آذر",
+  "دی",
+  "بهمن",
+  "اسفند",
+];
+
+const toLatinDigits = (value: string) =>
+  value.replace(/[۰-۹٠-٩]/g, (digit) =>
+    String("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩".indexOf(digit) % 10),
+  );
+
+const articleDateValue = (publishedAt: string) => {
+  const englishDate = Date.parse(publishedAt);
+  if (!Number.isNaN(englishDate)) return englishDate;
+
+  const match = toLatinDigits(publishedAt).match(/^(\d+)\s+([^\s]+)\s+(\d+)$/);
+  if (!match) return 0;
+  const [, day, monthName, year] = match;
+  const month = persianMonths.indexOf(monthName);
+  return month === -1 ? 0 : Number(year) * 10_000 + (month + 1) * 100 + Number(day);
+};
+
+export const getArticlesNewestFirst = (language: "fa" | "en" = "fa") =>
+  getArticles(language)
+    .slice()
+    .sort((first, second) => articleDateValue(second.publishedAt) - articleDateValue(first.publishedAt));
+
 export const getArticleBySlug = (slug?: string, language: "fa" | "en" = "fa") =>
   getArticles(language).find((article) => article.slug === slug);

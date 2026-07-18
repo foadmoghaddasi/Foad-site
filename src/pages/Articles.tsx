@@ -5,7 +5,7 @@ import { SearchNormal1 } from "iconsax-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
-import { getArticles, type Article } from "../content/articles";
+import { getArticlesNewestFirst, type Article } from "../content/articles";
 import { useLanguage } from "../context/LanguageContext";
 import "./Articles.css";
 
@@ -46,7 +46,7 @@ const getArticleSearchText = (article: Article) => {
 
 const Articles = () => {
   const { language, isFa, direction } = useLanguage();
-  const articles = getArticles(language);
+  const articles = getArticlesNewestFirst(language);
   const allCategories = isFa ? "همه" : "All";
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState(allCategories);
