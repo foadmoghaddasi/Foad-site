@@ -28,7 +28,7 @@ const readEnvFile = async () => {
 };
 
 const validateContent = (content, language) => {
-  if (!Array.isArray(content) || content.length < 16) fail(`«${language}.content» باید ساختار کامل مقاله را داشته باشد.`);
+  if (!Array.isArray(content) || !content.length) fail(`«${language}.content» باید یک آرایهٔ غیرخالی باشد.`);
   return content.map((block, index) => {
     const field = `${language}.content[${index}]`;
     if (!block || typeof block !== "object" || Array.isArray(block)) fail(`«${field}» معتبر نیست.`);
@@ -54,13 +54,10 @@ const validateArticle = (article) => {
       category: nonEmptyText(value.category, `${language}.category`), publishedAt: nonEmptyText(value.publishedAt, `${language}.publishedAt`),
       readingTime: nonEmptyText(value.readingTime, `${language}.readingTime`), direction, content,
     };
-    if (Array.from(version.title).length > 70) fail(`عنوان ${language} نباید بیش از 70 کاراکتر باشد.`);
-    if (language === "en" && (!/^[A-Z]/.test(version.title) || content.some((block) => block.type === "heading" && !/^[A-Z]/.test(block.text)))) fail("عنوان و headingهای انگلیسی باید با حرف بزرگ شروع شوند.");
     return version;
   };
   const fa = version(article.fa, "fa", "rtl");
   const en = version(article.en, "en", "ltr");
-  if (fa.content.length !== en.content.length || fa.content.some((block, index) => block.type !== en.content[index].type || (block.type === "heading" && block.level !== en.content[index].level))) fail("تعداد، ترتیب و سطح headingهای فارسی و انگلیسی باید یکسان باشد.");
   const brief = article.imageBrief;
   const briefFields = ["topic", "metaphor", "subjects", "composition", "style", "lighting", "palette", "forbidden"];
   if (!brief || typeof brief !== "object" || Array.isArray(brief) || briefFields.some((field) => typeof brief[field] !== "string" || !brief[field].trim())) fail("imageBrief معتبر نیست.");
@@ -72,7 +69,7 @@ const contentBlockSchema = { anyOf: [
   { type: "object", properties: { type: { type: "string", enum: ["heading"] }, text: { type: "string", minLength: 1 }, level: { type: "number", enum: [2, 3] } }, required: ["type", "text", "level"], additionalProperties: false },
 ] };
 const versionSchema = (direction) => ({ type: "object", properties: {
-  title: { type: "string", minLength: 1 }, excerpt: { type: "string", minLength: 1 }, category: { type: "string", minLength: 1 }, publishedAt: { type: "string", minLength: 1 }, readingTime: { type: "string", minLength: 1 }, direction: { type: "string", enum: [direction] }, content: { type: "array", minItems: 16, items: contentBlockSchema },
+  title: { type: "string", minLength: 1 }, excerpt: { type: "string", minLength: 1 }, category: { type: "string", minLength: 1 }, publishedAt: { type: "string", minLength: 1 }, readingTime: { type: "string", minLength: 1 }, direction: { type: "string", enum: [direction] }, content: { type: "array", minItems: 1, items: contentBlockSchema },
 }, required: ["title", "excerpt", "category", "publishedAt", "readingTime", "direction", "content"], additionalProperties: false });
 const articleSchema = { type: "object", properties: {
   slug: { type: "string", pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
@@ -102,21 +99,17 @@ const setComputedMetadata = (article) => {
   article.en.readingTime = `${Math.max(1, Math.ceil(countWords(article.en.content) / 220))} min read`;
   return article;
 };
-const qualityFailures = (article, slugs) => {
-  const failures = [];
-  if (countWords(article.fa.content) < 1200) failures.push("متن فارسی کمتر از 1200 کلمه است");
-  if (countWords(article.en.content) < 1100) failures.push("متن انگلیسی کمتر از 1100 کلمه است");
-  if (article.fa.content.filter((block) => block.type === "heading" && block.level === 2).length < 7) failures.push("کمتر از 7 heading سطح 2 وجود دارد");
-  if (slugs.has(article.slug)) failures.push("slug تکراری است");
-  return failures;
+const logLengthWarnings = (article) => {
+  if (countWords(article.fa.content) < 1200) console.warn("Warning: Generated Persian article is shorter than the preferred length.");
+  if (countWords(article.en.content) < 1100) console.warn("Warning: Generated English article is shorter than the preferred length.");
 };
 
-const articleInstructions = "Create an original, complete bilingual article for product designers, UX designers, developers, and product builders. Return only schema-compliant JSON. Persian and English are natural, professional equivalents, never literal translations. The Persian article must be 1400–2200 words; English must match its depth, structure, and meaning. Use exactly the same ordered content blocks, block types, and heading levels in both languages. Include at least seven h2 headings and cover: a concise engaging introduction, problem definition, deep explanation, practical sections, a realistic scenario, common mistakes, actionable solutions or checklist, and conclusion. Write substantial but readable paragraphs; avoid one-sentence sections and overly long paragraphs. Persian must be fluent, human, correctly punctuated, and avoid clichés such as «در دنیای امروز»، «در عصر دیجیتال» and «همان‌طور که می‌دانید». Avoid generic claims, unsupported numbers, fabricated citations, invented sources, companies, research, or time-sensitive assertions. English title and headings start with standard uppercase letters. Titles are clear, non-clickbait, and at most 70 characters. Excerpts are useful and non-repetitive. Make a concise lowercase SEO-friendly shared slug. Set images.cover to cover.png. Provide an imageBrief derived from the article title and excerpt with a clear visual metaphor, subjects, composition, style, lighting, palette, and forbidden elements.";
+const articleInstructions = "Create an original, complete bilingual article for product designers, UX designers, developers, and product builders. Return only schema-compliant JSON. Persian and English are natural, professional equivalents, never literal translations. Aim for a complete, practical, and in-depth Persian article of roughly 1200–1800 words; the English version should be equivalent in meaning and depth. These are editorial goals, not hard limits. Use a clear structure with several main sections, useful explanation, practical guidance, and at least one realistic example. Write substantial but readable paragraphs. Persian must be fluent, human, correctly punctuated, and avoid clichés such as «در دنیای امروز»، «در عصر دیجیتال» and «همان‌طور که می‌دانید». Avoid generic claims, unsupported numbers, fabricated citations, invented sources, companies, research, or time-sensitive assertions. English titles and headings should start with standard uppercase letters. Titles are clear and non-clickbait. Excerpts are useful and non-repetitive. Make a concise lowercase SEO-friendly shared slug. Set images.cover to cover.png. Provide an imageBrief derived from the article title and excerpt with a clear visual metaphor, subjects, composition, style, lighting, palette, and forbidden elements.";
 
-const requestArticle = async ({ apiKey, articleModel, topic, retryReason }) => {
+const requestArticle = async ({ apiKey, articleModel, topic }) => {
   const response = await fetch("https://api.openai.com/v1/responses", { method: "POST", headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" }, body: JSON.stringify({
     model: articleModel, instructions: articleInstructions,
-    input: `Article topic: ${topic}${retryReason ? `\n\nThe prior draft failed these quality checks: ${retryReason}. Rewrite the complete article and satisfy every requirement.` : ""}`,
+    input: `Article topic: ${topic}`,
     max_output_tokens: 12000, text: { format: { type: "json_schema", name: "bilingual_article", strict: true, schema: articleSchema }, },
   }) });
   if (!response.ok) fail(`درخواست OpenAI ناموفق بود (${response.status}): ${await response.text()}`);
@@ -124,18 +117,10 @@ const requestArticle = async ({ apiKey, articleModel, topic, retryReason }) => {
 };
 const generateArticle = async ({ apiKey, articleModel, topic }) => {
   const slugs = await existingSlugs();
-  let lastFailure;
-  for (let attempt = 0; attempt < 2; attempt += 1) {
-    try {
-      const article = setComputedMetadata(validateArticle(await requestArticle({ apiKey, articleModel, topic, retryReason: lastFailure })));
-      const failures = qualityFailures(article, slugs);
-      if (failures.length) throw new Error(failures.join("؛ "));
-      return article;
-    } catch (error) {
-      lastFailure = error instanceof Error ? error.message : "کنترل کیفیت ناموفق بود";
-    }
-  }
-  fail(`کنترل کیفیت مقاله پس از یک تلاش مجدد ناموفق بود: ${lastFailure}`);
+  const article = setComputedMetadata(validateArticle(await requestArticle({ apiKey, articleModel, topic })));
+  if (slugs.has(article.slug)) fail(`مقاله‌ای با slug «${article.slug}» از قبل وجود دارد.`);
+  logLengthWarnings(article);
+  return article;
 };
 
 const createCover = async ({ apiKey, imageModel, article, coverPath }) => {
