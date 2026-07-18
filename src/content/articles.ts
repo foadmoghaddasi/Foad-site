@@ -27,6 +27,8 @@ import portfolioToProductCoverImage from "../assets/images/articles/portfolio-to
 
 import similarProductDesignPortfoliosCoverImage from "../assets/images/articles/similar-product-design-portfolios/cover.png";
 
+import workingWithBusinessCoverImage from "../assets/images/articles/working-with-business/cover.png";
+
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string; level?: 2 | 3 }
@@ -970,6 +972,63 @@ export const articles: Article[] = [
           "text": "یک پورتفولیو خوب ترکیبی از وضوح و اصالت است. با سرمایه‌گذاری روی روایت، نمایش فرآیند و انتخاب بصری متناسب با خودتان می‌توانید از میان قالب‌های تکراری متمایز شوید. در نهایت، پورتفولیوی شما باید نه فقط نشان‌دهنده نتایج، که نمایانگر نحوه‌ی فکر کردن شما باشد."
         }
       ]
+    },
+    {
+      "slug": "working-with-business",
+      "title": "راهنمای تعامل با تیم بیزینس",
+      "excerpt": "چند روش عملی برای ارتباط موثر، هم‌ترازی اهداف و تصمیم‌گیری مشترک بین تیم طراحی محصول و بیزینس.",
+      "category": "طراحی محصول",
+      "publishedAt": "۲۷ تیر ۱۴۰۵",
+      "readingTime": "۶ دقیقه",
+      "cover": workingWithBusinessCoverImage,
+      "direction": "rtl",
+      "content": [
+        {
+          "type": "heading",
+          "text": "اصول تعامل موثر",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "تعامل با تیم بیزینس زمانی مفید است که مبتنی بر اعتماد، شفافیت و هدف مشترک باشد. پیش از هر چیز باید دامنه مسئولیت‌ها، معیارهای موفقیت و انتظارات زمانی را مشخص کنیم تا گفتگوها از حدس و گمان فاصله بگیرند."
+        },
+        {
+          "type": "heading",
+          "text": "آیین‌های ارتباطی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "قوانین ساده‌ای برای ارتباط تعیین کنید: جلسات کوتاه هفتگی برای هم‌ترازی، کانال‌های مشخص برای مذاکرات فوری و مستندات کامپکت برای تایید تصمیمات. استفاده از فرمت‌های ثابت (مثل خلاصه جلسه و لیست اقدام‌ها) به کاهش ابهام کمک می‌کند."
+        },
+        {
+          "type": "heading",
+          "text": "تعیین اهداف و معیارها",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "به جای صحبت درباره قابلیت‌ها، درباره نتیجه‌ها صحبت کنید: چه تاثیری انتظار می‌رود و چگونه آن را اندازه می‌گیریم؟ تعریف KPI‌های ساده و توافق روی معیارهای موفقیت هزینه تصمیم‌گیری‌ها را پایین می‌آورد."
+        },
+        {
+          "type": "heading",
+          "text": "تصمیم‌گیری و اختیار عمل",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "شفاف‌سازی نقش‌ها (چه کسی رای می‌دهد، چه کسی مشورت می‌دهد و چه کسی اجرا می‌کند) از درگیری‌های بعدی جلوگیری می‌کند. از چارچوب‌هایی مانند RACI یا DACI برای مشخص کردن جریان تصمیم‌گیری استفاده کنید."
+        },
+        {
+          "type": "heading",
+          "text": "مدیریت محدودیت‌ها",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "بیزینس معمولاً با محدودیت‌های زمان، بودجه و ریسک روبه‌روست. به‌عنوان طراح یا مدیر محصول، وظیفه شما ارائه گزینه‌های شفاف با پیامدهای مشخص است: نمونه‌سازی سریع، اولویت‌بندی مبتنی بر ارزش و تعریف MVP به کاهش ریسک کمک می‌کند."
+        }
+      ]
     }
 ];
 
@@ -1437,6 +1496,63 @@ export const articlesEn: Article[] = [
         {
           "type": "paragraph",
           "text": "A strong portfolio balances clarity with authenticity. By investing in storytelling, process artifacts, and purposeful visual choices, you can break away from template-driven sameness. Ultimately, your portfolio should not just display outcomes—it should reveal how you think."
+        }
+      ]
+    },
+    {
+      "slug": "working-with-business",
+      "title": "How to Collaborate with the Business Team",
+      "excerpt": "Practical approaches to align goals, streamline communication, and make shared decisions between product design and business stakeholders.",
+      "category": "Product Design",
+      "publishedAt": "2026-07-18",
+      "readingTime": "6 min read",
+      "cover": workingWithBusinessCoverImage,
+      "direction": "ltr",
+      "content": [
+        {
+          "type": "heading",
+          "text": "Principles of Effective Collaboration",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Collaboration with the business team works best when built on trust, transparency, and a shared objective. Start by clarifying ownership, success criteria, and timing expectations so conversations move beyond assumptions."
+        },
+        {
+          "type": "heading",
+          "text": "Communication Rituals",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Establish simple communication rules: short weekly alignment meetings, dedicated channels for urgent discussions, and compact documentation for sign-offs. Consistent formats (meeting summaries and action lists) reduce ambiguity."
+        },
+        {
+          "type": "heading",
+          "text": "Clarifying Goals and Metrics",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "Talk in outcomes rather than features: what impact is expected and how will it be measured? Agreeing on a few clear KPIs and success metrics lowers the cost of future decisions."
+        },
+        {
+          "type": "heading",
+          "text": "Decision Making and Autonomy",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Make roles explicit—who decides, who advises, who executes—to avoid later friction. Use frameworks like RACI or DACI to define the decision flow and preserve team autonomy where appropriate."
+        },
+        {
+          "type": "heading",
+          "text": "Managing Constraints",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "Business teams face time, budget, and risk constraints. As a designer or product lead your job is to present clear options with trade-offs: rapid prototypes, value-based prioritization, and a well-scoped MVP all help de-risk initiatives."
         }
       ]
     }
