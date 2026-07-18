@@ -1,4 +1,5 @@
 import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
+import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
@@ -51,7 +52,7 @@ const validateArticle = (article) => {
   if (!article.images || typeof article.images !== "object" || Array.isArray(article.images)) fail("فیلد «images» معتبر نیست.");
   const cover = nonEmptyText(article.images.cover, "images.cover");
   if (cover !== path.basename(cover) || !/\.(avif|gif|jpe?g|png|svg|webp)$/i.test(cover)) fail("images.cover باید نام یک فایل تصویر مجاز باشد.");
-  if (cover !== "cover.webp") fail("images.cover باید دقیقاً cover.webp باشد.");
+  if (cover !== "cover.png") fail("images.cover باید دقیقاً cover.png باشد.");
   const version = (value, language, direction) => {
     if (!value || typeof value !== "object" || Array.isArray(value)) fail(`بخش «${language}» وجود ندارد.`);
     if (value.direction !== direction) fail(`direction نسخهٔ ${language} باید «${direction}» باشد.`);
@@ -139,7 +140,7 @@ const getOutputText = (response) => {
   return text;
 };
 
-const createCover = async ({ apiKey, imageModel, topic, article, coverPath }) => {
+const createCover = async ({ apiKey, imageModel, topic, coverPath }) => {
   const response = await fetch("https://api.openai.com/v1/images/generations", {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
@@ -148,8 +149,6 @@ const createCover = async ({ apiKey, imageModel, topic, article, coverPath }) =>
       prompt: `Create a refined editorial cover image for a personal product-design portfolio article about: ${topic}. The visual should be minimal, modern, and professional, with an abstract product-design concept, balanced composition, restrained color palette, and ample negative space. Do not include any text, letters, words, typography, logos, watermarks, UI labels, or people.`,
       size: "1536x1024",
       quality: "medium",
-      output_format: "webp",
-      response_format: "b64_json",
     }),
   });
   if (!response.ok) fail(`تولید تصویر OpenAI ناموفق بود (${response.status}): ${await response.text()}`);
@@ -158,8 +157,8 @@ const createCover = async ({ apiKey, imageModel, topic, article, coverPath }) =>
   if (typeof base64 !== "string" || !base64) fail("تصویر معتبری از OpenAI دریافت نشد.");
   const image = Buffer.from(base64, "base64");
   if (!image.length) fail("فایل تصویر تولیدشده خالی است.");
-  await writeFile(coverPath, image);
-  if ((await stat(coverPath)).size === 0) fail("فایل cover.webp خالی است.");
+  writeFileSync(coverPath, image);
+  if ((await stat(coverPath)).size === 0) fail("فایل cover.png خالی است.");
 };
 
 const main = async () => {
@@ -176,7 +175,7 @@ const main = async () => {
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
       model: articleModel,
-      instructions: "Create one original, complete bilingual article for a product-design portfolio. Persian and English must be independently natural, professional versions of the same article, not literal translation. Return only schema-compliant JSON. Use 8–14 content blocks per language, including useful h2 headings and substantive paragraphs. The Persian and English content arrays must have the exact same number, order, block types, and heading levels. English titles and headings must start with an uppercase letter. Set images.cover to cover.webp. Use a concise lowercase English slug shared by both versions. Use today's date appropriate to each language.",
+      instructions: "Create one original, complete bilingual article for a product-design portfolio. Persian and English must be independently natural, professional versions of the same article, not literal translation. Return only schema-compliant JSON. Use 8–14 content blocks per language, including useful h2 headings and substantive paragraphs. The Persian and English content arrays must have the exact same number, order, block types, and heading levels. English titles and headings must start with an uppercase letter. Set images.cover to cover.png. Use a concise lowercase English slug shared by both versions. Use today's date appropriate to each language.",
       input: `Article topic: ${topic}`,
       max_output_tokens: 6000,
       text: { format: { type: "json_schema", name: "bilingual_article", strict: true, schema: articleSchema } },
@@ -187,7 +186,7 @@ const main = async () => {
   await mkdir(outputDirectory, { recursive: true });
   const outputPath = path.join(outputDirectory, `${generated.slug}.json`);
   const imagesDirectory = path.join(outputDirectory, `${generated.slug}-images`);
-  const coverPath = path.join(imagesDirectory, "cover.webp");
+  const coverPath = path.join(imagesDirectory, "cover.png");
   try { await readFile(outputPath); fail(`فایل «${path.relative(root, outputPath)}» از قبل وجود دارد.`); }
   catch (error) { if (error instanceof Error && error.message.includes("از قبل وجود دارد")) throw error; if (error?.code !== "ENOENT") throw error; }
   try { await stat(imagesDirectory); fail(`پوشهٔ «${path.relative(root, imagesDirectory)}» از قبل وجود دارد.`); }
@@ -196,7 +195,7 @@ const main = async () => {
   try {
     await mkdir(imagesDirectory);
     createdImagesDirectory = true;
-    await createCover({ apiKey, imageModel, topic, article: generated, coverPath });
+    await createCover({ apiKey, imageModel, topic, coverPath });
     await writeFile(outputPath, `${JSON.stringify(generated, null, 2)}\n`, "utf8");
   } catch (error) {
     if (createdImagesDirectory) await rm(imagesDirectory, { recursive: true, force: true });
