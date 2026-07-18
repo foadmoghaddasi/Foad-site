@@ -56,6 +56,13 @@ export type Article = {
   content: ArticleBlock[];
 };
 
+const hiddenArticleSlugs = new Set([
+  "test-bilingual-design-note",
+  "portfolio-to-product",
+  "similar-product-design-portfolios",
+  "working-with-business",
+]);
+
 export const articles: Article[] = [
   {
     slug: "product-designer-portfolio-as-a-product",
@@ -1181,7 +1188,7 @@ export const articles: Article[] = [
         }
       ]
     }
-];
+].filter((article) => !hiddenArticleSlugs.has(article.slug));
 
 export const articlesEn: Article[] = [
   {
@@ -1856,7 +1863,7 @@ export const articlesEn: Article[] = [
         }
       ]
     }
-];
+].filter((article) => !hiddenArticleSlugs.has(article.slug));
 
 export const getArticles = (language: "fa" | "en" = "fa") =>
   language === "fa" ? articles : articlesEn;
