@@ -31,6 +31,8 @@ import workingWithBusinessCoverImage from "../assets/images/articles/working-wit
 
 import designSystemVsUiKitCoverImage from "../assets/images/articles/design-system-vs-ui-kit/cover.png";
 
+import whyInfoTipsFailCoverImage from "../assets/images/articles/why-info-tips-fail/cover.png";
+
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string; level?: 2 | 3 }
@@ -1188,6 +1190,136 @@ export const articles: Article[] = [
         }
       ]
     }
+,
+    {
+      "slug": "why-info-tips-fail",
+      "title": "چرا اغلب Info Tipها ناکارآمدند: علل، پیامدها و راهنمای محصول",
+      "excerpt": "بسیاری از Info Tipها تجربه کاربر را بهبود نمی‌دهند زیرا اشتباه در محتوا، زمان‌بندی، دسترسی و نگهداری باعث می‌شود اطلاعات مهم پنهان، ناپایدار یا غیرقابل‌دسترس شوند. این مقاله عوامل فنی و سازمانی را بررسی و راهنمایی عملی برای تصمیم‌گیری، Design System و Handoff ارائه می‌دهد.",
+      "category": "Product Design",
+      "publishedAt": "۲۷ تیر ۱۴۰۵",
+      "readingTime": "8 دقیقه مطالعه",
+      "cover": whyInfoTipsFailCoverImage,
+      "direction": "rtl",
+      "content": [
+        {
+          "type": "heading",
+          "text": "خلاصه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Info Tipها (توضیح‌های سریع مثل tooltip، info icon یا helper text) اغلب به‌عنوان راه‌حل کم‌هزینه برای توضیح ویژگی‌ها استفاده می‌شوند، اما تعداد زیادی از آنها باعث سردرگمی، از دست رفتن اطلاعات برای کاربران خاص و پیچیدگی فنی می‌شوند. نتیجه‌گیری اصلی: قبل از افزودن Info Tip، تیم باید منظورِ اطلاعات، سطح ضرورت، مخاطب هدف و هزینه نگهداری را صراحتاً تعیین کند."
+        },
+        {
+          "type": "heading",
+          "text": "در این مقاله",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "این مقاله ابتدا محدوده و اهمیت مسئله را تعریف می‌کند، سپس عوامل رایج (محتوای نامناسب، زمان‌بندی، دسترسی، نگهداری و سازگاری با موبایل) را تحلیل می‌کند، خطاها و Trade-offهای معمول را توضیح می‌دهد، و در پایان یک مجموعه راهنمای عملی برای Designerها و Developerها ارائه می‌دهد."
+        },
+        {
+          "type": "heading",
+          "text": "مقدمه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Info Tipها ابزار متداولی در Product Design برای کاهش پیچیدگی UI و قرار دادن کمک در نقطه نیاز هستند. اما رفتار طراحیِ ناپایدار یا استفادهٔ افراطی از این ابزار می‌تواند مشکل‌ساز شود: کاربران اطلاعات حیاتی را نمی‌بینند، Accessibility نقض می‌شود، و تیم‌های توسعه هربار که Context عوض می‌شود مجبور به تغییر دستی هستند. این مقاله به تصمیمات طراحی، تأثیر فنی و پیشنهادهایی برای سازگاری با Design System می‌پردازد."
+        },
+        {
+          "type": "heading",
+          "text": "زمینه و دامنه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "ملاحظات این مقاله برای محصولاتی است که رابط‌های پیچیده (فرم‌ها، داشبوردها، جریان‌های وظیفه‌محور) دارند و تیم‌ها شامل Product Designer، Front-end Developer، Back-end Developer و مدیر Design System هستند. فرض می‌کنیم محصول چند پلتفرم (وب و موبایل) دارد و محدودیت‌های زمان‌بندی Sprint، نیاز به Localization و فشار کسب‌وکار برای افزایش ویژگی‌ها وجود دارد. مقاله به Info Tip به عنوان هر نوع عنصر کمکی که متن یا توضیح کوتاه را در پاسخ به تعامل نشان می‌دهد اشاره می‌کند — نه مستندات طولانی یا صفحات Help مستقل."
+        },
+        {
+          "type": "heading",
+          "text": "1. استفادهٔ بیش از حد برای «پنهان‌سازی» محتوا",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله: Product Manager یا Designer گاهی برای حفظ ظاهری ساده، همه توضیح‌ها را به Info Tipها منتقل می‌کنند. این رخ می‌دهد چون اضافه کردن tooltip ساده‌تر و سریع‌تر از بازطراحی اطلاعات-معنی‌دار در صفحه است. اهمیت این خطا در این است که اطلاعات ضروری برای تصمیم‌گیری کاربر ممکن است پنهان بماند و کاربران موقعیت‌های «آینده» (مثلاً کاربران جدید یا موارد لبه‌ای) را از دست بدهند. از نظر UX، این رویکرد باعث افزایش Cognitive Load می‌شود: کاربر باید تعامل اضافه‌ای انجام دهد تا اطلاعات اصلی را ببینید، که اختلال در فرایند تصمیم‌گیری ایجاد می‌کند. مثال واقعی: در یک فرم پرداخت، شروط بازپرداخت تنها در یک info icon قرار دارد؛ کاربر عجول شرایط را نمی‌بیند و پس از پرداخت دچار مشکل می‌شود. توصیه: پیش از استفاده از Info Tip، سوال کنید آیا متن برای تمام کاربران ضروری است یا صرفاً کمکی اختیاری. اگر ضروری است، آن را در بدنه صفحه یا در یک step واضح قرار دهید؛ اگر اختیاری، مقالهٔ کوتاه‌تری بنویسید و از مکانیزم‌های قابل کشف (persistent helper text، contextual labels) استفاده کنید."
+        },
+        {
+          "type": "heading",
+          "text": "2. زمان‌بندی و موقعیت نامناسب نمایش",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله: Info Tipها گاهی در زمان یا مکان نادرستی ظاهر می‌شوند — مثلاً روی hover در موبایل یا پس از تعامل مهم. دلیلش اغلب عدم هم‌راستایی بین اهداف Designer و محدودیت‌های پلتفرم است؛ Designer انتظار hover دارد اما Developer باید آن را به tap تبدیل کند. این موضوع مهم است زیرا نمایش نامناسب نه‌تنها بی‌اثر است بلکه می‌تواند جریان کار را قطع کند یا موجب از دست رفتن context شود. سناریو: در یک User Flow ثبت‌نام، tooltip حساس به hover برای یک فیلد پیوست شده است؛ در موبایل، tap متن را می‌بندد و کاربر نمی‌تواند محتوا را کپی کند یا آن را بخواند. توصیه: الگوهای تعامل را بر اساس پلتفرم قضاوت کنید، از persistent states برای اطلاعات طولانی استفاده کنید، و در Handoff به صراحت برای mobile/touch جایگزین تعریف کنید."
+        },
+        {
+          "type": "heading",
+          "text": "3. Accessibility: نادیده گرفتن کاربران با نیازهای ویژه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله: Tooltip و Info Tip اغلب برای صفحه‌خوان‌ها، کیبورد نِویگیشن و کاربران low-vision طراحی نشده‌اند. این اتفاق زمانی روی می‌دهد که تیم Front-end یک پیاده‌سازی بصری ساده را بدون API مناسب برای aria یا فوکوس ارائه می‌دهد. اهمیت آن در نقض اصول Accessibility است: کاربرانی که به Keyboard یا Screen Reader وابسته‌اند، ممکن است به محتوای توضیحی دسترسی نداشته باشند. سناریو: یک Designer یک info icon را در کنار label قرار می‌دهد؛ Developer آن را به‌صورت عنصر غیرتعاملی رندر می‌کند و screen readerها آن را نخوانند. توصیه: همیشه aria-describedby یا role مناسب اضافه کنید، از keyboard focus برای باز کردن/بستن پشتیبانی کنید، و برای Design System نمونه‌های قابل‌دسترس و تست keyboard/screen reader را جزء Component lifecycle قرار دهید."
+        },
+        {
+          "type": "heading",
+          "text": "4. هزینهٔ نگهداری و Localization",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله: هر Info Tip متنِ جدا می‌خواهد؛ وقتی تعدادشان زیاد می‌شود، نگهداری، هماهنگی محتوا و ترجمه گزینشی هزینه‌بر می‌شود. دلیل این مشکل ساختار سازمانی و فشار برای انتشار سریع است — Product تیم‌ها برای کاهش زمان انتشار از متن‌های موقت استفاده می‌کنند. این مهم است زیرا متن‌های نامنظم یا ترجمه‌نشده تجربهٔ ناپایدار و ناهمگن ایجاد می‌کنند و باعث بروز باگ‌های محتوایی در Release می‌شوند. سناریو: Design System یک tooltip Component ارائه می‌دهد اما متن‌ها در فایل‌های مختلف نگهداری می‌شوند؛ پس از ری‌فکتور، برخی tooltipها به زبان پیش‌فرض باقی می‌مانند. توصیه: برای هر Info Tip یک key مشخص در localization store داشته باشید، از محتوای مرکزی (single source of truth) استفاده کنید و سیاستی برای حداقلِ متن قابل‌قبول در هر locale تعیین کنید."
+        },
+        {
+          "type": "heading",
+          "text": "5. تضعیف الگوهای Design System و Component drift",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله: تیم‌ها گاهی برای حل یک نیاز فوری نسخهٔ سفارشی از tooltip را خارج از Design System می‌سازند؛ این باعث می‌شود رفتارها، ظاهر و APIها ناهمگون شوند. چرا رخ می‌دهد؟ زمان‌بندی Sprint و کمبود Governance. این مهم است چون تفرق الگوها هزینهٔ توسعه و آزمون را افزایش می‌دهد و تجربهٔ کاربری ناسازگار در سراسر محصول ایجاد می‌کند. سناریو: چند تیم داخلی از tooltipهای متفاوت با زمان‌بندی و انیمیشن‌های مختلف استفاده می‌کنند؛ وقتی Component global اصلاح می‌شود، بخشی از رابط‌ها هنوز رفتار قدیمی دارند. توصیه: Design System باید یک Component رسمی برای Info Tip داشته باشد که شامل قواعد استفاده، محدودیت‌های content length، accessibility checklist و نمونه‌های mobile/web باشد؛ هر تغییر باید از طریق Design Review و migration plan اعمال شود."
+        },
+        {
+          "type": "heading",
+          "text": "6. موبایل: فضای محدود و از بین رفتن state",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله: موبایل فضای محدود و تعامل متفاوت (touch، کوچک‌بودن viewport، orientation change) دارد؛ tooltipهایی که در وب خوب عمل می‌کنند، در موبایل ممکن است پوشاننده یا موقت باشند. این مسأله زمانی تشدید می‌شود که Info Tip به stateهای صفحه وابسته باشد و در بازگشت کاربر از صفحه فراموش شود. پیامد برای UX: اطلاعات حیاتی در نقاط بحرانی ناپدید می‌شوند یا باعث اسکرول و جابجایی غیرمنتظره می‌شوند. سناریو: کاربر در اپ موبایل یک help bubble را باز می‌کند، سپس به فرم برمی‌گردد اما bubble بسته شده و محتوا از دست رفته است؛ user cannot complete the task. توصیه: برای موبایل از persistent inline helper text یا expandable sections استفاده کنید، از modal‌های کوچک و دسترس‌پذیر بهره ببرید و رفتار بازگشت/rotation را طراحی و تست کنید."
+        },
+        {
+          "type": "heading",
+          "text": "خطاهای رایج یا Trade-offها",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "خطاهای رایج شامل پنهان‌سازی اطلاعات ضروری در tooltip، استفاده از tooltip برای الزامات قانونی، طراحی بدون توجه به Accessibility، و پیاده‌سازی‌های سفارشی خارج از Design System است. Trade-offهای معمول: حفظ سادگی بصری در برابر Discoverability؛ تکمیل سریع feature در برابر هزینهٔ نگهداری و Localization؛ انیمیشن جذاب در برابر قطع‌پذیری و عملکرد. هر تصمیم باید با معیارهای کمی و کیفی سنجیده شود — مثلاً نرخ خطا در فرم، تماس‌های پشتیبانی یا نرخ تبدیل مربوط به بخش توضیحات."
+        },
+        {
+          "type": "heading",
+          "text": "راهنمای عملی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "1) طبقه‌بندی محتوا: هر Info Tip را به سه دسته تقسیم کنید — ضروری (باید در UI باشد)، مفید (اختیاری اما قابل کشف)، و نه‌چندان‌ضروری (داکیومنت یا Help). 2) قوانین نمایش: برای هر دسته‌ یک الگوی نمایش تعریف کنید (inline persistent برای ضروری، tooltip قابل‌دسترسی برای مفید، لینک به Help برای غیرضروری). 3) Design System: یک Component واحد با API روشن، پشتیبانی از aria، و محدودیت طول متن بسازید؛ نمونه‌های mobile/web و migration guide داشته باشید. 4) Handoff و توسعه: در Story یا Issue، رفتار نمایش، keyboard flow و edge cases را مشخص کنید؛ Developerها را در Reviewهای Design درگیر کنید تا پیاده‌سازی مطابق استانداردها شود. 5) Localization و نگهداری: متن‌ها را در یک content store متمرکز نگهداری کنید و ترجمه را بخشی از Definition of Done کنید. 6) تست: شامل accessibility audit، keyboard/screen reader testing، mobile rotation و user testing با سناریوهای واقعی باشید. 7) Telemetry: رویدادهای باز شدن/بستن، تخلیه (dismissal) و مدت مشاهده را لاگ کنید تا فرضیات دربارهٔ کشف‌پذیری و اثربخشی را آزمون کنید."
+        },
+        {
+          "type": "heading",
+          "text": "جمع‌بندی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "تصمیم برای افزودن Info Tip نباید صرفاً طراحیِ سریع یا واکنش به درخواست Stakeholder باشد. قاعدهٔ ساده و کاربردی: اگر اطلاعات برای تصمیم‌گیری کاربر ضروری است، آن را در UI اصلی قرار دهید؛ اگر مفید است اما اختیاری، یک Info Tip با استانداردهای accessibility و نگهداری ایجاد کنید؛ اگر کم‌اهمیت است، به مستندات ارجاع دهید. این قاعده باعث می‌شود رفتار تیم‌ها شفاف، قابل‌قابلیت و کمتر هزینه‌بر شود."
+        }
+      ]
+    }
 ].filter((article) => !hiddenArticleSlugs.has(article.slug));
 
 export const articlesEn: Article[] = [
@@ -1860,6 +1992,136 @@ export const articlesEn: Article[] = [
         {
           "type": "paragraph",
           "text": "Ask the practical questions: how many teams work on the product? How many platforms must you support? How fast do you need to ship features and how much will inconsistent experiences cost you? The answers will guide whether a UI kit is sufficient or a design system is the right investment."
+        }
+      ]
+    }
+,
+    {
+      "slug": "why-info-tips-fail",
+      "title": "When Info Tips Fail: Causes, Consequences, and Product Guidance",
+      "excerpt": "Many Info Tips (tooltips, helper text, info icons) degrade UX because poor content decisions, timing, accessibility, and maintenance turn them into hidden liabilities. This article explains why, gives realistic scenarios, and provides actionable guidelines for Designers and Developers.",
+      "category": "Product Design",
+      "publishedAt": "July 18, 2026",
+      "readingTime": "6 min read",
+      "cover": whyInfoTipsFailCoverImage,
+      "direction": "ltr",
+      "content": [
+        {
+          "type": "heading",
+          "text": "Summary",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Info Tips—short contextual explanations such as tooltips, info icons, or inline helper text—are widely used to reduce visible complexity. However, many implementations harm usability because they hide essential information, break accessibility, or create long-term maintenance burdens. The actionable takeaway: classify the information's necessity before choosing an Info Tip and design with platform and accessibility constraints in mind."
+        },
+        {
+          "type": "heading",
+          "text": "In This Article",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The article defines the problem and scope, analyzes common failure modes (content misuse, timing, accessibility, maintenance, Design System drift, and mobile issues), outlines common mistakes and trade-offs, and concludes with practical guidelines for Design and Development teams."
+        },
+        {
+          "type": "heading",
+          "text": "Introduction",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Teams rely on Info Tips to reduce visual clutter and provide Help exactly where users need it. But when used as a catch-all or applied without platform-specific thinking, Info Tips create hidden costs: users miss critical information, accessibility breaks, and developers face brittle, hard-to-localize code. This article examines the causes, consequences for Product Design and Development, and presents recommendations that can be applied within a Design System and Sprint constraints."
+        },
+        {
+          "type": "heading",
+          "text": "Context and Scope",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "This guidance applies to products with moderately complex interfaces—forms, dashboards, task flows—where teams include Product Designer, Front-end and Back-end Developers, and a Design System owner. We assume web and mobile platforms, Sprint time pressure, localization needs, and the presence of a UI Component library. Info Tip here means any small contextual help element triggered by hover, focus, or tap—not long-format documentation or dedicated Help pages."
+        },
+        {
+          "type": "heading",
+          "text": "1. Over-reliance as a Shortcut to 'Clean' UI",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: Teams often move essential content into Info Tips to keep interfaces visually minimal. This happens because adding a tooltip or info icon is faster than redesigning content hierarchy. Why it matters: if the information is necessary for users’ decisions, hiding it increases Cognitive Load and error rates. UX consequence: users may omit steps, make wrong choices, or contact support. Scenario: refund policy only accessible from an info icon next to the checkout button; users who skip the icon later dispute charges. Recommendation: first classify whether the text is essential. If it is, place it inline or in an explicit step; if optional, keep it discoverable—use persistent helper copy or clearly signposted Info Tips."
+        },
+        {
+          "type": "heading",
+          "text": "2. Mismatched Timing and Interaction Model",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: Info Tips are designed for hover or precise interactions but the product needs to work on touch devices. This mismatch occurs when interaction assumptions aren't reconciled across platforms. Why it matters: inappropriate triggers make tips ineffective or disruptive. UX consequence: on mobile a hover-based tooltip may never be accessible, or a tap may close it before the user can read. Scenario: a registration field with a hover-only explanation; on mobile, users cannot reveal the content or cannot copy the example. Recommendation: define platform-specific patterns—use inline expansions or persistent states for touch, ensure tooltip triggers are accessible via keyboard and touch, and specify expected behavior in the Handoff."
+        },
+        {
+          "type": "heading",
+          "text": "3. Accessibility Failures",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: Info Tips are frequently implemented without screen-reader support, keyboard focus, or sufficient contrast. This happens when the visual implementation precedes accessibility considerations. Why it matters: it excludes users relying on assistive technologies and can violate legal or compliance requirements. UX consequence: critical explanations are invisible to keyboard-only or screen-reader users, increasing errors and excluding audiences. Scenario: an info icon rendered as a non-interactive element; screen readers ignore it and keyboard users cannot open the tooltip. Recommendation: include aria-describedby or equivalent, make tooltips reachable via keyboard focus, test with screen readers, and include accessibility checks as part of the Component’s Definition of Done."
+        },
+        {
+          "type": "heading",
+          "text": "4. Maintenance and Localization Burden",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: each Info Tip introduces a separate text artifact requiring review and translation. This burden grows as the number of tips increases because content ends up spread across code, story files, or product copy spreadsheets. Why it matters: inconsistent or untranslated tips degrade credibility and increase release risk. UX consequence: users see mixed languages or outdated guidance, eroding trust. Scenario: multiple teams add ad-hoc tooltips referencing different terminology; localization misses some entries, producing inconsistent experiences. Recommendation: centralize Info Tip strings in a localization store, require keys for each tooltip, and treat tooltip content as part of the product’s content lifecycle with translation and QA steps."
+        },
+        {
+          "type": "heading",
+          "text": "5. Design System Drift and Fragmentation",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: teams create custom tooltip implementations to meet urgent needs, bypassing the shared Design System. This usually happens under Sprint pressure and weak governance. Why it matters: multiple inconsistent components increase maintenance and testing costs and yield a fragmented user experience. UX consequence: different parts of the product behave differently (timing, animation, position), confusing users. Scenario: one team uses a long persistent help bubble while another uses a transient hover tooltip; later, a global style update breaks one implementation. Recommendation: provide a single, well-documented Info Tip Component in the Design System with rules for use, accessibility, content length limits, and mobile/web variants; require Design Review and migration plans for exceptions."
+        },
+        {
+          "type": "heading",
+          "text": "6. Mobile Constraints and State Loss",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: mobile viewports, orientation changes, and touch interactions mean Info Tips can occlude inputs or disappear when users navigate. This occurs when designers assume desktop behaviors or ignore lifecycle states. Why it matters: transient tips can break task flows or force users to re-establish context. UX consequence: users lose information mid-task and may abandon flows. Scenario: a help bubble opened on a mobile form is dismissed after the keyboard hides, leaving the user unable to recall an instruction. Recommendation: prefer inline expandable sections, small accessible modals, or persistent helper text on mobile; define clear behavior for rotation and navigation and test in-device."
+        },
+        {
+          "type": "heading",
+          "text": "Common Mistakes and Trade-offs",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Typical mistakes include burying critical content in Info Tips, using them to satisfy legal copy requirements, implementing without accessibility, and building off-DS components. Trade-offs are real: visual simplicity vs discoverability; development speed vs long-term maintenance; animation/engagement vs interruption and performance. Each choice should be explicit and measured—track support contacts, conversion changes, or tip usage telemetry to evaluate the trade-off."
+        },
+        {
+          "type": "heading",
+          "text": "Practical Guidelines",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "1) Classify content: mark Info Tip text as essential, helpful, or referential. 2) Map pattern to need: essential→inline/persistent; helpful→accessible tooltip or expandable; referential→Help link. 3) Design System: provide one canonical Info Tip Component with accessibility, content-length, and mobile variants. 4) Handoff: include interaction, keyboard flow, and edge cases in tickets and component stories. 5) Localization: store strings centrally and include translation in the Definition of Done. 6) Test: include accessibility audits, keyboard/ screen reader testing, and realistic mobile scenarios. 7) Measure: instrument open/close events, dismissal rates, and time-on-tip to validate whether tips are discovered and useful."
+        },
+        {
+          "type": "heading",
+          "text": "Conclusion",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Add Info Tips deliberately, not reflexively. A simple decision rule: if information is necessary for a user’s decision, surface it in the primary UI; if it’s helpful but optional, use a standardized, accessible Info Tip; if it’s low-value, link to documentation. Applying this rule reduces hidden usability failures, lowers maintenance cost, and makes Design System governance more effective."
         }
       ]
     }
