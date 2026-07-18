@@ -39,13 +39,27 @@ jobs:
         run: |
           ARTICLE_JSON="$(find generated-articles -maxdepth 1 -type f -name '*.json' -print -quit)"
           test -n "$ARTICLE_JSON"
-          SLUG="$(node -e 'const article = require(process.argv[1]); process.stdout.write(article.slug);' "$ARTICLE_JSON")"
-          test -n "$SLUG"
-          test -f "generated-articles/${SLUG}-images/cover.png"
-          test -s "generated-articles/${SLUG}-images/cover.png"
-          echo "ARTICLE_JSON=$ARTICLE_JSON" >> "$GITHUB_ENV"
-          echo "SLUG=$SLUG" >> "$GITHUB_ENV"
-          echo "ARTICLE_IMAGES_DIR=generated-articles/${SLUG}-images" >> "$GITHUB_ENV"
+          ARTICLE_JSON="$ARTICLE_JSON" node <<'NODE' >> "$GITHUB_ENV"
+          const fs = require("fs");
+          const path = require("path");
+
+          const articlePath = path.resolve(process.env.ARTICLE_JSON);
+          const article = JSON.parse(fs.readFileSync(articlePath, "utf8"));
+          const clean = (value) => String(value ?? "").replace(/[\r\n]+/g, " ").trim();
+
+          if (!clean(article.slug) || !clean(article.fa?.title) || !clean(article.en?.title)) {
+            throw new Error("Generated article metadata is incomplete.");
+          }
+
+          console.log(`ARTICLE_JSON=${articlePath}`);
+          console.log(`SLUG=${clean(article.slug)}`);
+          console.log(`FA_TITLE=${clean(article.fa.title)}`);
+          console.log(`EN_TITLE=${clean(article.en.title)}`);
+          console.log(`ARTICLE_IMAGES_DIR=${path.join(path.dirname(articlePath), `${clean(article.slug)}-images`)}`);
+          NODE
+          IMAGE_DIRECTORY="$(dirname "$ARTICLE_JSON")/$(basename "$ARTICLE_JSON" .json)-images"
+          test -f "$IMAGE_DIRECTORY/cover.png"
+          test -s "$IMAGE_DIRECTORY/cover.png"
 
       - name: Add article to the project
         run: npm run article:add -- "$ARTICLE_JSON" --images "$ARTICLE_IMAGES_DIR"
@@ -69,8 +83,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          FA_TITLE="$(node -e 'const article = require(process.argv[1]); process.stdout.write(article.fa.title);' "$ARTICLE_JSON")"
-          EN_TITLE="$(node -e 'const article = require(process.argv[1]); process.stdout.write(article.en.title);' "$ARTICLE_JSON")"
           cat > pr-body.md <<EOF
           ## Article details
 
