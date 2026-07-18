@@ -32,7 +32,8 @@ jobs:
         env:
           TOPIC: ${{ inputs.topic }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          ARTICLE_MODEL: ${{ vars.ARTICLE_MODEL || vars.OPENAI_MODEL }}
+          IMAGE_MODEL: ${{ vars.IMAGE_MODEL }}
         run: npm run article:generate -- "$TOPIC"
 
       - name: Read generated article metadata

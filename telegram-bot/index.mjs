@@ -10,6 +10,7 @@ const activeMonitors = new Set();
 const workflowFile = "generate-bilingual-article.yml";
 const monitorInterval = 15_000;
 const monitorTimeout = 10 * 60_000;
+const defaultTranscriptionModel = "gpt-4o-mini-transcribe";
 
 const fail = (message) => { throw new Error(message); };
 const cleanTopic = (value) => String(value ?? "").replace(/\s+/g, " ").trim();
@@ -47,6 +48,7 @@ const main = async () => {
   const fileEnv = await readEnvFile();
   const config = Object.fromEntries(["TELEGRAM_BOT_TOKEN", "TELEGRAM_ALLOWED_USER_ID", "OPENAI_API_KEY", "GITHUB_TOKEN", "GITHUB_OWNER", "GITHUB_REPO"].map((key) => [key, process.env[key] || fileEnv[key]]));
   for (const [key, value] of Object.entries(config)) if (!value) fail(`متغیر محیطی ${key} تنظیم نشده است.`);
+  const transcriptionModel = process.env.TRANSCRIPTION_MODEL || fileEnv.TRANSCRIPTION_MODEL || defaultTranscriptionModel;
   await loadPending();
 
   const telegram = async (method, body = {}) => {
@@ -77,7 +79,7 @@ const main = async () => {
     const audioResponse = await fetch(`https://api.telegram.org/file/bot${config.TELEGRAM_BOT_TOKEN}/${file.file_path}`);
     if (!audioResponse.ok) throw new Error("دانلود فایل صوتی از تلگرام ناموفق بود.");
     const form = new FormData();
-    form.set("model", "gpt-4o-mini-transcribe");
+    form.set("model", transcriptionModel);
     form.set("language", "fa");
     form.set("response_format", "json");
     form.set("file", new Blob([await audioResponse.arrayBuffer()], { type: "audio/ogg" }), "voice.ogg");
