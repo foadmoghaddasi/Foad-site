@@ -29,6 +29,8 @@ import similarProductDesignPortfoliosCoverImage from "../assets/images/articles/
 
 import workingWithBusinessCoverImage from "../assets/images/articles/working-with-business/cover.png";
 
+import designSystemVsUiKitCoverImage from "../assets/images/articles/design-system-vs-ui-kit/cover.png";
+
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string; level?: 2 | 3 }
@@ -1029,6 +1031,155 @@ export const articles: Article[] = [
           "text": "بیزینس معمولاً با محدودیت‌های زمان، بودجه و ریسک روبه‌روست. به‌عنوان طراح یا مدیر محصول، وظیفه شما ارائه گزینه‌های شفاف با پیامدهای مشخص است: نمونه‌سازی سریع، اولویت‌بندی مبتنی بر ارزش و تعریف MVP به کاهش ریسک کمک می‌کند."
         }
       ]
+    },
+    {
+      "slug": "design-system-vs-ui-kit",
+      "title": "تفاوت طراحی سیستم و UI Kit: راهنمای عملی برای تیم‌های محصول",
+      "excerpt": "طراحی سیستم و UI Kit هر دو ابزار مهم برای ساخت رابط‌های کاربری هستند، اما نقش، عمق و نحوه استفاده‌شان متفاوت است. این مقاله نقاط تفاوت، موارد استفاده، چگونگی نگهداری و یک مثال عملی برای مهاجرت از UI Kit به طراحی سیستم را توضیح می‌دهد.",
+      "category": "UX / Design Systems",
+      "publishedAt": "۲۷ تیر ۱۴۰۵",
+      "readingTime": "6 دقیقه مطالعه",
+      "cover": designSystemVsUiKitCoverImage,
+      "direction": "rtl",
+      "content": [
+        {
+          "type": "heading",
+          "text": "مقدمه: چرا تمایز مهم است",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "بسیاری از تیم‌ها هنگام شروع ساخت رابط، هم UI Kit و هم اجزا قابل‌کدنویسی را با هم اشتباه می‌گیرند. نتیجه معمولاً اتلاف زمان، افزونگی و تردید در تصمیم‌گیری طراحی است. در عمل، UI Kit نقشه‌ای سریع برای طراحی صفحات فراهم می‌کند، اما طراحی سیستم ساختاری استراتژیک است که تعامل بین طراحی، توسعه و محصول را همزمان هماهنگ می‌کند. در ادامه به صورت دقیق تفاوت‌ها و موارد عملی استفاده را بررسی می‌کنیم."
+        },
+        {
+          "type": "heading",
+          "text": "تعریف کوتاه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "UI Kit: مجموعه‌ای از اجزا بصری (آیکون‌ها، دکمه‌ها، کارت‌ها، تایپوگرافی، رنگ‌ها) در ابزار طراحی که برای ساخت نمونه‌سازی و صفحات سریع استفاده می‌شود. معمولاً فاقد قوانین رفتار یا جزئیات پیاده‌سازی است."
+        },
+        {
+          "type": "paragraph",
+          "text": "Design System (سیستم طراحی): مجموعه‌ای از اصول، توکن‌ها، الگوها، اجزای مکتوب و قابل توسعه، مستندات رفتاری و فرآیندهای حکمرانی که تضمین می‌کنند محصولِ چندتیمی از لحاظ بصری، عملکردی و تجربه‌ای سازگار بماند."
+        },
+        {
+          "type": "heading",
+          "text": "هدف و گستره: چه چیزی را پوشش می‌دهد؟",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "UI Kit برای سرعت بخشیدن به طراحی صفحات و نمونه‌سازی مناسب است؛ هدف اصلی نمایش سریع گزینه‌های بصری و چینش است. یک UI Kit معمولاً شامل فایل‌های قابل استفاده در ابزار طراحی (مثل صفحات نمونه، استایل‌های متنی و نمونه رنگ) است."
+        },
+        {
+          "type": "paragraph",
+          "text": "سیستم طراحی هدفی گسترده‌تر دارد: تعریف زبان محصول، استانداردهای دسترسی، الگوهای تعامل، و یک مجموعه اجزا که به‌صورت کد نیز موجود و نسخه‌بندی می‌شوند. سیستم طراحی باید بین پلتفرم‌ها یکپارچگی برقرار کند و نحوه تصمیم‌گیری در موارد مرزی را مشخص کند."
+        },
+        {
+          "type": "heading",
+          "text": "Design tokens — نقطۀ اتصال بین طراحی و کد",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "یکی از تمایزهای عملی کلیدی، استفاده از design tokens است: متغیرهای استاندارد برای رنگ، فضاها، سایه‌ها، تایپوگرافی و غیره که به فرمت‌های قابل‌خواندن توسط ابزارها و کد تبدیل می‌شوند. UI Kit ممکن است فقط یک پالت رنگ داشته باشد؛ اما در یک سیستم طراحی، آن رنگ به‌عنوان توکن (مثلاً --color-primary-500) تعریف، مستندسازی و در ساخت‌ pipelines به کار می‌رود تا تغییرات سریع و یکنواخت اعمال شوند."
+        },
+        {
+          "type": "heading",
+          "text": "Components vs Patterns: اجزا، الگوها و رفتار",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "در UI Kit، «اجزا» معمولاً نمونه‌های بصری هستند: یک دکمه پر، یک دکمه توخالی، یک کارت محصول. در سیستم طراحی، هر جزء باید: 1) مشخصات API داشته باشد (props، stateها)، 2) حالات و محدودیت‌ها را تعریف کند، 3) الزامات دسترسی را پوشش دهد، و 4) نمونه‌های پیاده‌سازی در کد (React/Vue/Swift/Kotlin) داشته باشد. به علاوه، الگوها (patterns) نحوه ترکیب چند جزء را برای حل مسائل تکرارشونده مثل فرم افزایش اعتبار یا لیست فیلترها مشخص می‌کنند."
+        },
+        {
+          "type": "heading",
+          "text": "مستندسازی و حکمرانی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "یک UI Kit ممکن است شامل یادداشتی دربارهٔ استفاده از اجزا باشد، اما معمولاً مستندسازی آن سطحی است. طراحی سیستم نیاز به مستندسازی زنده، مثال‌های کد، تذکرهای دسترسی، و فرآیندِ تصمیم‌گیری (who approves changes) دارد. بدون حکمرانی مشخص، سیستم تبدیل به یک مجموعه نامنظم از اجزا می‌شود که همان مشکلات UI Kit را تکرار می‌کند."
+        },
+        {
+          "type": "heading",
+          "text": "تحویل به توسعه: از فایل به کامپوننت",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "در بهترین حالت، UI Kit یک منبع برای طراحان است که آن‌ها را در نمونه‌سازی یاری می‌دهد، ولی برای توسعه‌دهندگان اغلب کافی نیست. سیستم طراحی شامل کتابخانه‌های کد، مستندات Storybook یا نمونه‌های iOS/Android است که توسعه‌دهنده می‌تواند مستقیماً ایمپورت کند. به عبارت دیگر، طراحی سیستم خطی از توکن تا کد فراهم می‌کند؛ این یعنی یک دکمه در Figma و همان دکمه در کد، رفتار و مقادیر یکسانی خواهند داشت."
+        },
+        {
+          "type": "heading",
+          "text": "نگهداری، نسخه‌بندی و مقیاس‌پذیری",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "UI Kit معمولاً با رشد محصول به سرعت پراکنده می‌شود: چندین فایل، نسخه‌های محلی و اختلاف در نام‌گذاری. سیستم طراحی باید شامل سیاست‌های نسخه‌بندی، فرایند انتشار، و سازوکار بازخورد باشد. نکته مهم: هر چقدر تعداد پلتفرم‌ها و تیم‌ها افزایش یابد، هزینه عدم وجود طراحی سیستم ملموس‌تر می‌شود."
+        },
+        {
+          "type": "heading",
+          "text": "مثال عملی: از UI Kit محلی به طراحی سیستم مقیاس‌پذیر",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "فرض کنید تیم محصول یک سرویسِ رزرو آنلاین دارد با یک اپلیکیشن موبایل و یک وب‌سایت. در ابتدا یک UI Kit در فایل Figma ایجاد شده: رنگ‌ها، ۳ نوع کارت محصول، دکمه‌ها و چند آیکون. بعد از انتشار، تیم‌ها شروع به تغییر جزئی در دکمه‌ها، اندازه فونت‌ها و رنگ‌ها می‌کنند تا برای صفحات خاص مناسب شوند. حالا سازگاری از بین می‌رود و باگ‌های تجربه کاربری ایجاد می‌شود."
+        },
+        {
+          "type": "paragraph",
+          "text": "مراحل تبدیل به سیستم طراحی: 1) استخراج design tokens از فایل‌های موجود و استانداردسازی نام‌ها؛ 2) تعریف اجزای بنیادین با حالات (primary/secondary/disabled) و معیارهای دسترسی (کنتراست، اندازه لمسی)؛ 3) پیاده‌سازی یک کتابخانه کد (مثلاً بسته npm و یک Storybook) که اجزا را نمایش و آزمایش می‌کند؛ 4) ایجاد مستندات دربارهٔ تصمیمات طراحی و فرآیندهای تغییر؛ 5) تعیین تیم مالکِ سیستم و کانال بازخورد. نتیجه: اصلاح یک توکن رنگی کافی است تا در کل محصول یکپارچگی ایجاد شود."
+        },
+        {
+          "type": "heading",
+          "text": "چک‌لیست تصمیم‌گیری: چه زمانی UI Kit کافی است و چه زمانی طراحی سیستم لازم است؟",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "وقتی UI Kit کافی است:\n- محصول کوچک یا تک‌پلتفرم است و بار توسعه پایین است.\n- نیاز به نمونه‌سازی سریع برای اعتبارسنجی ایده‌ها دارید.\n- تیم‌ها هنوز در مرحلهٔ کشف و تغییرات سریع هستند."
+        },
+        {
+          "type": "paragraph",
+          "text": "وقتی طراحی سیستم لازم است:\n- چند تیم یا چند پلتفرم همزمان محصول را توسعه می‌دهند.\n- نیاز به کاهش هزینه نگهداری و هماهنگی بلندمدت دارید.\n- باید الزامات دسترسی و انطباق را به‌طور سیستماتیک رعایت کنید.\n- می‌خواهید ظرفیت انتشار سریع و قابل‌اطمینان ویژگی‌های جدید را افزایش دهید."
+        },
+        {
+          "type": "heading",
+          "text": "مهاجرت تدریجی: یک راه‌کار عملی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مهاجرت ناگهانی پرخطر است. استراتژی پیشنهادی: 1) اولویت‌بندی اجزا براساس تکرار استفاده و هزینه ناسازگاری؛ 2) استخراج توکن‌ها و انتشار آن‌ها به‌عنوان بستهٔ مستقل؛ 3) پیاده‌سازی اجزای پایه در کتابخانه کد و استفاده هم‌زمان با UI Kit؛ 4) بازآموزی طراحان و توسعه‌دهندگان با ورکشاپ‌ها و نمونه‌هایی از Storybook؛ 5) حذف تدریجی نمونه‌های قدیمی وقتی همه صفحات به اجزا جدید مهاجرت کردند."
+        },
+        {
+          "type": "heading",
+          "text": "قیمت/بازگشت سرمایه (ROI) و انتظارات",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "راه‌اندازی سیستم طراحی هزینهٔ اولیه‌ای در زمان و نیروی انسانی دارد: استخراج توکن‌ها، نوشتن مستندات و ساخت کتابخانه کد. اما در راه‌حل بلندمدت، کاهش بروز اشکال، تسریع پیاده‌سازی ویژگی‌ها و کاهش زمان سینک بین طراحی و توسعه منجر به صرفه‌جویی قابل‌توجه می‌شود. انتظار داشته باشید مزایا در چند ماه تا یک سال برای تیم میانی تا بزرگ مشخص شود."
+        },
+        {
+          "type": "heading",
+          "text": "نتیجه‌گیری: هر دو ابزار ارزشمند ولی متفاوت",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "UI Kit برای نمونه‌سازی و سرعت طراحی عالی است؛ اما زمانی که محصول رشد می‌کند و نیاز به ثبات، دسترسی و توسعهٔ همزمان وجود دارد، طراحی سیستم سرمایه‌گذاری لازم است. بهترین رویکرد ترکیبی است: از UI Kit برای طراحی سریع استفاده کنید و هم‌زمان ظرفیت‌ها و فرایندهایی برای تبدیل به یک سیستم طراحی ایجاد کنید."
+        },
+        {
+          "type": "paragraph",
+          "text": "در عمل، سوالات کلیدی برای تصمیم‌گیری این‌ها هستند: چند تیم روی محصول کار می‌کنند؟ چند پلتفرم پشتیبانی می‌کنید؟ چقدر باید سریع ویژگی‌ها را منتشر کنید و چقدر برای ثبات تجربه هزینه خواهید کرد؟ پاسخ‌ها مشخص می‌کنند یک UI Kit کفایت می‌کند یا باید به سمت سیستم طراحی حرکت کنید."
+        }
+      ]
     }
 ];
 
@@ -1553,6 +1704,155 @@ export const articlesEn: Article[] = [
         {
           "type": "paragraph",
           "text": "Business teams face time, budget, and risk constraints. As a designer or product lead your job is to present clear options with trade-offs: rapid prototypes, value-based prioritization, and a well-scoped MVP all help de-risk initiatives."
+        }
+      ]
+    },
+    {
+      "slug": "design-system-vs-ui-kit",
+      "title": "Design System vs UI Kit: A Practical Guide for Product Teams",
+      "excerpt": "Design systems and UI kits both help build interfaces, but they differ in purpose, scope, and how teams use and maintain them. This guide explains core differences, practical workflows, a migration example, and decision guidance for designers and engineers.",
+      "category": "UX / Design Systems",
+      "publishedAt": "July 18, 2026",
+      "readingTime": "5 min read",
+      "cover": designSystemVsUiKitCoverImage,
+      "direction": "ltr",
+      "content": [
+        {
+          "type": "heading",
+          "text": "Introduction: Why the distinction matters",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Teams often confuse UI kits with design systems, which leads to duplicated effort, inconsistent experiences, and friction between designers and developers. A UI kit is a quick visual toolbox for building pages, while a design system is a strategic, cross-disciplinary framework that aligns design, engineering, and product. Below, we unpack the differences and provide practical steps for adoption and maintenance."
+        },
+        {
+          "type": "heading",
+          "text": "Short definitions",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "UI Kit: A collection of visual assets (icons, buttons, cards, typography styles, colors) in design tools used to speed up mockups and page layouts. It usually lacks implementation details and behavioral rules."
+        },
+        {
+          "type": "paragraph",
+          "text": "Design System: A set of principles, design tokens, patterns, documented and code-based components, accessibility guidelines, and governance processes that ensure consistency across teams and platforms."
+        },
+        {
+          "type": "heading",
+          "text": "Purpose and scope: What each covers",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "A UI kit is aimed at accelerating visual design and prototyping. It typically contains files for designers—style tokens in a loose form, component examples, and layout templates."
+        },
+        {
+          "type": "paragraph",
+          "text": "A design system has a broader remit: defining the product’s design language, interaction standards, accessibility requirements, and a set of components that also exist in code and are versioned. It tells teams how to make decisions for edge cases and how to cooperate across platforms."
+        },
+        {
+          "type": "heading",
+          "text": "Design tokens — the bridge between design and code",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "A practical difference is the use of design tokens: standardized variables for colors, spacing, shadows, typography, etc., exported to formats that both design tools and code can consume. A UI kit might show a color palette; a design system defines that color as a token (e.g., --color-primary-500), documents its intent, and integrates it into build pipelines so a single change propagates throughout the product."
+        },
+        {
+          "type": "heading",
+          "text": "Components vs patterns: behavior matters",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "In a UI kit, components are usually visual examples: a primary button, a ghost button, a product card. In a design system, each component must also define its API (props/states), limitations, accessibility requirements, and code implementations (React/Vue/Swift/Kotlin). Patterns describe how multiple components combine to solve recurring UX problems, such as multi-field forms or filter lists."
+        },
+        {
+          "type": "heading",
+          "text": "Documentation and governance",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "A UI kit may include notes on usage, but documentation is typically shallow. A design system requires living documentation, runnable examples, accessibility guidelines, and a change-approval process. Without governance, the system degrades into a box of mismatched components and recreates the issues that a UI kit already suffers from."
+        },
+        {
+          "type": "heading",
+          "text": "Handoff to engineering: from file to component",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Ideally, a UI kit helps designers prototype but often doesn’t give developers enough to ship. A design system includes code libraries, Storybook examples, or mobile component samples that developers import directly. In other words, a system creates a pipeline from tokens to code — the same visual component in Figma and in production shares values and behavior."
+        },
+        {
+          "type": "heading",
+          "text": "Maintenance, versioning, and scalability",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "A UI kit typically becomes fragmented as the product grows: multiple files, local forks, inconsistent naming. A design system should include versioning policies, release processes, and feedback channels. The bigger the number of platforms and teams, the more visible the cost of not having a system."
+        },
+        {
+          "type": "heading",
+          "text": "Practical example: migrating from a local UI kit to a scalable design system",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Imagine a booking service with a mobile app and a website. Initially, a Figma UI kit contained colors, three card types, buttons, and icons. After launch, teams adjusted button spacing, font sizes, and colors for particular pages. Consistency breaks and UX bugs appear."
+        },
+        {
+          "type": "paragraph",
+          "text": "Migration steps: 1) extract design tokens and standardize naming; 2) define foundational components with states (primary/secondary/disabled) and accessibility criteria (contrast, touch size); 3) implement a code library (e.g., an npm package and Storybook) that exposes components and tests; 4) create decision documentation and change workflows; 5) assign ownership of the system and a feedback channel. The payoff: changing one color token updates the entire UI consistently."
+        },
+        {
+          "type": "heading",
+          "text": "Decision checklist: when is a UI kit enough and when do you need a design system?",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "When a UI kit is enough:\n- The product is small or single-platform.\n- You need rapid prototyping to validate ideas.\n- Teams are still in discovery and frequent design iteration."
+        },
+        {
+          "type": "paragraph",
+          "text": "When you need a design system:\n- Multiple teams or platforms develop the product concurrently.\n- You want to reduce maintenance costs and coordination overhead.\n- Accessibility and compliance must be enforced consistently.\n- You want to speed up reliable feature delivery."
+        },
+        {
+          "type": "heading",
+          "text": "A gradual migration strategy",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "A sudden switch is risky. Recommended approach: 1) prioritize components by reuse and pain points; 2) extract and publish tokens as an independent package; 3) implement core components in the code library and run them alongside the existing UI kit; 4) train designers and engineers with workshops and Storybook examples; 5) retire old assets as pages migrate to the new components."
+        },
+        {
+          "type": "heading",
+          "text": "Cost vs return and expectations",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Building a design system requires upfront investment: token extraction, writing docs, and building a code library. Over time, lower defect rates, faster implementation, and less designer-developer syncing deliver measurable savings. Expect benefits to become clear over several months to a year for mid-sized teams."
+        },
+        {
+          "type": "heading",
+          "text": "Conclusion: both are valuable but serve different purposes",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "A UI kit is great for rapid visual work; when your product grows and requires consistency, accessibility, and efficient cross-team development, a design system becomes essential. A pragmatic strategy is to use a UI kit for quick design work while investing in the foundations (tokens, components, governance) needed to evolve into a design system."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ask the practical questions: how many teams work on the product? How many platforms must you support? How fast do you need to ship features and how much will inconsistent experiences cost you? The answers will guide whether a UI kit is sufficient or a design system is the right investment."
         }
       ]
     }
