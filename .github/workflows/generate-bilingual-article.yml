@@ -91,6 +91,7 @@ jobs:
           - Slug: ${SLUG}
           - Article path: src/content/articles.ts
           - Build: successful (npm run build)
+          - Workflow run: ${GITHUB_RUN_ID}
           EOF
           PR_URL="$(gh pr create --base main --head "$ARTICLE_BRANCH" --title "Add article: $EN_TITLE" --body-file pr-body.md)"
           echo "PR_URL=$PR_URL" >> "$GITHUB_ENV"

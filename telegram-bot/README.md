@@ -1,6 +1,6 @@
 # Telegram article bot
 
-این بات فقط موضوع را از پیام متنی یا ویس می‌گیرد و پس از تأیید کاربر، workflow با نام `Generate Bilingual Article` را در GitHub اجرا می‌کند.
+این بات موضوع را از پیام متنی یا ویس می‌گیرد، پس از تأیید کاربر workflow `Generate Bilingual Article` را اجرا می‌کند و نتیجهٔ Pull Request را برای تأیید یا رد در تلگرام نمایش می‌دهد.
 
 ## اجرا
 
@@ -14,4 +14,4 @@ npm start
 
 برای پیدا کردن `TELEGRAM_ALLOWED_USER_ID`، در تلگرام به ربات `@userinfobot` پیام بدهید و شناسهٔ عددی نمایش‌داده‌شده را در `.env` قرار دهید.
 
-`GITHUB_TOKEN` باید اجازهٔ اجرای workflow (`Actions: write`) در مخزن مشخص‌شده را داشته باشد.
+`GITHUB_TOKEN` باید دسترسی‌های `Actions: read and write`، `Pull requests: read and write` و `Contents: read and write` در مخزن مشخص‌شده را داشته باشد.
