@@ -59,8 +59,10 @@ jobs:
           console.log(`ARTICLE_IMAGES_DIR=${path.join(path.dirname(articlePath), `${clean(article.slug)}-images`)}`);
           NODE
           IMAGE_DIRECTORY="$(dirname "$ARTICLE_JSON")/$(basename "$ARTICLE_JSON" .json)-images"
-          test -f "$IMAGE_DIRECTORY/cover.png"
-          test -s "$IMAGE_DIRECTORY/cover.png"
+          test -f "$IMAGE_DIRECTORY/cover.webp"
+          test -s "$IMAGE_DIRECTORY/cover.webp"
+          test -f "$IMAGE_DIRECTORY/cover-thumb.webp"
+          test -s "$IMAGE_DIRECTORY/cover-thumb.webp"
 
       - name: Add article to the project
         run: npm run article:add -- "$ARTICLE_JSON" --images "$ARTICLE_IMAGES_DIR"

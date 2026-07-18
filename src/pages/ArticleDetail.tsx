@@ -25,7 +25,7 @@ const ArticleContentBlock = ({ block }: { block: ArticleBlock }) => {
     case "image":
       return (
         <figure className={`article-figure ${block.wide ? "is-wide" : ""}`}>
-          <img src={block.src} alt={block.alt} loading="lazy" />
+          <img src={block.src} alt={block.alt} loading="lazy" decoding="async" />
           {block.caption && <figcaption>{block.caption}</figcaption>}
         </figure>
       );
@@ -34,7 +34,7 @@ const ArticleContentBlock = ({ block }: { block: ArticleBlock }) => {
         <div className="article-gallery">
           {block.images.map((image) => (
             <figure key={image.src}>
-              <img src={image.src} alt={image.alt} loading="lazy" />
+              <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
               {image.caption && <figcaption>{image.caption}</figcaption>}
             </figure>
           ))}
@@ -112,7 +112,7 @@ const ArticleDetail = () => {
         </header>
 
         <figure className="article-cover">
-          <img src={article.cover} alt="" />
+          <img src={article.cover} alt="" loading="eager" fetchPriority="high" decoding="async" />
         </figure>
 
         <div className="article-content">

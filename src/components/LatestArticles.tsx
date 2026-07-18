@@ -41,7 +41,7 @@ const LatestArticles = () => {
             >
               <Card variant="default" className="latest-article-card">
                 <div className="latest-article-image">
-                  <img src={article.cover} alt="" loading="lazy" />
+                  <img src={article.coverThumb ?? article.cover} alt="" loading="lazy" decoding="async" />
                 </div>
                 <Card.Content className="latest-article-copy">
                   <span>{article.category}</span>

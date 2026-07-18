@@ -1,7 +1,7 @@
 import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
-import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import sharp from "sharp";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const envPath = path.join(root, ".env");
@@ -45,7 +45,7 @@ const validateArticle = (article) => {
   if (!article || typeof article !== "object" || Array.isArray(article)) fail("پاسخ مدل یک مقالهٔ معتبر نیست.");
   const slug = nonEmptyText(article.slug, "slug");
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) fail("slug باید شامل حروف کوچک انگلیسی، عدد و خط تیره باشد.");
-  if (!article.images || typeof article.images !== "object" || Array.isArray(article.images) || article.images.cover !== "cover.png") fail("images.cover باید دقیقاً cover.png باشد.");
+  if (!article.images || typeof article.images !== "object" || Array.isArray(article.images) || article.images.cover !== "cover.webp" || article.images.coverThumb !== "cover-thumb.webp") fail("images باید شامل cover.webp و cover-thumb.webp باشد.");
   const version = (value, language, direction) => {
     if (!value || typeof value !== "object" || Array.isArray(value) || value.direction !== direction) fail(`نسخهٔ ${language} معتبر نیست.`);
     const content = validateContent(value.content, language);
@@ -61,7 +61,7 @@ const validateArticle = (article) => {
   const brief = article.imageBrief;
   const briefFields = ["topic", "metaphor", "subjects", "composition", "style", "lighting", "palette", "forbidden"];
   if (!brief || typeof brief !== "object" || Array.isArray(brief) || briefFields.some((field) => typeof brief[field] !== "string" || !brief[field].trim())) fail("imageBrief معتبر نیست.");
-  return { slug, images: { cover: "cover.png" }, fa, en, imageBrief: brief };
+  return { slug, images: { cover: "cover.webp", coverThumb: "cover-thumb.webp" }, fa, en, imageBrief: brief };
 };
 
 const contentBlockSchema = { anyOf: [
@@ -73,7 +73,7 @@ const versionSchema = (direction) => ({ type: "object", properties: {
 }, required: ["title", "excerpt", "category", "publishedAt", "readingTime", "direction", "content"], additionalProperties: false });
 const articleSchema = { type: "object", properties: {
   slug: { type: "string", pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
-  images: { type: "object", properties: { cover: { type: "string", enum: ["cover.png"] } }, required: ["cover"], additionalProperties: false },
+  images: { type: "object", properties: { cover: { type: "string", enum: ["cover.webp"] }, coverThumb: { type: "string", enum: ["cover-thumb.webp"] } }, required: ["cover", "coverThumb"], additionalProperties: false },
   fa: versionSchema("rtl"), en: versionSchema("ltr"),
   imageBrief: { type: "object", properties: {
     topic: { type: "string", minLength: 1 }, metaphor: { type: "string", minLength: 1 }, subjects: { type: "string", minLength: 1 }, composition: { type: "string", minLength: 1 }, style: { type: "string", minLength: 1 }, lighting: { type: "string", minLength: 1 }, palette: { type: "string", minLength: 1 }, forbidden: { type: "string", minLength: 1 },
@@ -104,7 +104,7 @@ const logLengthWarnings = (article) => {
   if (countWords(article.en.content) < 1100) console.warn("Warning: Generated English article is shorter than the preferred length.");
 };
 
-const articleInstructions = "Create an original, complete bilingual analytical article for Product Designers and Developers. Return only schema-compliant JSON. Write in a professional, educational, direct, and research-minded editorial style: reasoned rather than promotional, with explanations of causes, consequences, constraints, and decisions. Never write like a generic SEO post, LinkedIn post, motivational text, listicle, literal translation, or shallow AI-generated content. Titles must be precise, descriptive, and non-clickbait. Excerpts must state the article's useful point. Use a concise lowercase SEO-friendly shared slug. Set images.cover to cover.png. The script supplies final publishedAt and readingTime values, but provide non-empty schema values for them.\n\nPersian and English are natural, professional equivalents, never word-for-word translations. Aim for a complete, practical, and in-depth Persian article of roughly 1400–2200 words, with an English version of equivalent depth. This is an editorial goal, not a hard limit. Keep the same high-level section sequence and meaning in both languages, while allowing natural phrasing.\n\nBuild the content array in this order: (1) a heading for Summary / خلاصه followed by a 2–4 sentence paragraph that explains the topic, central conclusion, and reader takeaway without repeating the title; (2) a heading for In This Article / در این مقاله followed by a concise paragraph that names the main sections in order as a table of contents; (3) an Introduction / مقدمه that directly defines the problem, its relevance to product work, and the scope; (4) a Context or Scope / زمینه و دامنه that explains assumptions, affected people or teams, real-project constraints, and important variations; (5) several descriptive analytical sections; (6) Common Mistakes or Trade-offs / خطاهای رایج یا Trade-offها; (7) Practical Guidelines / راهنمای عملی; and (8) a Conclusion / جمع‌بندی that connects the reasoning and leaves one usable decision principle. Use multiple meaningful sections, not a two-sentence article.\n\nIn each analytical section, explain the concept or problem, why it happens, why it matters, its consequence for UX, Product Design, or Development, one concrete and plausible scenario, and a recommendation that follows from the analysis. Make cause-and-effect relationships explicit. Prefer realistic situations such as a Designer–Developer disagreement, Sprint time pressure, a Design System Component change, incomplete Handoff, mobile state loss, a complex User Flow, or tension between a Business Goal and a User Goal. Do not invent companies, studies, sources, quotes, statistics, or numerical research claims. If no source is supplied, base claims on general professional reasoning and experience without unsupported numbers.\n\nUse medium-length, readable paragraphs with one clear idea each. Avoid consecutive one-sentence paragraphs and long walls of text. The available content blocks are headings and paragraphs; make the In This Article section a concise paragraph rather than a fabricated list. Do not use filler, obvious definitions, exaggerated claims, jokes, slogans, or clichés including «در دنیای امروز»، «در عصر دیجیتال»، «همان‌طور که می‌دانیم»، and «امروزه فناوری نقش مهمی دارد».\n\nIn Persian, keep common technical terms in English rather than transliterating them: Product Design, UX, UI, Design System, UI Kit, Component, Design Token, User Flow, User Journey, User Research, Usability Test, Handoff, Developer, Front-end, Back-end, API, MVP, Prototype, Wireframe, Stakeholder, Sprint, Roadmap, Design Review, Accessibility, Cognitive Load, Interaction Cost, Affordance, and Discoverability. Briefly explain a less familiar term in parentheses on first use while retaining the English term. English titles and headings should start with standard uppercase letters.\n\nProvide an imageBrief derived from the title and excerpt with a clear visual metaphor, subjects, composition, style, lighting, palette, and forbidden elements.";
+const articleInstructions = "Create an original, complete bilingual analytical article for Product Designers and Developers. Return only schema-compliant JSON. Write in a professional, educational, direct, and research-minded editorial style: reasoned rather than promotional, with explanations of causes, consequences, constraints, and decisions. Never write like a generic SEO post, LinkedIn post, motivational text, listicle, literal translation, or shallow AI-generated content. Titles must be precise, descriptive, and non-clickbait. Excerpts must state the article's useful point. Use a concise lowercase SEO-friendly shared slug. Set images.cover to cover.webp and images.coverThumb to cover-thumb.webp. The script supplies final publishedAt and readingTime values, but provide non-empty schema values for them.\n\nPersian and English are natural, professional equivalents, never word-for-word translations. Aim for a complete, practical, and in-depth Persian article of roughly 1400–2200 words, with an English version of equivalent depth. This is an editorial goal, not a hard limit. Keep the same high-level section sequence and meaning in both languages, while allowing natural phrasing.\n\nBuild the content array in this order: (1) a heading for Summary / خلاصه followed by a 2–4 sentence paragraph that explains the topic, central conclusion, and reader takeaway without repeating the title; (2) a heading for In This Article / در این مقاله followed by a concise paragraph that names the main sections in order as a table of contents; (3) an Introduction / مقدمه that directly defines the problem, its relevance to product work, and the scope; (4) a Context or Scope / زمینه و دامنه that explains assumptions, affected people or teams, real-project constraints, and important variations; (5) several descriptive analytical sections; (6) Common Mistakes or Trade-offs / خطاهای رایج یا Trade-offها; (7) Practical Guidelines / راهنمای عملی; and (8) a Conclusion / جمع‌بندی that connects the reasoning and leaves one usable decision principle. Use multiple meaningful sections, not a two-sentence article.\n\nIn each analytical section, explain the concept or problem, why it happens, why it matters, its consequence for UX, Product Design, or Development, one concrete and plausible scenario, and a recommendation that follows from the analysis. Make cause-and-effect relationships explicit. Prefer realistic situations such as a Designer–Developer disagreement, Sprint time pressure, a Design System Component change, incomplete Handoff, mobile state loss, a complex User Flow, or tension between a Business Goal and a User Goal. Do not invent companies, studies, sources, quotes, statistics, or numerical research claims. If no source is supplied, base claims on general professional reasoning and experience without unsupported numbers.\n\nUse medium-length, readable paragraphs with one clear idea each. Avoid consecutive one-sentence paragraphs and long walls of text. The available content blocks are headings and paragraphs; make the In This Article section a concise paragraph rather than a fabricated list. Do not use filler, obvious definitions, exaggerated claims, jokes, slogans, or clichés including «در دنیای امروز»، «در عصر دیجیتال»، «همان‌طور که می‌دانیم»، and «امروزه فناوری نقش مهمی دارد».\n\nIn Persian, keep common technical terms in English rather than transliterating them: Product Design, UX, UI, Design System, UI Kit, Component, Design Token, User Flow, User Journey, User Research, Usability Test, Handoff, Developer, Front-end, Back-end, API, MVP, Prototype, Wireframe, Stakeholder, Sprint, Roadmap, Design Review, Accessibility, Cognitive Load, Interaction Cost, Affordance, and Discoverability. Briefly explain a less familiar term in parentheses on first use while retaining the English term. English titles and headings should start with standard uppercase letters.\n\nProvide an imageBrief derived from the title and excerpt with a clear visual metaphor, subjects, composition, style, lighting, palette, and forbidden elements.";
 
 const requestArticle = async ({ apiKey, articleModel, topic }) => {
   const response = await fetch("https://api.openai.com/v1/responses", { method: "POST", headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" }, body: JSON.stringify({
@@ -123,7 +123,7 @@ const generateArticle = async ({ apiKey, articleModel, topic }) => {
   return article;
 };
 
-const createCover = async ({ apiKey, imageModel, article, coverPath }) => {
+const createCover = async ({ apiKey, imageModel, article, coverPath, coverThumbPath }) => {
   const brief = article.imageBrief;
   const prompt = `Editorial illustration for a personal product-design portfolio article. Article title: ${article.en.title}. Excerpt: ${article.en.excerpt}. Image brief — topic: ${brief.topic}; visual metaphor: ${brief.metaphor}; subjects: ${brief.subjects}; composition: ${brief.composition}; style: ${brief.style}; lighting: ${brief.lighting}; palette: ${brief.palette}. Match this website palette: ${sitePalette}. Create a clear, topic-specific visual metaphor, modern product-design aesthetic, clean horizontal composition, and place the primary subject off-center for card crops. Keep details restrained. Do not include text, letters, typography, logos, watermarks, unreadable UI, shiny robots, glowing brains, robotic hands, or stock-meeting people unless the topic explicitly requires them. Forbidden: ${brief.forbidden}.`;
   const response = await fetch("https://api.openai.com/v1/images/generations", { method: "POST", headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" }, body: JSON.stringify({ model: imageModel, prompt, size: "1536x1024", quality: "medium" }) });
@@ -132,8 +132,9 @@ const createCover = async ({ apiKey, imageModel, article, coverPath }) => {
   if (typeof base64 !== "string" || !base64) fail("تصویر معتبری از OpenAI دریافت نشد.");
   const image = Buffer.from(base64, "base64");
   if (!image.length) fail("فایل تصویر تولیدشده خالی است.");
-  writeFileSync(coverPath, image);
-  if ((await stat(coverPath)).size === 0) fail("فایل cover.png خالی است.");
+  await sharp(image).resize({ width: 1600, withoutEnlargement: true }).webp({ quality: 80 }).toFile(coverPath);
+  await sharp(image).resize({ width: 700, withoutEnlargement: true }).webp({ quality: 80 }).toFile(coverThumbPath);
+  if ((await stat(coverPath)).size === 0 || (await stat(coverThumbPath)).size === 0) fail("فایل‌های cover.webp یا cover-thumb.webp خالی هستند.");
 };
 
 const main = async () => {
@@ -150,14 +151,15 @@ const main = async () => {
   await mkdir(outputDirectory, { recursive: true });
   const outputPath = path.join(outputDirectory, `${generated.slug}.json`);
   const imagesDirectory = path.join(outputDirectory, `${generated.slug}-images`);
-  const coverPath = path.join(imagesDirectory, "cover.png");
+  const coverPath = path.join(imagesDirectory, "cover.webp");
+  const coverThumbPath = path.join(imagesDirectory, "cover-thumb.webp");
   try { await readFile(outputPath); fail(`فایل «${path.relative(root, outputPath)}» از قبل وجود دارد.`); } catch (error) { if (error instanceof Error && error.message.includes("از قبل وجود دارد")) throw error; if (error?.code !== "ENOENT") throw error; }
   try { await stat(imagesDirectory); fail(`پوشهٔ «${path.relative(root, imagesDirectory)}» از قبل وجود دارد.`); } catch (error) { if (error instanceof Error && error.message.includes("از قبل وجود دارد")) throw error; if (error?.code !== "ENOENT") throw error; }
   let createdImagesDirectory = false;
   try {
     await mkdir(imagesDirectory);
     createdImagesDirectory = true;
-    await createCover({ apiKey, imageModel, article: generated, coverPath });
+    await createCover({ apiKey, imageModel, article: generated, coverPath, coverThumbPath });
     const { imageBrief, ...article } = generated;
     await writeFile(outputPath, `${JSON.stringify(article, null, 2)}\n`, "utf8");
   } catch (error) {
@@ -166,6 +168,7 @@ const main = async () => {
   }
   console.log(`فایل مقاله ساخته شد: ${path.relative(root, outputPath)}`);
   console.log(`فایل کاور ساخته شد: ${path.relative(root, coverPath)}`);
+  console.log(`فایل thumbnail ساخته شد: ${path.relative(root, coverThumbPath)}`);
 };
 
 main().catch((error) => { console.error(`خطا: ${error instanceof Error ? error.message : "خطای نامشخص"}`); process.exitCode = 1; });

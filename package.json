@@ -8,6 +8,7 @@
     "build": "vite build",
     "article:add": "node scripts/add-article.mjs",
     "article:generate": "node scripts/generate-article.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs",
     "challenge:generate": "node scripts/generate-daily-challenge.mjs",
     "challenge:validate": "node scripts/generate-daily-challenge.mjs --validate",
     "lint": "eslint .",

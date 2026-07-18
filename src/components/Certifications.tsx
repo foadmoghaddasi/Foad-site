@@ -1,10 +1,10 @@
 import { Award, ExportSquare } from "iconsax-react";
 import Reveal from "./Reveal";
-import variablesCertificate from "../assets/images/Figma- Designing with Variables and Conditionals.jpeg";
-import researchCertificate from "../assets/images/Data-Driven Product Research and Design.jpeg";
-import accessibilityCertificate from "../assets/images/Accessibility and Inclusion with Figma.jpeg";
-import microinteractionsCertificate from "../assets/images/Designing Microinteractions with Figma.png";
-import mentorshipCertificate from "../assets/images/1 Mentorship Sessions.jpeg";
+import variablesCertificate from "../assets/images/Figma- Designing with Variables and Conditionals.webp";
+import researchCertificate from "../assets/images/Data-Driven Product Research and Design.webp";
+import accessibilityCertificate from "../assets/images/Accessibility and Inclusion with Figma.webp";
+import microinteractionsCertificate from "../assets/images/Designing Microinteractions with Figma.webp";
+import mentorshipCertificate from "../assets/images/1 Mentorship Sessions.webp";
 import pmiLogo from "../assets/images/project mgmt ints.jpeg";
 import adpListLogo from "../assets/images/adplist.org?url";
 import "./Certifications.css";
@@ -123,7 +123,7 @@ const Certifications = ({ context = "home" }: CertificationsProps) => {
                 aria-hidden="true"
               >
                 {certification.logo ? (
-                  <img src={certification.logo} alt="" />
+                  <img src={certification.logo} alt="" loading="lazy" decoding="async" />
                 ) : (
                   certification.mark
                 )}
@@ -149,6 +149,7 @@ const Certifications = ({ context = "home" }: CertificationsProps) => {
                 src={certification.image}
                 alt={`${isFa ? "گواهینامه" : "Certificate"} ${isFa ? certification.titleFa : certification.title}`}
                 loading="lazy"
+                decoding="async"
               />
             </div>
 

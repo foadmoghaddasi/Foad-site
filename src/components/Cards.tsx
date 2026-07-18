@@ -166,6 +166,8 @@ const Cards = () => {
                 <img
                   src={qursatImage}
                   alt={isFa ? "کیس‌استادی Limevee" : "Limevee case study"}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
               </Card.Content>
@@ -207,6 +209,8 @@ const Cards = () => {
                 <img
                   src={Image}
                   alt={isFa ? "فرایند طراحی اپلیکیشن حسابو" : "Hesabo app design process"}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
               </Card.Content>
@@ -241,6 +245,8 @@ const Cards = () => {
                 <img
                   src={panelImage}
                   alt={isFa ? "طراحی پنل‌های مدیریت حسابو" : "Hesabo admin panel design"}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
               </Card.Content>
@@ -286,6 +292,7 @@ const Cards = () => {
                       src={project.image}
                       alt={projectTitle}
                       loading="lazy"
+                      decoding="async"
                       className="h-64 w-full rounded-xl object-cover"
                     />
                   </Card.Content>

@@ -165,7 +165,7 @@ const Articles = () => {
             >
               <Card variant="default" className="article-featured-card">
                 <div className="article-featured-image">
-                  <img src={featured.cover} alt="" />
+                  <img src={featured.cover} alt="" loading="eager" fetchPriority="high" decoding="async" />
                 </div>
                 <Card.Content
                   className="article-featured-copy"
@@ -195,7 +195,7 @@ const Articles = () => {
               >
                 <Card variant="default" className="article-card">
                   <div className="article-card-image">
-                    <img src={article.cover} alt="" loading="lazy" />
+                    <img src={article.coverThumb ?? article.cover} alt="" loading="lazy" decoding="async" />
                   </div>
                   <Card.Content
                     className="article-card-body"

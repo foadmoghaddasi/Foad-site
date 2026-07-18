@@ -1,7 +1,7 @@
 import { Avatar } from "@heroui/react/avatar";
 import { Card } from "@heroui/react/card";
 import { Surface } from "@heroui/react/surface";
-import aboutPicture from "../assets/images/about-pic.jpeg";
+import aboutPicture from "../assets/images/about-pic.webp";
 import Reveal from "./Reveal";
 import { useLanguage } from "../context/LanguageContext";
 

@@ -1,4 +1,4 @@
-import Image from "../assets/images/appcase.png";
+import Image from "../assets/images/appcase.webp";
 import { useEffect } from "react";
 import { Surface } from "@heroui/react/surface";
 import { useLanguage } from "../context/LanguageContext";
@@ -49,6 +49,9 @@ const HesaboApp = () => {
         src={Image}
         alt={isFa ? "فرایند طراحی اپلیکیشن حسابو" : "Hesabo app design process"}
         className="container w-full md:w-full object-cover mb-6 select-none"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         onContextMenu={(e) => e.preventDefault()}
         draggable="false"
       />

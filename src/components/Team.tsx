@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { PlayCircle } from "iconsax-react";
 import Reveal from "./Reveal";
-import babakPhoto from "../assets/images/babak.png";
+import babakPhoto from "../assets/images/babak.webp";
 import babakVideo from "../assets/images/babak.mp4";
-import dorsaPhoto from "../assets/images/dorsa.png";
+import dorsaPhoto from "../assets/images/dorsa.webp";
 import dorsaVideo from "../assets/images/dorsa.mp4";
-import kianPhoto from "../assets/images/shahrokh.png";
+import kianPhoto from "../assets/images/shahrokh.webp";
 import kianVideo from "../assets/images/shahrokh.mp4";
 import "./Team.css";
 import { useLanguage } from "../context/LanguageContext";
@@ -98,6 +98,7 @@ const TeamPhoto = ({
         src={member.image}
         alt={displayName}
         loading="lazy"
+        decoding="async"
       />
       <video
         ref={videoRef}

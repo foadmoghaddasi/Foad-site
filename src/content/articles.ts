@@ -1,37 +1,37 @@
-import styleGuideCover from "../assets/images/articles/style-guide/cover.png";
-import styleGuideComponents from "../assets/images/articles/style-guide/components.png";
-import styleGuidePlatforms from "../assets/images/articles/style-guide/platforms.png";
+import styleGuideCover from "../assets/images/articles/style-guide/cover.webp";
+import styleGuideComponents from "../assets/images/articles/style-guide/components.webp";
+import styleGuidePlatforms from "../assets/images/articles/style-guide/platforms.webp";
 import ucdCover from "../assets/images/articles/user-centered-design/cover.png";
-import ucdPrinciples from "../assets/images/articles/user-centered-design/principles.png";
-import ucdProcess from "../assets/images/articles/user-centered-design/process.png";
-import ucdResearch from "../assets/images/articles/user-centered-design/research.jpeg";
-import ucdDuolingo from "../assets/images/articles/user-centered-design/duolingo.png";
-import wireframeCover from "../assets/images/articles/wireframe/cover.jpeg";
-import wireframeFidelity from "../assets/images/articles/wireframe/fidelity.jpeg";
-import wireframeSample1 from "../assets/images/articles/wireframe/sample-1.jpeg";
-import wireframeSample2 from "../assets/images/articles/wireframe/sample-2.jpeg";
-import wireframeSample3 from "../assets/images/articles/wireframe/sample-3.jpeg";
-import wireframeSample4 from "../assets/images/articles/wireframe/sample-4.jpeg";
+import ucdPrinciples from "../assets/images/articles/user-centered-design/principles.webp";
+import ucdProcess from "../assets/images/articles/user-centered-design/process.webp";
+import ucdResearch from "../assets/images/articles/user-centered-design/research.webp";
+import ucdDuolingo from "../assets/images/articles/user-centered-design/duolingo.webp";
+import wireframeCover from "../assets/images/articles/wireframe/cover.webp";
+import wireframeFidelity from "../assets/images/articles/wireframe/fidelity.webp";
+import wireframeSample1 from "../assets/images/articles/wireframe/sample-1.webp";
+import wireframeSample2 from "../assets/images/articles/wireframe/sample-2.webp";
+import wireframeSample3 from "../assets/images/articles/wireframe/sample-3.webp";
+import wireframeSample4 from "../assets/images/articles/wireframe/sample-4.webp";
 import wireframeSample5 from "../assets/images/articles/wireframe/sample-5.webp";
 import wireframeSample6 from "../assets/images/articles/wireframe/sample-6.webp";
-import wireframeSample7 from "../assets/images/articles/wireframe/sample-7.jpeg";
-import userFlowCover from "../assets/images/articles/user-flow/cover.jpeg";
-import userFlowChart from "../assets/images/articles/user-flow/flowchart.png";
-import portfolioProductCover from "../assets/images/articles/portfolio-as-product/cover.jpg";
-import portfolioProductProcess from "../assets/images/articles/portfolio-as-product/process.jpg";
-import portfolioProductAnalytics from "../assets/images/articles/portfolio-as-product/analytics.jpg";
+import wireframeSample7 from "../assets/images/articles/wireframe/sample-7.webp";
+import userFlowCover from "../assets/images/articles/user-flow/cover.webp";
+import userFlowChart from "../assets/images/articles/user-flow/flowchart.webp";
+import portfolioProductCover from "../assets/images/articles/portfolio-as-product/cover.webp";
+import portfolioProductProcess from "../assets/images/articles/portfolio-as-product/process.webp";
+import portfolioProductAnalytics from "../assets/images/articles/portfolio-as-product/analytics.webp";
 
 import testBilingualDesignNoteCoverImage from "../assets/images/articles/test-bilingual-design-note/cover.svg";
 
-import portfolioToProductCoverImage from "../assets/images/articles/portfolio-to-product/cover.png";
+import portfolioToProductCoverImage from "../assets/images/articles/portfolio-to-product/cover.webp";
 
-import similarProductDesignPortfoliosCoverImage from "../assets/images/articles/similar-product-design-portfolios/cover.png";
+import similarProductDesignPortfoliosCoverImage from "../assets/images/articles/similar-product-design-portfolios/cover.webp";
 
-import workingWithBusinessCoverImage from "../assets/images/articles/working-with-business/cover.png";
+import workingWithBusinessCoverImage from "../assets/images/articles/working-with-business/cover.webp";
 
-import designSystemVsUiKitCoverImage from "../assets/images/articles/design-system-vs-ui-kit/cover.png";
+import designSystemVsUiKitCoverImage from "../assets/images/articles/design-system-vs-ui-kit/cover.webp";
 
-import whyInfoTipsFailCoverImage from "../assets/images/articles/why-info-tips-fail/cover.png";
+import whyInfoTipsFailCoverImage from "../assets/images/articles/why-info-tips-fail/cover.webp";
 
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
@@ -53,6 +53,7 @@ export type Article = {
   publishedAt: string;
   readingTime: string;
   cover: string;
+  coverThumb?: string;
   direction: "rtl" | "ltr";
   featured?: boolean;
   content: ArticleBlock[];

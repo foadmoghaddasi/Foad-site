@@ -1,4 +1,4 @@
-import panelimg from "../assets/images/panelcase.png";
+import panelimg from "../assets/images/panelcase.webp";
 import { useEffect } from "react";
 import { Surface } from "@heroui/react/surface";
 import { useLanguage } from "../context/LanguageContext";
@@ -49,6 +49,9 @@ const HeasboPanel = () => {
         src={panelimg}
         alt={isFa ? "فرایند طراحی پنل حسابو" : "Hesabo admin panel design process"}
         className="w-full md:w-full object-cover mb-6 select-none"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         onContextMenu={(e) => e.preventDefault()}
         draggable="false"
       />

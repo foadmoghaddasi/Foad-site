@@ -95,6 +95,7 @@ const validateInput = (input) => {
       publishedAt: text(value.publishedAt, `${language}.publishedAt`),
       readingTime: text(value.readingTime, `${language}.readingTime`),
       cover: "__RAW__cover",
+      ...(images.coverThumb ? { coverThumb: "__RAW__coverThumb" } : {}),
       direction,
       content: validateContent(value.content, imageKeys, language),
     };
@@ -110,7 +111,12 @@ const renderArticle = (article, imports) => {
     if (block.type === "gallery") return { ...block, images: block.images.map(({ image, ...rest }) => ({ ...rest, src: raw(imports.get(image)) })) };
     return block;
   });
-  return JSON.stringify({ ...article, cover: raw(imports.get("cover")), content }, null, 2)
+  return JSON.stringify({
+    ...article,
+    cover: raw(imports.get("cover")),
+    ...(article.coverThumb ? { coverThumb: raw(imports.get("coverThumb")) } : {}),
+    content,
+  }, null, 2)
     .replace(/"__ARTICLE_RAW_IDENTIFIER_([A-Za-z_$][A-Za-z0-9_$]*)__"/g, "$1")
     .split("\n").map((line) => `    ${line}`).join("\n");
 };
