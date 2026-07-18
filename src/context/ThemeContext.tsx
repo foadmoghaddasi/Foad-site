@@ -40,7 +40,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
 
-    const switchElement = document.querySelector('[role="switch"]');
+    const switchElement = document.querySelector('[data-theme-switch]');
     const switchRect = switchElement?.getBoundingClientRect();
     const x = switchRect
       ? switchRect.left + switchRect.width / 2

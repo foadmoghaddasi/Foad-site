@@ -80,6 +80,7 @@ const Navbar = () => {
         </Link>
       </nav>
       <Switch
+        data-theme-switch
         dir="ltr"
         isSelected={theme === "light"}
         onChange={() => toggleTheme()}
