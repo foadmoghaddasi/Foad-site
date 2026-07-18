@@ -21,6 +21,8 @@ import portfolioProductCover from "../assets/images/articles/portfolio-as-produc
 import portfolioProductProcess from "../assets/images/articles/portfolio-as-product/process.jpg";
 import portfolioProductAnalytics from "../assets/images/articles/portfolio-as-product/analytics.jpg";
 
+import testBilingualDesignNoteCoverImage from "../assets/images/articles/test-bilingual-design-note/cover.svg";
+
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string; level?: 2 | 3 }
@@ -799,6 +801,22 @@ export const articles: Article[] = [
       },
     ],
   },
+    {
+      "slug": "test-bilingual-design-note",
+      "title": "یادداشت آزمایشی دوزبانه درباره طراحی",
+      "excerpt": "این نسخهٔ فارسی برای بررسی نمایش همان مقاله پس از تغییر زبان سایت است.",
+      "category": "طراحی محصول",
+      "publishedAt": "۲۷ تیر ۱۴۰۵",
+      "readingTime": "۲ دقیقه مطالعه",
+      "cover": testBilingualDesignNoteCoverImage,
+      "direction": "rtl",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "این متن فارسیِ مقالهٔ آزمایشی است و با همان slug نسخهٔ انگلیسی نمایش داده می‌شود."
+        }
+      ]
+    }
 ];
 
 export const articlesEn: Article[] = [
@@ -1102,6 +1120,22 @@ export const articlesEn: Article[] = [
       { type: "paragraph", text: "Start with an audit, core visual foundations, and a few frequently used components. Version meaningful changes, document migration, and define ownership. A small system that teams trust and use is more valuable than a large library that no one maintains." },
     ],
   },
+    {
+      "slug": "test-bilingual-design-note",
+      "title": "A bilingual test note on design",
+      "excerpt": "This English version verifies that the same article is shown when the site language changes.",
+      "category": "Product Design",
+      "publishedAt": "July 18, 2026",
+      "readingTime": "2 min read",
+      "cover": testBilingualDesignNoteCoverImage,
+      "direction": "ltr",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "This is the English test article. It shares its slug with the Persian version."
+        }
+      ]
+    }
 ];
 
 export const getArticles = (language: "fa" | "en" = "fa") =>

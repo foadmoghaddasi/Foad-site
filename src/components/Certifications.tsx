@@ -112,7 +112,7 @@ const Certifications = ({ context = "home" }: CertificationsProps) => {
     <div className="certifications-grid">
       {certifications.map((certification, index) => (
         <Reveal
-          className="certification-reveal"
+          className={`certification-reveal certification-reveal--${index + 1}`}
           delay={(index % 3) * 60}
           key={certification.title}
         >

@@ -49,6 +49,24 @@
   gap: 14px;
 }
 
+@media (min-width: 901px) {
+  .certifications-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .certification-reveal {
+    grid-column: span 2;
+  }
+
+  .certification-reveal--4 {
+    grid-column: 2 / span 2;
+  }
+
+  .certification-reveal--5 {
+    grid-column: 4 / span 2;
+  }
+}
+
 .certification-reveal,
 .certification-card {
   height: 100%;

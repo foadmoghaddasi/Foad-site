@@ -1,0 +1,55 @@
+name: Generate Bilingual Article
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: Article topic
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate article JSON
+        env:
+          TOPIC: ${{ inputs.topic }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+        run: npm run article:generate -- "$TOPIC"
+
+      - name: Collect generated article
+        run: |
+          find generated-articles -maxdepth 1 -type f -name '*.json' -print > generated-article-paths.txt
+          test -s generated-article-paths.txt
+
+      - name: Upload article JSON
+        uses: actions/upload-artifact@v4
+        with:
+          name: bilingual-article-json
+          path: generated-articles/*.json
+          if-no-files-found: error
+
+      - name: Add generated path to summary
+        run: |
+          echo "## Generated bilingual article" >> "$GITHUB_STEP_SUMMARY"
+          echo >> "$GITHUB_STEP_SUMMARY"
+          echo '```text' >> "$GITHUB_STEP_SUMMARY"
+          cat generated-article-paths.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

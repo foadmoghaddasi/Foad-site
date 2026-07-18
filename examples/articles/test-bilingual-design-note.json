@@ -1,0 +1,34 @@
+{
+  "slug": "test-bilingual-design-note",
+  "images": {
+    "cover": "cover.svg"
+  },
+  "fa": {
+    "title": "یادداشت آزمایشی دوزبانه درباره طراحی",
+    "excerpt": "این نسخهٔ فارسی برای بررسی نمایش همان مقاله پس از تغییر زبان سایت است.",
+    "category": "طراحی محصول",
+    "publishedAt": "۲۷ تیر ۱۴۰۵",
+    "readingTime": "۲ دقیقه مطالعه",
+    "direction": "rtl",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "این متن فارسیِ مقالهٔ آزمایشی است و با همان slug نسخهٔ انگلیسی نمایش داده می‌شود."
+      }
+    ]
+  },
+  "en": {
+    "title": "A bilingual test note on design",
+    "excerpt": "This English version verifies that the same article is shown when the site language changes.",
+    "category": "Product Design",
+    "publishedAt": "July 18, 2026",
+    "readingTime": "2 min read",
+    "direction": "ltr",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "This is the English test article. It shares its slug with the Persian version."
+      }
+    ]
+  }
+}
