@@ -114,11 +114,35 @@ const renderArticle = (article, imports) => {
     .replace(/"__ARTICLE_RAW_IDENTIFIER_([A-Za-z_$][A-Za-z0-9_$]*)__"/g, "$1")
     .split("\n").map((line) => `    ${line}`).join("\n");
 };
-const appendBeforeMarker = (source, marker, code) => {
-  const index = source.indexOf(marker);
-  if (index === -1) fail("ساختار فایل articles.ts قابل تشخیص نیست؛ هیچ تغییری انجام نشد.");
-  const before = source.slice(0, index);
-  return `${before}${before.trimEnd().endsWith(",") ? "\n" : ",\n"}${code}${source.slice(index)}`;
+const matchingArrayEnd = (source, start, label) => {
+  let depth = 0;
+  let quote = "";
+  let escaped = false;
+  for (let index = start; index < source.length; index += 1) {
+    const character = source[index];
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (character === "\\") escaped = true;
+      else if (character === quote) quote = "";
+      continue;
+    }
+    if (character === '"' || character === "'" || character === "`") { quote = character; continue; }
+    if (character === "[") depth += 1;
+    if (character === "]") {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  fail(`ساختار آرایهٔ «${label}» در articles.ts ناقص است؛ براکت پایانی پیدا نشد و هیچ تغییری انجام نشد.`);
+};
+const appendToArticleArray = (source, declaration, label, code) => {
+  const declarationIndex = source.indexOf(declaration);
+  if (declarationIndex === -1) fail(`تعریف آرایهٔ «${label}» در articles.ts پیدا نشد؛ انتظار می‌رفت «${declaration}» وجود داشته باشد.`);
+  const arrayStart = source.indexOf("[", declarationIndex + declaration.length - 1);
+  if (arrayStart === -1) fail(`آرایهٔ «${label}» در articles.ts با «[» شروع نشده است؛ هیچ تغییری انجام نشد.`);
+  const arrayEnd = matchingArrayEnd(source, arrayStart, label);
+  const before = source.slice(0, arrayEnd);
+  return `${before}${before.trimEnd().endsWith(",") ? "\n" : ",\n"}${code}\n${source.slice(arrayEnd)}`;
 };
 const runBuild = () => new Promise((resolve, reject) => {
   const child = spawn("npm", ["run", "build"], { cwd: root, stdio: "inherit", shell: process.platform === "win32" });
@@ -149,10 +173,10 @@ const main = async () => {
   }
   const importLines = Object.entries(article.images).map(([key, fileName]) => `import ${imports.get(key)} from "../assets/images/articles/${article.slug}/${fileName}";`).join("\n");
   const typeMarker = "\nexport type ArticleBlock";
-  if (!source.includes(typeMarker)) fail("ساختار فایل articles.ts قابل تشخیص نیست؛ هیچ تغییری انجام نشد.");
+  if (!source.includes(typeMarker)) fail("محل درج importها در articles.ts پیدا نشد؛ انتظار می‌رفت export type ArticleBlock وجود داشته باشد.");
   let next = source.replace(typeMarker, `\n${importLines}\n${typeMarker}`);
-  next = appendBeforeMarker(next, "\n];\n\nexport const articlesEn: Article[] = [", renderArticle(article.fa, imports));
-  next = appendBeforeMarker(next, "\n];\n\nexport const getArticles", renderArticle(article.en, imports));
+  next = appendToArticleArray(next, "export const articles: Article[] = [", "articles", renderArticle(article.fa, imports));
+  next = appendToArticleArray(next, "export const articlesEn: Article[] = [", "articlesEn", renderArticle(article.en, imports));
   const backupPath = path.join(backupsRoot, `articles.ts.${new Date().toISOString().replace(/[:.]/g, "-")}.bak`);
   const temporaryArticlesPath = `${articlesPath}.article-add-${process.pid}.tmp`;
   let changed = false;
