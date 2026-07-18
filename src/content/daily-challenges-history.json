@@ -3,5 +3,60 @@
     "date": "2026-07-16",
     "titleFa": "ایستگاه اتوبوسی برای زمان‌های نامطمئن",
     "titleEn": "A Bus Stop for Uncertain Arrival Times"
+  },
+  {
+    "date": "2026-07-16",
+    "difficulty": {
+      "fa": "متوسط",
+      "en": "Intermediate"
+    },
+    "timebox": {
+      "fa": "۷۵ دقیقه",
+      "en": "75 minutes"
+    },
+    "category": {
+      "fa": "طراحی سرویس و دسترس‌پذیری",
+      "en": "Service Design & Accessibility"
+    },
+    "title": {
+      "fa": "رزرو صندلی در کتابخانه‌ای با ظرفیت محدود",
+      "en": "Booking a Seat in a Capacity-Limited Library"
+    },
+    "scenario": {
+      "fa": "یک کتابخانهٔ عمومی در ساعات شلوغ فقط به تعداد محدودی صندلی مطالعه دارد. مراجعه‌کنندگان می‌توانند از طریق وب‌سایت یا کیوسک ورودی، صندلی را برای یک بازهٔ زمانی رزرو کنند. برخی افراد بدون رزرو وارد می‌شوند، بعضی رزروها لغو نمی‌شوند و گروهی نیز در پیدا کردن صندلی مناسب برای نیازشان مشکل دارند. کتابخانه می‌خواهد فرایندی ساده و منصفانه ایجاد کند، بدون اینکه از کاربران حساب کاربری یا اطلاعات شخصی غیرضروری بخواهد.",
+      "en": "A public library has a limited number of study seats during busy hours. Visitors can reserve a seat for a time slot through the website or an entrance kiosk. Some people arrive without reservations, some reservations go unused, and others struggle to find a seat that suits their needs. The library wants a simple, fair process without requiring accounts or unnecessary personal information."
+    },
+    "challenge": {
+      "fa": "یک تجربهٔ رزرو و ورود طراحی کنید که به مراجعه‌کننده کمک کند ظرفیت و زمان‌های موجود را بفهمد، صندلی مناسب را انتخاب کند و در صورت تغییر برنامه، رزرو خود را لغو یا آزاد کند. راهکاری برای افرادی که بدون رزرو مراجعه می‌کنند و همچنین حالتی برای پر شدن ظرفیت در نظر بگیرید. تصمیم‌های خود را دربارهٔ عدالت، دسترس‌پذیری و کاهش رزروهای بلااستفاده توضیح دهید.",
+      "en": "Design a reservation and check-in experience that helps visitors understand availability, choose a suitable seat, and cancel or release a reservation when plans change. Include a path for walk-in visitors and a state for when all seats are full. Explain your decisions around fairness, accessibility, and reducing unused reservations."
+    },
+    "constraints": {
+      "fa": [
+        "فرایند اصلی باید در حداکثر سه گام برای وب‌سایت و کیوسک قابل انجام باشد.",
+        "حداقل دو نیاز دسترس‌پذیری را پوشش دهید؛ مانند استفاده با صفحه‌خوان، کنتراست مناسب، اندازهٔ متن یا نیاز به صندلی کم‌تحریک.",
+        "برای رزرو به نام، شمارهٔ تلفن یا حساب کاربری اجباری نیاز نداشته باشید؛ یک روش ساده و امن برای بازیابی یا لغو رزرو پیشنهاد کنید."
+      ],
+      "en": [
+        "The core flow must be completable in no more than three steps on both the website and kiosk.",
+        "Address at least two accessibility needs, such as screen-reader use, sufficient contrast, text size, or a low-stimulation seating preference.",
+        "Do not require a name, phone number, or account to reserve; propose a simple, secure way to retrieve or cancel a reservation."
+      ]
+    },
+    "deliverables": {
+      "fa": [
+        "یک فلوچارت کوتاه از رزرو، ورود و لغو رزرو",
+        "سه تا پنج وایرفریم برای حالت‌های موجود بودن صندلی، انتخاب ویژگی صندلی، مراجعهٔ بدون رزرو و تکمیل ظرفیت",
+        "فهرست کوتاهی از تصمیم‌های طراحی و معیارهای موفقیت، مانند کاهش رزروهای بلااستفاده یا زمان انجام کار"
+      ],
+      "en": [
+        "A short flowchart covering reservation, check-in, and cancellation",
+        "Three to five wireframes showing seat availability, seat-feature selection, walk-in access, and a full-capacity state",
+        "A brief list of design decisions and success measures, such as fewer unused reservations or faster task completion"
+      ]
+    },
+    "hint": {
+      "fa": "به‌جای نمایش نقشهٔ پیچیده، اطلاعاتی را نشان دهید که برای تصمیم‌گیری لازم است: زمان، نوع صندلی، مدت استفاده و وضعیت ورود. برای رزروهای بلااستفاده، ابتدا یک پیام روشن و فرصت منصفانه برای آزاد کردن صندلی در نظر بگیرید، نه جریمهٔ مبهم.",
+      "en": "Rather than showing a complex map, surface only what people need to decide: time, seat type, duration, and check-in status. For unused reservations, start with a clear reminder and a fair opportunity to release the seat instead of an unclear penalty."
+    }
   }
 ]
