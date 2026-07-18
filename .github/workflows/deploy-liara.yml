@@ -1,11 +1,10 @@
 name: Deploy to Liara
 
 on:
-  pull_request:
+  push:
     branches:
       - main
-    types:
-      - closed
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,7 +15,6 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Check out latest main
