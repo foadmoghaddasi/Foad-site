@@ -27,6 +27,8 @@ import portfolioToProductCoverImage from "../assets/images/articles/portfolio-to
 
 import similarProductDesignPortfoliosCoverImage from "../assets/images/articles/similar-product-design-portfolios/cover.png";
 
+import devTeamCommunicationCoverImage from "../assets/images/articles/dev-team-communication/cover.png";
+
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string; level?: 2 | 3 }
@@ -970,6 +972,63 @@ export const articles: Article[] = [
           "text": "یک پورتفولیو خوب ترکیبی از وضوح و اصالت است. با سرمایه‌گذاری روی روایت، نمایش فرآیند و انتخاب بصری متناسب با خودتان می‌توانید از میان قالب‌های تکراری متمایز شوید. در نهایت، پورتفولیوی شما باید نه فقط نشان‌دهنده نتایج، که نمایانگر نحوه‌ی فکر کردن شما باشد."
         }
       ]
+    },
+    {
+      "slug": "dev-team-communication",
+      "title": "ارتباط موثر با تیم دولوپر",
+      "excerpt": "راهنمایی عملی برای ایجاد ارتباط سازنده بین طراحان و توسعه‌دهندگان، کاهش دوباره‌کاری و تحویل سریع‌تر محصول.",
+      "category": "طراحی محصول",
+      "publishedAt": "۲۷ تیر ۱۴۰۵",
+      "readingTime": "۵ دقیقه مطالعه",
+      "cover": devTeamCommunicationCoverImage,
+      "direction": "rtl",
+      "content": [
+        {
+          "type": "heading",
+          "text": "اهمیت ارتباط شفاف",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "ارتباط شفاف بین تیم طراحی و توسعه نه تنها از دوباره‌کاری جلوگیری می‌کند، بلکه به هم‌راستایی هدف محصول، بهبود کیفیت و افزایش سرعت تحویل کمک می‌کند. وقتی هر دو سمت درک مشترکی از معیارهای موفقیت، محدودیت‌ها و اولویت‌ها داشته باشند، تصمیم‌گیری‌ها سریع‌تر و سنجیده‌تر انجام می‌شود."
+        },
+        {
+          "type": "heading",
+          "text": "زبان مشترک ایجاد کنید",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "از اصطلاحات مشخص و قابل اندازه‌گیری استفاده کنید: user stories با acceptance criteria، نمونه‌های رفتاری، و آکسپتنس تست‌ها. به‌جای توصیف کلی مثل «این باید بهتر باشد»، مشخص کنید که چه رفتاری مورد انتظار است و چگونه آن را می‌سنجید. مستندات کوتاه و ساختاریافته کمک می‌کنند که همه روی یک مرجع واحد توافق کنند."
+        },
+        {
+          "type": "heading",
+          "text": "هماهنگی زودهنگام و مکرر",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "درگیر کردن توسعه‌دهندگان از مراحل اولیه طراحی باعث آشکار شدن محدودیت‌های فنی و فرصت‌های ساده‌سازی می‌شود. از جلسات کوتاه روزانه تا جلسات دسترسی به پروتوتایپ، همگام‌سازی منظم ریسک‌ها را کاهش می‌دهد و زمان بازخورد را کوتاه‌تر می‌کند."
+        },
+        {
+          "type": "heading",
+          "text": "ابزارها و مستندات",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "پلتفرم‌هایی مثل Figma، Storybook و یک ریپازیتوری مشترک برای design tokens و component library پایه‌های خوبی هستند. استفاده از issue tracker با لینک به المان‌های طراحی، تصاویر، و نمونه‌های رفتاری، ردگیری تغییرات را ساده می‌کند و باعث می‌شود تا توسعه‌دهنده‌ها بدون ابهام کار را پیش ببرند."
+        },
+        {
+          "type": "heading",
+          "text": "بازخورد و مخالفت محترمانه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "تشویق به بازخورد صادقانه و سازنده مهم است؛ هم‌زمان باید احترام به محدودیت‌های فنی حفظ شود. هنگام بروز مخالفت، به دنبال راه‌حل‌های میانی باشید، هزینه‌های فنی و تجربه کاربر را وزن کنید و تصمیمات را مستند نمایید تا در آینده قابل بازبینی باشند."
+        }
+      ]
     }
 ];
 
@@ -1437,6 +1496,63 @@ export const articlesEn: Article[] = [
         {
           "type": "paragraph",
           "text": "A strong portfolio balances clarity with authenticity. By investing in storytelling, process artifacts, and purposeful visual choices, you can break away from template-driven sameness. Ultimately, your portfolio should not just display outcomes—it should reveal how you think."
+        }
+      ]
+    },
+    {
+      "slug": "dev-team-communication",
+      "title": "Effective Communication with Developers",
+      "excerpt": "Practical guidance for productive designer-developer collaboration that reduces rework and speeds delivery.",
+      "category": "Product Design",
+      "publishedAt": "2026-07-18",
+      "readingTime": "5 min read",
+      "cover": devTeamCommunicationCoverImage,
+      "direction": "ltr",
+      "content": [
+        {
+          "type": "heading",
+          "text": "Why Clear Communication Matters",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Clear communication between design and development reduces rework, aligns product goals, and improves delivery speed. When both sides share an understanding of success criteria, constraints, and priorities, decisions become faster and more consistent, and team morale benefits from fewer surprises."
+        },
+        {
+          "type": "heading",
+          "text": "Establish Common Language",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Use specific, measurable terms: user stories with acceptance criteria, behavioral examples, and clear success metrics. Instead of vague notes like “make this better,” specify the expected behavior and how it will be validated. Short, structured docs serve as a single source of truth for the team."
+        },
+        {
+          "type": "heading",
+          "text": "Sync Early and Often",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Involving developers early in the design process uncovers technical constraints and easy wins. Regular checkpoints—from short daily syncs to prototype handoffs—shrink feedback cycles and reduce the risk of late surprises."
+        },
+        {
+          "type": "heading",
+          "text": "Tools and Artifacts",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "Platforms like Figma and Storybook and a shared repository for design tokens and components form solid foundations. Linking issues to design screens, annotated images, and behavioral specs makes it straightforward for engineers to implement without ambiguity."
+        },
+        {
+          "type": "heading",
+          "text": "Feedback and Respectful Pushback",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Encourage honest, constructive feedback while respecting technical constraints. When pushback occurs, look for compromise solutions, weigh technical cost against user impact, and document decisions so they can be revisited later."
         }
       ]
     }
