@@ -1,0 +1,59 @@
+name: Deploy to Liara
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+permissions:
+  contents: read
+
+concurrency:
+  group: liara-production-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Read Liara app name
+        run: |
+          LIARA_APP_NAME="$(node -e 'const config = require("./liara.json"); if (!config.app) process.exit(1); process.stdout.write(config.app);')"
+          test -n "$LIARA_APP_NAME"
+          echo "LIARA_APP_NAME=$LIARA_APP_NAME" >> "$GITHUB_ENV"
+
+      - name: Install Liara CLI
+        run: npm install --global @liara/cli
+
+      - name: Deploy to Liara
+        env:
+          LIARA_TOKEN: ${{ secrets.LIARA_TOKEN }}
+        run: |
+          test -n "$LIARA_TOKEN" || { echo "LIARA_TOKEN secret is missing."; exit 1; }
+          liara deploy --app="$LIARA_APP_NAME" --api-token="$LIARA_TOKEN" --detach
+
+      - name: Add deployment result to summary
+        run: |
+          echo "## Liara deployment successful" >> "$GITHUB_STEP_SUMMARY"
+          echo >> "$GITHUB_STEP_SUMMARY"
+          echo "App: $LIARA_APP_NAME" >> "$GITHUB_STEP_SUMMARY"
