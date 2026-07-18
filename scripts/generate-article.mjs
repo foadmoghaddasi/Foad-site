@@ -1,11 +1,12 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const envPath = path.join(root, ".env");
 const outputDirectory = path.join(root, "generated-articles");
-const model = process.env.OPENAI_MODEL || "gpt-5-mini";
+const defaultArticleModel = "gpt-5-mini";
+const defaultImageModel = "gpt-image-1";
 
 const fail = (message) => { throw new Error(message); };
 
@@ -50,9 +51,17 @@ const validateArticle = (article) => {
   if (!article.images || typeof article.images !== "object" || Array.isArray(article.images)) fail("فیلد «images» معتبر نیست.");
   const cover = nonEmptyText(article.images.cover, "images.cover");
   if (cover !== path.basename(cover) || !/\.(avif|gif|jpe?g|png|svg|webp)$/i.test(cover)) fail("images.cover باید نام یک فایل تصویر مجاز باشد.");
+  if (cover !== "cover.webp") fail("images.cover باید دقیقاً cover.webp باشد.");
   const version = (value, language, direction) => {
     if (!value || typeof value !== "object" || Array.isArray(value)) fail(`بخش «${language}» وجود ندارد.`);
     if (value.direction !== direction) fail(`direction نسخهٔ ${language} باید «${direction}» باشد.`);
+    const content = validateContent(value.content, language);
+    if (language === "en") {
+      if (!/^[A-Z]/.test(value.title.trim())) fail("عنوان انگلیسی باید با حرف بزرگ شروع شود.");
+      for (const block of content) {
+        if (block.type === "heading" && !/^[A-Z]/.test(block.text)) fail("headingهای انگلیسی باید با حرف بزرگ شروع شوند.");
+      }
+    }
     return {
       title: nonEmptyText(value.title, `${language}.title`),
       excerpt: nonEmptyText(value.excerpt, `${language}.excerpt`),
@@ -60,10 +69,15 @@ const validateArticle = (article) => {
       publishedAt: nonEmptyText(value.publishedAt, `${language}.publishedAt`),
       readingTime: nonEmptyText(value.readingTime, `${language}.readingTime`),
       direction,
-      content: validateContent(value.content, language),
+      content,
     };
   };
-  return { slug, images: { cover }, fa: version(article.fa, "fa", "rtl"), en: version(article.en, "en", "ltr") };
+  const fa = version(article.fa, "fa", "rtl");
+  const en = version(article.en, "en", "ltr");
+  if (fa.content.length !== en.content.length || fa.content.some((block, index) => block.type !== en.content[index].type || (block.type === "heading" && block.level !== en.content[index].level))) {
+    fail("تعداد، ترتیب و سطح headingهای بخش‌های فارسی و انگلیسی باید یکسان باشد.");
+  }
+  return { slug, images: { cover }, fa, en };
 };
 
 const contentBlockSchema = {
@@ -125,19 +139,44 @@ const getOutputText = (response) => {
   return text;
 };
 
+const createCover = async ({ apiKey, imageModel, topic, article, coverPath }) => {
+  const response = await fetch("https://api.openai.com/v1/images/generations", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: imageModel,
+      prompt: `Create a refined editorial cover image for a personal product-design portfolio article about: ${topic}. The visual should be minimal, modern, and professional, with an abstract product-design concept, balanced composition, restrained color palette, and ample negative space. Do not include any text, letters, words, typography, logos, watermarks, UI labels, or people.`,
+      size: "1536x1024",
+      quality: "medium",
+      output_format: "webp",
+      response_format: "b64_json",
+    }),
+  });
+  if (!response.ok) fail(`تولید تصویر OpenAI ناموفق بود (${response.status}): ${await response.text()}`);
+  const payload = await response.json();
+  const base64 = payload.data?.[0]?.b64_json;
+  if (typeof base64 !== "string" || !base64) fail("تصویر معتبری از OpenAI دریافت نشد.");
+  const image = Buffer.from(base64, "base64");
+  if (!image.length) fail("فایل تصویر تولیدشده خالی است.");
+  await writeFile(coverPath, image);
+  if ((await stat(coverPath)).size === 0) fail("فایل cover.webp خالی است.");
+};
+
 const main = async () => {
   const topic = process.argv.slice(2).join(" ").trim();
   if (!topic) fail("موضوع مقاله را وارد کنید. نمونه: npm run article:generate -- \"طراحی سیستم\"");
   const env = await readEnvFile();
   const apiKey = process.env.OPENAI_API_KEY || env.OPENAI_API_KEY;
   if (!apiKey) fail("کلید OpenAI پیدا نشد. مقدار OPENAI_API_KEY را در فایل .env قرار دهید.");
+  const articleModel = process.env.OPENAI_MODEL || env.OPENAI_MODEL || defaultArticleModel;
+  const imageModel = process.env.OPENAI_IMAGE_MODEL || env.OPENAI_IMAGE_MODEL || defaultImageModel;
 
   const response = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
-      model,
-      instructions: "Create one original, complete bilingual article for a product-design portfolio. Persian and English must be independently natural, professional versions of the same article, not literal translation. Return only schema-compliant JSON. Use 8–14 content blocks per language, including useful h2 headings and substantive paragraphs. Never generate, reference, or download images; set images.cover to cover.webp as a placeholder. Use a concise lowercase English slug shared by both versions. Use today's date appropriate to each language.",
+      model: articleModel,
+      instructions: "Create one original, complete bilingual article for a product-design portfolio. Persian and English must be independently natural, professional versions of the same article, not literal translation. Return only schema-compliant JSON. Use 8–14 content blocks per language, including useful h2 headings and substantive paragraphs. The Persian and English content arrays must have the exact same number, order, block types, and heading levels. English titles and headings must start with an uppercase letter. Set images.cover to cover.webp. Use a concise lowercase English slug shared by both versions. Use today's date appropriate to each language.",
       input: `Article topic: ${topic}`,
       max_output_tokens: 6000,
       text: { format: { type: "json_schema", name: "bilingual_article", strict: true, schema: articleSchema } },
@@ -147,10 +186,24 @@ const main = async () => {
   const generated = validateArticle(JSON.parse(getOutputText(await response.json())));
   await mkdir(outputDirectory, { recursive: true });
   const outputPath = path.join(outputDirectory, `${generated.slug}.json`);
+  const imagesDirectory = path.join(outputDirectory, `${generated.slug}-images`);
+  const coverPath = path.join(imagesDirectory, "cover.webp");
   try { await readFile(outputPath); fail(`فایل «${path.relative(root, outputPath)}» از قبل وجود دارد.`); }
   catch (error) { if (error instanceof Error && error.message.includes("از قبل وجود دارد")) throw error; if (error?.code !== "ENOENT") throw error; }
-  await writeFile(outputPath, `${JSON.stringify(generated, null, 2)}\n`, "utf8");
+  try { await stat(imagesDirectory); fail(`پوشهٔ «${path.relative(root, imagesDirectory)}» از قبل وجود دارد.`); }
+  catch (error) { if (error instanceof Error && error.message.includes("از قبل وجود دارد")) throw error; if (error?.code !== "ENOENT") throw error; }
+  let createdImagesDirectory = false;
+  try {
+    await mkdir(imagesDirectory);
+    createdImagesDirectory = true;
+    await createCover({ apiKey, imageModel, topic, article: generated, coverPath });
+    await writeFile(outputPath, `${JSON.stringify(generated, null, 2)}\n`, "utf8");
+  } catch (error) {
+    if (createdImagesDirectory) await rm(imagesDirectory, { recursive: true, force: true });
+    throw error;
+  }
   console.log(`فایل مقاله ساخته شد: ${path.relative(root, outputPath)}`);
+  console.log(`فایل کاور ساخته شد: ${path.relative(root, coverPath)}`);
 };
 
 main().catch((error) => { console.error(`خطا: ${error instanceof Error ? error.message : "خطای نامشخص"}`); process.exitCode = 1; });

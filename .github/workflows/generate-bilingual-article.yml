@@ -39,11 +39,11 @@ jobs:
           find generated-articles -maxdepth 1 -type f -name '*.json' -print > generated-article-paths.txt
           test -s generated-article-paths.txt
 
-      - name: Upload article JSON
+      - name: Upload article JSON and cover image
         uses: actions/upload-artifact@v4
         with:
           name: bilingual-article-json
-          path: generated-articles/*.json
+          path: generated-articles/
           if-no-files-found: error
 
       - name: Add generated path to summary
