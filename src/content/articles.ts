@@ -25,6 +25,8 @@ import testBilingualDesignNoteCoverImage from "../assets/images/articles/test-bi
 
 import portfolioToProductCoverImage from "../assets/images/articles/portfolio-to-product/cover.png";
 
+import portfolioHomogenizationCoverImage from "../assets/images/articles/portfolio-homogenization/cover.png";
+
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string; level?: 2 | 3 }
@@ -902,6 +904,63 @@ export const articles: Article[] = [
           "text": "در پایان، آنچه در پورتفولیو می‌نشانید باید مسیر محصول را از ایده تا بازار نشان دهد: فرضیات اولیه، تحقیقات انجام‌شده، تصمیمات طراحی، نتایج آزمایش، معیارهای پس از عرضه و درس‌های آموخته‌شده. این رویکرد نه تنها تجربه شما را نشان می‌دهد بلکه قابلیت اجرای شما را به‌عنوان یک طراح محصول اثبات می‌کند."
         }
       ]
+    },
+    {
+      "slug": "portfolio-homogenization",
+      "title": "چرا پورتفولیوهای طراحی محصول شبیه هم شده‌اند؟",
+      "excerpt": "در یک دههٔ گذشته پورتفولیوهای طراحی محصول به‌طرز چشم‌گیری همگن شده‌اند. در این مقاله دلایل این روند و راه‌های حفظ هویت حرفه‌ای را بررسی می‌کنیم.",
+      "category": "طراحی محصول",
+      "publishedAt": "۲۷ تیر ۱۴۰۵",
+      "readingTime": "۶ دقیقه خواندن",
+      "cover": portfolioHomogenizationCoverImage,
+      "direction": "rtl",
+      "content": [
+        {
+          "type": "heading",
+          "text": "یکسان‌سازی روزافزون",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "اگر نگاهی به پورتفولیوهای اخیر بیندازید، الگوهای تکراری را خواهید دید: کاورهای بزرگ، بخش «مشکل»، «راه‌حل»، «نتایج» و تصاویر نمونه‌کار با چیدمان مشابه. این یکسان‌سازی نه‌فقط از نظر بصری بلکه در ساختار روایت نیز محسوس است و بسیاری از طراحان هنگام ارائهٔ کارهایشان از همان فرمت‌های استاندارد استفاده می‌کنند."
+        },
+        {
+          "type": "heading",
+          "text": "قالب‌ها و سیستم‌های طراحی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "قالب‌های آماده، افزونه‌های نمونه‌کار برای Figma و تمپلیت‌های وب باعث تسریع فرایند ساخت پورتفولیو شده‌اند. این ابزارها مزایایی مثل صرفه‌جویی در زمان و تضمین خوانایی دارند، اما همین مزیت‌ها باعث می‌شود که خروجی‌ها به هم شبیه شوند؛ به‌ویژه وقتی جوامع طراحی یکسری اجزای مشترک را بازتولید می‌کنند."
+        },
+        {
+          "type": "heading",
+          "text": "خطر از دست رفتن صدای فردی",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "زمانی که همه از یک زبان بصری و یک ساختار روایی استفاده کنند، تمایزهای فردی کمرنگ می‌شود. برای استخدام‌کنندگان و همکاران، این می‌تواند فرآیند ارزیابی را ساده کند، اما برای خود طراح‌ها به معنای از دست رفتن فرصت نمایش سبک، ارزش‌ها و طرز تفکر منحصربه‌فرد است."
+        },
+        {
+          "type": "heading",
+          "text": "نقش شرکت‌ها در تقویت این الگو",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "شرکت‌ها و تیم‌های استخدامی معمولاً به دنبال شواهدی مشخص از توانایی حل مسئله هستند و این انتظار، طراحان را به سمت ارائهٔ نتایج قابل‌مقایسه سوق می‌دهد. معیارهای کوتاه‌مدت مانند KPI، اعداد رشد و نمونه‌های قابل ارائه باعث می‌شود فرمت‌هایی که این اطلاعات را آسان نشان می‌دهند، محبوب شوند."
+        },
+        {
+          "type": "heading",
+          "text": "تصمیمات عملی برای متمایز شدن",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "برای حفظ هویت، می‌توانید انتخاب‌های هوشمندانه‌ای داشته باشید: به جای نمایش همهٔ پروژه‌ها، چند مورد هدفمند با روایت شخصی انتخاب کنید؛ فرایند تصمیم‌گیری و نمونه‌های واقعی از آزمایش‌ها و شکست‌ها را نشان دهید؛ و زبان بصری و لحن نوشتار را با شخصیت حرفه‌ای‌تان هماهنگ کنید. در نهایت، تجربهٔ تعاملی و دموهای زنده اغلب بیش از تصاویر ایستای قالبی تأثیرگذارند."
+        }
+      ]
     }
 ];
 
@@ -1303,6 +1362,63 @@ export const articlesEn: Article[] = [
         {
           "type": "paragraph",
           "text": "When you update your portfolio, show the whole trajectory: initial assumptions, research, design decisions, test results, post-launch metrics, and lessons learned. This not only demonstrates your craft, but proves your ability to ship and iterate as a product designer."
+        }
+      ]
+    },
+    {
+      "slug": "portfolio-homogenization",
+      "title": "Why Product-Design Portfolios Look the Same",
+      "excerpt": "Product-design portfolios have become surprisingly uniform. This article explores the forces behind that trend and practical ways designers can preserve their distinct professional voice.",
+      "category": "Product Design",
+      "publishedAt": "2026-07-18",
+      "readingTime": "6 min read",
+      "cover": portfolioHomogenizationCoverImage,
+      "direction": "ltr",
+      "content": [
+        {
+          "type": "heading",
+          "text": "A Growing Uniformity",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Look through recent product-design portfolios and you'll notice recurring patterns: large cover imagery, a 'problem / solution / results' structure, and similar case-study layouts. This uniformity shows up not only visually but narratively, as many designers default to the same formats when presenting work."
+        },
+        {
+          "type": "heading",
+          "text": "Templates and Design Systems",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Ready-made templates, Figma community kits, and portfolio themes speed up the portfolio-building process. While they offer consistency and save time, they also encourage homogeneity—especially when communities replicate a handful of shared components and interaction patterns."
+        },
+        {
+          "type": "heading",
+          "text": "Risk of Losing Individual Voice",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "When everyone speaks the same visual and narrative language, personal distinctions fade. That simplifies evaluation for hiring teams, but it also reduces opportunities for designers to showcase style, values, and unique approaches to problem solving."
+        },
+        {
+          "type": "heading",
+          "text": "How Companies Reinforce the Pattern",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Employers often want clear evidence of outcome-driven work, nudging designers towards formats that surface comparable metrics. Short-term hiring criteria—like KPIs and demonstrable impact—make templates that highlight numbers and deliverables more attractive."
+        },
+        {
+          "type": "heading",
+          "text": "Practical Design Decisions to Stand Out",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "To preserve your voice, make deliberate choices: showcase a few targeted case studies with personal narrative instead of every project; surface process artifacts, experiments, and failures; and align visual language and microcopy with your professional identity. Interactive demos and contextual storytelling often make a stronger impression than static, templated screenshots."
         }
       ]
     }
