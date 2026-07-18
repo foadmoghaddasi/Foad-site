@@ -70,13 +70,13 @@ const contentBlockSchema = {
   anyOf: [
     {
       type: "object",
-      properties: { type: { const: "paragraph" }, text: { type: "string", minLength: 1 } },
+      properties: { type: { type: "string", enum: ["paragraph"] }, text: { type: "string", minLength: 1 } },
       required: ["type", "text"],
       additionalProperties: false,
     },
     {
       type: "object",
-      properties: { type: { const: "heading" }, text: { type: "string", minLength: 1 }, level: { enum: [2, 3] } },
+      properties: { type: { type: "string", enum: ["heading"] }, text: { type: "string", minLength: 1 }, level: { type: "number", enum: [2, 3] } },
       required: ["type", "text", "level"],
       additionalProperties: false,
     },
@@ -97,7 +97,7 @@ const articleSchema = {
       type: "object",
       properties: {
         title: { type: "string", minLength: 1 }, excerpt: { type: "string", minLength: 1 }, category: { type: "string", minLength: 1 },
-        publishedAt: { type: "string", minLength: 1 }, readingTime: { type: "string", minLength: 1 }, direction: { const: "rtl" },
+        publishedAt: { type: "string", minLength: 1 }, readingTime: { type: "string", minLength: 1 }, direction: { type: "string", enum: ["rtl"] },
         content: { type: "array", minItems: 2, items: contentBlockSchema },
       },
       required: ["title", "excerpt", "category", "publishedAt", "readingTime", "direction", "content"],
@@ -107,7 +107,7 @@ const articleSchema = {
       type: "object",
       properties: {
         title: { type: "string", minLength: 1 }, excerpt: { type: "string", minLength: 1 }, category: { type: "string", minLength: 1 },
-        publishedAt: { type: "string", minLength: 1 }, readingTime: { type: "string", minLength: 1 }, direction: { const: "ltr" },
+        publishedAt: { type: "string", minLength: 1 }, readingTime: { type: "string", minLength: 1 }, direction: { type: "string", enum: ["ltr"] },
         content: { type: "array", minItems: 2, items: contentBlockSchema },
       },
       required: ["title", "excerpt", "category", "publishedAt", "readingTime", "direction", "content"],
