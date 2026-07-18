@@ -25,6 +25,8 @@ import testBilingualDesignNoteCoverImage from "../assets/images/articles/test-bi
 
 import portfolioToProductCoverImage from "../assets/images/articles/portfolio-to-product/cover.png";
 
+import similarProductDesignPortfoliosCoverImage from "../assets/images/articles/similar-product-design-portfolios/cover.png";
+
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string; level?: 2 | 3 }
@@ -902,6 +904,72 @@ export const articles: Article[] = [
           "text": "در پایان، آنچه در پورتفولیو می‌نشانید باید مسیر محصول را از ایده تا بازار نشان دهد: فرضیات اولیه، تحقیقات انجام‌شده، تصمیمات طراحی، نتایج آزمایش، معیارهای پس از عرضه و درس‌های آموخته‌شده. این رویکرد نه تنها تجربه شما را نشان می‌دهد بلکه قابلیت اجرای شما را به‌عنوان یک طراح محصول اثبات می‌کند."
         }
       ]
+    },
+    {
+      "slug": "similar-product-design-portfolios",
+      "title": "چرا پورتفولیوهای طراحی محصول شبیه هم شده‌اند؟",
+      "excerpt": "پورتفولیوهایی که قرار است تفاوت شما را نشان دهند، اغلب نسخه‌های شبیه هم از یک فرمت استاندارد هستند. این مقاله ریشه‌های این هم‌نمایی را بررسی و راه‌هایی عملی برای برجسته شدن پیشنهاد می‌دهد.",
+      "category": "طراحی محصول",
+      "publishedAt": "۲۷ تیر ۱۴۰۵",
+      "readingTime": "۶ دقیقه مطالعه",
+      "cover": similarProductDesignPortfoliosCoverImage,
+      "direction": "rtl",
+      "content": [
+        {
+          "type": "heading",
+          "text": "مقدمه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "در چند سال اخیر، مشاهده می‌کنیم که پورتفولیوهای طراحی محصول — به ویژه آن‌هایی که آنلاین منتشر می‌شوند — به شکلی نگران‌کننده شبیه به هم شده‌اند. قالب ثابت «مسئله — راه‌حل — نتایج» به‌تنهایی بد نیست، اما وقتی اجرای آن سطحی و تکراری شود، پورتفولیو دیگر نشان‌دهنده تفکر طراح نیست. هدف این مقاله بررسی علل این یکنواختی و ارائه راهکارهایی عملی برای برگرداندن اصالت و تمایز است."
+        },
+        {
+          "type": "heading",
+          "text": "دلایل مشترک",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "چند عامل متقاطع باعث می‌شود پورتفولیوها به یکدیگر شبیه شوند: وجود قالب‌های آماده و کتابخانه‌های UI، فشار برای پر کردن صفحات با آمار و نمودارها، تمایل به تقلید از نمونه‌های موفق، و محدودیت‌های زمانی که طراحان را به انتخاب کوتاه‌ترین مسیر می‌رساند. همین‌طور، بسیاری از افراد نسخه فشرده‌ای از فرآیند طراحی ارائه می‌دهند که جزئیات تصمیم‌گیری، آزمون‌ها و چرایی انتخاب‌ها را حذف می‌کند."
+        },
+        {
+          "type": "heading",
+          "text": "فشار بازار و الگوبرداری",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "کارفرمایان و استخدام‌کنندگان اغلب به دنبال تنها چند نشانگر مشخص هستند: متریال‌های قابل‌فهم، نتایج کمی و نمونه‌های polish شده. این انتظارات باعث می‌شود افراد برای دیده شدن به الگوبرداری از آنچه دیده شده روی بیاورند. همین چرخه بازخورد باعث تثبیت استانداردهایی می‌شود که خلاقیت و تفاوت را کاهش می‌دهند."
+        },
+        {
+          "type": "heading",
+          "text": "ابزارها و سیستم‌ها",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "ابزارهای طراحی مدرن، قالب‌های Figma و کتابخانه‌های کاربردی سرعت تولید نمونه‌ها را بسیار بالا برده‌اند. اما استفاده گسترده از این ابزارها بدون بازسازی بصری یا محتوایی، منجر به یک‌دستی می‌شود. افزون بر این، هوش مصنوعی و پلاگین‌ها می‌توانند محتوای سطحی تولید کنند که ظاهری حرفه‌ای دارد اما عمق و اصالت ندارد."
+        },
+        {
+          "type": "heading",
+          "text": "چگونه متفاوت باشید",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "تفاوت‌سازی نیازمند تمرکز بر روایت شخصی، نمایش تصمیم‌گیری و ارائه شواهد واقعی از فرایند است. به جای تعداد زیاد کیس‌استادی‌های سطحی، چند پروژه را عمیق شرح دهید: فرضیات اولیه، شکست‌ها و تغییر مسیرها، نمونه‌های اولیه اولیه، بازخورد واقعی کاربران و نتایج ملموس. استفاده از تصاویر اختصاصی، اسکرین‌شات‌های زنده از نمونه‌های اولیه و نقل‌قول‌های کاربران می‌تواند ارزش بیشتری از نمودارهای ژنریک ایجاد کند."
+        },
+        {
+          "type": "heading",
+          "text": "نتیجه‌گیری",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "یک پورتفولیو خوب ترکیبی از وضوح و اصالت است. با سرمایه‌گذاری روی روایت، نمایش فرآیند و انتخاب بصری متناسب با خودتان می‌توانید از میان قالب‌های تکراری متمایز شوید. در نهایت، پورتفولیوی شما باید نه فقط نشان‌دهنده نتایج، که نمایانگر نحوه‌ی فکر کردن شما باشد."
+        }
+      ]
     }
 ];
 
@@ -1303,6 +1371,72 @@ export const articlesEn: Article[] = [
         {
           "type": "paragraph",
           "text": "When you update your portfolio, show the whole trajectory: initial assumptions, research, design decisions, test results, post-launch metrics, and lessons learned. This not only demonstrates your craft, but proves your ability to ship and iterate as a product designer."
+        }
+      ]
+    },
+    {
+      "slug": "similar-product-design-portfolios",
+      "title": "Why product-design portfolios all look the same",
+      "excerpt": "Portfolios meant to showcase individuality increasingly blend into a single format. This piece explores the systemic reasons behind that sameness and gives practical advice to make your case studies stand out.",
+      "category": "Product Design",
+      "publishedAt": "2026-07-18",
+      "readingTime": "6 min read",
+      "cover": similarProductDesignPortfoliosCoverImage,
+      "direction": "ltr",
+      "content": [
+        {
+          "type": "heading",
+          "text": "Introduction",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Over the past few years, product-design portfolios—especially those published online—have started to look strikingly similar. The familiar 'problem → solution → outcome' case-study is useful, but when applied mechanically it fails to communicate a designer’s judgment or personality. This article digs into why portfolios converge and offers concrete steps to reclaim originality and differentiation."
+        },
+        {
+          "type": "heading",
+          "text": "Common causes",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Several overlapping causes explain the uniformity: ready-made templates and UI kits, the pressure to showcase metrics, a tendency to copy high-profile examples, and time constraints that push designers toward the fastest, most polished route. Many portfolios also compress the design process so tightly that key decisions, trade-offs, and learnings disappear."
+        },
+        {
+          "type": "heading",
+          "text": "Market pressure and benchmarking",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Hiring managers and product teams often look for familiar signals—clear artifacts, quantitative outcomes, and a polished presentation. Those expectations encourage mimicry: if a certain format gets interviews, everyone adopts it. Over time that feedback loop hardens into an industry norm that crowds out variety."
+        },
+        {
+          "type": "heading",
+          "text": "Tools and systems",
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": "Modern design tools, Figma templates, and component libraries have dramatically sped up portfolio production. But extensive reliance on these resources without custom adaptation produces visual sameness. AI helpers and plugins can also generate superficially convincing content that lacks depth and authentic insight."
+        },
+        {
+          "type": "heading",
+          "text": "How to be different",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Differentiation comes from clarity of narrative, evidence of decision-making, and a distinctive voice. Rather than publishing many shallow case studies, pick a few projects and go deep: state initial hypotheses, show early sketches and prototypes, document failures and course corrections, cite real user feedback, and highlight trade-offs. Custom visuals, live-prototype clips, and short qualitative quotes often communicate more than generic charts."
+        },
+        {
+          "type": "heading",
+          "text": "Conclusion",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "A strong portfolio balances clarity with authenticity. By investing in storytelling, process artifacts, and purposeful visual choices, you can break away from template-driven sameness. Ultimately, your portfolio should not just display outcomes—it should reveal how you think."
         }
       ]
     }
