@@ -80,7 +80,6 @@ const Navbar = () => {
         </Link>
       </nav>
       <Switch
-        data-theme-switch
         dir="ltr"
         isSelected={theme === "light"}
         onChange={() => toggleTheme()}
@@ -93,6 +92,7 @@ const Navbar = () => {
         {({ isSelected }) => (
           <Switch.Content>
             <Switch.Control
+              data-theme-switch-control
               className={`h-[31px] w-[51px] transition-colors duration-300 ${
                 isSelected
                   ? "bg-amber-400 shadow-[0_0_14px_rgba(251,191,36,0.55)]"
