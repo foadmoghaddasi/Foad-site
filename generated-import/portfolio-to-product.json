@@ -1,0 +1,170 @@
+{
+  "slug": "portfolio-to-product",
+  "images": {
+    "cover": "cover.png"
+  },
+  "fa": {
+    "title": "چطور یک پورتفولیوی طراحی محصول را به یک محصول واقعی تبدیل کنیم؟",
+    "excerpt": "راهنمای گام‌به‌گام برای تبدیل مطالعات موردی پورتفولیو به محصولات قابل عرضه: از اعتبارسنجی ایده تا راه‌اندازی و سنجش پس از عرضه.",
+    "category": "طراحی محصول",
+    "publishedAt": "۲۷ تیر ۱۴۰۵",
+    "readingTime": "۷ دقیقه",
+    "direction": "rtl",
+    "content": [
+      {
+        "type": "heading",
+        "text": "مقدمه: از نمونه کاری تا محصول",
+        "level": 2
+      },
+      {
+        "type": "paragraph",
+        "text": "بسیاری از طراحان محصول چندین پروژه نمونه در پورتفولیوی خود دارند که ایده‌ها و توانایی‌های آن‌ها را نشان می‌دهد. تبدیل یکی از این پروژه‌ها به یک محصول واقعی نیازمند ورود به مراحل مهندسی، بازار و عملیات است؛ نه تنها طراحی زیبا. در این مقاله گام‌هایی عملی و تجربه‌محور ارائه شده که مسیر را از نمونه کاری تا عرضه تجاری روشن می‌کند."
+      },
+      {
+        "type": "heading",
+        "text": "اعتبارسنجی ایده قبل از سرمایه‌گذاری",
+        "level": 2
+      },
+      {
+        "type": "paragraph",
+        "text": "قبل از آنکه وقت و منابع را صرف توسعه کنید، باید فرضیات اصلی پروژه را تست کنید: آیا مشکل واقعی است؟ آیا کاربران حاضرند برای راه‌حل شما هزینه یا زمان صرف کنند؟ برای این کار از تست‌های کم‌هزینه مثل صفحات فرود، فرم‌های پیش‌ثبت‌نام و صحبت با مشتریان واقعی استفاده کنید."
+      },
+      {
+        "type": "heading",
+        "text": "تحقیقات سریع کاربر",
+        "level": 3
+      },
+      {
+        "type": "paragraph",
+        "text": "جلسات مصاحبه کوتاه با 5 تا 10 کاربر هدف، پرسشنامه‌های کوتاه و تحلیل رقبا می‌تواند بینش کافی برای تصمیم‌گیری اولیه فراهم کند. تمرکز روی سناریوهای واقعی استفاده و معیارهای رفتاری (نه فقط ترجیحات ظاهری) به شما کمک می‌کند تا فرضیات را اولویت‌بندی کنید."
+      },
+      {
+        "type": "heading",
+        "text": "ساخت حداقل محصول دوست‌داشتنی (MLP)",
+        "level": 2
+      },
+      {
+        "type": "paragraph",
+        "text": "به‌جای هدف‌گذاری برای محصول کامل، یک حداقل محصول که تجربهٔ اصلی را به‌درستی منتقل کند بسازید. طراحی جریان‌های کلیدی، تعیین محدوده فنی قابل تحویل و تمرکز روی تجربه‌ای که کاربران را نگه دارد، از اصول MLP است."
+      },
+      {
+        "type": "heading",
+        "text": "نمونه‌سازی و تست میدانی",
+        "level": 3
+      },
+      {
+        "type": "paragraph",
+        "text": "برای هدف‌گیری سریع بازخورد، از پروتوتایپ‌های صفحه‌ای، کلیکی یا با قابلیت محدود استفاده کنید و تست‌های میدانی اجرا کنید. معیارهای ساده مثل نرخ تکمیل وظیفه، زمان انجام کار و بازخورد کیفی به شما نشان می‌دهد کجا باید اولویت بدهید."
+      },
+      {
+        "type": "heading",
+        "text": "تحویل به توسعه و راه‌اندازی",
+        "level": 2
+      },
+      {
+        "type": "paragraph",
+        "text": "همکاری نزدیک با تیم فنی در این مرحله ضروری است: مستندسازی دقیق، طراحی سیستم مؤثر و تعریف APIها/مرزها. یک روند تحویل شفاف شامل نیازمندی‌های عملکردی، معیارهای پذیرش و تست‌های QA ریسک‌های اجرای نادرست را کاهش می‌دهد."
+      },
+      {
+        "type": "heading",
+        "text": "سنجش و تکرار مستمر",
+        "level": 3
+      },
+      {
+        "type": "paragraph",
+        "text": "پس از راه‌اندازی، معیارهای کلیدی (فعال‌سازی، نگهداری، رضایت) را دنبال کنید و داده‌های کمّی را با بازخورد کیفی کاربران ترکیب کنید. چرخه‌های تکرار کوتاه و فرضیه‌محور به شما اجازه می‌دهد محصول را با سرعت مناسب بهبود دهید."
+      },
+      {
+        "type": "heading",
+        "text": "بسته‌بندی پروژه پورتفولیو به عنوان یک مطالعه موردی محصول",
+        "level": 2
+      },
+      {
+        "type": "paragraph",
+        "text": "در پایان، آنچه در پورتفولیو می‌نشانید باید مسیر محصول را از ایده تا بازار نشان دهد: فرضیات اولیه، تحقیقات انجام‌شده، تصمیمات طراحی، نتایج آزمایش، معیارهای پس از عرضه و درس‌های آموخته‌شده. این رویکرد نه تنها تجربه شما را نشان می‌دهد بلکه قابلیت اجرای شما را به‌عنوان یک طراح محصول اثبات می‌کند."
+      }
+    ]
+  },
+  "en": {
+    "title": "How to Turn a Product-Design Portfolio into a Real Product",
+    "excerpt": "A practical roadmap for converting a portfolio case study into a shipped product: validate, prototype, collaborate with engineering, and iterate after launch.",
+    "category": "Product Design",
+    "publishedAt": "2026-07-18",
+    "readingTime": "7 min read",
+    "direction": "ltr",
+    "content": [
+      {
+        "type": "heading",
+        "text": "Introduction: from portfolio piece to product",
+        "level": 2
+      },
+      {
+        "type": "paragraph",
+        "text": "Many product designers have polished case studies in their portfolios that showcase ideas and craft. Turning one of those case studies into a real, shipped product requires engineering, market, and operational work—in other words, more than just a nice UI. This article lays out practical, experience-driven steps to move from portfolio concept to a market-ready product."
+      },
+      {
+        "type": "heading",
+        "text": "Validate the idea before you invest",
+        "level": 2
+      },
+      {
+        "type": "paragraph",
+        "text": "Before committing time and resources you need to test your core assumptions: is the problem real, and will users pay attention or money for your solution? Low-cost experiments such as landing pages, pre-signup forms, and customer conversations will quickly reveal demand signals."
+      },
+      {
+        "type": "heading",
+        "text": "Run lightweight user research",
+        "level": 3
+      },
+      {
+        "type": "paragraph",
+        "text": "Short interviews with 5–10 target users, brief surveys, and competitor analysis usually provide enough insight for early decisions. Focus on real user scenarios and behavioral evidence (not only aesthetic preferences) to prioritize hypotheses."
+      },
+      {
+        "type": "heading",
+        "text": "Build a Minimum Lovable Product (MLP)",
+        "level": 2
+      },
+      {
+        "type": "paragraph",
+        "text": "Rather than aiming for a feature-complete product, deliver a minimum that communicates the core experience well. Scope the project to key flows, define a technically feasible slice, and concentrate on the experience that will retain users."
+      },
+      {
+        "type": "heading",
+        "text": "Prototype and field-test",
+        "level": 3
+      },
+      {
+        "type": "paragraph",
+        "text": "Use clickable or limited-function prototypes to gather quick feedback and run field tests. Simple metrics—task completion, time-on-task, and qualitative comments—highlight where to focus refinement efforts."
+      },
+      {
+        "type": "heading",
+        "text": "Handoff to engineering and launch",
+        "level": 2
+      },
+      {
+        "type": "paragraph",
+        "text": "Close collaboration with engineering is essential: provide clear documentation, a usable design system, and defined APIs or boundaries. A transparent handoff process with acceptance criteria and QA reduces execution risk."
+      },
+      {
+        "type": "heading",
+        "text": "Measure and iterate continuously",
+        "level": 3
+      },
+      {
+        "type": "paragraph",
+        "text": "After launch, track key metrics (activation, retention, satisfaction) and combine quantitative data with qualitative user feedback. Short, hypothesis-driven iteration cycles let you improve the product at an appropriate pace."
+      },
+      {
+        "type": "heading",
+        "text": "Package the project as a product case study",
+        "level": 2
+      },
+      {
+        "type": "paragraph",
+        "text": "When you update your portfolio, show the whole trajectory: initial assumptions, research, design decisions, test results, post-launch metrics, and lessons learned. This not only demonstrates your craft, but proves your ability to ship and iterate as a product designer."
+      }
+    ]
+  }
+}

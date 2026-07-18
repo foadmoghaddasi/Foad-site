@@ -9,7 +9,8 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   generate:
@@ -34,22 +35,63 @@ jobs:
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
         run: npm run article:generate -- "$TOPIC"
 
-      - name: Collect generated article
+      - name: Read generated article metadata
         run: |
-          find generated-articles -maxdepth 1 -type f -name '*.json' -print > generated-article-paths.txt
-          test -s generated-article-paths.txt
+          ARTICLE_JSON="$(find generated-articles -maxdepth 1 -type f -name '*.json' -print -quit)"
+          test -n "$ARTICLE_JSON"
+          SLUG="$(node -e 'const article = require(process.argv[1]); process.stdout.write(article.slug);' "$ARTICLE_JSON")"
+          test -n "$SLUG"
+          test -f "generated-articles/${SLUG}-images/cover.png"
+          test -s "generated-articles/${SLUG}-images/cover.png"
+          echo "ARTICLE_JSON=$ARTICLE_JSON" >> "$GITHUB_ENV"
+          echo "SLUG=$SLUG" >> "$GITHUB_ENV"
+          echo "ARTICLE_IMAGES_DIR=generated-articles/${SLUG}-images" >> "$GITHUB_ENV"
 
-      - name: Upload article JSON and cover image
+      - name: Add article to the project
+        run: npm run article:add -- "$ARTICLE_JSON" --images "$ARTICLE_IMAGES_DIR"
+
+      - name: Build project
+        run: npm run build
+
+      - name: Create article branch and commit
+        run: |
+          BRANCH="article/$SLUG"
+          git switch -c "$BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content/articles.ts "src/assets/images/articles/$SLUG"
+          git diff --cached --quiet && { echo "No article changes were staged."; exit 1; }
+          git commit -m "content: add article $SLUG"
+          git push origin "$BRANCH"
+          echo "ARTICLE_BRANCH=$BRANCH" >> "$GITHUB_ENV"
+
+      - name: Create pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          FA_TITLE="$(node -e 'const article = require(process.argv[1]); process.stdout.write(article.fa.title);' "$ARTICLE_JSON")"
+          EN_TITLE="$(node -e 'const article = require(process.argv[1]); process.stdout.write(article.en.title);' "$ARTICLE_JSON")"
+          cat > pr-body.md <<EOF
+          ## Article details
+
+          - Persian title: ${FA_TITLE}
+          - English title: ${EN_TITLE}
+          - Slug: ${SLUG}
+          - Article path: src/content/articles.ts
+          - Build: successful (npm run build)
+          EOF
+          PR_URL="$(gh pr create --base main --head "$ARTICLE_BRANCH" --title "Add article: $EN_TITLE" --body-file pr-body.md)"
+          echo "PR_URL=$PR_URL" >> "$GITHUB_ENV"
+
+      - name: Upload generated article and cover
         uses: actions/upload-artifact@v4
         with:
           name: bilingual-article-json
           path: generated-articles/
           if-no-files-found: error
 
-      - name: Add generated path to summary
+      - name: Add pull request to summary
         run: |
-          echo "## Generated bilingual article" >> "$GITHUB_STEP_SUMMARY"
+          echo "## Generated bilingual article pull request" >> "$GITHUB_STEP_SUMMARY"
           echo >> "$GITHUB_STEP_SUMMARY"
-          echo '```text' >> "$GITHUB_STEP_SUMMARY"
-          cat generated-article-paths.txt >> "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo "[Open pull request]($PR_URL)" >> "$GITHUB_STEP_SUMMARY"
