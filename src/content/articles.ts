@@ -33,6 +33,9 @@ import designSystemVsUiKitCoverImage from "../assets/images/articles/design-syst
 
 import whyInfoTipsFailCoverImage from "../assets/images/articles/why-info-tips-fail/cover.webp";
 
+import designSystemUnitStructureCodeFigmaCoverImage from "../assets/images/articles/design-system-unit-structure-code-figma/cover.webp";
+import designSystemUnitStructureCodeFigmaCoverThumbImage from "../assets/images/articles/design-system-unit-structure-code-figma/cover-thumb.webp";
+
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string; level?: 2 | 3 }
@@ -1321,6 +1324,137 @@ export const articles: Article[] = [
         }
       ]
     }
+,
+    {
+      "slug": "design-system-unit-structure-code-figma",
+      "title": "ساختار واحد دیزاین سیستم برای کد و فیگما",
+      "excerpt": "چگونگی تعریف، نگهداری و همگام‌سازی واحدهای Design System بین Figma و کد تا یک منبع حقیقت واحد ایجاد شود و اختلاف بین Designer و Developer کاهش یابد.",
+      "category": "دیزاین سیستم",
+      "publishedAt": "۲۸ تیر ۱۴۰۵",
+      "readingTime": "8 دقیقه مطالعه",
+      "cover": designSystemUnitStructureCodeFigmaCoverImage,
+      "coverThumb": designSystemUnitStructureCodeFigmaCoverThumbImage,
+      "direction": "rtl",
+      "content": [
+        {
+          "type": "heading",
+          "text": "خلاصه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "این مقاله یک چارچوب عملی برای تعریف «واحد» در Design System — شامل Design Token، Component و Pattern — ارائه می‌دهد و روی همگام‌سازی بین Figma و کد تمرکز می‌کند. نتیجهٔ کلیدی این است که تعریف واضح مسئولیت‌ها، مدل ورژن‌دهی و تبدیل‌های Token به کد موجب کاهش خطا، تسریع Handoff و پایداری تجربهٔ کاربری می‌شود."
+        },
+        {
+          "type": "heading",
+          "text": "در این مقاله",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "متن شامل مقدمه و تعریف مسئله، محدودهٔ کاربرد، تحلیل بخش‌های کلیدی مثل تعریف واحدها، Naming و Single Source of Truth، Token mapping، Versioning، حالت‌ها و Accessibility، شکاف‌های پیاده‌سازی و Handoff، خطاهای رایج، راهنمای عملی و جمع‌بندی نهایی است."
+        },
+        {
+          "type": "heading",
+          "text": "مقدمه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "در پروژه‌های متصل به Product، Design System وسیلهٔ اصلی برای کاهش هزینهٔ توسعه و حفظ یکپارچگی UI است. اما وقتی واحدهای System (Tokens، Components، Patterns) در Figma و در کد شکل‌های متفاوتی داشته باشند، نتیجه ناسازگاری‌های بصری، رگرسیون‌های UX و اصطکاک بین Designer و Developer خواهد بود. هدف این مقاله، توضیح چگونگی تعریف «واحد دیزاین سیستم» به گونه‌ای که هم برای طراحان و هم برای توسعه‌دهندگان مفید، قابل اتکا و قابل توسعه باشد است."
+        },
+        {
+          "type": "heading",
+          "text": "زمینه و دامنه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مفروضات: تیم شامل Product Designer، Front-end Developer، یک کوچکتر Back-end یا API و مدیر محصول است. System باید از یک UI Kit در Figma و یک Component Library در کد پشتیبانی کند. تمرکز بر وب و موبایل (responsive) است اما نکات برای native نیز کاربردی‌اند. محدودیت‌های معمول شامل زمان Sprint محدود، نیاز به پشتیبانی از چند تم یا برند، و وجود Legacy Components است."
+        },
+        {
+          "type": "heading",
+          "text": "چه چیزی را مرز یک \"واحد\" می‌گیریم؟ (Tokens vs Component vs Pattern)",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "تعریف مسئله: عدم وضوح مرز بین Design Token، Component و Pattern باعث دوباره‌کاری و ناسازگاری می‌شود. چرا رخ می‌دهد: تیم‌ها اغلب این اصطلاحات را بر اساس نقش خود معنا می‌کنند—Designers روی ظاهر (Figma)، Developers روی پیاده‌سازی. اهمیت: بدون مرزهای روشن، تغییرات ظاهری کوچک ممکن است به تغییر ساختاری بزرگ در کد منجر شود یا بالعکس، و این به UX ناپایدار می‌انجامد. پیامد برای UX/Product/Dev: تجربهٔ کاربری ممکن است بین صفحات یا پلتفرم‌ها متفاوت شود و هزینهٔ نگهداری افزایش یابد. سناریو: یک طراح spacing جدیدی برای کارت‌ها در Figma اعمال می‌کند؛ چون این spacing تنها در Figma تعریف شده، توسعه‌دهنده آن را در Component Library به صورت Inline تنظیم می‌کند؛ سپس تغییر Brand token باعث تداخل در چندین صفحه می‌شود. توصیه: واحدها را به این شکل مشخص کنید—Design Token: مقادیر پایه (colors, spacing, typography)؛ Component: عناصر قابل استفاده مجدد با API مشخص؛ Pattern: آرایش چند Component برای یک User Flow. هر تغییر باید ابتدا به سطح مناسب تخصیص یابد (مثلاً spacing توکن شود نه پراکنده در Component)."
+        },
+        {
+          "type": "heading",
+          "text": "Naming و Single Source of Truth (SSOT)",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "تعریف مسئله: نام‌گذاری متفاوت بین Figma و کد موجب سردرگمی و جستجوی وقت‌گیر می‌شود. چرا رخ می‌دهد: طراح‌ها به نام‌های معنایی تمرکز می‌کنند (Primary Button)، توسعه‌دهندگان به نام‌های فنی (btn--primary). اهمیت: نداشتن SSOT باعث دو منبع حقیقت می‌شود که هماهنگ نگه داشتنشان پرهزینه است. پیامد: Handoff کند، مرجع‌گیری اشتباه و افزایش Technical Debt. سناریو: Designer یک رنگ را 'brand-blue' نام‌گذاری می‌کند، اما در کد به 'primary-500' ارجاع می‌شود؛ هنگام تغییر تناژ رنگ، تیم مطمئن نیست کدام مقدار را تغییر دهد و تغییر ناقص اعمال می‌شود. توصیه: یک کانوانسیون نام‌گذاری مشترک تعریف کنید که برای هر سطح قابل نگاشت باشد—Tokens از یک قرارداد سمانتیک (e.g., color.brand.primary) استفاده کنند و در کد با ابزارهای تبدیل (transform) به نام‌های platform-specific map شوند. SSOT فیزیکی را تعیین کنید: اگر Team تصمیم گرفت که Tokens در یک repo اختصاصی (مثلاً tokens repo یا design-tokens.json) باشند، آن فایل مرجع واحد باشد و Figma از آن سینک شود یا با Export اتوماتیک به‌روزرسانی شود."
+        },
+        {
+          "type": "heading",
+          "text": "Design Tokens: تبدیل، واحدها و Precision",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "تعریف مسئله: Tokenها در Figma معمولاً بر حسب px یا rem ثبت می‌شوند اما در runtime ممکن است نیاز به تبدیل یا rounding باشد. چرا رخ می‌دهد: تفاوت واحدها و نیازهای platform (web vs iOS) و دسکریپشن‌های متفاوت Design Tool. اهمیت: تبدیل نادرست موجب لرزش layout، فاصله‌های نامتوازن و مشکلات Accessibility می‌شود. پیامد برای UX/Product/Dev: تغییرات کوچک در Token باعث regressions بصری و test failures در UI می‌شود. سناریو: طراح spacing را 8px استاندارد قرار می‌دهد؛ Developer هنگام تبدیل به rem از پایه 16px استفاده نمی‌کند و بعضی فواصل 0.51rem می‌شود که در مرورگر رندِر متفاوتی نشان می‌دهد. توصیه: قوانین تبدیل و precision را مستند کنید (مثلاً همیشه به 4 اعشار در rem نگه دارید یا از CSS variables برای حفظ دقت استفاده کنید). در CI یک چک ساده برای detect شکاف‌های تبدیل قرار دهید تا exportهای Token قبل از انتشار قابل قبول باشند."
+        },
+        {
+          "type": "heading",
+          "text": "نسخه‌دهی، انتشار و Branching",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "تعریف مسئله: تغییرات غیرقابل‌بازگشت در Design System می‌تواند صفحات زنده را بشکند. چرا رخ می‌دهد: نبود سیاست‌های واضح برای breaking changes یا انتشار patch/major releases. اهمیت: بدون کنترل نسخه، هر Update خطر رگرسیون را افزایش می‌دهد و rollout مدیریت‌نشده باعث سردرگمی است. پیامد: Product ممکن است مجبور به rollback شود یا Hotfixهای فشرده توسعه یابد. سناریو: Team تصمیم می‌گیرد رنگ CTA را تغییر دهد؛ این تغییر مستقیماً در tokens repo منتشر و بلافاصله توسط CI به همه پروژه‌ها کشیده می‌شود و در نتیجه برخی صفحات که به رنگ سابق وابسته بوده‌اند، از لحاظ CTA hierarchy شکسته می‌شوند. توصیه: مدل semantic versioning را برای Design System اعمال کنید و سیاست واضحی برای breaking change داشته باشید؛ مثلاً major release برای تغییر API Component، minor برای اضافه شدن ویژگی غیرمخرب و patch برای اصلاحات بصری. علاوه بر این، از feature flags یا نسخه‌بندی تمپلیت در runtime بهره ببرید تا rollout کنترل‌شده امکان‌پذیر باشد."
+        },
+        {
+          "type": "heading",
+          "text": "حالت‌ها، responsiveness و Accessibility",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "تعریف مسئله: تعریف ناکافی حالت‌ها (hover, focus, pressed, disabled) یا غفلت از Accessibility در هر دو منبع (Figma و کد) باعث ناسازگاری رفتاری می‌شود. چرا رخ می‌دهد: طراحان گاهی حالت‌ها را به‌صورت تصویر در Figma نشان می‌دهند، ولی API Component آنها را صریحاً مشخص نمی‌کند، یا توسعه‌دهنده بر حسب نیاز‌های performance حالت‌های ساده‌تری پیاده می‌کند. اهمیت: حالت‌ها بخشی از affordance و Discoverability هستند؛ نبود آنها تجربهٔ کاربری را کم‌کیفیت می‌کند و ممکن است به رفع معیارهای Accessibility نینجامد. سناریو: یک Button در Figma دارای تمرکز واضح با outline است، اما در کد تمرکز حذف شده تا ظاهر"
+        },
+        {
+          "type": "heading",
+          "text": "شکاف‌های پیاده‌سازی و Handoff",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "تعریف مسئله: Handoff ناقص یا تکیه بر تصاویر استاتیک باعث می‌شود Developers رفتارها و محدودیت‌های Component را حدس بزنند. چرا رخ می‌دهد: فشار Sprint، نبود مستندات تعاملی در Figma و فقدان اتوماسیون صادرات. اهمیت: حدس‌زدن پیاده‌سازی منجر به تفاوت‌های ظاهری و عملکردی می‌شود و وقت بازبینی‌ها را می‌گیرد. پیامد برای UX/Product/Dev: زمان توسعه افزایش و کیفیت محصول کاهش می‌یابد. سناریو: در Figma یک Component دارای overflow و رفتار responsive پیچیده است؛ طراح یک تصویر با breakpointها ارسال می‌کند ولی specification دقیق درباره آرایش داخلی، padding داخلی و priority عناصر ارائه نمی‌دهد؛ نتیجه این است که Front-end یک پیاده‌سازی ساده می‌نویسد که در یک صفحه خاص متن را truncate می‌کند و UX خراب می‌شود. توصیه: برای هر Component حداقل مستندات زیر را در repo یا صفحات Design System داشته باشید: props/API مورد انتظار، states، accessibility notes، responsive rules و مثال‌های code snippets. از Pluginهای همگام‌سازی Tokens و Component documentation در Figma استفاده کنید و Handoff را بخشی از Definition of Done هر Story کنید."
+        },
+        {
+          "type": "heading",
+          "text": "خطاهای رایج یا Trade-offها",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "1) Treating Figma as the only source: راحت ولی منجر به divergence کد و Design 파일 می‌شود. 2) Over-componentization: ایجاد Componentهای بسیار ریز که نگهداری را سخت می‌کند. 3) Overly rigid Tokens: سخت‌گیری زیاد روی Tokens که سرعت iteration را کم می‌کند. هر گزینه یک هزینه-فایده دارد: SSOT در یک مکان مرکزی زمان هماهنگی بیشتری می‌طلبد اما ثبات را افزایش می‌دهد؛ Componentهای بسیار عمومی کاهش تکرار را تسهیل می‌کنند اما ممکن است برای هر صفحه نیاز به patch داشته باشند. توصیه کلی: با تعیین مرجع برای هر نوع تصمیم (visual vs behavioral) و توافق عنصری بین تیم‌ها، Trade-offها قابل مدیریت می‌شوند."
+        },
+        {
+          "type": "heading",
+          "text": "راهنمای عملی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "1) تعریف مرجع واحد: یک فایل tokens (JSON یا YAML) به عنوان SSOT که از آن در CI خروجی‌های platform-specific ساخته شود. 2) قرارداد نام‌گذاری: semantic tokens (color.brand.primary) + mapping rules به نام‌های فنی. 3) Pipeline اتوماتیک: Export از Figma به tokens repo یا بالعکس با چک‌های QA برای precision و تبدیل. 4) Component API: هر Component در Library کد باید یک قرارداد props داشته باشد و مستند شود—طراحان آن API را در Figma با نمونه‌ها نشان دهند. 5) Versioning policy: semantic releases و changelog که breaking changes را مشخص کند. 6) Handoff as Definition of Done: هر Story که Design System تغییر می‌دهد باید شامل PR برای tokens/component repo، release notes و smoke test باشد."
+        },
+        {
+          "type": "heading",
+          "text": "جمع‌بندی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "یک ساختار واحد برای Design System بین Figma و کد بیش از تکنولوژی، نگرشی ساختاری می‌خواهد: تعیین مرزها بین Token و Component، یک SSOT روشن، قوانین تبدیل و نسخه‌دهی و مستندات اجرایی. تصمیم اصلی که تیم می‌تواند آن را بلافاصله اعمال کند: برای هر تغییر ابتدا سطح اثر (token/component/pattern) را تشخیص دهید؛ اگر اثر وسیع است، آن را تبدیل به Token کنید و از pipeline انتشار کنترل‌شده استفاده کنید. این قاعدهٔ ساده جلوی بسیاری از ناسازگاری‌ها و هزینه‌های پنهان را می‌گیرد."
+        }
+      ]
+    }
 ].filter((article) => !hiddenArticleSlugs.has(article.slug));
 
 export const articlesEn: Article[] = [
@@ -2123,6 +2257,137 @@ export const articlesEn: Article[] = [
         {
           "type": "paragraph",
           "text": "Add Info Tips deliberately, not reflexively. A simple decision rule: if information is necessary for a user’s decision, surface it in the primary UI; if it’s helpful but optional, use a standardized, accessible Info Tip; if it’s low-value, link to documentation. Applying this rule reduces hidden usability failures, lowers maintenance cost, and makes Design System governance more effective."
+        }
+      ]
+    }
+,
+    {
+      "slug": "design-system-unit-structure-code-figma",
+      "title": "Design System Unit Structure for Code and Figma",
+      "excerpt": "How to define, maintain, and synchronize Design System units (tokens, components, patterns) between Figma and code so teams share a single source of truth and reduce Designer–Developer friction.",
+      "category": "Design Systems",
+      "publishedAt": "July 19, 2026",
+      "readingTime": "6 min read",
+      "cover": designSystemUnitStructureCodeFigmaCoverImage,
+      "coverThumb": designSystemUnitStructureCodeFigmaCoverThumbImage,
+      "direction": "ltr",
+      "content": [
+        {
+          "type": "heading",
+          "text": "Summary",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "This article provides a practical framework for defining a Design System \"unit\"—including Design Tokens, Components, and Patterns—with an emphasis on synchronization between Figma and code. The key takeaway is that clear ownership, versioning rules, and token transformation pipelines reduce errors, speed handoff, and stabilize the user experience."
+        },
+        {
+          "type": "heading",
+          "text": "In This Article",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The piece covers the problem and scope, unit definitions (tokens vs components vs patterns), naming and single source of truth, token mapping and precision, versioning and release practices, states and accessibility, implementation gaps and handoff, common trade-offs, practical guidelines, and a closing decision principle."
+        },
+        {
+          "type": "heading",
+          "text": "Introduction",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "In Product work, Design Systems are a lever for consistency and speed. When System units—Tokens, Components, Patterns—differ between Figma and production code, teams see visual regressions, UX inconsistencies, and increased friction between Designers and Developers. This article explains how to define units that are meaningful for both disciplines and how to keep them synchronized in realistic project conditions."
+        },
+        {
+          "type": "heading",
+          "text": "Context and Scope",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Assumptions: a team with Product Designers, Front-end Developers, and at least one Back-end/API owner. The System supports a Figma UI Kit and a code-based Component Library. Focus is on responsive web and mobile; native platforms are considered where relevant. Typical constraints include limited Sprint time, multiple themes/brands, and the presence of legacy Components."
+        },
+        {
+          "type": "heading",
+          "text": "What counts as a \"unit\"? (Tokens vs Component vs Pattern)",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: unclear boundaries between Design Token, Component, and Pattern lead to duplication and inconsistency. Why it happens: people interpret terms from their perspective—Designers think in visual instances, Developers think in APIs. Why it matters: ambiguous boundaries convert small visual edits into large code changes or vice versa, destabilizing UX. Consequence: inconsistent experiences across pages and higher maintenance cost. Concrete scenario: a Designer updates card spacing in Figma; because spacing wasn't tokenized, a Developer applies it inline in multiple Components, and a later brand token change conflicts across pages. Recommendation: define units explicitly—Design Tokens as base values (colors, spacing, typography), Components as reusable UI elements with a defined API, Patterns as orchestrations of Components for a User Flow. Always escalate changes to the appropriate unit level (tokenize spacing, don't hardcode it in a Component)."
+        },
+        {
+          "type": "heading",
+          "text": "Naming and Single Source of Truth (SSOT)",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: mismatched naming between Figma and code causes confusion and wasted time. Why it happens: Designers prefer semantic names (Primary Button), Developers prefer implementation names (btn--primary). Why it matters: lacking an SSOT creates two competing truths that are expensive to keep aligned. Consequence: slow handoff, incorrect references, and rising technical debt. Concrete scenario: a Designer calls a color 'brand-blue', but the codebase refers to it as 'primary-500'; when the hue changes, teams don't know which token to update and changes are applied inconsistently. Recommendation: adopt a shared naming convention that can be mapped across layers—use semantic token names (e.g., color.brand.primary) and provide deterministic mapping rules to platform-specific identifiers. Choose a physical SSOT (for example a tokens JSON in a dedicated repo) and ensure either Figma syncs from it or it is derived and exported automatically."
+        },
+        {
+          "type": "heading",
+          "text": "Design Tokens: transforms, units, and precision",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: Tokens in Figma commonly use px or other units, while runtime needs rem, dp, or platform-specific values; conversions introduce rounding and mismatch. Why it happens: difference in units across tools and platforms and lack of agreed conversion rules. Why it matters: incorrect transforms cause layout shifts, uneven spacing, and accessibility issues. Consequence: small token changes introduce visual regressions and failing UI tests. Concrete scenario: a Designer sets spacing to 8px; a Developer converts to rem without using a consistent base, producing 0.51rem units that render differently across browsers. Recommendation: document conversion rules and precision (e.g., keep 4 decimal places in rem or use CSS variables to preserve exact values). Implement CI checks that validate token exports to catch precision or unit mismatches before release."
+        },
+        {
+          "type": "heading",
+          "text": "Versioning, releases, and branching",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: uncontrolled changes to the Design System can break live pages. Why it happens: absence of a clear policy for breaking changes, releases, and rollouts. Why it matters: uncontrolled updates raise regression risk and create urgent hotfixes. Consequence: Product teams may need rollbacks or rapid patches, disrupting roadmap. Concrete scenario: the team updates the CTA color directly in tokens and it is immediately consumed by multiple projects; some pages that relied on the old contrast hierarchy become unusable. Recommendation: apply semantic versioning to the Design System and define what constitutes a breaking change. Use feature flags or controlled rollouts where possible and require changelogs and migration notes for major releases."
+        },
+        {
+          "type": "heading",
+          "text": "States, responsiveness, and Accessibility",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: insufficiently specified states (hover, focus, pressed, disabled) or missing accessibility considerations in both Figma and code lead to behavioral divergence. Why it happens: Designers sometimes present states as static artboards or images, while Developers reduce complexity for performance or pragmatic reasons. Why it matters: states are part of affordance and discoverability; misalignment degrades perceived quality and may violate accessibility requirements. Consequence: inconsistent interactions across contexts and potential failures in assistive technology. Concrete scenario: a Button in Figma has a clear focus outline, but the implementation removes it to match a visual preference, leaving keyboard users without a focus indicator. Recommendation: specify states explicitly in Figma and in component API docs, include accessibility notes (focus order, ARIA attributes), and ensure the library exposes the necessary props to represent states. Treat accessibility as a required field in Component documentation."
+        },
+        {
+          "type": "heading",
+          "text": "Implementation gaps and Handoff",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: incomplete Handoff or reliance on static images forces Developers to guess behaviors and constraints. Why it happens: Sprint pressure, lack of interactive documentation in Figma, and no automation for exporting specs. Why it matters: guessing implementation details often produces divergent behavior and visual differences. Consequence: longer development cycles, more review iterations, and fragile UIs. Concrete scenario: a responsive Component has complex internal priorities for truncation and spacing; the Designer supplies only screenshots for breakpoints without explicit rules, so Front-end implements a simplified layout that truncates content prematurely. Recommendation: document for each Component at minimum: expected props/API, states, accessibility notes, responsive rules, and code snippets. Use Figma plugins for token and spec exports and make Handoff an explicit part of the Definition of Done for relevant Stories."
+        },
+        {
+          "type": "heading",
+          "text": "Common Mistakes or Trade-offs",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Common mistakes: treating Figma as the only source (convenient but leads to divergence), over-componentization (many tiny Components increases maintenance), and overly rigid Tokens (which slow iteration). Each carries trade-offs: centralizing SSOT increases coordination overhead but improves consistency; extremely generic Components reduce duplication but may need per-page workarounds. Recommendation: make trade-offs explicit—document where flexibility is allowed, who can approve breaking changes, and when a visual exception is acceptable versus when it should be added to the System."
+        },
+        {
+          "type": "heading",
+          "text": "Practical Guidelines",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "1) Establish a physical SSOT (e.g., tokens JSON in a dedicated repo) and automate platform exports. 2) Use semantic token names (color.brand.primary) and mapping rules to platform identifiers. 3) Build a token pipeline: validate exports, apply transforms, run visual smoke tests. 4) Define Component APIs and document props, states, and accessibility notes; show usage examples in Figma and code. 5) Apply semantic releases and require changelogs for breaking changes. 6) Make Handoff part of Definition of Done: any Story affecting the System must include a PR to the System repo, release notes, and smoke tests."
+        },
+        {
+          "type": "heading",
+          "text": "Conclusion",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Structuring Design System units across Figma and code is primarily an organizational decision supported by tooling: clear unit boundaries, a shared naming convention, an authoritative token repository, conversion rules, and a versioning policy are the most effective controls. One immediate decision principle to apply: for every proposed change, first identify its scope—token, component, or pattern—and act at that level. If the effect is broad, promote it to a Token and use a controlled release; this simple rule prevents many mismatches and reduces hidden costs."
         }
       ]
     }
