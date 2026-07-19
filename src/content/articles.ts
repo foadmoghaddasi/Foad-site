@@ -36,6 +36,9 @@ import whyInfoTipsFailCoverImage from "../assets/images/articles/why-info-tips-f
 import designSystemUnitStructureCodeFigmaCoverImage from "../assets/images/articles/design-system-unit-structure-code-figma/cover.webp";
 import designSystemUnitStructureCodeFigmaCoverThumbImage from "../assets/images/articles/design-system-unit-structure-code-figma/cover-thumb.webp";
 
+import gestaltPragnanzDesignCoverImage from "../assets/images/articles/gestalt-pragnanz-design/cover.webp";
+import gestaltPragnanzDesignCoverThumbImage from "../assets/images/articles/gestalt-pragnanz-design/cover-thumb.webp";
+
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string; level?: 2 | 3 }
@@ -1455,6 +1458,137 @@ export const articles: Article[] = [
         }
       ]
     }
+,
+    {
+      "slug": "gestalt-pragnanz-design",
+      "title": "اثر قانون خوش‌ساختی (Gestalt Prägnanz) روی طراحی محصول",
+      "excerpt": "قانون پرگنانس گشتالت رفتار ادراکی کاربران را به سمت ساده‌ترین و پایدارترین شکل هدایت می‌کند؛ در محصول این بدان معناست که طراحی بصری، سلسله‌مراتب و تعامل‌ها باید به‌صورت عمدی ساده‌سازی شوند تا اشتباه تفسیر، هزینه شناختی و خطای کاربری کاهش یابد.",
+      "category": "Product Design",
+      "publishedAt": "۲۸ تیر ۱۴۰۵",
+      "readingTime": "8 دقیقه مطالعه",
+      "cover": gestaltPragnanzDesignCoverImage,
+      "coverThumb": gestaltPragnanzDesignCoverThumbImage,
+      "direction": "rtl",
+      "content": [
+        {
+          "type": "heading",
+          "text": "خلاصه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "قانون خوش‌ساختی (Prägnanz) یکی از اصول گشتالت است که می‌گوید ادراک انسان اشکال را به ساده‌ترین و با‌انگیزش‌ترین ساختار ممکن تبدیل می‌کند. در طراحی محصول، این قانون معنای عملی دارد: کاربران گروه‌بندی، تفسیر سلسله‌مراتب و انتظار تعامل را بر اساس ساده‌ترین الگو می‌سازند. نتیجه این تحلیل این است که طراحان و Developerها باید با آگاهی از این گرایش ادراکی، رابط‌ها را سازمان‌دهی، مسیرهای تصمیم‌گیری را ساده و تغییرات Design System را به‌صورت مسئولانه مدیریت کنند."
+        },
+        {
+          "type": "heading",
+          "text": "در این مقاله",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "ابتدا مسئله و دامنه را تعریف می‌کنیم، سپس مفاهیم کلیدی گشتالت و Prägnanz را در زمینه Product Design بررسی می‌کنیم. بخش‌های تحلیلی به ترتیب روی گروه‌بندی ادراکی، سلسله‌مراتب بصری، هماهنگی در Design System، حالت‌های تعاملی و انیمیشن، و پیامدهای دسترس‌پذیری و بار شناختی متمرکز هستند. مقاله با مروری روی خطاهای رایج، راهنمای عملی و یک اصل تصمیم‌گیری جمع‌بندی می‌شود."
+        },
+        {
+          "type": "heading",
+          "text": "مقدمه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله‌ای که این مقاله به آن می‌پردازد، برخورد بین گرایش‌های ادراکی کاربران (براساس اصول گشتالت، به‌ویژه Prägnanz) و تصمیمات طراحی محصول است. طراحان معمولاً فرض می‌کنند که کاربران به‌درستی عناصر UI را تفسیر می‌کنند، در حالی که ادراک ناخودآگاه کاربران با تمایل به «ساده‌سازی» محتوا باعث ایجاد برداشت‌های متفاوتی می‌شود. این اختلاف، روی Information Architecture، تعاملات حیاتی، و پیاده‌سازی Front-end تأثیر مستقیم دارد؛ هدف مقاله ارائه چارچوبی تحلیلی و توصیه‌های عملی برای کاهش خطاهای ناشی از سوءتفسیر ادراکی است."
+        },
+        {
+          "type": "heading",
+          "text": "زمینه و دامنه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "فرض می‌کنیم خواننده در تیم محصول کار می‌کند و نقش‌های مرسومی مثل Product Designer، UX Researcher، Front-end Developer یا Technical PM دارد. مقاله روی رابط‌های دیجیتال تعاملی (وب و موبایل) تمرکز دارد و نه بر طراحی صنعتی یا محیطی. محدودیت‌های معمول پروژه—زمان محدود Sprint، ضرورت هماهنگی با Design System، نیازهای تجاری برای تبدیل (conversion) و پیچیدگی فنی API—همگی در تحلیل وارد شده‌اند. متغیرهای مهم شامل تنوع کاربران (سطح آشنایی)، اندازه صفحه (mobile vs desktop)، و وجود یا عدم وجود Design Tokens و یک UI Kit مستندسازی‌شده است."
+        },
+        {
+          "type": "heading",
+          "text": "گروه‌بندی ادراکی: چرا کاربران عناصر را کنار هم می‌گذارند",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مفهوم: قانون Prägnanz می‌گوید مغز به دنبال ساده‌ترین، پایدارترین و منظم‌ترین تفسیر از محرک‌ها است. به همین دلیل عناصر نزدیک یا مشابه به‌عنوان یک گروه دیده می‌شوند. چرا اتفاق می‌افتد: پردازش بصری محدود است و ساختن گروه‌های ساده هزینه شناختی را کاهش می‌دهد؛ بنابراین حتی زمانی که طراح نیت دیگری داشته باشد، کاربر از قضا برداشت گروهی خواهد کرد. اهمیت: اگر کنترل گروه‌بندی نادرست باشد، کاربران ممکن است عملکرد یک Component را اشتباه فرض کنند یا گزینه‌ها را نادیده بگیرند. سناریو: در یک فرم پرداخت که دو دکمه با فواصل کم و رنگ‌های مشابه کنار هم قرار دارند، کاربر هر دو را به‌عنوان یک گزینه تفسیر می‌کند و روی دکمه اشتباه می‌زند. توصیه: از فضا (white space)، تفاوت در اندازه، رنگ و مرز به‌صورت عمدی برای تعیین گروه‌ها استفاده کنید؛ تست سریع A/B روی mobile به‌سرعت نشان می‌دهد که کدام ترکیب فاصله و رنگ گروه‌بندی دلخواه را ایجاد می‌کند."
+        },
+        {
+          "type": "heading",
+          "text": "سلسله‌مراتب بصری و affordance (قابلیت شناختی)",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مفهوم: کاربر بر اساس ساده‌ترین برداشت بصری، اهمیت عناصر را می‌سنجد؛ بنابراین سلسله‌مراتب بصری باید با اهداف محصول همخوانی داشته باشد. چرا اتفاق می‌افتد: وقتی عناصر زیادی از نظر بصری برابر به نظر برسند، مغز آن‌ها را به یک سطح ارجاع می‌دهد و تصمیم‌گیری سخت‌تر می‌شود. اهمیت: تصمیمات اشتباه در سلسله‌مراتب می‌تواند نرخ تبدیل را کاهش و نرخ خطا را بالا ببرد. سناریو: در صفحه داشبورد، چند کارت با وزن بصری مشابه وجود دارند؛ کاربر به‌جای دنبال‌کردن مسیر پیشنهادی Product، به پایین‌ترین مقاومت بصری می‌رود و یک جریان غیرمفید را اجرا می‌کند. توصیه: از وزن، رنگ، موقعیت و فاصله برای ساخت یک مسیر ادراکی مشخص استفاده کنید؛ پیش‌فرض‌های کاربر (مثلاً انتظار اینکه قرمز نشان‌دهنده هشدار است) را رعایت کنید و هرگاه نیاز به استثنا دارید، از microcopy و affordanceهای بصری برای توضیح استفاده کنید."
+        },
+        {
+          "type": "heading",
+          "text": "هماهنگی در Design System و پیامدهای تغییر Component",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مفهوم: Design System باید الگوهای گشتالت را به‌عنوان قرارداد ادراکی تیمی ثبت کند، چون هر تغییر Component می‌تواند شکلِ ‘ساده‌شده’ که کاربر می‌سازد را عوض کند. چرا اتفاق می‌افتد: وقتی یک Component در صفحات مختلف رفتار یا ظاهر متفاوت دارد، کاربران مدل ذهنی یکپارچه‌ای نمی‌سازند و به‌جای فهم عملکرد، سعی می‌کنند ساده‌ترین قانون محلی را اعمال کنند. اهمیت: ناهماهنگی باعث افزایش خطای کاربری و هزینه پشتیبانی می‌شود. سناریو: دکمه primary در Checkout با حالت‌های disabled و active در صفحات مختلف به‌صورت نامتسق تعریف شده؛ کاربر هنگام تنظیم پرداخت بین دو وضعیت گیج می‌شود و فرایند را رها می‌کند. توصیه: در Design System، الگوهای گروه‌بندی، فاصله‌ها و حالات را همراه با مثال‌های کاربردی مستند کنید؛ هر تغییر Component را با یک Design Review مشترک Designer–Developer بررسی و در صورت نیاز با نسخه‌بندی (semantic versioning) منتشر کنید تا تیم‌های مصرف‌کننده تصمیم‌گیرند به‌روزرسانی را برنامه‌ریزی کنند."
+        },
+        {
+          "type": "heading",
+          "text": "حالت‌های تعاملی، انیمیشن و انتظار ادراکی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مفهوم: حرکت و تغییرات ظاهری الگوهای ادراکی را هدایت می‌کنند؛ قانون Prägnanz باعث می‌شود کاربران فریم‌های متوالی را به یک ساختار ساده وصل کنند. چرا اتفاق می‌افتد: انیمیشن‌های ناخوانا یا با تاخیر نامتعارف باعث می‌شوند مغز درباره علت تغییر شکل حدس‌های نادرست بزند. اهمیت: پیاده‌سازی نامناسب می‌تواند منتهی به خطای حالت (state error) شود؛ مثلا کاربر فکر می‌کند عملیات قطع شده در حالی که در پس‌زمینه در حال اجراست. سناریو: وقتی لیست نتایج فیلتر می‌شود، عناصر جدید سریع ظاهر می‌شوند بدون transition واضح؛ کاربر تصور می‌کند داده‌ها هنوز بارگذاری نشده‌اند و صفحه را رفرش می‌کند. توصیه: انیمیشن‌ها را برای نشان دادن مبدأ-مقصد (origin-destination) استفاده کنید و طول/ease مناسب را طوری انتخاب کنید که پیوستگی ادراکی را تقویت کند؛ در حالت‌های بارگذاری از placeholders یا skeletons استفاده کنید تا ساختار نهایی را واضح نشان دهید."
+        },
+        {
+          "type": "heading",
+          "text": "دسترس‌پذیری و بار شناختی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مفهوم: ساده‌سازی ادراکی با هدف کاهش بار شناختی هم‌راستا است؛ اما قانون Prägnanz می‌تواند برای کاربران با نیازهای ویژه متفاوت عمل کند. چرا اتفاق می‌افتد: کاربران با محدودیت‌های بینایی، شناختی یا توجه ممکن است به شواهد بصری ساده‌تری نیاز داشته باشند یا بالعکس، به تکیه‌گاه‌های اضافی نیاز داشته باشند تا منظور طراح را درک کنند. اهمیت: نادیده‌گرفتن این تفاوت‌ها منجر به موانع استفاده و نقص در دسترس‌پذیری می‌شود. سناریو: یک فرم با placeholder بجای label طراحی شده؛ برای کاربری که از screen reader استفاده می‌کند یا برای کاربرانی که حافظه کاری محدودی دارند، تشخیص فیلدها دشوار است. توصیه: از قواعد ساده‌سازی گشتالت بهره ببرید اما برچسب‌های واضح، focus states، و ARIA attributes را اضافه کنید؛ در Usability Testها نمونه‌هایی با نیازهای مختلف قرار دهید تا برداشت‌های ادراکی متفاوت شناسایی شود."
+        },
+        {
+          "type": "heading",
+          "text": "توافق Designer–Developer و مسائل Handoff",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مفهوم: اختلاف بین طراح و Developer درباره اینکه «چه چیزی ساده دیده می‌شود» شایع است. چرا اتفاق می‌افتد: طراح ممکن است یک الگوی بصری را در Context کامل تصور کند، اما Developer به‌دلیل محدودیت‌های CSS یا performance ترجیحات ساده‌تری پیاده‌سازی کند. اهمیت: این شکاف باعث می‌شود رفتار نهایی محصول با نیت طراحی متفاوت شود و برداشت گشتالتی کاربر تغییر کند. سناریو: طراح از یک drop-shadow نرم برای جداسازی لایه‌ها استفاده می‌کند؛ Developer به‌دلیل performance از border ساده استفاده می‌کند که گروه‌بندی‌ها را تغییر می‌دهد و کاربران کارت‌ها را به‌عنوان یک بلوک واحد می‌بینند. توصیه: در Handoff، نمونه‌های interactive و مقیاس‌های spacing/tokens را همراه با دلایل تصمیمات طراحی مستند کنید؛ اگر محدودیت فنی وجود دارد، آن را زود در Design Review مطرح و جایگزین‌های ادراکی-معادل پیشنهاد دهید."
+        },
+        {
+          "type": "heading",
+          "text": "خطاهای رایج یا Trade-offها",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "1) استفاده بیش‌ازحد از uniform styles: وقتی همه چیز شبیه هم باشد، کاربر راهنماهای بصری لازم را از دست می‌دهد. 2) فرض یک‌سویه درباره کاربران: طراحی بر پایه یک مدل ذهنی ایده‌آل منجر به غفلت از کاربران با نیازهای مختلف می‌شود. 3) اعمال انیمیشن‌های بیش‌ازحد یا نامشخص: باعث سردرگمی حالت می‌شود. 4) تغییر Component بدون هماهنگی: ناهماهنگی در Design System تجربه را متزلزل می‌کند. هر کدام از این خطاها یک تصمیم Trade-off بین زیبایی، سرعت توسعه، و وضوح ادراکی را نشان می‌دهد؛ رفع آن نیازمند هم‌سویی تیم و هزینه‌های اجرایی است."
+        },
+        {
+          "type": "heading",
+          "text": "راهنمای عملی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "1) تعریف الگوهای گروه‌بندی در Design System: مشخص کنید که فواصل (spacing tokens)، رنگ‌ها و shadowها چگونه باید برای ایجاد گروه استفاده شوند. 2) نمونه‌سازی تعاملی در Handoff: حتی نمونه‌های ساده‌ی interactive کمک می‌کنند پیش‌فرض‌های ادراکی زود آشکار شود. 3) آزمون‌های سریع روی موبایل: با 5–8 کاربر تازه‌کار می‌توانید برداشت‌های گروه‌بندی و سلسله‌مراتب را بررسی کنید. 4) مستندسازی علت‌ها: در کنار هر تغییر Component توضیح دهید که چه ادراکی را تقویت یا تضعیف می‌کند. 5) شامل کردن دسترس‌پذیری: یک checklist از موارد ARIA، focus order و labelها را در پیاده‌سازی کنترل کنید. 6) در مواجهه با محدودیت فنی، از نمونه‌های ادراکی-معادل (visual affordance equivalents) استفاده کنید؛ مثلا اگر shadow گران است، از border-radius و contrast برای تفکیک استفاده کنید."
+        },
+        {
+          "type": "heading",
+          "text": "جمع‌بندی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "قانون Prägnanz گشتالت یک لنز تحلیلی است که نشان می‌دهد کاربران به ساده‌ترین تفسیر ادراکی تمایل دارند؛ این واقعیت باید به‌عنوان یک constraint در طراحی محصول نگریسته شود. اصل قابل‌اجرا: هر تصمیم بصری را با سوال «اگر کاربر بخواهد ساده‌ترین الگو را بسازد، کدام رفتار را خواهد دید؟» ارزیابی کنید. پاسخ به این سوال تیم را وادار می‌کند تا سلسله‌مراتب، گروه‌بندی، و حالات تعاملی را به‌صورت آگاهانه طراحی کرده و تغییرات را برای جلوگیری از سوءتعبیر ادراکی کنترل کند."
+        }
+      ]
+    }
 ].filter((article) => !hiddenArticleSlugs.has(article.slug));
 
 export const articlesEn: Article[] = [
@@ -2388,6 +2522,137 @@ export const articlesEn: Article[] = [
         {
           "type": "paragraph",
           "text": "Structuring Design System units across Figma and code is primarily an organizational decision supported by tooling: clear unit boundaries, a shared naming convention, an authoritative token repository, conversion rules, and a versioning policy are the most effective controls. One immediate decision principle to apply: for every proposed change, first identify its scope—token, component, or pattern—and act at that level. If the effect is broad, promote it to a Token and use a controlled release; this simple rule prevents many mismatches and reduces hidden costs."
+        }
+      ]
+    }
+,
+    {
+      "slug": "gestalt-pragnanz-design",
+      "title": "How the Gestalt Law of Prägnanz Affects Product Design",
+      "excerpt": "The Gestalt law of Prägnanz drives users to perceive the simplest, most stable structure; in products this means visual organization, hierarchy, and interaction states should be intentionally simplified to reduce misinterpretation, cognitive cost, and user errors.",
+      "category": "Product Design",
+      "publishedAt": "July 19, 2026",
+      "readingTime": "6 min read",
+      "cover": gestaltPragnanzDesignCoverImage,
+      "coverThumb": gestaltPragnanzDesignCoverThumbImage,
+      "direction": "ltr",
+      "content": [
+        {
+          "type": "heading",
+          "text": "Summary",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The Gestalt law of Prägnanz states that perception favors the simplest, most stable interpretation of stimuli. For product teams this translates into a practical constraint: users will group, prioritize, and infer interaction affordances according to simple visual rules. Designers and developers must therefore shape interfaces so those default perceptual shortcuts lead users toward intended outcomes rather than away from them."
+        },
+        {
+          "type": "heading",
+          "text": "In This Article",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "After a short introduction and scope clarification, the article analyzes perceptual grouping, visual hierarchy and affordance, Design System consistency, interaction states and motion, and accessibility consequences. It then reviews common mistakes and trade-offs, provides practical guidelines, and finishes with a single actionable decision principle."
+        },
+        {
+          "type": "heading",
+          "text": "Introduction",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "This article addresses the interaction between users’ perceptual tendencies (rooted in Gestalt theory, especially Prägnanz) and product design decisions. Designers often assume users will interpret UI elements as intended, while perception tends to default to simpler groupings and interpretations. That mismatch affects Information Architecture, critical interactions, and front-end implementation; the goal here is to offer an analytical framework and practical recommendations to reduce errors that stem from perceptual misinterpretation."
+        },
+        {
+          "type": "heading",
+          "text": "Context and Scope",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Assume the reader works in a product team as a Product Designer, UX Researcher, Front-end Developer, or Technical PM. The focus is interactive digital interfaces (web and mobile). Typical project constraints such as Sprint deadlines, the existence of a Design System, business conversion goals, and API or performance limits are considered. Important variables include user diversity (novice vs. expert), screen size, and whether Design Tokens and a UI Kit are properly documented."
+        },
+        {
+          "type": "heading",
+          "text": "Perceptual grouping: why users cluster elements",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Concept: Prägnanz leads the visual system to prefer simple, regular groupings—so nearby or similar items are perceived as a group. Why it happens: visual processing is resource-limited, and forming groups reduces cognitive load. Why it matters: uncontrolled grouping can cause users to misinterpret a Component’s purpose or overlook options. Scenario: two buttons with similar color and little spacing appear as a single choice on mobile, and the user taps the wrong one. Recommendation: use deliberate whitespace, size differences, color contrast, and borders to create intended groups; test quickly on mobile to validate spacing and color decisions."
+        },
+        {
+          "type": "heading",
+          "text": "Visual hierarchy and affordance",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Concept: users infer importance and possible actions from the simplest visual cues. Why it happens: when many elements look equally salient, the brain flattens hierarchy, increasing decision friction. Why it matters: poor hierarchy reduces conversion and increases error rates. Scenario: a dashboard shows several cards with similar visual weight; instead of following the recommended path, the user chooses the visually least-resisted action, which doesn’t align with the product goal. Recommendation: apply weight, color, position, and spacing intentionally to create a clear visual path; respect common visual metaphors (e.g., red = alert) and use microcopy when exceptions are necessary."
+        },
+        {
+          "type": "heading",
+          "text": "Design System consistency and component changes",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Concept: a Design System should encode Gestalt-based patterns because changing a Component alters the simple mental model users build. Why it happens: inconsistent Components across screens prevent a unified mental model and encourage local heuristics. Why it matters: inconsistency increases user errors and support costs. Scenario: a primary button’s disabled/active visuals differ across pages; users get confused during a checkout flow and abandon. Recommendation: document grouping rules, spacing, and states in the Design System with practical examples; perform Designer–Developer reviews for component updates and use semantic versioning so consuming teams can plan migrations."
+        },
+        {
+          "type": "heading",
+          "text": "Interaction states, motion, and perceptual continuity",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Concept: motion and transitions influence which structure users infer from successive frames; Prägnanz encourages linking frames into a simpler whole. Why it happens: unclear or abrupt transitions break the perceived continuity, prompting incorrect inferences about state. Why it matters: poor motion handling can produce state errors (e.g., user thinks an operation failed). Scenario: a filtered list updates instantly without a clear transition or placeholder, leading users to think data didn’t load and causing a manual refresh. Recommendation: use motion to show origin–destination relationships, pick appropriate durations and easing for continuity, and employ skeletons/placeholders during loading to make the final structure obvious."
+        },
+        {
+          "type": "heading",
+          "text": "Accessibility and cognitive load",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Concept: while Prägnanz aligns with reducing cognitive load, it doesn’t replace explicit cues needed by users with accessibility needs. Why it happens: users with visual, cognitive, or attention differences may require stronger or different cues to form correct groupings. Why it matters: ignoring these differences creates barriers and reduces usability across real user populations. Scenario: a form uses placeholders instead of labels; screen reader users or those with limited working memory struggle to complete fields. Recommendation: combine Gestalt-informed visual simplification with clear labels, focus states, and ARIA attributes; include diverse participants in Usability Tests to surface differing perceptual outcomes."
+        },
+        {
+          "type": "heading",
+          "text": "Designer–Developer alignment and handoff issues",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Concept: disagreements between Designer and Developer about what will be perceived as 'simple' are frequent. Why it happens: designers imagine a full context and subtle visuals; developers face performance or CSS constraints and may apply simpler, different styles. Why it matters: the implemented interface can diverge from design intent, changing users’ perceptual grouping. Scenario: a designer uses a soft drop-shadow to separate layers; a developer replaces it with a flat border to save rendering cost, causing cards to read as a single block. Recommendation: include interactive prototypes in handoff, document spacing tokens and reasons for visual choices, and if constraints exist, propose perceptual-equivalent alternatives early in the review process."
+        },
+        {
+          "type": "heading",
+          "text": "Common mistakes or Trade-offs",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "1) Overuse of uniform styles: when everything looks the same, users lose visual cues. 2) Single-minded assumptions about users: designing for an ideal mental model ignores real diversity. 3) Excessive or vague animations: they create ambiguity about state. 4) Changing Components without coordination: inconsistencies destabilize experience. Each mistake reflects a trade-off between aesthetics, development speed, and perceptual clarity; addressing them requires cross-functional alignment and sometimes extra implementation effort."
+        },
+        {
+          "type": "heading",
+          "text": "Practical guidelines",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "1) Encode grouping rules in the Design System: specify spacing tokens, color usages, and shadow conventions for grouping. 2) Prototype interactions in handoff: even lightweight interactive examples reveal perceptual assumptions. 3) Run quick mobile usability checks: testing with 5–8 users uncovers grouping and hierarchy misreads. 4) Document the rationale for changes: pair each component update with notes about which perceptual affordances it supports. 5) Make accessibility non-negotiable: include ARIA attributes, clear focus order, and labels in implementation checklists. 6) When facing technical constraints, choose perceptual-equivalent alternatives (e.g., use contrast and borders if shadows are too expensive)."
+        },
+        {
+          "type": "heading",
+          "text": "Conclusion",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The Gestalt law of Prägnanz is a practical constraint: users will default to the simplest perceptual interpretation. Treat that tendency as a design parameter, not noise. Actionable principle: before finalizing any visual or interaction decision, ask: “If the user constructs the simplest possible pattern from this screen, what will they think each element does?” If the answer aligns with product goals, proceed; if not, adjust spacing, weight, or state cues until the default perception leads users to the intended outcome."
         }
       ]
     }
