@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "@heroui/react/card";
 import { ArrowLeft, ArrowRight, Calendar, Clock, TickCircle } from "iconsax-react";
@@ -9,6 +8,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { formatChallengeDateRange } from "../utils/formatChallengeDateRange";
 import currentChallenge from "../content/daily-challenge.json";
 import historyData from "../content/daily-challenges-history.json";
+import SEO from "../components/SEO";
 
 type LocalizedText = { fa: string; en: string };
 
@@ -32,19 +32,18 @@ const DailyDesignChallengePage = () => {
     .slice(-5)
     .reverse();
 
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = isFa
-      ? "چالش هفتگی طراحی · فؤاد مقدسی"
-      : "Weekly Design Challenge · Foad Moghaddasi";
-
-    return () => {
-      document.title = previousTitle;
-    };
-  }, [isFa]);
-
   return (
     <main className="daily-challenge-page" dir={direction}>
+      <SEO
+        title={isFa ? "چالش هفتگی طراحی | فؤاد مقدسی" : "Weekly Design Challenge | Foad Moghaddasi"}
+        description={
+          isFa
+            ? "چالش‌های هفتگی طراحی محصول و UI/UX از فؤاد مقدسی برای تمرین حل مسئله، ایده‌پردازی و ساخت پورتفولیو."
+            : "Weekly Product Design and UI/UX challenges by Foad Moghaddasi for practicing problem-solving, ideation, and portfolio building."
+        }
+        path={isFa ? "/daily-design-challenge?lang=fa" : "/daily-design-challenge"}
+        locale={isFa ? "fa_IR" : "en_US"}
+      />
       <Navbar />
       <div className="daily-challenge-page-navigation">
         <Link

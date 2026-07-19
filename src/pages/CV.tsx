@@ -7,6 +7,7 @@ import Reveal from "../components/Reveal";
 import Certifications from "../components/Certifications";
 import "./CV.css";
 import { useLanguage } from "../context/LanguageContext";
+import SEO from "../components/SEO";
 
 const experiencesEn = [
   {
@@ -261,6 +262,16 @@ export default function CV() {
 
   return (
     <main className="cv-page" dir={direction}>
+      <SEO
+        title={isFa ? "رزومه فؤاد مقدسی | طراح محصول و UI/UX" : "Foad Moghaddasi Resume | Product & UI/UX Designer"}
+        description={
+          isFa
+            ? "رزومه فؤاد مقدسی، طراح محصول و UI/UX در تهران؛ تجربه کاری، مهارت‌های طراحی محصول، تحقیق کاربر، Figma و دیزاین سیستم."
+            : "Resume of Foad Moghaddasi, Product and UI/UX Designer in Tehran, covering product design, user research, Figma, design systems, and professional experience."
+        }
+        path={isFa ? "/cv?lang=fa" : "/cv"}
+        locale={isFa ? "fa_IR" : "en_US"}
+      />
       <Navbar />
       <div className="cv-reading-progress" style={{ width: `${progress}%` }} />
 

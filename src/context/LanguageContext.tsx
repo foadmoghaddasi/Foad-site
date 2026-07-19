@@ -12,6 +12,9 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 const getInitialLanguage = (): Language => {
+  const urlLanguage = new URLSearchParams(window.location.search).get("lang");
+  if (urlLanguage === "fa" || urlLanguage === "en") return urlLanguage;
+
   const savedLanguage = localStorage.getItem("site-language");
   return savedLanguage === "en" || savedLanguage === "fa"
     ? savedLanguage
@@ -29,6 +32,14 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
     root.dir = direction;
     root.dataset.language = language;
     localStorage.setItem("site-language", language);
+
+    const url = new URL(window.location.href);
+    if (language === "fa") {
+      url.searchParams.set("lang", "fa");
+    } else {
+      url.searchParams.delete("lang");
+    }
+    window.history.replaceState(window.history.state, "", url);
   }, [direction, language]);
 
   return (

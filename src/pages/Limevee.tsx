@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Reveal from "../components/Reveal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import sketches from "../assets/images/limevee/sketches.webp";
 import wireframesA from "../assets/images/limevee/wireframes-a.webp";
 import wireframesB from "../assets/images/limevee/wireframes-b.webp";
@@ -192,6 +193,16 @@ export default function Limevee() {
 
   return (
     <main className="limevee-page" dir={direction}>
+      <SEO
+        title={isFa ? "کیس‌استادی Limevee | فؤاد مقدسی" : "Limevee Product Design Case Study | Foad Moghaddasi"}
+        description={
+          isFa
+            ? "کیس‌استادی طراحی محصول Limevee از فؤاد مقدسی؛ از تحقیق و تعریف مسئله تا User Flow، Wireframe و طراحی نهایی UI."
+            : "Limevee Product Design case study by Foad Moghaddasi, covering research, problem definition, user flows, wireframes, and final UI design."
+        }
+        path={isFa ? "/limevee?lang=fa" : "/limevee"}
+        locale={isFa ? "fa_IR" : "en_US"}
+      />
       <div className="lv-progress" style={{ width: `${progress}%` }} />
       <Navbar />
 

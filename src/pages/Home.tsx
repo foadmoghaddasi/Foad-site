@@ -15,6 +15,7 @@ import foadPhoto from "../assets/images/about-pic.webp";
 import { useLanguage } from "../context/LanguageContext";
 import LanguageNotice from "../components/LanguageNotice";
 import DailyDesignChallenge from "../components/DailyDesignChallenge";
+import SEO, { SITE_URL } from "../components/SEO";
 
 const heroWordsEn = [
   "that feel effortless",
@@ -31,6 +32,47 @@ const heroWordsFa = [
 ];
 
 let hasAutoDownloadedCvDuringCurrentVisit = false;
+
+const homeStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: "Foad Moghaddasi",
+      alternateName: ["فؤاد مقدسی", "فواد مقدسی"],
+      inLanguage: ["en", "fa"],
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#foad-moghaddasi`,
+      name: "Foad Moghaddasi",
+      alternateName: ["فؤاد مقدسی", "فواد مقدسی", "Foad Moghadasi"],
+      url: `${SITE_URL}/`,
+      image: `${SITE_URL}/fm-logo.png`,
+      jobTitle: [
+        "Product Designer",
+        "UI/UX Designer",
+        "طراح محصول",
+        "طراح رابط و تجربه کاربری",
+      ],
+      knowsAbout: [
+        "Product Design",
+        "UI Design",
+        "UX Design",
+        "User Research",
+        "Design Systems",
+        "Figma",
+      ],
+      worksFor: { "@type": "Organization", name: "Hesabo" },
+      sameAs: [
+        "https://www.linkedin.com/in/foadmoghaddasi",
+        "https://dribbble.com/foadmoghaddasi",
+      ],
+    },
+  ],
+};
 
 const Home = () => {
   const { isFa, direction } = useLanguage();
@@ -79,6 +121,22 @@ const Home = () => {
 
   return (
     <div dir={direction}>
+      <SEO
+        title={
+          isFa
+            ? "فؤاد مقدسی | طراح محصول و طراح UI/UX"
+            : "Foad Moghaddasi | Product Designer & UI/UX Designer"
+        }
+        description={
+          isFa
+            ? "وب‌سایت و پورتفولیوی فؤاد مقدسی، طراح محصول و UI/UX در تهران؛ شامل کیس‌استادی‌ها، تجربه کاری، مقاله‌های طراحی محصول و دیزاین سیستم."
+            : "Portfolio of Foad Moghaddasi (فؤاد مقدسی), a Product Designer and UI/UX Designer in Tehran focused on user-centered digital products, design systems, and product strategy."
+        }
+        path={isFa ? "/?lang=fa" : "/"}
+        type="profile"
+        locale={isFa ? "fa_IR" : "en_US"}
+        structuredData={homeStructuredData}
+      />
       <Navbar />
       <LanguageNotice />
 
@@ -155,7 +213,11 @@ const Home = () => {
             className="hero-description relative mt-5 max-w-2xl sm:max-w-3xl lg:max-w-4xl z-10 text-center"
           >
             <p className="text-foreground font-[200] leading-10 text-2xl md:leading-16 md:text-5xl">
-              <span>{isFa ? "طراح محصول در حسابو" : "Product Designer @Hesabo"}</span>
+              <span>
+                {isFa
+                  ? "فؤاد مقدسی · طراح محصول در حسابو"
+                  : "Foad Moghaddasi · Product Designer @Hesabo"}
+              </span>
               <span className="block text-base sm:text-xl md:text-3xl">
                 {isFa
                   ? "با سابقه همکاری در جاباما و آسانیتو"

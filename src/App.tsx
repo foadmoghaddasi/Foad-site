@@ -18,6 +18,7 @@ import Articles from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
 import DailyDesignChallengePage from "./pages/DailyDesignChallengePage";
 import { useLanguage } from "./context/LanguageContext";
+import SEO from "./components/SEO";
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -50,6 +51,7 @@ const hashPassword = async (password: string): Promise<string> => {
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { isFa, direction } = useLanguage();
+  const { pathname } = useLocation();
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -70,66 +72,103 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
   if (!isAuthenticated) {
     return (
-      <Surface
-        dir={direction}
-        className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/95 px-4"
-      >
-        <Lock1
-          size="56"
-          color="currentColor"
-          className="mb-4 text-danger"
-          variant="Broken"
+      <>
+        <SEO
+          title={isFa ? "پروژه محافظت‌شده | فؤاد مقدسی" : "Protected Project | Foad Moghaddasi"}
+          description={isFa ? "این پروژه با رمز عبور محافظت شده است." : "This project is password protected."}
+          path={pathname}
+          noindex
         />
-        <Card variant="tertiary" className="w-full max-w-sm text-center">
-          <Card.Header className="flex-col">
-            <Card.Title>
-              {isFa ? "لطفاً رمز عبور را وارد کنید" : "Please enter the password"}
-            </Card.Title>
-            <Card.Description>
-              {isFa ? "برای دریافت رمز عبور" : "To get the password"}
-              <br />
-              {isFa
-                ? "در لینکدین به من پیام بدهید"
-                : "send me a message on LinkedIn"}
-            </Card.Description>
-          </Card.Header>
-          <Card.Content>
-            <Form onSubmit={handleSubmit} className="flex flex-col gap-3">
-              <Input
-                type="password"
-                fullWidth
-                variant="secondary"
-                aria-label={isFa ? "رمز عبور" : "Password"}
-                placeholder={isFa ? "رمز عبور را اینجا وارد کنید" : "Enter the password here"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              {hasError && (
-                <p className="w-full text-start text-sm text-danger">
-                  {isFa
-                    ? "رمز عبوری که وارد کردید اشتباه است"
-                    : "Oops! The password you entered is incorrect"}
-                </p>
-              )}
-              <Button type="submit" fullWidth variant="primary">
-                {isFa ? "ادامه" : "Continue"}
-              </Button>
-            </Form>
-          </Card.Content>
-          <Card.Footer className="justify-center">
-            <Link
-              href="https://www.linkedin.com/in/foadmoghaddasi"
-              target="_blank"
-            >
-              {isFa ? "پروفایل لینکدین من" : "My LinkedIn Profile"}
-            </Link>
-          </Card.Footer>
-        </Card>
-      </Surface>
+        <Surface
+          dir={direction}
+          className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/95 px-4"
+        >
+          <Lock1
+            size="56"
+            color="currentColor"
+            className="mb-4 text-danger"
+            variant="Broken"
+          />
+          <Card variant="tertiary" className="w-full max-w-sm text-center">
+            <Card.Header className="flex-col">
+              <Card.Title>
+                {isFa ? "لطفاً رمز عبور را وارد کنید" : "Please enter the password"}
+              </Card.Title>
+              <Card.Description>
+                {isFa ? "برای دریافت رمز عبور" : "To get the password"}
+                <br />
+                {isFa
+                  ? "در لینکدین به من پیام بدهید"
+                  : "send me a message on LinkedIn"}
+              </Card.Description>
+            </Card.Header>
+            <Card.Content>
+              <Form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                <Input
+                  type="password"
+                  fullWidth
+                  variant="secondary"
+                  aria-label={isFa ? "رمز عبور" : "Password"}
+                  placeholder={isFa ? "رمز عبور را اینجا وارد کنید" : "Enter the password here"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                {hasError && (
+                  <p className="w-full text-start text-sm text-danger">
+                    {isFa
+                      ? "رمز عبوری که وارد کردید اشتباه است"
+                      : "Oops! The password you entered is incorrect"}
+                  </p>
+                )}
+                <Button type="submit" fullWidth variant="primary">
+                  {isFa ? "ادامه" : "Continue"}
+                </Button>
+              </Form>
+            </Card.Content>
+            <Card.Footer className="justify-center">
+              <Link
+                href="https://www.linkedin.com/in/foadmoghaddasi"
+                target="_blank"
+              >
+                {isFa ? "پروفایل لینکدین من" : "My LinkedIn Profile"}
+              </Link>
+            </Card.Footer>
+          </Card>
+        </Surface>
+      </>
     );
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      <SEO
+        title={isFa ? "پروژه محافظت‌شده | فؤاد مقدسی" : "Protected Project | Foad Moghaddasi"}
+        description={isFa ? "این پروژه با رمز عبور محافظت شده است." : "This project is password protected."}
+        path={pathname}
+        noindex
+      />
+      {children}
+    </>
+  );
+};
+
+const NotFound = () => {
+  const { isFa, direction } = useLanguage();
+  const { pathname } = useLocation();
+
+  return (
+    <main dir={direction} className="flex min-h-screen flex-col items-center justify-center gap-4 bg-background px-5 text-center text-foreground">
+      <SEO
+        title={isFa ? "صفحه پیدا نشد | فؤاد مقدسی" : "Page Not Found | Foad Moghaddasi"}
+        description={isFa ? "این صفحه پیدا نشد." : "This page could not be found."}
+        path={pathname}
+        noindex
+      />
+      <strong className="text-6xl">404</strong>
+      <p>{isFa ? "صفحه‌ای که می‌خواستید پیدا نشد." : "The page you requested could not be found."}</p>
+      <Link href="/">{isFa ? "بازگشت به خانه" : "Back to home"}</Link>
+    </main>
+  );
 };
 const App: React.FC = () => {
   return (
@@ -163,6 +202,7 @@ const App: React.FC = () => {
           <Route path="/articles" element={<Articles />} />
           <Route path="/articles/:slug" element={<ArticleDetail />} />
           <Route path="/daily-design-challenge" element={<DailyDesignChallengePage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>

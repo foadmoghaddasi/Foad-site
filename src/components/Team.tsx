@@ -111,6 +111,14 @@ const TeamPhoto = ({
         preload="metadata"
         aria-hidden="true"
       />
+      <span className="team-photo-touch-hint" aria-hidden="true">
+        <PlayCircle size="15" color="currentColor" variant="Bold" />
+        <span>
+          {isFa
+            ? "روی عکس بزنید — لبخند می‌زنیم"
+            : "Tap a photo — we'll smile back"}
+        </span>
+      </span>
       <span className="team-role-chip">{member.specialty}</span>
     </button>
   );

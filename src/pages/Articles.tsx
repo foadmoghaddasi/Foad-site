@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
 import { getArticlesNewestFirst, type Article } from "../content/articles";
 import { useLanguage } from "../context/LanguageContext";
+import SEO from "../components/SEO";
 import "./Articles.css";
 
 const normalizeSearchText = (value: string) =>
@@ -81,6 +82,16 @@ const Articles = () => {
 
   return (
     <main className="articles-page" dir={direction}>
+      <SEO
+        title={isFa ? "مقاله‌های طراحی محصول و UI/UX | فؤاد مقدسی" : "Product Design & UI/UX Articles | Foad Moghaddasi"}
+        description={
+          isFa
+            ? "مقاله‌ها و یادداشت‌های فؤاد مقدسی درباره طراحی محصول، UI/UX، دیزاین سیستم، تحقیق کاربر و همکاری طراح و توسعه‌دهنده."
+            : "Articles by Foad Moghaddasi about Product Design, UI/UX, design systems, user research, and designer-developer collaboration."
+        }
+        path={isFa ? "/articles?lang=fa" : "/articles"}
+        locale={isFa ? "fa_IR" : "en_US"}
+      />
       <Navbar />
 
       <section className="articles-hero">

@@ -1,10 +1,10 @@
-import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getArticleBySlug, type ArticleBlock } from "../content/articles";
 import { useLanguage } from "../context/LanguageContext";
+import SEO, { SITE_URL } from "../components/SEO";
 import "./Articles.css";
 
 const ArticleContentBlock = ({ block }: { block: ArticleBlock }) => {
@@ -60,18 +60,15 @@ const ArticleDetail = () => {
   const { language, isFa, direction } = useLanguage();
   const article = getArticleBySlug(slug, language);
 
-  useEffect(() => {
-    if (!article) return;
-    const previousTitle = document.title;
-    document.title = `${article.title} · Foad Moghaddasi`;
-    return () => {
-      document.title = previousTitle;
-    };
-  }, [article]);
-
   if (!article) {
     return (
       <main className="articles-page article-not-found" dir={direction}>
+        <SEO
+          title={isFa ? "مقاله پیدا نشد | فؤاد مقدسی" : "Article Not Found | Foad Moghaddasi"}
+          description={isFa ? "این مقاله پیدا نشد." : "This article could not be found."}
+          path={`/articles/${slug ?? ""}${isFa ? "?lang=fa" : ""}`}
+          noindex
+        />
         <Navbar />
         <div>
           <span>404</span>
@@ -86,6 +83,31 @@ const ArticleDetail = () => {
 
   return (
     <main className="articles-page" dir={article.direction}>
+      <SEO
+        title={`${article.title} | ${isFa ? "فؤاد مقدسی" : "Foad Moghaddasi"}`}
+        description={article.excerpt}
+        path={`/articles/${article.slug}${isFa ? "?lang=fa" : ""}`}
+        image={article.cover}
+        imageAlt={article.title}
+        type="article"
+        locale={isFa ? "fa_IR" : "en_US"}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: article.title,
+          description: article.excerpt,
+          image: new URL(article.cover, SITE_URL).toString(),
+          mainEntityOfPage: `${SITE_URL}/articles/${article.slug}${isFa ? "?lang=fa" : ""}`,
+          inLanguage: isFa ? "fa" : "en",
+          author: {
+            "@type": "Person",
+            "@id": `${SITE_URL}/#foad-moghaddasi`,
+            name: "Foad Moghaddasi",
+            alternateName: ["فؤاد مقدسی", "فواد مقدسی"],
+            url: `${SITE_URL}/`,
+          },
+        }}
+      />
       <Navbar />
 
       <article className="article-detail">

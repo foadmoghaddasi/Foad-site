@@ -42,7 +42,7 @@ const About = () => {
                   {isFa ? "فؤاد مقدسی" : "Foad Moghaddasi"}
                 </Card.Title>
                 <Card.Description className="mt-1 text-xs md:text-sm">
-                  {isFa ? "طراح محصول" : "Product Designer"}
+                  {isFa ? "طراح محصول و UI/UX" : "Product & UI/UX Designer"}
                 </Card.Description>
               </div>
               <span className="flex shrink-0 items-center gap-1.5 text-xs text-muted">
@@ -54,8 +54,8 @@ const About = () => {
             <Card.Content className="pt-0">
               <p className="about-copy text-sm leading-8 text-muted md:text-base md:leading-9">
                 {isFa
-                  ? "سلام! من فؤاد هستم؛ طراح محصول و دانشجوی کارشناسی ارشد طراحی صنعتی. بیش از پنج سال است که روی تجربه‌های دیجیتال کار می‌کنم و سعی می‌کنم بین نیاز واقعی کاربر، هدف کسب‌وکار و اجرای ساده تعادل بسازم. طراحی کاربرمحور برای من فقط یک عبارت نیست؛ روشی است برای ساختن محصولاتی که هم زیبا باشند و هم واقعاً به کار بیایند. همیشه در حال یادگیری‌ام و از حل مسئله‌های تازه لذت می‌برم."
-                  : "Hi! I’m Foad, a product designer and a master’s student in Industrial Design. For more than five years, I’ve worked on digital experiences and tried to balance genuine user needs, business goals, and practical implementation. User-centered design is more than a phrase to me; it is how I create products that are both thoughtful and genuinely useful. I’m always learning and enjoy solving new problems."}
+                  ? "سلام! من فؤاد مقدسی هستم؛ طراح محصول و UI/UX و دانشجوی کارشناسی ارشد طراحی صنعتی. بیش از پنج سال است که روی تجربه‌های دیجیتال کار می‌کنم و سعی می‌کنم بین نیاز واقعی کاربر، هدف کسب‌وکار و اجرای ساده تعادل بسازم. طراحی کاربرمحور برای من فقط یک عبارت نیست؛ روشی است برای ساختن محصولاتی که هم زیبا باشند و هم واقعاً به کار بیایند. همیشه در حال یادگیری‌ام و از حل مسئله‌های تازه لذت می‌برم."
+                  : "Hi! I’m Foad Moghaddasi, a Product and UI/UX Designer and a master’s student in Industrial Design. For more than five years, I’ve worked on digital experiences and tried to balance genuine user needs, business goals, and practical implementation. User-centered design is more than a phrase to me; it is how I create products that are both thoughtful and genuinely useful. I’m always learning and enjoy solving new problems."}
               </p>
             </Card.Content>
           </Card>
