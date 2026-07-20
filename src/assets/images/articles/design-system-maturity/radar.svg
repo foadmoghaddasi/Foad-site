@@ -1,0 +1,81 @@
+<svg width="1600" height="1100" viewBox="0 0 1600 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="60" x2="1500" y2="1040" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F7FF"/>
+      <stop offset="1" stop-color="#ECEFFF"/>
+    </linearGradient>
+    <linearGradient id="area" x1="650" y1="220" x2="1040" y2="870" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#315EFB" stop-opacity="0.82"/>
+      <stop offset="1" stop-color="#8159E8" stop-opacity="0.62"/>
+    </linearGradient>
+    <filter id="shadow" x="78" y="65" width="1444" height="1000" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#273C8A" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1100" rx="38" fill="#E9EDFA"/>
+  <g filter="url(#shadow)">
+    <rect x="100" y="80" width="1400" height="940" rx="38" fill="url(#bg)"/>
+  </g>
+
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="800" y="153" font-size="34" font-weight="700" fill="#10172E">شش بُعد بلوغ دیزاین‌سیستم</text>
+    <text x="800" y="194" font-size="21" fill="#64708E">برای هر بُعد امتیازی مستقل از ۱ تا ۵ در نظر بگیرید</text>
+  </g>
+
+  <g transform="translate(800 575)">
+    <g fill="none" stroke="#A7B0C8" stroke-width="2">
+      <path d="M0 -330L285.8 -165V165L0 330L-285.8 165V-165Z"/>
+      <path d="M0 -264L228.6 -132V132L0 264L-228.6 132V-132Z"/>
+      <path d="M0 -198L171.5 -99V99L0 198L-171.5 99V-99Z"/>
+      <path d="M0 -132L114.3 -66V66L0 132L-114.3 66V-66Z"/>
+      <path d="M0 -66L57.2 -33V33L0 66L-57.2 33V-33Z"/>
+    </g>
+
+    <g stroke="#B7BFD3" stroke-width="2">
+      <path d="M0 0V-330"/>
+      <path d="M0 0L285.8 -165"/>
+      <path d="M0 0L285.8 165"/>
+      <path d="M0 0V330"/>
+      <path d="M0 0L-285.8 165"/>
+      <path d="M0 0L-285.8 -165"/>
+    </g>
+
+    <path d="M0 -264L228.6 -132L171.5 99L0 198L-228.6 132L-171.5 -99Z" fill="url(#area)" stroke="#315EFB" stroke-width="5" stroke-linejoin="round"/>
+
+    <g fill="#FFFFFF" stroke="#315EFB" stroke-width="6">
+      <circle cy="-264" r="10"/>
+      <circle cx="228.6" cy="-132" r="10"/>
+      <circle cx="171.5" cy="99" r="10"/>
+      <circle cy="198" r="10"/>
+      <circle cx="-228.6" cy="132" r="10"/>
+      <circle cx="-171.5" cy="-99" r="10"/>
+    </g>
+  </g>
+
+  <g font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#18213B" text-anchor="middle">
+    <text x="800" y="250">هم‌سویی سازمانی</text>
+    <text x="1190" y="390">اثربخشی تیم</text>
+    <text x="1195" y="785">استحکام زیرساخت</text>
+    <text x="800" y="965">حاکمیت</text>
+    <text x="405" y="785">پشتیبانی</text>
+    <text x="410" y="390">پذیرش</text>
+  </g>
+
+  <g font-family="Arial, sans-serif" font-size="18" fill="#65708D" text-anchor="middle">
+    <text x="800" y="280">جایگاه، بودجه و حامیان</text>
+    <text x="1190" y="420">ظرفیت، تخصص و همکاری</text>
+    <text x="1195" y="815">کامپوننت، توکن و مستندات</text>
+    <text x="800" y="995">تصمیم، مشارکت و انتشار</text>
+    <text x="405" y="815">آموزش، ارتباط و بازخورد</text>
+    <text x="410" y="420">استفاده، انطباق و اعتماد</text>
+  </g>
+
+  <g font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#78839F" text-anchor="middle">
+    <text x="828" y="520">۱</text>
+    <text x="856" y="472">۲</text>
+    <text x="884" y="423">۳</text>
+    <text x="912" y="374">۴</text>
+    <text x="940" y="326">۵</text>
+  </g>
+</svg>

@@ -38,6 +38,9 @@ import designSystemUnitStructureCodeFigmaCoverThumbImage from "../assets/images/
 
 import gestaltPragnanzDesignCoverImage from "../assets/images/articles/gestalt-pragnanz-design/cover.webp";
 import gestaltPragnanzDesignCoverThumbImage from "../assets/images/articles/gestalt-pragnanz-design/cover-thumb.webp";
+import designSystemMaturityCoverImage from "../assets/images/articles/design-system-maturity/cover.webp";
+import designSystemMaturityCoverThumbImage from "../assets/images/articles/design-system-maturity/cover-thumb.webp";
+import designSystemMaturityRadarImage from "../assets/images/articles/design-system-maturity/radar.webp";
 
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
@@ -49,6 +52,7 @@ export type ArticleBlock =
       images: { src: string; alt: string; caption?: string }[];
     }
   | { type: "list"; items: string[]; ordered?: boolean }
+  | { type: "source"; label: string; title: string; url: string; note?: string }
   | { type: "divider" };
 
 export type Article = {
@@ -62,6 +66,7 @@ export type Article = {
   coverThumb?: string;
   direction: "rtl" | "ltr";
   featured?: boolean;
+  attribution?: { name: string; url: string };
   content: ArticleBlock[];
 };
 
@@ -72,7 +77,170 @@ const hiddenArticleSlugs = new Set([
   "working-with-business",
 ]);
 
-export const articles: Article[] = [
+export const articles: Article[] = ([
+  {
+    slug: "design-system-maturity-six-dimensions",
+    title: "بلوغ دیزاین‌سیستم؛ یک چارچوب شش‌بُعدی",
+    excerpt:
+      "خلاصه فارسی مقاله Nielsen Norman Group درباره سنجش بلوغ دیزاین‌سیستم در شش بُعد مستقل، فراتر از تعداد کامپوننت‌ها.",
+    category: "سیستم طراحی",
+    publishedAt: "۲۹ تیر ۱۴۰۵",
+    readingTime: "۷ دقیقه مطالعه",
+    cover: designSystemMaturityCoverImage,
+    coverThumb: designSystemMaturityCoverThumbImage,
+    direction: "rtl",
+    featured: true,
+    attribution: {
+      name: "Huei-Hsin Wang · Nielsen Norman Group",
+      url: "https://www.nngroup.com/articles/design-system-maturity/",
+    },
+    content: [
+      {
+        type: "paragraph",
+        text: "مقاله اصلی را Huei-Hsin Wang برای Nielsen Norman Group نوشته است و این صفحه خلاصه و بازنویسی فارسی آن است. مدل‌های رایج بلوغ معمولاً یک نردبان نشان می‌دهند: ابتدا کامپوننت‌ها را می‌سازیم، بعد پذیرش را بالا می‌بریم و در نهایت به حاکمیت و تکامل پایدار می‌رسیم. این تصویر ساده و قابل‌فهم است، اما واقعیت دیزاین‌سیستم‌ها به‌ندرت چنین مسیر مرتبی دارد.",
+      },
+      {
+        type: "quote",
+        text: "بلوغ دیزاین‌سیستم مقصدی ثابت روی یک نردبان نیست؛ تصویری لحظه‌ای از تعادل میان چند توانمندی مستقل است.",
+      },
+      {
+        type: "heading",
+        text: "چرا مدل خطی کافی نیست؟",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "یک سیستم ممکن است سال‌ها خوب کار کند و بعد از ادغام دو شرکت، تغییر مدیریت یا کاهش بودجه دوباره با مسئله‌های بنیادی روبه‌رو شود. پس حرکت همیشه رو به جلو نیست. از طرفی، بلوغ برای یک استارتاپ ده‌نفره و یک سازمان ده‌هزارنفره تعریف یکسانی ندارد؛ سیستم کوچک و آگاهانه‌ای که نیازهای سازمان را پوشش می‌دهد می‌تواند بالغ‌تر از کتابخانه‌ای بسیار بزرگ اما بی‌اعتماد و بی‌صاحب باشد.",
+      },
+      {
+        type: "paragraph",
+        text: "پذیرش نیز مرحله‌ای نیست که یک بار تمام شود. تیم تازه‌کار باید اولین مصرف‌کنندگان را قانع کند، تیم باسابقه هنگام انتشار نسخه بزرگ باید اعتماد را حفظ کند و حتی سیستم جاافتاده ممکن است با تغییر اولویت‌ها بخشی از کاربرانش را از دست بدهد. به همین دلیل، چارچوب NN/g به‌جای مرحله‌های متوالی، شش بُعد را به‌طور مستقل بررسی می‌کند.",
+      },
+      {
+        type: "image",
+        src: designSystemMaturityRadarImage,
+        alt: "نمودار راداری شش بُعد بلوغ دیزاین‌سیستم شامل هم‌سویی سازمانی، اثربخشی تیم، استحکام زیرساخت، حاکمیت، پشتیبانی و پذیرش",
+        caption: "بازطراحی اختصاصی بر پایه چارچوب شش‌بُعدی بلوغ دیزاین‌سیستم NN/g؛ مقادیر نمودار صرفاً نمونه‌اند.",
+        wide: true,
+      },
+      {
+        type: "heading",
+        text: "شش بُعد اصلی بلوغ دیزاین‌سیستم",
+        level: 2,
+      },
+      {
+        type: "heading",
+        text: "۱. هم‌سویی سازمانی",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "این بُعد می‌پرسد آیا سازمان واقعاً سیستم را بخشی از زیرساخت محصول می‌داند یا آن را فعالیتی اختیاری تلقی می‌کند. حامی اجرایی، بودجه پایدار، جایگاه استراتژیک و همراهی تیم‌های محصول، مهندسی و برند تعیین می‌کنند که سیستم در برابر تغییر مدیر، بازسازمان‌دهی و جابه‌جایی اولویت‌ها چقدر دوام می‌آورد.",
+      },
+      {
+        type: "heading",
+        text: "۲. اثربخشی تیم",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "کیفیت خروجی بدون تیمی پایدار دوام نمی‌آورد. ظرفیت کافی، ترکیب مهارت‌های طراحی، مهندسی، محتوا، دسترس‌پذیری و مدیریت محصول، روش تصمیم‌گیری روشن، همکاری سالم و توجه به فرسودگی اعضا همگی بخشی از این بُعد هستند.",
+      },
+      {
+        type: "heading",
+        text: "۳. استحکام زیرساخت",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "این بخش همان چیزی است که بیشتر دیده می‌شود: پوشش و کیفیت کامپوننت‌ها، هماهنگی طراحی و کد، ساختار توکن‌ها، مستندات قابل‌استفاده، ابزارهای توسعه، استانداردهای محتوا و دسترس‌پذیری. نکته مهم این است که قوی‌بودن این بُعد به‌تنهایی نشانه سلامت کل سیستم نیست.",
+      },
+      {
+        type: "heading",
+        text: "۴. حاکمیت",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "حاکمیت مشخص می‌کند چه کسی درباره افزودن کامپوننت، پذیرفتن مشارکت، مدیریت استثناها و انتشار تغییرهای ناسازگار تصمیم می‌گیرد. مدل مشارکت، قواعد انعطاف، اولویت‌بندی، نسخه‌دهی و فرایند حل اختلاف باید آن‌قدر روشن باشند که سیستم به مسئولیت همه و مالکیت هیچ‌کس تبدیل نشود.",
+      },
+      {
+        type: "heading",
+        text: "۵. پشتیبانی",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "وجود یک کامپوننت به معنی قابل‌استفاده‌بودن آن نیست. آموزش شروع کار، مستندات قابل‌کشف، کانال پاسخ‌گویی، جلسه‌های رفع اشکال، یادداشت انتشار، نقشه راه، برنامه سفیران و چرخه بازخورد کمک می‌کنند مصرف‌کنندگان سیستم آن را بفهمند و در کار واقعی موفق شوند.",
+      },
+      {
+        type: "heading",
+        text: "۶. پذیرش",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "صرف شمارش استفاده کافی نیست. باید سه لایه را جدا دید: آیا تیم‌ها به سیستم دسترسی دارند و از آن استفاده می‌کنند؟ آیا آن را درست و سازگار به کار می‌برند؟ و مهم‌تر، آیا به نگهداری و تکاملش اعتماد دارند یا در سکوت راه‌های دورزدن آن را ساخته‌اند؟",
+      },
+      {
+        type: "heading",
+        text: "ارزیابی را چگونه اجرا کنیم؟",
+        level: 2,
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "۴ تا ۸ ارزیاب با زاویه‌های متفاوت انتخاب کنید: اعضای تیم دیزاین‌سیستم، مصرف‌کنندگان روزمره و حامیان یا ذی‌نفعان کلیدی.",
+          "هر فرد ابتدا به‌صورت مستقل به هر شش بُعد از ۱ تا ۵ امتیاز بدهد؛ از «فاقد ساختار و مالکیت» تا «تاب‌آور و در حال بهبود مستمر».",
+          "امتیازها را کنار هم بگذارید و پیش از رسیدن به عدد نهایی، درباره اختلاف نگاه‌ها گفت‌وگو کنید. فاصله زیاد میان امتیازها خودش یک یافته مهم است.",
+          "میانگین یا امتیاز توافق‌شده را روی نمودار راداری رسم کنید تا شکل سلامت سیستم نمایان شود.",
+          "ارزیابی را فصلی یا پس از تغییر مهمی مثل بازسازمان‌دهی، انتشار بزرگ یا تغییر بودجه تکرار کنید و روند را با خط مبنا بسنجید.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "شکل نمودار چه می‌گوید؟",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "مساحت کلی، تصویری تقریبی از بلوغ می‌دهد؛ اما باید با اندازه و مرحله سازمان تفسیر شود.",
+          "تقارن نشان می‌دهد توانمندی‌ها با سرعتی نزدیک به هم رشد کرده‌اند. شکل کوچک اما متعادل گاهی پایدارتر از شکل بزرگ و نامتقارن است.",
+          "دره یا امتیاز پایین، یک محدودیت ساختاری را نشان می‌دهد. تقویت ضعیف‌ترین بُعد معمولاً بیشترین اثر آزادکننده را دارد.",
+          "قله یا امتیاز بسیار بالا ممکن است حاصل تمرکز آگاهانه باشد یا تلاشی برای جبران ضعف‌های دیگر؛ باید علت آن را پرسید.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "برای مثال، زیرساخت قدرتمند در کنار حاکمیت و پشتیبانی ضعیف معمولاً یعنی تیم روی ساخت دارایی‌ها سرمایه‌گذاری کرده، اما سازوکار لازم برای استفاده و تکامل آن‌ها را نساخته است. همچنین پشتیبانی عالی با تیمی کم‌ظرفیت در بلندمدت پایدار نمی‌ماند، چون سطح خدمات از توان واقعی تیم بیشتر است.",
+      },
+      {
+        type: "heading",
+        text: "ارزش گفت‌وگو از امتیاز بیشتر است",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "هدف این تمرین صدور حکم قطعی درباره «بالغ» یا «نابالغ» بودن سیستم نیست. ارزش اصلی زمانی ایجاد می‌شود که سازندگان، مصرف‌کنندگان و حامیان سیستم برداشت‌های متفاوتشان را روی میز بگذارند. اگر تیم محصول پشتیبانی را ۲ و تیم دیزاین‌سیستم آن را ۴ می‌بیند، همین شکاف می‌تواند از ضعف اطلاع‌رسانی، آموزش ناکافی یا تفاوت میان خدمت ارائه‌شده و اثر ادراک‌شده خبر دهد.",
+      },
+      {
+        type: "paragraph",
+        text: "خروجی خوب این ارزیابی یک فهرست بلند از کارها نیست؛ یک اولویت مشترک است: کدام بُعد ضعیف‌تر، بیش از همه ارزش توانمندی‌های موجود را قفل کرده است؟ پاسخ به همین سؤال می‌تواند جهت فصل بعدی دیزاین‌سیستم را روشن کند.",
+      },
+      {
+        type: "divider",
+      },
+      {
+        type: "source",
+        label: "منبع و مطالعه بیشتر",
+        title: "Design-System Maturity: A 6-Dimension Framework — Huei-Hsin Wang, Nielsen Norman Group",
+        url: "https://www.nngroup.com/articles/design-system-maturity/",
+        note: "منتشرشده در ۱۰ ژوئیه ۲۰۲۶. این متن ترجمه مستقیم نیست و به‌صورت خلاصه و بازنویسی تألیفی تهیه شده است.",
+      },
+    ],
+  },
   {
     slug: "product-designer-portfolio-as-a-product",
     title: "پورتفولیوی یک طراح محصول نباید فقط یک ویترین باشد",
@@ -1589,9 +1757,172 @@ export const articles: Article[] = [
         }
       ]
     }
-].filter((article) => !hiddenArticleSlugs.has(article.slug));
+] satisfies Article[]).filter((article) => !hiddenArticleSlugs.has(article.slug));
 
-export const articlesEn: Article[] = [
+export const articlesEn: Article[] = ([
+  {
+    slug: "design-system-maturity-six-dimensions",
+    title: "Design-System Maturity Is a Shape, Not a Ladder",
+    excerpt:
+      "An adapted summary of Nielsen Norman Group's article on assessing design-system maturity across six independent dimensions.",
+    category: "Design Systems",
+    publishedAt: "July 20, 2026",
+    readingTime: "7 min read",
+    cover: designSystemMaturityCoverImage,
+    coverThumb: designSystemMaturityCoverThumbImage,
+    direction: "ltr",
+    featured: true,
+    attribution: {
+      name: "Huei-Hsin Wang · Nielsen Norman Group",
+      url: "https://www.nngroup.com/articles/design-system-maturity/",
+    },
+    content: [
+      {
+        type: "paragraph",
+        text: "The original article was written by Huei-Hsin Wang for Nielsen Norman Group; this page is an adapted summary. Conventional maturity models often look like ladders: build components, drive adoption, solve scaling problems, and eventually reach stable governance. That story is easy to follow, but real design systems rarely develop so neatly.",
+      },
+      {
+        type: "quote",
+        text: "Design-system maturity is not a fixed destination on a ladder; it is a current picture of balance across several independent capabilities.",
+      },
+      {
+        type: "heading",
+        text: "Why a linear model falls short",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "A system can work well for years and return to foundational problems after a merger, leadership change, or budget cut. Progress is not always forward. Maturity is also contextual: a deliberately lean system serving a small company can be healthier than a large library that lacks trust, ownership, or organizational support.",
+      },
+      {
+        type: "paragraph",
+        text: "Adoption is not a phase that ends. New teams need to win their first users, established teams must preserve trust through major releases, and mature systems can lose adoption when priorities shift. The NN/g framework therefore examines six dimensions independently instead of arranging them as sequential stages.",
+      },
+      {
+        type: "image",
+        src: designSystemMaturityRadarImage,
+        alt: "Radar chart showing organizational alignment, team effectiveness, infrastructure robustness, governance, support, and adoption as six design-system maturity dimensions",
+        caption: "Original illustration based on NN/g's six-dimension design-system-maturity framework. Values are illustrative.",
+        wide: true,
+      },
+      {
+        type: "heading",
+        text: "The six dimensions",
+        level: 2,
+      },
+      {
+        type: "heading",
+        text: "1. Organizational alignment",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "This dimension asks whether the organization treats the system as shared product infrastructure or an optional service. Executive sponsorship, stable funding, strategic positioning, and buy-in across product, engineering, and brand determine how well the system survives reorganizations and shifting priorities.",
+      },
+      {
+        type: "heading",
+        text: "2. Team effectiveness",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Strong assets cannot outlast an unsustainable team. Capacity, access to design, engineering, content, accessibility and product expertise, clear decisions, healthy collaboration, and staff wellbeing all shape the team's ability to maintain and evolve the system.",
+      },
+      {
+        type: "heading",
+        text: "3. Infrastructure robustness",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "This is the most visible dimension: component coverage and quality, design–code parity, token foundations, useful documentation, developer tooling, content standards, and built-in accessibility. A high score here alone does not make the whole system healthy.",
+      },
+      {
+        type: "heading",
+        text: "4. Governance",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Governance defines who decides when to add a component, accept a contribution, manage an exception, or ship a breaking change. Contribution models, flexibility rules, prioritization, versioning, and conflict resolution need enough clarity to keep shared ownership from becoming no ownership.",
+      },
+      {
+        type: "heading",
+        text: "5. Support",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "A component's existence does not guarantee successful use. Onboarding, discoverable guidance, responsive help, office hours, release notes, roadmaps, champions, and feedback loops equip consumers to understand the system and apply it in real product work.",
+      },
+      {
+        type: "heading",
+        text: "6. Adoption",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Usage counts are only one layer. Teams should distinguish access and active use from conformance, then ask the deeper question: do people trust the system to stay reliable and evolve, or are they quietly building workarounds?",
+      },
+      {
+        type: "heading",
+        text: "How to run the assessment",
+        level: 2,
+      },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Select 4–8 evaluators across the design-system team, everyday consumers, and key sponsors or stakeholders.",
+          "Have each person score all six dimensions independently from 1 to 5, ranging from absent structure to a resilient practice that improves continuously.",
+          "Compare the scores and discuss disagreements before settling on a shared result; a wide gap is itself an important finding.",
+          "Plot the agreed scores on a radar chart to reveal the system's current shape.",
+          "Repeat quarterly or after meaningful changes such as a reorganization, major release, or funding shift, and compare with the baseline.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "How to read the shape",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "Overall area is a rough maturity signal, but it must be interpreted in the context of organizational size and stage.",
+          "Symmetry shows whether capabilities are developing evenly. A smaller balanced profile can be more sustainable than a larger uneven one.",
+          "A valley points to a structural constraint. Improving the weakest dimension often unlocks the most value elsewhere.",
+          "A spike may reflect intentional focus or an attempt to compensate for a deeper gap; investigate the reason behind it.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "For example, robust infrastructure paired with weak governance and support often means the team has invested in assets without building the operating model needed to use and evolve them. Excellent support backed by a low-capacity team is similarly fragile because the service promise exceeds what the team can sustain.",
+      },
+      {
+        type: "heading",
+        text: "The conversation matters more than the score",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "The exercise is not meant to issue a final verdict of mature or immature. Its main value comes from putting the different perceptions of builders, consumers, and sponsors on the table. If a product team scores support as 2 while the design-system team gives itself a 4, that gap may expose weak communication, inadequate onboarding, or a mismatch between effort delivered and impact perceived.",
+      },
+      {
+        type: "paragraph",
+        text: "A useful outcome is not an enormous backlog but one shared priority: which weak dimension is currently preventing the organization from realizing the value of its existing strengths? The answer can provide a clear direction for the system's next quarter.",
+      },
+      {
+        type: "divider",
+      },
+      {
+        type: "source",
+        label: "Source and further reading",
+        title: "Design-System Maturity: A 6-Dimension Framework — Huei-Hsin Wang, Nielsen Norman Group",
+        url: "https://www.nngroup.com/articles/design-system-maturity/",
+        note: "Published July 10, 2026. This page is an original summary and adaptation, not a direct translation.",
+      },
+    ],
+  },
   {
     slug: "product-designer-portfolio-as-a-product",
     title: "A Product Designer’s Portfolio Should Be More Than a Showcase",
@@ -2656,7 +2987,7 @@ export const articlesEn: Article[] = [
         }
       ]
     }
-].filter((article) => !hiddenArticleSlugs.has(article.slug));
+] satisfies Article[]).filter((article) => !hiddenArticleSlugs.has(article.slug));
 
 export const getArticles = (language: "fa" | "en" = "fa") =>
   language === "fa" ? articles : articlesEn;

@@ -335,6 +335,16 @@
   background: currentColor;
 }
 
+.article-detail-meta a {
+  color: inherit;
+  text-decoration-color: color-mix(in oklab, #7596ff 55%, transparent);
+  text-underline-offset: 3px;
+}
+
+.article-detail-meta a:hover {
+  color: #7596ff;
+}
+
 .articles-grid {
   display: grid;
   margin-top: 14px;
@@ -640,6 +650,52 @@ h3.article-content-heading {
   margin: 64px 0;
   border: 0;
   background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--foreground) 18%, transparent), transparent);
+}
+
+.article-source {
+  display: flex;
+  margin: 32px 0 0;
+  padding: 26px 28px;
+  border: 1px solid color-mix(in oklab, #7596ff 30%, transparent);
+  border-radius: 20px;
+  background: color-mix(in oklab, #315efb 7%, transparent);
+  flex-direction: column;
+  gap: 8px;
+}
+
+.article-source > span {
+  color: #7596ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.article-source a {
+  display: inline-flex;
+  width: fit-content;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.55;
+  text-decoration-color: color-mix(in oklab, #7596ff 55%, transparent);
+  text-underline-offset: 4px;
+}
+
+.article-source a:hover {
+  color: #7596ff;
+}
+
+.article-source a span {
+  font-size: 0.9em;
+}
+
+.article-source p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.7;
 }
 
 .article-end {

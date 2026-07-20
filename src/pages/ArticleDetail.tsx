@@ -50,6 +50,17 @@ const ArticleContentBlock = ({ block }: { block: ArticleBlock }) => {
         </List>
       );
     }
+    case "source":
+      return (
+        <aside className="article-source" aria-label={block.label}>
+          <span>{block.label}</span>
+          <a href={block.url} target="_blank" rel="noreferrer">
+            {block.title}
+            <span aria-hidden="true">↗</span>
+          </a>
+          {block.note && <p>{block.note}</p>}
+        </aside>
+      );
     case "divider":
       return <hr className="article-divider" />;
   }
@@ -99,13 +110,19 @@ const ArticleDetail = () => {
           image: new URL(article.cover, SITE_URL).toString(),
           mainEntityOfPage: `${SITE_URL}/articles/${article.slug}${isFa ? "?lang=fa" : ""}`,
           inLanguage: isFa ? "fa" : "en",
-          author: {
-            "@type": "Person",
-            "@id": `${SITE_URL}/#foad-moghaddasi`,
-            name: "Foad Moghaddasi",
-            alternateName: ["فؤاد مقدسی", "فواد مقدسی"],
-            url: `${SITE_URL}/`,
-          },
+          author: article.attribution
+            ? {
+                "@type": "Person",
+                name: article.attribution.name,
+                url: article.attribution.url,
+              }
+            : {
+                "@type": "Person",
+                "@id": `${SITE_URL}/#foad-moghaddasi`,
+                name: "Foad Moghaddasi",
+                alternateName: ["فؤاد مقدسی", "فواد مقدسی"],
+                url: `${SITE_URL}/`,
+              },
         }}
       />
       <Navbar />
@@ -127,6 +144,14 @@ const ArticleDetail = () => {
           <h1>{article.title}</h1>
           <p>{article.excerpt}</p>
           <div className="article-detail-meta">
+            {article.attribution && (
+              <>
+                <a href={article.attribution.url} target="_blank" rel="noreferrer">
+                  {article.attribution.name}
+                </a>
+                <i />
+              </>
+            )}
             <span>{article.publishedAt}</span>
             <i />
             <span>{article.readingTime}</span>
@@ -134,7 +159,7 @@ const ArticleDetail = () => {
         </header>
 
         <figure className="article-cover">
-          <img src={article.cover} alt="" loading="eager" fetchPriority="high" decoding="async" />
+          <img src={article.cover} alt={article.title} loading="eager" fetchPriority="high" decoding="async" />
         </figure>
 
         <div className="article-content">

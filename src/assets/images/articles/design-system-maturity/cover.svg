@@ -1,0 +1,80 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="140" y1="80" x2="1470" y2="960" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D1634"/>
+      <stop offset="0.56" stop-color="#080D1E"/>
+      <stop offset="1" stop-color="#11102B"/>
+    </linearGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1255 202) rotate(137) scale(660 470)">
+      <stop stop-color="#557CFF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#557CFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowViolet" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(225 870) rotate(-40) scale(620 430)">
+      <stop stop-color="#945BFF" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#945BFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shape" x1="564" y1="270" x2="1085" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9DB1FF" stop-opacity="0.85"/>
+      <stop offset="0.48" stop-color="#5D7EFF" stop-opacity="0.54"/>
+      <stop offset="1" stop-color="#A26CFF" stop-opacity="0.74"/>
+    </linearGradient>
+    <filter id="blur" x="460" y="180" width="750" height="700" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="42"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" rx="44" fill="url(#bg)"/>
+  <rect width="1600" height="1000" rx="44" fill="url(#glowBlue)"/>
+  <rect width="1600" height="1000" rx="44" fill="url(#glowViolet)"/>
+
+  <g opacity="0.09" stroke="#DCE4FF">
+    <path d="M0 120H1600M0 240H1600M0 360H1600M0 480H1600M0 600H1600M0 720H1600M0 840H1600"/>
+    <path d="M160 0V1000M320 0V1000M480 0V1000M640 0V1000M800 0V1000M960 0V1000M1120 0V1000M1280 0V1000M1440 0V1000"/>
+  </g>
+
+  <g transform="translate(810 510)">
+    <g fill="none" stroke="#C6D2FF" stroke-opacity="0.17" stroke-width="2">
+      <path d="M0 -330L285 -165V165L0 330L-285 165V-165Z"/>
+      <path d="M0 -264L228 -132V132L0 264L-228 132V-132Z"/>
+      <path d="M0 -198L171 -99V99L0 198L-171 99V-99Z"/>
+      <path d="M0 -132L114 -66V66L0 132L-114 66V-66Z"/>
+      <path d="M0 -66L57 -33V33L0 66L-57 33V-33Z"/>
+      <path d="M0 0V-330M0 0L285 -165M0 0L285 165M0 0V330M0 0L-285 165M0 0L-285 -165"/>
+    </g>
+
+    <path d="M0 -238L176 -102L233 135L0 280L-217 125L-137 -79Z" fill="#5C78FF" fill-opacity="0.22" filter="url(#blur)"/>
+    <path d="M0 -238L176 -102L233 135L0 280L-217 125L-137 -79Z" fill="url(#shape)" fill-opacity="0.5" stroke="#A9BBFF" stroke-width="4"/>
+
+    <g fill="#EAF0FF" stroke="#557CFF" stroke-width="6">
+      <circle cy="-238" r="10"/>
+      <circle cx="176" cy="-102" r="10"/>
+      <circle cx="233" cy="135" r="10"/>
+      <circle cy="280" r="10"/>
+      <circle cx="-217" cy="125" r="10"/>
+      <circle cx="-137" cy="-79" r="10"/>
+    </g>
+  </g>
+
+  <g font-family="Arial, sans-serif" fill="#EDF2FF">
+    <text x="92" y="112" font-size="25" font-weight="700" letter-spacing="4" fill="#8CA6FF">DESIGN SYSTEM</text>
+    <text x="92" y="172" font-size="62" font-weight="700">Maturity is a shape,</text>
+    <text x="92" y="240" font-size="62" font-weight="700">not a ladder.</text>
+    <text x="96" y="292" font-size="22" fill="#AEB9D8">A six-dimension framework for seeing the whole system</text>
+  </g>
+
+  <g font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#D8E1FF">
+    <g transform="translate(1230 622)">
+      <rect width="250" height="190" rx="28" fill="#111A38" fill-opacity="0.78" stroke="#9CB0FF" stroke-opacity="0.22"/>
+      <text x="30" y="47" fill="#8CA6FF" letter-spacing="2">6 DIMENSIONS</text>
+      <text x="30" y="86">Alignment · Team</text>
+      <text x="30" y="119">Infrastructure · Governance</text>
+      <text x="30" y="152">Support · Adoption</text>
+    </g>
+  </g>
+
+  <g fill="#A7BAFF">
+    <circle cx="1334" cy="170" r="7"/>
+    <circle cx="1370" cy="170" r="7" fill-opacity="0.5"/>
+    <circle cx="1406" cy="170" r="7" fill-opacity="0.22"/>
+  </g>
+</svg>

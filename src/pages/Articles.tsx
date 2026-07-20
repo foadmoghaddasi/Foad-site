@@ -36,12 +36,15 @@ const getArticleSearchText = (article: Article) => {
       if (block.type === "quote") {
         return [block.text, block.cite ?? ""];
       }
+      if (block.type === "source") {
+        return [block.label, block.title, block.note ?? ""];
+      }
       return [block.text];
     })
     .join(" ");
 
   return normalizeSearchText(
-    `${article.title} ${article.excerpt} ${article.category} ${contentText}`,
+    `${article.title} ${article.excerpt} ${article.category} ${article.attribution?.name ?? ""} ${contentText}`,
   );
 };
 
