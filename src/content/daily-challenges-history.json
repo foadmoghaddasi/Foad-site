@@ -58,5 +58,60 @@
       "fa": "به‌جای نمایش نقشهٔ پیچیده، اطلاعاتی را نشان دهید که برای تصمیم‌گیری لازم است: زمان، نوع صندلی، مدت استفاده و وضعیت ورود. برای رزروهای بلااستفاده، ابتدا یک پیام روشن و فرصت منصفانه برای آزاد کردن صندلی در نظر بگیرید، نه جریمهٔ مبهم.",
       "en": "Rather than showing a complex map, surface only what people need to decide: time, seat type, duration, and check-in status. For unused reservations, start with a clear reminder and a fair opportunity to release the seat instead of an unclear penalty."
     }
+  },
+  {
+    "date": "2026-07-18",
+    "difficulty": {
+      "fa": "متوسط",
+      "en": "Intermediate"
+    },
+    "timebox": {
+      "fa": "۹۰ دقیقه",
+      "en": "90 minutes"
+    },
+    "category": {
+      "fa": "طراحی خدمت و دسترس‌پذیری",
+      "en": "Service Design & Accessibility"
+    },
+    "title": {
+      "fa": "رزرو فضای مطالعه برای نیازهای متفاوت",
+      "en": "Booking a Study Space for Different Needs"
+    },
+    "scenario": {
+      "fa": "یک کتابخانهٔ عمومی چند فضای مطالعه دارد: میزهای مشترک، اتاق‌های کوچک و جایگاه‌های نزدیک پنجره. مراجعه‌کنندگان می‌خواهند قبل از آمدن، فضای مناسب خود را رزرو کنند؛ اما اطلاعات فعلی دربارهٔ صدا، نور، دسترسی با ویلچر و امکان استفاده از لپ‌تاپ روشن نیست. کتابخانه می‌خواهد تجربه‌ای ساده و منصفانه ایجاد کند، بدون اینکه از افراد بخواهد دلیل شخصی یا اطلاعات حساس خود را توضیح دهند.",
+      "en": "A public library offers several study spaces: shared desks, small rooms, and seats near windows. Visitors want to reserve a suitable space before arriving, but the current information about noise, lighting, wheelchair access, and laptop use is unclear. The library wants a simple, fair experience without asking people to explain personal or sensitive reasons for their needs."
+    },
+    "challenge": {
+      "fa": "یک جریان رزرو طراحی کنید که به افراد کمک کند ویژگی‌های فضای موردنیازشان را انتخاب کنند، گزینه‌های مناسب را ببینند و رزرو را با اطمینان نهایی کنند. نشان دهید اگر گزینهٔ مناسب موجود نباشد، سیستم چگونه جایگزین‌های شفاف و غیرتحمیلی پیشنهاد می‌دهد.",
+      "en": "Design a booking flow that helps people choose the features they need, review suitable spaces, and confirm a reservation with confidence. Show how the system presents clear, non-pressuring alternatives when no suitable space is available."
+    },
+    "constraints": {
+      "fa": [
+        "فقط برای یک شعبه و یک بازهٔ زمانی نمونه طراحی کنید؛ نیازی به تقویم کامل نیست.",
+        "حداکثر پنج ترجیح قابل انتخاب ارائه دهید و هرکدام را با زبان ساده و قابل فهم توضیح دهید.",
+        "فرآیند باید بدون ثبت دلیل شخصی، تشخیص پزشکی یا اطلاعات حساس قابل انجام باشد."
+      ],
+      "en": [
+        "Design for one branch and one sample time period; a full calendar is not required.",
+        "Offer no more than five selectable preferences, each explained in plain language.",
+        "The flow must work without collecting personal reasons, medical details, or other sensitive information."
+      ]
+    },
+    "deliverables": {
+      "fa": [
+        "یک فلوچارت کوتاه از مراحل انتخاب تا تأیید رزرو",
+        "دو یا سه وایرفریم از صفحهٔ انتخاب ترجیحات، نتایج مناسب و حالت نبودن گزینهٔ ایده‌آل",
+        "دو جمله دربارهٔ تصمیم‌های دسترس‌پذیری، از جمله کنتراست، برچسب‌گذاری و استفاده با صفحه‌خوان"
+      ],
+      "en": [
+        "A short flowchart covering selection through booking confirmation",
+        "Two or three wireframes for preference selection, suitable results, and the no-ideal-option state",
+        "Two sentences explaining accessibility decisions, including contrast, labeling, and screen-reader use"
+      ]
+    },
+    "hint": {
+      "fa": "به‌جای برچسب‌های مبهمی مثل «فضای ویژه»، ویژگی‌های قابل مشاهده و قابل مقایسه بنویسید؛ سپس مشخص کنید کدام ترجیحات ضروری‌اند و کدام فقط مطلوب.",
+      "en": "Instead of vague labels such as “special space,” describe observable, comparable features. Then distinguish between preferences that are essential and those that are simply preferred."
+    }
   }
 ]
