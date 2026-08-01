@@ -113,5 +113,60 @@
       "fa": "به‌جای برچسب‌های مبهمی مثل «فضای ویژه»، ویژگی‌های قابل مشاهده و قابل مقایسه بنویسید؛ سپس مشخص کنید کدام ترجیحات ضروری‌اند و کدام فقط مطلوب.",
       "en": "Instead of vague labels such as “special space,” describe observable, comparable features. Then distinguish between preferences that are essential and those that are simply preferred."
     }
+  },
+  {
+    "date": "2026-07-25",
+    "difficulty": {
+      "fa": "متوسط",
+      "en": "Intermediate"
+    },
+    "timebox": {
+      "fa": "۹۰ دقیقه",
+      "en": "90 minutes"
+    },
+    "category": {
+      "fa": "طراحی خدمات و معماری اطلاعات",
+      "en": "Service Design & Information Architecture"
+    },
+    "title": {
+      "fa": "تحویل ساده و محترمانه برای اهدای مواد غذایی",
+      "en": "A Clear, Respectful Handoff for Food Donations"
+    },
+    "scenario": {
+      "fa": "یک مرکز محلی مواد غذاییِ بسته‌بندی‌شده و ماندگار را از مردم دریافت و میان چند مرکز اجتماعی توزیع می‌کند. اهداکنندگان فعلی پیش از مراجعه نمی‌دانند چه اقلامی پذیرفته می‌شود، کجا باید توقف کنند، یا اگر کالایی مناسب نباشد چه جایگزینی دارند. کارکنان نیز مجبورند همین پرسش‌ها را بارها پاسخ دهند. این مرکز می‌خواهد یک تجربه دیجیتال ساده برای آماده‌سازی و تحویل کمک‌ها ایجاد کند؛ بدون نیاز به ساخت حساب کاربری یا ثبت اطلاعات شخصی.",
+      "en": "A local community hub accepts packaged, shelf-stable food from the public and distributes it to several community organizations. Donors often do not know which items are accepted, where to go on arrival, or what alternatives exist when an item cannot be accepted. Staff repeatedly answer the same questions. The hub wants a simple digital experience that helps people prepare and hand over donations—without requiring an account or collecting personal information."
+    },
+    "challenge": {
+      "fa": "یک جریان تجربه طراحی کنید که به فرد کمک کند پیش از مراجعه، مناسب‌بودن اقلامش را بررسی کند و در محل، آن‌ها را با کمترین سردرگمی تحویل دهد. نشان دهید چگونه برای موارد نامشخص، زبان محترمانه و یک مسیر جایگزین ارائه می‌کنید. تمرکز شما بر تصمیم‌های طراحی و کاهش بار کاری کارکنان باشد، نه طراحی یک محصول کامل.",
+      "en": "Design an experience that helps someone check whether their items are suitable before visiting and hand them over with minimal confusion on arrival. Show how you handle uncertain cases with respectful language and a clear alternative path. Focus on design decisions and reducing staff workload rather than designing a complete product."
+    },
+    "constraints": {
+      "fa": [
+        "جریان اصلی باید بدون ورود، ثبت‌نام یا واردکردن اطلاعات شخصی قابل استفاده باشد.",
+        "حداکثر ۸ قلم نمونه را پوشش دهید و برای هرکدام وضعیت «پذیرفته»، «نیازمند بررسی» یا «پذیرفته نیست» را توضیح دهید.",
+        "رابط باید برای استفاده با صفحه‌خوان، بزرگ‌نمایی متن و شرایط نوری ضعیف قابل درک باشد؛ رنگ به‌تنهایی نباید وضعیت را نشان دهد."
+      ],
+      "en": [
+        "The core flow must work without sign-in, registration, or entering personal information.",
+        "Cover no more than eight sample items and explain whether each is accepted, needs review, or is not accepted.",
+        "The interface must remain understandable with a screen reader, enlarged text, and poor lighting; do not rely on color alone to communicate status."
+      ]
+    },
+    "deliverables": {
+      "fa": [
+        "یک فلوچارت یا نقشه سفر کوتاه از بررسی اقلام تا تحویل در محل.",
+        "دو تا چهار صفحه یا وایرفریم با متن‌های واقعی برای بررسی اقلام، نتیجه، و دستورالعمل تحویل.",
+        "سه تصمیم طراحی همراه با دلیل، از جمله یک تصمیم مرتبط با دسترس‌پذیری یا زبان فراگیر."
+      ],
+      "en": [
+        "A short flowchart or journey map from checking items to handing them over on site.",
+        "Two to four screens or wireframes with realistic copy for item checking, results, and handoff instructions.",
+        "Three design decisions with rationale, including at least one accessibility or inclusive-language decision."
+      ]
+    },
+    "hint": {
+      "fa": "به‌جای شروع با فهرستی طولانی، سؤال‌هایی را پیدا کنید که بیشترین ابهام را برطرف می‌کنند. برای نتیجه‌های منفی، توضیحی کوتاه و عملی مثل «این مورد را نیاورید؛ می‌توانید گزینهٔ جایگزین زیر را بررسی کنید» از یک پیام مبهم بهتر است.",
+      "en": "Instead of starting with a long list, identify the questions that resolve the most uncertainty. For negative results, a short, actionable message such as “Please don’t bring this item; consider the alternative below” is more useful than a vague rejection."
+    }
   }
 ]
