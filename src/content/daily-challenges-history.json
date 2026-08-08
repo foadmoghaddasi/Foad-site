@@ -168,5 +168,60 @@
       "fa": "به‌جای شروع با فهرستی طولانی، سؤال‌هایی را پیدا کنید که بیشترین ابهام را برطرف می‌کنند. برای نتیجه‌های منفی، توضیحی کوتاه و عملی مثل «این مورد را نیاورید؛ می‌توانید گزینهٔ جایگزین زیر را بررسی کنید» از یک پیام مبهم بهتر است.",
       "en": "Instead of starting with a long list, identify the questions that resolve the most uncertainty. For negative results, a short, actionable message such as “Please don’t bring this item; consider the alternative below” is more useful than a vague rejection."
     }
+  },
+  {
+    "date": "2026-08-01",
+    "difficulty": {
+      "fa": "متوسط",
+      "en": "Intermediate"
+    },
+    "timebox": {
+      "fa": "۶۰ تا ۹۰ دقیقه",
+      "en": "60–90 minutes"
+    },
+    "category": {
+      "fa": "طراحی سرویس و دسترس‌پذیری",
+      "en": "Service Design & Accessibility"
+    },
+    "title": {
+      "fa": "تحویل ساده‌تر وسایل برای تعمیر محلی",
+      "en": "Making Local Repair Drop-Off Easier"
+    },
+    "scenario": {
+      "fa": "یک مرکز تعمیر محلی وسایل کوچک خانگی—مثل پنکه، چراغ مطالعه و کتری—را می‌پذیرد. مراجعه‌کنندگان باید وسیله را تحویل دهند، مشکل آن را توضیح دهند و بعداً برای پیگیری وضعیت دوباره مراجعه کنند. مرکز متوجه شده است که بعضی افراد به‌دلیل صف، توضیح شفاهی، صدای محیط یا ناآشنایی با روند پذیرش، نمی‌دانند قدم بعدی چیست. شما قرار است تجربه پذیرش را برای طیف متنوعی از مراجعه‌کنندگان ساده‌تر و قابل‌فهم‌تر کنید.",
+      "en": "A neighborhood repair center accepts small household items such as fans, desk lamps, and kettles. Visitors need to drop off an item, describe the problem, and return later to check its status. The center has noticed that some people are unsure what to do next because of queues, spoken explanations, a noisy environment, or unfamiliarity with the process. You are asked to make the drop-off experience clearer and easier for a diverse range of visitors."
+    },
+    "challenge": {
+      "fa": "یک تجربه پذیرش طراحی کنید که از لحظه ورود تا دریافت رسید و اطلاع از قدم بعدی را پوشش دهد. ابتدا مسئله را قاب‌بندی کنید و سپس یک جریان ساده، کم‌ابهام و قابل‌دسترس برای تحویل وسیله پیشنهاد دهید. راهکاری طراحی کنید که هم برای فردی که ترجیح می‌دهد شفاهی توضیح ندهد مناسب باشد و هم کارکنان بتوانند آن را بدون آموزش پیچیده اجرا کنند.",
+      "en": "Design a drop-off experience covering the journey from arrival to receiving a receipt and understanding the next step. Begin by framing the problem, then propose a simple, low-ambiguity, accessible flow for handing in an item. Make it work for someone who prefers not to explain the issue verbally, while keeping it practical for staff to operate without extensive training."
+    },
+    "constraints": {
+      "fa": [
+        "راهکار باید بدون نیاز به ساخت حساب کاربری یا جمع‌آوری اطلاعات غیرضروری کار کند.",
+        "حداقل دو روش برای ثبت توضیح مشکل در نظر بگیرید؛ برای نمونه نوشتاری، تصویری یا انتخاب از گزینه‌های ازپیش‌تعریف‌شده.",
+        "جریان باید برای استفاده با صفحه‌خوان، کنتراست مناسب و تعامل لمسی قابل‌درک طراحی شود و به زمان انتظار نیز توجه کند."
+      ],
+      "en": [
+        "The solution must work without requiring an account or collecting unnecessary personal information.",
+        "Include at least two ways to describe the problem, such as text, visual selection, or predefined options.",
+        "Design for screen-reader use, adequate contrast, and clear touch interaction, while also addressing waiting time."
+      ]
+    },
+    "deliverables": {
+      "fa": [
+        "یک بیانیه مسئله و دو یا سه فرض کلیدی.",
+        "نقشه جریان تجربه از ورود تا دریافت رسید و پیگیری وضعیت.",
+        "یک طرح اولیه از دو تا چهار صفحه یا نقطه تماس اصلی، همراه با متن‌های رابط کاربری و حالت خطا یا ابهام."
+      ],
+      "en": [
+        "A problem statement and two or three key assumptions.",
+        "A journey flow from arrival through receipt and status follow-up.",
+        "A low-fidelity design of two to four key screens or touchpoints, including interface copy and an error or uncertainty state."
+      ]
+    },
+    "hint": {
+      "fa": "به‌جای اینکه فقط یک فرم بهتر بسازید، همه نقاط تماس را بررسی کنید: تابلو یا راهنمای ورودی، صف، ثبت مشکل، رسید و توضیح قدم بعدی. از خودتان بپرسید اگر کاربر نتواند یا نخواهد صحبت کند، سرویس چگونه همچنان باید پیش برود؟",
+      "en": "Look beyond designing a better form and consider every touchpoint: entrance signage, the queue, problem description, the receipt, and the explanation of what happens next. Ask yourself how the service should continue if a visitor cannot or does not want to speak."
+    }
   }
 ]
