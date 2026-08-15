@@ -223,5 +223,60 @@
       "fa": "به‌جای اینکه فقط یک فرم بهتر بسازید، همه نقاط تماس را بررسی کنید: تابلو یا راهنمای ورودی، صف، ثبت مشکل، رسید و توضیح قدم بعدی. از خودتان بپرسید اگر کاربر نتواند یا نخواهد صحبت کند، سرویس چگونه همچنان باید پیش برود؟",
       "en": "Look beyond designing a better form and consider every touchpoint: entrance signage, the queue, problem description, the receipt, and the explanation of what happens next. Ask yourself how the service should continue if a visitor cannot or does not want to speak."
     }
+  },
+  {
+    "date": "2026-08-08",
+    "difficulty": {
+      "fa": "متوسط",
+      "en": "Intermediate"
+    },
+    "timebox": {
+      "fa": "۷۵ تا ۹۰ دقیقه",
+      "en": "75–90 minutes"
+    },
+    "category": {
+      "fa": "طراحی خدمات و معماری اطلاعات",
+      "en": "Service Design & Information Architecture"
+    },
+    "title": {
+      "fa": "پیدا کردن مسیر مناسب برای بازیافت وسایل الکترونیکی",
+      "en": "Finding the Right Route for E-Waste Recycling"
+    },
+    "scenario": {
+      "fa": "یک مرکز شهری، باتری، کابل، لوازم کوچک الکترونیکی و وسایل بزرگ‌تر را از مردم دریافت می‌کند؛ اما هر نوع وسیله مسیر متفاوتی دارد. کاربران باید قبل از مراجعه بدانند چه چیزهایی پذیرفته می‌شود، وسیله را چگونه آماده کنند و آن را به کدام نقطه تحویل دهند. بسیاری از کاربران با اصطلاحات فنی آشنا نیستند یا ممکن است از تلفن همراه قدیمی و صفحه‌خوان استفاده کنند.",
+      "en": "A city service accepts batteries, cables, small electronics, and larger appliances, but each item follows a different handling route. Before visiting, people need to know whether an item is accepted, how to prepare it, and which drop-off point to use. Many users are unfamiliar with technical terms or may rely on an older phone or a screen reader."
+    },
+    "challenge": {
+      "fa": "یک تجربه وب یا موبایلی طراحی کنید که به کاربر کمک کند وسیله‌اش را شناسایی کند، شرایط پذیرش و آماده‌سازی را بفهمد و مناسب‌ترین مسیر تحویل را پیدا کند. برای مواردی که مرکز نمی‌پذیرد، جایگزین روشن و محترمانه ارائه دهید. روی کاهش سردرگمی و تصمیم‌گیری سریع تمرکز کنید، نه نمایش همه اطلاعات در یک صفحه.",
+      "en": "Design a web or mobile experience that helps people identify an item, understand acceptance and preparation requirements, and find the most suitable drop-off route. For items the service cannot accept, provide a clear and respectful alternative. Focus on reducing uncertainty and supporting quick decisions rather than putting every detail on one screen."
+    },
+    "constraints": {
+      "fa": [
+        "از فهرستی نمونه شامل باتری قلمی، کابل شارژ، تلفن همراه، چاپگر و یخچال استفاده کنید؛ امکان جست‌وجو یا انتخاب با زبان ساده را در نظر بگیرید.",
+        "حداقل دو مسیر متفاوت برای تحویل نشان دهید و برای هر مسیر، ساعات فعالیت و نیاز به آماده‌سازی را مشخص کنید.",
+        "رابط باید بدون رنگ به‌تنهایی قابل استفاده باشد، کنتراست مناسب داشته باشد و با صفحه‌خوان و صفحه‌کلید سازگار باشد. از درخواست اطلاعات شخصی خودداری کنید."
+      ],
+      "en": [
+        "Use a sample list including AA batteries, a charging cable, a mobile phone, a printer, and a refrigerator; support search or plain-language selection.",
+        "Show at least two different drop-off routes and state the opening hours and preparation requirements for each.",
+        "The interface must not rely on color alone, should have strong contrast, and should work with screen readers and keyboards. Do not request personal information."
+      ]
+    },
+    "deliverables": {
+      "fa": [
+        "یک جریان کار کوتاه از ورود کاربر تا انتخاب مسیر تحویل، در ۴ تا ۶ گام.",
+        "دو یا سه صفحه یا حالت اصلی، شامل جست‌وجو یا انتخاب وسیله، نتیجه پذیرش و گزینه‌های تحویل.",
+        "یک یادداشت کوتاه درباره یک تصمیم طراحی، یک نیاز دسترس‌پذیری و یک فرضی که برای آزمودن آن به کاربر نیاز دارید."
+      ],
+      "en": [
+        "A short flow from entry to selected drop-off route, in 4–6 steps.",
+        "Two or three key screens or states, including item search or selection, acceptance results, and drop-off options.",
+        "A brief note explaining one design decision, one accessibility consideration, and one assumption you would test with a user."
+      ]
+    },
+    "hint": {
+      "fa": "به‌جای شروع با دسته‌بندی‌های تخصصی، از سؤال‌هایی استفاده کنید که کاربر بتواند با مشاهده وسیله پاسخ دهد؛ مثلاً «آیا باتری جداشدنی دارد؟» یا «تقریباً به اندازه یک کوله‌پشتی است؟»",
+      "en": "Instead of starting with technical categories, ask questions people can answer by looking at the item—for example, “Can you remove a battery?” or “Is it about the size of a backpack?”"
+    }
   }
 ]

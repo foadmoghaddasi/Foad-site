@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-08",
+  "date": "2026-08-15",
   "difficulty": {
     "fa": "متوسط",
     "en": "Intermediate"
@@ -9,47 +9,47 @@
     "en": "75–90 minutes"
   },
   "category": {
-    "fa": "طراحی خدمات و معماری اطلاعات",
-    "en": "Service Design & Information Architecture"
+    "fa": "طراحی خدمت و دسترس‌پذیری",
+    "en": "Service Design & Accessibility"
   },
   "title": {
-    "fa": "پیدا کردن مسیر مناسب برای بازیافت وسایل الکترونیکی",
-    "en": "Finding the Right Route for E-Waste Recycling"
+    "fa": "تحویل انعطاف‌پذیر بسته‌های امانتی",
+    "en": "Designing a Flexible Parcel Pickup"
   },
   "scenario": {
-    "fa": "یک مرکز شهری، باتری، کابل، لوازم کوچک الکترونیکی و وسایل بزرگ‌تر را از مردم دریافت می‌کند؛ اما هر نوع وسیله مسیر متفاوتی دارد. کاربران باید قبل از مراجعه بدانند چه چیزهایی پذیرفته می‌شود، وسیله را چگونه آماده کنند و آن را به کدام نقطه تحویل دهند. بسیاری از کاربران با اصطلاحات فنی آشنا نیستند یا ممکن است از تلفن همراه قدیمی و صفحه‌خوان استفاده کنند.",
-    "en": "A city service accepts batteries, cables, small electronics, and larger appliances, but each item follows a different handling route. Before visiting, people need to know whether an item is accepted, how to prepare it, and which drop-off point to use. Many users are unfamiliar with technical terms or may rely on an older phone or a screen reader."
+    "fa": "یک فروشگاه محلی بسته‌های خرید اینترنتی را به نقاط تحویل محله ارسال می‌کند. بعضی مشتریان در ساعات کاری نمی‌توانند مراجعه کنند، برخی از وسایل کمکی استفاده می‌کنند یا برای دریافت بسته به فرد دیگری نیاز دارند. تیم فروشگاه می‌خواهد فرایند تحویل را ساده‌تر، قابل‌پیش‌بینی‌تر و محترمانه‌تر کند؛ بدون آنکه از مشتری اطلاعات خصوصی غیرضروری بخواهد.",
+    "en": "A local shop sends online orders to neighborhood pickup points. Some customers cannot visit during business hours, some use mobility aids, and others need another person to collect a parcel for them. The shop wants a simpler, more predictable, and respectful pickup experience without asking customers for unnecessary private information."
   },
   "challenge": {
-    "fa": "یک تجربه وب یا موبایلی طراحی کنید که به کاربر کمک کند وسیله‌اش را شناسایی کند، شرایط پذیرش و آماده‌سازی را بفهمد و مناسب‌ترین مسیر تحویل را پیدا کند. برای مواردی که مرکز نمی‌پذیرد، جایگزین روشن و محترمانه ارائه دهید. روی کاهش سردرگمی و تصمیم‌گیری سریع تمرکز کنید، نه نمایش همه اطلاعات در یک صفحه.",
-    "en": "Design a web or mobile experience that helps people identify an item, understand acceptance and preparation requirements, and find the most suitable drop-off route. For items the service cannot accept, provide a clear and respectful alternative. Focus on reducing uncertainty and supporting quick decisions rather than putting every detail on one screen."
+    "fa": "فرایند دریافت بسته را از اطلاع‌رسانی آماده‌شدن تا تحویل نهایی بازطراحی کنید. راهی ارائه دهید که مشتری بتواند زمان یا روش مناسب دریافت را انتخاب کند، وضعیت بسته را بفهمد و در صورت نیاز، دریافت توسط فرد دیگری را با اطمینان مدیریت کند.",
+    "en": "Redesign the parcel pickup journey from the ready-for-collection notification through final handoff. Create a way for customers to choose a suitable pickup time or method, understand the parcel status, and safely manage collection by another person when needed."
   },
   "constraints": {
     "fa": [
-      "از فهرستی نمونه شامل باتری قلمی، کابل شارژ، تلفن همراه، چاپگر و یخچال استفاده کنید؛ امکان جست‌وجو یا انتخاب با زبان ساده را در نظر بگیرید.",
-      "حداقل دو مسیر متفاوت برای تحویل نشان دهید و برای هر مسیر، ساعات فعالیت و نیاز به آماده‌سازی را مشخص کنید.",
-      "رابط باید بدون رنگ به‌تنهایی قابل استفاده باشد، کنتراست مناسب داشته باشد و با صفحه‌خوان و صفحه‌کلید سازگار باشد. از درخواست اطلاعات شخصی خودداری کنید."
+      "فقط یک نقطه تحویل، یک سفارش و سه وضعیت اصلی را پوشش دهید: آماده، در انتظار دریافت، تحویل‌شده.",
+      "برای کاربران کم‌توان حرکتی یا افرادی که نمی‌توانند مدت زیادی منتظر بمانند، حداقل یک گزینه عملی در نظر بگیرید.",
+      "اطلاعات حساس مانند کد ملی، نشانی منزل یا جزئیات غیرضروری سفارش را درخواست نکنید."
     ],
     "en": [
-      "Use a sample list including AA batteries, a charging cable, a mobile phone, a printer, and a refrigerator; support search or plain-language selection.",
-      "Show at least two different drop-off routes and state the opening hours and preparation requirements for each.",
-      "The interface must not rely on color alone, should have strong contrast, and should work with screen readers and keyboards. Do not request personal information."
+      "Cover one pickup point, one order, and three main states: ready, awaiting collection, and collected.",
+      "Include at least one practical option for people with mobility limitations or anyone unable to wait for long.",
+      "Do not request sensitive or unnecessary details such as national ID, home address, or unrelated order information."
     ]
   },
   "deliverables": {
     "fa": [
-      "یک جریان کار کوتاه از ورود کاربر تا انتخاب مسیر تحویل، در ۴ تا ۶ گام.",
-      "دو یا سه صفحه یا حالت اصلی، شامل جست‌وجو یا انتخاب وسیله، نتیجه پذیرش و گزینه‌های تحویل.",
-      "یک یادداشت کوتاه درباره یک تصمیم طراحی، یک نیاز دسترس‌پذیری و یک فرضی که برای آزمودن آن به کاربر نیاز دارید."
+      "یک نقشه کوتاه از جریان کاربر با دست‌کم پنج گام و نقاط تصمیم اصلی.",
+      "دو تا چهار صفحه یا حالت رابط کاربری، شامل اعلان آماده‌شدن بسته و صفحه انتخاب روش یا زمان دریافت.",
+      "سه اصل یا تصمیم طراحی که دسترس‌پذیری، وضوح وضعیت و حفظ حریم خصوصی را توضیح می‌دهند."
     ],
     "en": [
-      "A short flow from entry to selected drop-off route, in 4–6 steps.",
-      "Two or three key screens or states, including item search or selection, acceptance results, and drop-off options.",
-      "A brief note explaining one design decision, one accessibility consideration, and one assumption you would test with a user."
+      "A concise user-flow map with at least five steps and the key decision points.",
+      "Two to four screens or interface states, including the ready notification and the pickup method or time selection screen.",
+      "Three design principles or decisions explaining how you addressed accessibility, status clarity, and privacy."
     ]
   },
   "hint": {
-    "fa": "به‌جای شروع با دسته‌بندی‌های تخصصی، از سؤال‌هایی استفاده کنید که کاربر بتواند با مشاهده وسیله پاسخ دهد؛ مثلاً «آیا باتری جداشدنی دارد؟» یا «تقریباً به اندازه یک کوله‌پشتی است؟»",
-    "en": "Instead of starting with technical categories, ask questions people can answer by looking at the item—for example, “Can you remove a battery?” or “Is it about the size of a backpack?”"
+    "fa": "ابتدا تفاوت بین «اطلاع از آماده‌شدن»، «انتخاب زمان یا روش» و «احراز تحویل» را جدا کنید. هر مرحله باید یک اقدام روشن، یک راه برگشت و یک پیام قابل‌فهم برای وضعیت بعدی داشته باشد.",
+    "en": "Start by separating notification, choosing a time or method, and confirming handoff. Each step should have one clear action, a way back, and an understandable message about what happens next."
   }
 }
