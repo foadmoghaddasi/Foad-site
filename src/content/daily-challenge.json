@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-15",
+  "date": "2026-08-22",
   "difficulty": {
     "fa": "متوسط",
     "en": "Intermediate"
@@ -9,47 +9,47 @@
     "en": "75–90 minutes"
   },
   "category": {
-    "fa": "طراحی خدمت و دسترس‌پذیری",
+    "fa": "طراحی خدمات و دسترس‌پذیری",
     "en": "Service Design & Accessibility"
   },
   "title": {
-    "fa": "تحویل انعطاف‌پذیر بسته‌های امانتی",
-    "en": "Designing a Flexible Parcel Pickup"
+    "fa": "مسیر ساده برای گزارش خرابی‌های شهری",
+    "en": "A Clear Path for Reporting Public-Space Problems"
   },
   "scenario": {
-    "fa": "یک فروشگاه محلی بسته‌های خرید اینترنتی را به نقاط تحویل محله ارسال می‌کند. بعضی مشتریان در ساعات کاری نمی‌توانند مراجعه کنند، برخی از وسایل کمکی استفاده می‌کنند یا برای دریافت بسته به فرد دیگری نیاز دارند. تیم فروشگاه می‌خواهد فرایند تحویل را ساده‌تر، قابل‌پیش‌بینی‌تر و محترمانه‌تر کند؛ بدون آنکه از مشتری اطلاعات خصوصی غیرضروری بخواهد.",
-    "en": "A local shop sends online orders to neighborhood pickup points. Some customers cannot visit during business hours, some use mobility aids, and others need another person to collect a parcel for them. The shop wants a simpler, more predictable, and respectful pickup experience without asking customers for unnecessary private information."
+    "fa": "ساکنان یک محله می‌توانند خرابی‌هایی مثل چراغ خاموش، تابلو افتاده یا چاله‌ی خطرناک را به شهرداری گزارش کنند؛ اما فرم فعلی طولانی است، معلوم نیست کدام دسته‌بندی مناسب است و کاربران بعد از ارسال نمی‌دانند درخواستشان چه سرنوشتی پیدا کرده است. برخی افراد هم به اینترنت پرسرعت، دوربین یا زبان رسمی سامانه دسترسی ندارند.",
+    "en": "Residents can report issues such as broken streetlights, fallen signs, or hazardous potholes to the city. However, the current form is long, its categories are confusing, and people do not know what happens after submitting a report. Some residents also have limited internet access, no camera, or prefer a language other than the service’s formal default."
   },
   "challenge": {
-    "fa": "فرایند دریافت بسته را از اطلاع‌رسانی آماده‌شدن تا تحویل نهایی بازطراحی کنید. راهی ارائه دهید که مشتری بتواند زمان یا روش مناسب دریافت را انتخاب کند، وضعیت بسته را بفهمد و در صورت نیاز، دریافت توسط فرد دیگری را با اطمینان مدیریت کند.",
-    "en": "Redesign the parcel pickup journey from the ready-for-collection notification through final handoff. Create a way for customers to choose a suitable pickup time or method, understand the parcel status, and safely manage collection by another person when needed."
+    "fa": "یک تجربه‌ی گزارش خرابی شهری را طراحی کنید که از تشخیص نوع مشکل تا دریافت تأیید و پیگیری وضعیت، برای افراد مختلف روشن و قابل‌اعتماد باشد. نشان دهید چگونه بدون اجباری‌کردن عکس یا جمع‌آوری اطلاعات غیرضروری، گزارش دقیق‌تری دریافت می‌کنید و در صورت نامشخص‌بودن دسته‌بندی، به کاربر کمک می‌کنید.",
+    "en": "Design a reporting experience that guides people from identifying a public-space problem through confirmation and status tracking. Show how you can collect useful details without requiring a photo or unnecessary personal information, and how the interface helps when the right category is unclear."
   },
   "constraints": {
     "fa": [
-      "فقط یک نقطه تحویل، یک سفارش و سه وضعیت اصلی را پوشش دهید: آماده، در انتظار دریافت، تحویل‌شده.",
-      "برای کاربران کم‌توان حرکتی یا افرادی که نمی‌توانند مدت زیادی منتظر بمانند، حداقل یک گزینه عملی در نظر بگیرید.",
-      "اطلاعات حساس مانند کد ملی، نشانی منزل یا جزئیات غیرضروری سفارش را درخواست نکنید."
+      "طراحی را برای صفحه‌ی موبایل در نظر بگیرید و یک مسیر جایگزین کم‌پهنای‌باند نیز پیشنهاد دهید.",
+      "عکس، شماره تلفن و موقعیت مکانی دقیق نباید اجباری باشند؛ برای هرکدام جایگزین یا توضیح مناسبی ارائه کنید.",
+      "وضعیت درخواست باید با زبان ساده و حداقل سه مرحله‌ی قابل‌فهم نمایش داده شود؛ از متن‌های سرزنش‌گر یا وعده‌ی زمان قطعی استفاده نکنید."
     ],
     "en": [
-      "Cover one pickup point, one order, and three main states: ready, awaiting collection, and collected.",
-      "Include at least one practical option for people with mobility limitations or anyone unable to wait for long.",
-      "Do not request sensitive or unnecessary details such as national ID, home address, or unrelated order information."
+      "Design for a mobile screen and propose one lower-bandwidth alternative.",
+      "A photo, phone number, and precise location must not be required; provide an alternative or clear explanation for each.",
+      "Show the request status in plain language with at least three understandable stages; avoid blame-oriented copy or guaranteed completion times."
     ]
   },
   "deliverables": {
     "fa": [
-      "یک نقشه کوتاه از جریان کاربر با دست‌کم پنج گام و نقاط تصمیم اصلی.",
-      "دو تا چهار صفحه یا حالت رابط کاربری، شامل اعلان آماده‌شدن بسته و صفحه انتخاب روش یا زمان دریافت.",
-      "سه اصل یا تصمیم طراحی که دسترس‌پذیری، وضوح وضعیت و حفظ حریم خصوصی را توضیح می‌دهند."
+      "یک فلو یا استوری‌برد کوتاه از ثبت گزارش تا پیگیری وضعیت",
+      "سه تا پنج وایرفریم موبایل، شامل حالت خطا یا اطلاعات ناقص",
+      "نمونه متن‌های رابط کاربری برای دسته‌بندی، تأیید ارسال و نمایش وضعیت، به‌همراه دو نکته درباره دسترس‌پذیری"
     ],
     "en": [
-      "A concise user-flow map with at least five steps and the key decision points.",
-      "Two to four screens or interface states, including the ready notification and the pickup method or time selection screen.",
-      "Three design principles or decisions explaining how you addressed accessibility, status clarity, and privacy."
+      "A short flow or storyboard from report creation to status tracking",
+      "Three to five mobile wireframes, including an error or incomplete-information state",
+      "Sample UI copy for categorization, submission confirmation, and status display, plus two accessibility notes"
     ]
   },
   "hint": {
-    "fa": "ابتدا تفاوت بین «اطلاع از آماده‌شدن»، «انتخاب زمان یا روش» و «احراز تحویل» را جدا کنید. هر مرحله باید یک اقدام روشن، یک راه برگشت و یک پیام قابل‌فهم برای وضعیت بعدی داشته باشد.",
-    "en": "Start by separating notification, choosing a time or method, and confirming handoff. Each step should have one clear action, a way back, and an understandable message about what happens next."
+    "fa": "به‌جای شروع با یک فرم طولانی، ابتدا از کاربر بپرسید چه اتفاقی افتاده و سپس فقط جزئیات مرتبط را نشان دهید. برای موقعیت مکانی، توضیح قابل‌مشاهده‌ی مکان یا نزدیک‌ترین نشانی شناخته‌شده می‌تواند کافی باشد.",
+    "en": "Instead of starting with a long form, first ask what happened and then reveal only relevant details. For location, a visible landmark or the nearest known address may be enough."
   }
 }

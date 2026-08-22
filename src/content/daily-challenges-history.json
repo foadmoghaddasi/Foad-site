@@ -278,5 +278,60 @@
       "fa": "به‌جای شروع با دسته‌بندی‌های تخصصی، از سؤال‌هایی استفاده کنید که کاربر بتواند با مشاهده وسیله پاسخ دهد؛ مثلاً «آیا باتری جداشدنی دارد؟» یا «تقریباً به اندازه یک کوله‌پشتی است؟»",
       "en": "Instead of starting with technical categories, ask questions people can answer by looking at the item—for example, “Can you remove a battery?” or “Is it about the size of a backpack?”"
     }
+  },
+  {
+    "date": "2026-08-15",
+    "difficulty": {
+      "fa": "متوسط",
+      "en": "Intermediate"
+    },
+    "timebox": {
+      "fa": "۷۵ تا ۹۰ دقیقه",
+      "en": "75–90 minutes"
+    },
+    "category": {
+      "fa": "طراحی خدمت و دسترس‌پذیری",
+      "en": "Service Design & Accessibility"
+    },
+    "title": {
+      "fa": "تحویل انعطاف‌پذیر بسته‌های امانتی",
+      "en": "Designing a Flexible Parcel Pickup"
+    },
+    "scenario": {
+      "fa": "یک فروشگاه محلی بسته‌های خرید اینترنتی را به نقاط تحویل محله ارسال می‌کند. بعضی مشتریان در ساعات کاری نمی‌توانند مراجعه کنند، برخی از وسایل کمکی استفاده می‌کنند یا برای دریافت بسته به فرد دیگری نیاز دارند. تیم فروشگاه می‌خواهد فرایند تحویل را ساده‌تر، قابل‌پیش‌بینی‌تر و محترمانه‌تر کند؛ بدون آنکه از مشتری اطلاعات خصوصی غیرضروری بخواهد.",
+      "en": "A local shop sends online orders to neighborhood pickup points. Some customers cannot visit during business hours, some use mobility aids, and others need another person to collect a parcel for them. The shop wants a simpler, more predictable, and respectful pickup experience without asking customers for unnecessary private information."
+    },
+    "challenge": {
+      "fa": "فرایند دریافت بسته را از اطلاع‌رسانی آماده‌شدن تا تحویل نهایی بازطراحی کنید. راهی ارائه دهید که مشتری بتواند زمان یا روش مناسب دریافت را انتخاب کند، وضعیت بسته را بفهمد و در صورت نیاز، دریافت توسط فرد دیگری را با اطمینان مدیریت کند.",
+      "en": "Redesign the parcel pickup journey from the ready-for-collection notification through final handoff. Create a way for customers to choose a suitable pickup time or method, understand the parcel status, and safely manage collection by another person when needed."
+    },
+    "constraints": {
+      "fa": [
+        "فقط یک نقطه تحویل، یک سفارش و سه وضعیت اصلی را پوشش دهید: آماده، در انتظار دریافت، تحویل‌شده.",
+        "برای کاربران کم‌توان حرکتی یا افرادی که نمی‌توانند مدت زیادی منتظر بمانند، حداقل یک گزینه عملی در نظر بگیرید.",
+        "اطلاعات حساس مانند کد ملی، نشانی منزل یا جزئیات غیرضروری سفارش را درخواست نکنید."
+      ],
+      "en": [
+        "Cover one pickup point, one order, and three main states: ready, awaiting collection, and collected.",
+        "Include at least one practical option for people with mobility limitations or anyone unable to wait for long.",
+        "Do not request sensitive or unnecessary details such as national ID, home address, or unrelated order information."
+      ]
+    },
+    "deliverables": {
+      "fa": [
+        "یک نقشه کوتاه از جریان کاربر با دست‌کم پنج گام و نقاط تصمیم اصلی.",
+        "دو تا چهار صفحه یا حالت رابط کاربری، شامل اعلان آماده‌شدن بسته و صفحه انتخاب روش یا زمان دریافت.",
+        "سه اصل یا تصمیم طراحی که دسترس‌پذیری، وضوح وضعیت و حفظ حریم خصوصی را توضیح می‌دهند."
+      ],
+      "en": [
+        "A concise user-flow map with at least five steps and the key decision points.",
+        "Two to four screens or interface states, including the ready notification and the pickup method or time selection screen.",
+        "Three design principles or decisions explaining how you addressed accessibility, status clarity, and privacy."
+      ]
+    },
+    "hint": {
+      "fa": "ابتدا تفاوت بین «اطلاع از آماده‌شدن»، «انتخاب زمان یا روش» و «احراز تحویل» را جدا کنید. هر مرحله باید یک اقدام روشن، یک راه برگشت و یک پیام قابل‌فهم برای وضعیت بعدی داشته باشد.",
+      "en": "Start by separating notification, choosing a time or method, and confirming handoff. Each step should have one clear action, a way back, and an understandable message about what happens next."
+    }
   }
 ]
