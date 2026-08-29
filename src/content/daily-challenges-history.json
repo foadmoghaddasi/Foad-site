@@ -333,5 +333,60 @@
       "fa": "ابتدا تفاوت بین «اطلاع از آماده‌شدن»، «انتخاب زمان یا روش» و «احراز تحویل» را جدا کنید. هر مرحله باید یک اقدام روشن، یک راه برگشت و یک پیام قابل‌فهم برای وضعیت بعدی داشته باشد.",
       "en": "Start by separating notification, choosing a time or method, and confirming handoff. Each step should have one clear action, a way back, and an understandable message about what happens next."
     }
+  },
+  {
+    "date": "2026-08-22",
+    "difficulty": {
+      "fa": "متوسط",
+      "en": "Intermediate"
+    },
+    "timebox": {
+      "fa": "۷۵ تا ۹۰ دقیقه",
+      "en": "75–90 minutes"
+    },
+    "category": {
+      "fa": "طراحی خدمات و دسترس‌پذیری",
+      "en": "Service Design & Accessibility"
+    },
+    "title": {
+      "fa": "مسیر ساده برای گزارش خرابی‌های شهری",
+      "en": "A Clear Path for Reporting Public-Space Problems"
+    },
+    "scenario": {
+      "fa": "ساکنان یک محله می‌توانند خرابی‌هایی مثل چراغ خاموش، تابلو افتاده یا چاله‌ی خطرناک را به شهرداری گزارش کنند؛ اما فرم فعلی طولانی است، معلوم نیست کدام دسته‌بندی مناسب است و کاربران بعد از ارسال نمی‌دانند درخواستشان چه سرنوشتی پیدا کرده است. برخی افراد هم به اینترنت پرسرعت، دوربین یا زبان رسمی سامانه دسترسی ندارند.",
+      "en": "Residents can report issues such as broken streetlights, fallen signs, or hazardous potholes to the city. However, the current form is long, its categories are confusing, and people do not know what happens after submitting a report. Some residents also have limited internet access, no camera, or prefer a language other than the service’s formal default."
+    },
+    "challenge": {
+      "fa": "یک تجربه‌ی گزارش خرابی شهری را طراحی کنید که از تشخیص نوع مشکل تا دریافت تأیید و پیگیری وضعیت، برای افراد مختلف روشن و قابل‌اعتماد باشد. نشان دهید چگونه بدون اجباری‌کردن عکس یا جمع‌آوری اطلاعات غیرضروری، گزارش دقیق‌تری دریافت می‌کنید و در صورت نامشخص‌بودن دسته‌بندی، به کاربر کمک می‌کنید.",
+      "en": "Design a reporting experience that guides people from identifying a public-space problem through confirmation and status tracking. Show how you can collect useful details without requiring a photo or unnecessary personal information, and how the interface helps when the right category is unclear."
+    },
+    "constraints": {
+      "fa": [
+        "طراحی را برای صفحه‌ی موبایل در نظر بگیرید و یک مسیر جایگزین کم‌پهنای‌باند نیز پیشنهاد دهید.",
+        "عکس، شماره تلفن و موقعیت مکانی دقیق نباید اجباری باشند؛ برای هرکدام جایگزین یا توضیح مناسبی ارائه کنید.",
+        "وضعیت درخواست باید با زبان ساده و حداقل سه مرحله‌ی قابل‌فهم نمایش داده شود؛ از متن‌های سرزنش‌گر یا وعده‌ی زمان قطعی استفاده نکنید."
+      ],
+      "en": [
+        "Design for a mobile screen and propose one lower-bandwidth alternative.",
+        "A photo, phone number, and precise location must not be required; provide an alternative or clear explanation for each.",
+        "Show the request status in plain language with at least three understandable stages; avoid blame-oriented copy or guaranteed completion times."
+      ]
+    },
+    "deliverables": {
+      "fa": [
+        "یک فلو یا استوری‌برد کوتاه از ثبت گزارش تا پیگیری وضعیت",
+        "سه تا پنج وایرفریم موبایل، شامل حالت خطا یا اطلاعات ناقص",
+        "نمونه متن‌های رابط کاربری برای دسته‌بندی، تأیید ارسال و نمایش وضعیت، به‌همراه دو نکته درباره دسترس‌پذیری"
+      ],
+      "en": [
+        "A short flow or storyboard from report creation to status tracking",
+        "Three to five mobile wireframes, including an error or incomplete-information state",
+        "Sample UI copy for categorization, submission confirmation, and status display, plus two accessibility notes"
+      ]
+    },
+    "hint": {
+      "fa": "به‌جای شروع با یک فرم طولانی، ابتدا از کاربر بپرسید چه اتفاقی افتاده و سپس فقط جزئیات مرتبط را نشان دهید. برای موقعیت مکانی، توضیح قابل‌مشاهده‌ی مکان یا نزدیک‌ترین نشانی شناخته‌شده می‌تواند کافی باشد.",
+      "en": "Instead of starting with a long form, first ask what happened and then reveal only relevant details. For location, a visible landmark or the nearest known address may be enough."
+    }
   }
 ]
