@@ -388,5 +388,60 @@
       "fa": "به‌جای شروع با یک فرم طولانی، ابتدا از کاربر بپرسید چه اتفاقی افتاده و سپس فقط جزئیات مرتبط را نشان دهید. برای موقعیت مکانی، توضیح قابل‌مشاهده‌ی مکان یا نزدیک‌ترین نشانی شناخته‌شده می‌تواند کافی باشد.",
       "en": "Instead of starting with a long form, first ask what happened and then reveal only relevant details. For location, a visible landmark or the nearest known address may be enough."
     }
+  },
+  {
+    "date": "2026-08-29",
+    "difficulty": {
+      "fa": "متوسط",
+      "en": "Intermediate"
+    },
+    "timebox": {
+      "fa": "۹۰ دقیقه",
+      "en": "90 minutes"
+    },
+    "category": {
+      "fa": "طراحی سرویس و معماری اطلاعات",
+      "en": "Service Design & Information Architecture"
+    },
+    "title": {
+      "fa": "پیدا کردن کلاس مناسب در مرکز محله",
+      "en": "Finding the Right Community-Center Class"
+    },
+    "scenario": {
+      "fa": "یک مرکز فرهنگی محله‌ای کلاس‌های رایگان و کم‌هزینه‌ای مانند زبان، نقاشی، تعمیرات ساده و مهارت‌های دیجیتال برگزار می‌کند. اطلاعات کلاس‌ها در پوسترها، کانال پیام‌رسان و یک صفحه وب پراکنده است. ساکنان باید بتوانند بدون تماس تلفنی، کلاس مناسب خود را پیدا کنند و از شرایط حضور، زمان برگزاری و ظرفیت باقی‌مانده مطمئن شوند.",
+      "en": "A neighborhood community center offers free and low-cost classes such as languages, painting, basic repairs, and digital skills. Class information is scattered across posters, a messaging channel, and a web page. Residents should be able to find a suitable class without calling, and clearly understand its schedule, requirements, accessibility details, and remaining availability."
+    },
+    "challenge": {
+      "fa": "یک تجربه دیجیتال برای جست‌وجو و مقایسه کلاس‌ها طراحی کنید. مسیر را برای فردی که فقط می‌داند «عصرها وقت دارم» و برای فردی که به اطلاعات دسترس‌پذیری یا پیش‌نیازهای کلاس نیاز دارد، ساده و قابل اعتماد کنید. نشان دهید کاربر چگونه کلاس را بررسی می‌کند و برای دریافت جای خود اقدام می‌کند.",
+      "en": "Design a digital experience for discovering and comparing classes. Make the journey clear for someone who only knows “I’m available in the evenings,” as well as for someone who needs accessibility information or class prerequisites. Show how a person reviews a class and requests a place."
+    },
+    "constraints": {
+      "fa": [
+        "حداکثر ۳ صفحه یا وضعیت اصلی طراحی کنید؛ می‌توانید از یک صفحه فهرست، فیلترها و صفحه جزئیات استفاده کنید.",
+        "فیلترها باید بر اساس زمان، موضوع، سطح و شیوه برگزاری حضوری یا آنلاین باشند؛ از فیلترهای بیش‌ازحد پرهیز کنید.",
+        "وضعیت‌های ظرفیت، فهرست انتظار، لغو کلاس و نیاز به پیش‌نیاز را شفاف و بدون ایجاد فوریت کاذب نمایش دهید."
+      ],
+      "en": [
+        "Design no more than three primary screens or states; these may include a listing, filters, and a details view.",
+        "Filters must cover time, topic, level, and in-person or online format; avoid overwhelming users with excessive options.",
+        "Clearly show availability, waitlist, cancellation, and prerequisite states without creating false urgency."
+      ]
+    },
+    "deliverables": {
+      "fa": [
+        "یک فلو یا نقشه کوتاه برای پیدا کردن و درخواست یک کلاس ارائه کنید.",
+        "سه صفحه یا وضعیت اصلی را با متن‌های واقعی و برچسب‌های قابل فهم طراحی کنید.",
+        "در ۳ تا ۵ نکته، تصمیم‌های خود درباره اولویت‌بندی اطلاعات، دسترس‌پذیری و حالت‌های ظرفیت را توضیح دهید."
+      ],
+      "en": [
+        "Provide a short flow or journey for finding and requesting a class.",
+        "Design three primary screens or states using realistic copy and understandable labels.",
+        "Explain your decisions about information hierarchy, accessibility, and availability states in 3–5 bullets."
+      ]
+    },
+    "hint": {
+      "fa": "اول مشخص کنید کاربر برای تصمیم‌گیری به چه اطلاعاتی نیاز دارد، نه اینکه مرکز فرهنگی چه اطلاعاتی می‌خواهد نمایش دهد. برای هر کلاس، زمان، مدت، سطح، هزینه، شیوه برگزاری، نیازمندی‌ها و امکانات دسترس‌پذیری را در یک الگوی ثابت قرار دهید.",
+      "en": "Start with what people need to decide, rather than what the center wants to publish. Use a consistent information pattern for every class: time, duration, level, cost, format, requirements, and accessibility options."
+    }
   }
 ]

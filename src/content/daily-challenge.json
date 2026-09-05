@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-29",
+  "date": "2026-09-05",
   "difficulty": {
     "fa": "متوسط",
     "en": "Intermediate"
@@ -9,47 +9,47 @@
     "en": "90 minutes"
   },
   "category": {
-    "fa": "طراحی سرویس و معماری اطلاعات",
-    "en": "Service Design & Information Architecture"
+    "fa": "طراحی خدمات و دسترس‌پذیری",
+    "en": "Service Design & Accessibility"
   },
   "title": {
-    "fa": "پیدا کردن کلاس مناسب در مرکز محله",
-    "en": "Finding the Right Community-Center Class"
+    "fa": "طراحی تجربه‌ای بهتر برای استفاده از دستگاه‌های خودپرداز",
+    "en": "Designing a Better ATM Visit"
   },
   "scenario": {
-    "fa": "یک مرکز فرهنگی محله‌ای کلاس‌های رایگان و کم‌هزینه‌ای مانند زبان، نقاشی، تعمیرات ساده و مهارت‌های دیجیتال برگزار می‌کند. اطلاعات کلاس‌ها در پوسترها، کانال پیام‌رسان و یک صفحه وب پراکنده است. ساکنان باید بتوانند بدون تماس تلفنی، کلاس مناسب خود را پیدا کنند و از شرایط حضور، زمان برگزاری و ظرفیت باقی‌مانده مطمئن شوند.",
-    "en": "A neighborhood community center offers free and low-cost classes such as languages, painting, basic repairs, and digital skills. Class information is scattered across posters, a messaging channel, and a web page. Residents should be able to find a suitable class without calling, and clearly understand its schedule, requirements, accessibility details, and remaining availability."
+    "fa": "یک بانک محلی می‌خواهد تجربه استفاده از خودپردازهایش را برای طیف گسترده‌ای از مشتریان بهتر کند. برخی افراد با صفحه‌خوان یا بزرگ‌نمایی کار می‌کنند، بعضی‌ها در خواندن متن‌های طولانی مشکل دارند و برخی دیگر هنگام انجام تراکنش به زمان بیشتری نیاز دارند. دستگاه‌ها باید در مکان‌های عمومی و شلوغ، ساده، قابل‌فهم و امن باقی بمانند؛ بدون اینکه کاربران مجبور شوند نیاز خود را برای دیگران توضیح دهند.",
+    "en": "A local bank wants to improve the ATM experience for a wide range of customers. Some people use screen readers or magnification, others struggle with long text, and some need more time to complete a transaction. ATMs must remain simple, understandable, and safe in busy public places—without requiring people to explain their needs to anyone nearby."
   },
   "challenge": {
-    "fa": "یک تجربه دیجیتال برای جست‌وجو و مقایسه کلاس‌ها طراحی کنید. مسیر را برای فردی که فقط می‌داند «عصرها وقت دارم» و برای فردی که به اطلاعات دسترس‌پذیری یا پیش‌نیازهای کلاس نیاز دارد، ساده و قابل اعتماد کنید. نشان دهید کاربر چگونه کلاس را بررسی می‌کند و برای دریافت جای خود اقدام می‌کند.",
-    "en": "Design a digital experience for discovering and comparing classes. Make the journey clear for someone who only knows “I’m available in the evenings,” as well as for someone who needs accessibility information or class prerequisites. Show how a person reviews a class and requests a place."
+    "fa": "یک جریان کار برای برداشت وجه نقد یا مشاهده موجودی طراحی کنید که از شروع تا پایان، برای کاربران با توانایی‌ها و سرعت‌های مختلف قابل استفاده باشد. روی ساختار مراحل، پیام‌های راهنما، بازخورد خطا، گزینه‌های دسترس‌پذیری و پایان امن تراکنش تمرکز کنید. توضیح دهید کدام تصمیم‌های شما بیشترین کاهش سردرگمی یا اضطراب را ایجاد می‌کنند.",
+    "en": "Design a flow for either withdrawing cash or checking a balance that works from start to finish for people with different abilities and speeds. Focus on step structure, instructional copy, error feedback, accessibility options, and a secure end to the session. Explain which decisions most reduce confusion or anxiety."
   },
   "constraints": {
     "fa": [
-      "حداکثر ۳ صفحه یا وضعیت اصلی طراحی کنید؛ می‌توانید از یک صفحه فهرست، فیلترها و صفحه جزئیات استفاده کنید.",
-      "فیلترها باید بر اساس زمان، موضوع، سطح و شیوه برگزاری حضوری یا آنلاین باشند؛ از فیلترهای بیش‌ازحد پرهیز کنید.",
-      "وضعیت‌های ظرفیت، فهرست انتظار، لغو کلاس و نیاز به پیش‌نیاز را شفاف و بدون ایجاد فوریت کاذب نمایش دهید."
+      "فقط یکی از دو جریان «برداشت وجه» یا «مشاهده موجودی» را انتخاب کنید.",
+      "حداکثر ۵ مرحله اصلی طراحی کنید و در هر مرحله یک اقدام غالب داشته باشید.",
+      "راهکار باید بدون نیاز به کمک کارکنان قابل انجام باشد و متن‌ها کوتاه و ساده باشند."
     ],
     "en": [
-      "Design no more than three primary screens or states; these may include a listing, filters, and a details view.",
-      "Filters must cover time, topic, level, and in-person or online format; avoid overwhelming users with excessive options.",
-      "Clearly show availability, waitlist, cancellation, and prerequisite states without creating false urgency."
+      "Choose only one flow: cash withdrawal or balance checking.",
+      "Use no more than five main steps, with one primary action per step.",
+      "The flow must be completable without staff assistance, using short, plain-language copy."
     ]
   },
   "deliverables": {
     "fa": [
-      "یک فلو یا نقشه کوتاه برای پیدا کردن و درخواست یک کلاس ارائه کنید.",
-      "سه صفحه یا وضعیت اصلی را با متن‌های واقعی و برچسب‌های قابل فهم طراحی کنید.",
-      "در ۳ تا ۵ نکته، تصمیم‌های خود درباره اولویت‌بندی اطلاعات، دسترس‌پذیری و حالت‌های ظرفیت را توضیح دهید."
+      "یک فلوچارت یا نقشه مراحل با حداکثر ۵ مرحله.",
+      "سه تا پنج وایرفریم برای صفحه‌های کلیدی، همراه با متن دکمه‌ها و پیام‌های خطا.",
+      "یک یادداشت کوتاه درباره حداقل سه نیاز دسترس‌پذیری و نحوه پشتیبانی از آن‌ها."
     ],
     "en": [
-      "Provide a short flow or journey for finding and requesting a class.",
-      "Design three primary screens or states using realistic copy and understandable labels.",
-      "Explain your decisions about information hierarchy, accessibility, and availability states in 3–5 bullets."
+      "A flowchart or step map with no more than five stages.",
+      "Three to five wireframes for key screens, including button labels and error messages.",
+      "A short note describing at least three accessibility needs and how the design supports them."
     ]
   },
   "hint": {
-    "fa": "اول مشخص کنید کاربر برای تصمیم‌گیری به چه اطلاعاتی نیاز دارد، نه اینکه مرکز فرهنگی چه اطلاعاتی می‌خواهد نمایش دهد. برای هر کلاس، زمان، مدت، سطح، هزینه، شیوه برگزاری، نیازمندی‌ها و امکانات دسترس‌پذیری را در یک الگوی ثابت قرار دهید.",
-    "en": "Start with what people need to decide, rather than what the center wants to publish. Use a consistent information pattern for every class: time, duration, level, cost, format, requirements, and accessibility options."
+    "fa": "به حالت‌های مختلف پایان جلسه، لغو تراکنش، زمان‌تمام‌شدن و باقی‌ماندن کارت فکر کنید. دسترس‌پذیری را فقط به رنگ و اندازه متن محدود نکنید؛ ترتیب تمرکز، بازخورد صوتی و امکان تکرار پیام‌ها هم مهم‌اند.",
+    "en": "Consider different session endings, cancellation, timeouts, and what happens if a card is left behind. Accessibility is more than color and text size: focus order, audio feedback, and the ability to replay instructions also matter."
   }
 }
