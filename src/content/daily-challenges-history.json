@@ -498,5 +498,60 @@
       "fa": "به حالت‌های مختلف پایان جلسه، لغو تراکنش، زمان‌تمام‌شدن و باقی‌ماندن کارت فکر کنید. دسترس‌پذیری را فقط به رنگ و اندازه متن محدود نکنید؛ ترتیب تمرکز، بازخورد صوتی و امکان تکرار پیام‌ها هم مهم‌اند.",
       "en": "Consider different session endings, cancellation, timeouts, and what happens if a card is left behind. Accessibility is more than color and text size: focus order, audio feedback, and the ability to replay instructions also matter."
     }
+  },
+  {
+    "date": "2026-09-12",
+    "difficulty": {
+      "fa": "متوسط",
+      "en": "Intermediate"
+    },
+    "timebox": {
+      "fa": "۷۵ دقیقه",
+      "en": "75 minutes"
+    },
+    "category": {
+      "fa": "طراحی تعامل و دسترس‌پذیری",
+      "en": "Interaction Design & Accessibility"
+    },
+    "title": {
+      "fa": "خرید بدون دردسر از بازارچه محلی",
+      "en": "A Calmer Way to Shop at a Local Market"
+    },
+    "scenario": {
+      "fa": "یک بازارچه محلی هر هفته چندین غرفه فروش محصولات تازه، نان و کالاهای دست‌ساز دارد. بازدیدکنندگان می‌توانند فهرست غرفه‌ها و زمان برگزاری را در وب‌سایت بازارچه ببینند، اما پیدا کردن فروشندگان مناسب، مقایسه گزینه‌ها و فهمیدن شرایط دسترسی برای بسیاری از افراد دشوار است. برگزارکنندگان می‌خواهند تجربه برنامه‌ریزی پیش از حضور را بهتر کنند، بدون اینکه فروشندگان مجبور شوند اطلاعات پیچیده‌ای وارد کنند.",
+      "en": "A neighborhood market hosts stalls selling fresh produce, baked goods, and handmade items each week. Visitors can see the market schedule and stall list on its website, but many struggle to find relevant vendors, compare options, and understand accessibility details. Organizers want to improve planning before arrival without requiring vendors to maintain complicated listings."
+    },
+    "challenge": {
+      "fa": "یک جریان تجربه برای پیدا کردن و انتخاب غرفه‌های مناسب طراحی کنید. کاربر باید بتواند بر اساس دسته‌بندی، نیازهای دسترسی و ترجیحات ساده‌ای مثل خرید سریع یا امکان پرداخت کارت، گزینه‌ها را بررسی کند و پیش از مراجعه تصمیم بگیرد. روی ساختار اطلاعات، فیلترها، نمایش وضعیت اطلاعات ناقص و مسیر بازگشت یا تغییر انتخاب تمرکز کنید.",
+      "en": "Design a user flow for discovering and choosing suitable market stalls. Users should be able to browse by category, accessibility needs, and simple preferences such as a quick visit or card payment, then make an informed decision before arriving. Focus on information architecture, filters, incomplete information states, and the ability to revise choices."
+    },
+    "constraints": {
+      "fa": [
+        "راهکار باید برای موبایل طراحی شود و بدون ساخت حساب کاربری قابل استفاده باشد.",
+        "حداقل سه نیاز دسترسی را پوشش دهید؛ مانند مسیر هم‌سطح، فضای کم‌ازدحام یا امکان نشستن.",
+        "اگر اطلاعات یک غرفه تأیید نشده یا موجود نیست، آن را شفاف و محترمانه نمایش دهید؛ حدس نزنید و وعده قطعی ندهید."
+      ],
+      "en": [
+        "Design for mobile and make the core flow usable without creating an account.",
+        "Cover at least three accessibility needs, such as step-free access, a lower-crowd area, or seating availability.",
+        "When stall information is unverified or missing, communicate that clearly and respectfully; do not guess or make guarantees."
+      ]
+    },
+    "deliverables": {
+      "fa": [
+        "یک جریان کار یا نقشه تجربه از ورود تا انتخاب یک یا چند غرفه.",
+        "دو تا چهار صفحه کلیدی با وضعیت فیلتر فعال، نتیجه بدون مورد مناسب و اطلاعات ناقص.",
+        "یادداشت کوتاهی درباره اینکه چگونه دسترس‌پذیری، زبان ساده و اعتماد کاربر را در طراحی در نظر گرفته‌اید."
+      ],
+      "en": [
+        "A user flow or journey map from entry to selecting one or more stalls.",
+        "Two to four key screens showing an active filter state, no suitable results, and incomplete information.",
+        "A brief rationale explaining how you addressed accessibility, plain language, and user trust."
+      ]
+    },
+    "hint": {
+      "fa": "فیلتر را به‌عنوان تصمیمی قابل بازبینی طراحی کنید، نه فرم طولانی. کنار هر ویژگی مشخص کنید اطلاعات از چه زمانی و توسط چه کسی تأیید شده است.",
+      "en": "Treat filters as revisable decisions rather than a long form. For each attribute, show when and by whom the information was last confirmed."
+    }
   }
 ]
