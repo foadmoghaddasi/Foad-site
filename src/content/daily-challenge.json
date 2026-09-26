@@ -1,55 +1,55 @@
 {
-  "date": "2026-09-19",
+  "date": "2026-09-26",
   "difficulty": {
     "fa": "متوسط",
     "en": "Intermediate"
   },
   "timebox": {
-    "fa": "۶۰ تا ۹۰ دقیقه",
-    "en": "60–90 minutes"
+    "fa": "۹۰ دقیقه",
+    "en": "90 minutes"
   },
   "category": {
-    "fa": "طراحی خدمات و دسترس‌پذیری",
-    "en": "Service Design & Accessibility"
+    "fa": "طراحی خدمت و تعامل",
+    "en": "Service and interaction design"
   },
   "title": {
-    "fa": "مسیریابی فراگیر برای جشنواره‌ای شلوغ",
-    "en": "Inclusive Wayfinding for a Busy Festival"
+    "fa": "امانت گرفتن ابزار از کتابخانهٔ ابزار محله",
+    "en": "Borrowing a Tool from the Neighborhood Tool Library"
   },
   "scenario": {
-    "fa": "یک جشنوارهٔ فرهنگی محلی در چند فضای باز و سرپوشیده برگزار می‌شود. بازدیدکنندگان باید بتوانند برنامه‌ها، ورودی‌های مناسب، سرویس‌های بهداشتی، محل استراحت و مسیرهای کم‌پله را پیدا کنند. برگزارکنندگان می‌خواهند اطلاعاتی ارائه دهند که برای افراد کم‌توان حرکتی، سالمندان، والدین همراه کودک و کسانی که برای نخستین‌بار به جشنواره می‌آیند مفید باشد؛ بدون اینکه از آن‌ها اطلاعات شخصی یا موقعیت مکانی دقیق جمع‌آوری شود.",
-    "en": "A local cultural festival takes place across several indoor and outdoor areas. Visitors need to find activities, suitable entrances, restrooms, rest areas, and routes with fewer stairs. The organizers want information that works for people with mobility needs, older adults, caregivers with children, and first-time visitors—without collecting personal information or precise location data."
+    "fa": "یک کتابخانهٔ ابزار محله‌ای، وسایلی مانند دریل، نردبان کوتاه و ابزار باغبانی را برای چند روز امانت می‌دهد. مراجعه‌کنندگان باید بتوانند ابزار مناسب را پیدا کنند، از موجود بودن آن مطمئن شوند و بدون سردرگمی از زمان و شیوهٔ تحویل و بازگرداندن آن آگاه شوند. برخی کاربران تجربهٔ کمی با ابزار دارند یا برای خواندن متن‌های طولانی و جابه‌جایی وسایل به کمک نیاز دارند.",
+    "en": "A neighborhood tool library lends items such as drills, short ladders, and gardening tools for several days. Visitors need to find a suitable tool, confirm that it is available, and understand when and how to collect and return it without confusion. Some users have limited tool experience or need support with long text and moving equipment."
   },
   "challenge": {
-    "fa": "یک تجربهٔ ساده برای پیدا کردن و انتخاب مسیر مناسب در جشنواره طراحی کنید. نشان دهید کاربر چگونه مقصد یا برنامهٔ موردنظرش را پیدا می‌کند، محدودیت‌های مسیر را می‌بیند، و در صورت بسته‌شدن موقت یک مسیر چه گزینهٔ جایگزینی دریافت می‌کند. روی تصمیم‌های اصلی و کاهش ابهام تمرکز کنید، نه طراحی کامل همهٔ صفحات.",
-    "en": "Design a simple experience that helps visitors find and choose a suitable route through the festival. Show how someone finds a destination or event, understands route limitations, and receives an alternative when a path is temporarily closed. Focus on key decisions and reducing uncertainty rather than designing every screen."
+    "fa": "یک تجربهٔ ساده برای پیدا کردن و امانت گرفتن یک ابزار طراحی کنید. جریان کاربر را از جست‌وجو یا مرور ابزارها تا تأیید امانت، تحویل و یادآوری بازگرداندن مشخص کنید. نشان دهید محصول چگونه به کاربر کمک می‌کند تفاوت ابزارهای مشابه، وزن یا اندازهٔ وسیله، مدت امانت و گزینه‌های دریافت را بفهمد. برای یک وضعیت جایگزین—تمام شدن موجودی، دیرکرد در بازگرداندن یا مناسب نبودن ابزار برای کاربر—راه‌حل ارائه دهید.",
+    "en": "Design a simple experience for finding and borrowing a tool. Map the user journey from searching or browsing tools through borrowing confirmation, collection, and return reminders. Show how the product helps people understand differences between similar tools, an item’s size or weight, the loan period, and collection options. Provide a solution for one alternate state: the item is unavailable, a return is overdue, or the tool is not suitable for the user’s task."
   },
   "constraints": {
     "fa": [
-      "تجربه باید بدون ساخت حساب کاربری و بدون درخواست موقعیت مکانی دقیق قابل استفاده باشد.",
-      "حداقل دو نیاز دسترس‌پذیری را در نظر بگیرید؛ مانند مسیر کم‌پله، کنتراست بالا، متن ساده یا سازگاری با صفحه‌خوان.",
-      "اطلاعات مسیر باید بر اساس داده‌های قابل‌اعتماد و زمان آخرین به‌روزرسانی نمایش داده شود؛ از وعدهٔ دسترسی کاملاً بی‌نقص پرهیز کنید."
+      "راه‌حل را برای موبایل یا وب واکنش‌گرا طراحی کنید و حداکثر پنج صفحه یا مرحلهٔ اصلی داشته باشید.",
+      "از زبان ساده، اندازهٔ متن خوانا و وضعیت‌های واضح برای موجودی، زمان تحویل و موعد بازگرداندن استفاده کنید.",
+      "فرآیند نباید به سابقهٔ خصوصی کاربر یا شناخت قبلی او از ابزارها وابسته باشد؛ راهنمای ایمنی کوتاه و غیرترساننده ارائه دهید."
     ],
     "en": [
-      "The experience must work without account creation or requesting precise location access.",
-      "Address at least two accessibility needs, such as fewer stairs, high contrast, plain language, or screen-reader compatibility.",
-      "Show when route information was last updated and rely on clearly labeled, trustworthy information; do not promise perfect accessibility."
+      "Design for mobile or responsive web, with no more than five main screens or steps.",
+      "Use plain language, readable type, and clear states for availability, collection time, and return due date.",
+      "Do not rely on private user history or prior tool knowledge; include a brief, non-alarming safety note."
     ]
   },
   "deliverables": {
     "fa": [
-      "یک فلو یا استوری‌بورد ۴ تا ۶ مرحله‌ای برای سناریوی اصلی.",
-      "دو یا سه وایرفریم با توضیح کوتاه دربارهٔ محتوای ضروری و اولویت آن‌ها.",
-      "فهرستی از سه تصمیم طراحی و یک ریسک یا پرسش باز برای آزمون با کاربران."
+      "یک نقشهٔ جریان یا استوری‌بورد کوتاه از مسیر اصلی و یک وضعیت جایگزین.",
+      "دو تا چهار وایرفریم یا طرح رابط برای مرور ابزار، جزئیات ابزار و تأیید امانت.",
+      "سه تصمیم طراحی را همراه با دلیل، از جمله حداقل یک تصمیم مرتبط با دسترس‌پذیری، توضیح دهید."
     ],
     "en": [
-      "A 4–6-step flow or storyboard for the primary scenario.",
-      "Two or three wireframes with brief notes on essential content and its priority.",
-      "A list of three design decisions and one risk or open question to test with users."
+      "A short flow map or storyboard for the happy path and one alternate state.",
+      "Two to four wireframes or interface screens covering tool browsing, tool details, and borrowing confirmation.",
+      "A brief rationale for three design decisions, including at least one accessibility decision."
     ]
   },
   "hint": {
-    "fa": "به‌جای نمایش یک نقشهٔ پیچیده، ابتدا مقصد، نیازهای مسیر و میزان اطمینان به اطلاعات را روشن کنید. برای هر نماد، یک برچسب متنی و معنای قابل‌فهم در نظر بگیرید.",
-    "en": "Instead of starting with a complex map, clarify the destination, route needs, and confidence in the information. Give every icon a plain-text label and an understandable meaning."
+    "fa": "قبل از طراحی صفحه‌ها، نیازهای تصمیم‌گیری کاربر را فهرست کنید: آیا این ابزار برای کار من مناسب است؟ چه زمانی و چگونه آن را تحویل می‌گیرم؟ اگر برنامه‌ام تغییر کرد، چه گزینه‌ای دارم؟",
+    "en": "Before drawing screens, list the decisions a user must make: Is this tool suitable for my task? When and how will I collect it? What can I do if my plans change?"
   }
 }

@@ -553,5 +553,60 @@
       "fa": "فیلتر را به‌عنوان تصمیمی قابل بازبینی طراحی کنید، نه فرم طولانی. کنار هر ویژگی مشخص کنید اطلاعات از چه زمانی و توسط چه کسی تأیید شده است.",
       "en": "Treat filters as revisable decisions rather than a long form. For each attribute, show when and by whom the information was last confirmed."
     }
+  },
+  {
+    "date": "2026-09-19",
+    "difficulty": {
+      "fa": "متوسط",
+      "en": "Intermediate"
+    },
+    "timebox": {
+      "fa": "۶۰ تا ۹۰ دقیقه",
+      "en": "60–90 minutes"
+    },
+    "category": {
+      "fa": "طراحی خدمات و دسترس‌پذیری",
+      "en": "Service Design & Accessibility"
+    },
+    "title": {
+      "fa": "مسیریابی فراگیر برای جشنواره‌ای شلوغ",
+      "en": "Inclusive Wayfinding for a Busy Festival"
+    },
+    "scenario": {
+      "fa": "یک جشنوارهٔ فرهنگی محلی در چند فضای باز و سرپوشیده برگزار می‌شود. بازدیدکنندگان باید بتوانند برنامه‌ها، ورودی‌های مناسب، سرویس‌های بهداشتی، محل استراحت و مسیرهای کم‌پله را پیدا کنند. برگزارکنندگان می‌خواهند اطلاعاتی ارائه دهند که برای افراد کم‌توان حرکتی، سالمندان، والدین همراه کودک و کسانی که برای نخستین‌بار به جشنواره می‌آیند مفید باشد؛ بدون اینکه از آن‌ها اطلاعات شخصی یا موقعیت مکانی دقیق جمع‌آوری شود.",
+      "en": "A local cultural festival takes place across several indoor and outdoor areas. Visitors need to find activities, suitable entrances, restrooms, rest areas, and routes with fewer stairs. The organizers want information that works for people with mobility needs, older adults, caregivers with children, and first-time visitors—without collecting personal information or precise location data."
+    },
+    "challenge": {
+      "fa": "یک تجربهٔ ساده برای پیدا کردن و انتخاب مسیر مناسب در جشنواره طراحی کنید. نشان دهید کاربر چگونه مقصد یا برنامهٔ موردنظرش را پیدا می‌کند، محدودیت‌های مسیر را می‌بیند، و در صورت بسته‌شدن موقت یک مسیر چه گزینهٔ جایگزینی دریافت می‌کند. روی تصمیم‌های اصلی و کاهش ابهام تمرکز کنید، نه طراحی کامل همهٔ صفحات.",
+      "en": "Design a simple experience that helps visitors find and choose a suitable route through the festival. Show how someone finds a destination or event, understands route limitations, and receives an alternative when a path is temporarily closed. Focus on key decisions and reducing uncertainty rather than designing every screen."
+    },
+    "constraints": {
+      "fa": [
+        "تجربه باید بدون ساخت حساب کاربری و بدون درخواست موقعیت مکانی دقیق قابل استفاده باشد.",
+        "حداقل دو نیاز دسترس‌پذیری را در نظر بگیرید؛ مانند مسیر کم‌پله، کنتراست بالا، متن ساده یا سازگاری با صفحه‌خوان.",
+        "اطلاعات مسیر باید بر اساس داده‌های قابل‌اعتماد و زمان آخرین به‌روزرسانی نمایش داده شود؛ از وعدهٔ دسترسی کاملاً بی‌نقص پرهیز کنید."
+      ],
+      "en": [
+        "The experience must work without account creation or requesting precise location access.",
+        "Address at least two accessibility needs, such as fewer stairs, high contrast, plain language, or screen-reader compatibility.",
+        "Show when route information was last updated and rely on clearly labeled, trustworthy information; do not promise perfect accessibility."
+      ]
+    },
+    "deliverables": {
+      "fa": [
+        "یک فلو یا استوری‌بورد ۴ تا ۶ مرحله‌ای برای سناریوی اصلی.",
+        "دو یا سه وایرفریم با توضیح کوتاه دربارهٔ محتوای ضروری و اولویت آن‌ها.",
+        "فهرستی از سه تصمیم طراحی و یک ریسک یا پرسش باز برای آزمون با کاربران."
+      ],
+      "en": [
+        "A 4–6-step flow or storyboard for the primary scenario.",
+        "Two or three wireframes with brief notes on essential content and its priority.",
+        "A list of three design decisions and one risk or open question to test with users."
+      ]
+    },
+    "hint": {
+      "fa": "به‌جای نمایش یک نقشهٔ پیچیده، ابتدا مقصد، نیازهای مسیر و میزان اطمینان به اطلاعات را روشن کنید. برای هر نماد، یک برچسب متنی و معنای قابل‌فهم در نظر بگیرید.",
+      "en": "Instead of starting with a complex map, clarify the destination, route needs, and confidence in the information. Give every icon a plain-text label and an understandable meaning."
+    }
   }
 ]
