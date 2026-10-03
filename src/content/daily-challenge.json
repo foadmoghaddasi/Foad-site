@@ -1,55 +1,55 @@
 {
-  "date": "2026-09-26",
+  "date": "2026-10-03",
   "difficulty": {
     "fa": "متوسط",
     "en": "Intermediate"
   },
   "timebox": {
-    "fa": "۹۰ دقیقه",
-    "en": "90 minutes"
+    "fa": "۷۵ تا ۹۰ دقیقه",
+    "en": "75–90 minutes"
   },
   "category": {
-    "fa": "طراحی خدمت و تعامل",
-    "en": "Service and interaction design"
+    "fa": "طراحی تعامل و دسترس‌پذیری",
+    "en": "Interaction Design & Accessibility"
   },
   "title": {
-    "fa": "امانت گرفتن ابزار از کتابخانهٔ ابزار محله",
-    "en": "Borrowing a Tool from the Neighborhood Tool Library"
+    "fa": "راهنمای فراگیر برای بازدید از یک نمایشگاه",
+    "en": "An Inclusive Guide to Exploring an Exhibition"
   },
   "scenario": {
-    "fa": "یک کتابخانهٔ ابزار محله‌ای، وسایلی مانند دریل، نردبان کوتاه و ابزار باغبانی را برای چند روز امانت می‌دهد. مراجعه‌کنندگان باید بتوانند ابزار مناسب را پیدا کنند، از موجود بودن آن مطمئن شوند و بدون سردرگمی از زمان و شیوهٔ تحویل و بازگرداندن آن آگاه شوند. برخی کاربران تجربهٔ کمی با ابزار دارند یا برای خواندن متن‌های طولانی و جابه‌جایی وسایل به کمک نیاز دارند.",
-    "en": "A neighborhood tool library lends items such as drills, short ladders, and gardening tools for several days. Visitors need to find a suitable tool, confirm that it is available, and understand when and how to collect and return it without confusion. Some users have limited tool experience or need support with long text and moving equipment."
+    "fa": "یک موزهٔ محلی نمایشگاه کوچکی دربارهٔ زندگی روزمره در محله برگزار کرده است. بازدیدکنندگان می‌توانند از توضیحات چاپی، فایل صوتی و چند عنصر لمسی استفاده کنند، اما در حال حاضر نمی‌دانند هر اثر چه نوع محتوایی دارد یا از کجا باید شروع کنند. برخی بازدیدکنندگان کم‌بینا یا ناشنوا هستند، بعضی با زبان اصلی نمایشگاه آشنایی ندارند و برخی ترجیح می‌دهند بدون استفاده از تلفن همراه از نمایشگاه بازدید کنند.",
+    "en": "A local museum is hosting a small exhibition about everyday life in the neighborhood. Visitors can use printed descriptions, audio content, and several tactile elements, but they currently do not know which formats are available for each exhibit or where to begin. Some visitors are blind or have low vision, some are not familiar with the exhibition’s primary language, and others prefer to explore without using a phone."
   },
   "challenge": {
-    "fa": "یک تجربهٔ ساده برای پیدا کردن و امانت گرفتن یک ابزار طراحی کنید. جریان کاربر را از جست‌وجو یا مرور ابزارها تا تأیید امانت، تحویل و یادآوری بازگرداندن مشخص کنید. نشان دهید محصول چگونه به کاربر کمک می‌کند تفاوت ابزارهای مشابه، وزن یا اندازهٔ وسیله، مدت امانت و گزینه‌های دریافت را بفهمد. برای یک وضعیت جایگزین—تمام شدن موجودی، دیرکرد در بازگرداندن یا مناسب نبودن ابزار برای کاربر—راه‌حل ارائه دهید.",
-    "en": "Design a simple experience for finding and borrowing a tool. Map the user journey from searching or browsing tools through borrowing confirmation, collection, and return reminders. Show how the product helps people understand differences between similar tools, an item’s size or weight, the loan period, and collection options. Provide a solution for one alternate state: the item is unavailable, a return is overdue, or the tool is not suitable for the user’s task."
+    "fa": "یک تجربهٔ راهنما طراحی کنید که پیش از ورود و در طول بازدید، گزینه‌های دسترس‌پذیر هر بخش را به‌وضوح معرفی کند و به افراد اجازه دهد مسیر و شیوهٔ دریافت اطلاعات را خودشان انتخاب کنند. روی یک صفحهٔ معرفی نمایشگاه و یک جریان کوتاه در محل تمرکز کنید؛ لازم نیست کل وب‌سایت یا هویت بصری موزه را طراحی کنید.",
+    "en": "Design a guidance experience that clearly presents the accessible options for each part of the exhibition before and during the visit, while letting people choose their own route and way of receiving information. Focus on one exhibition overview screen and a short on-site flow; you do not need to design the museum’s entire website or visual identity."
   },
   "constraints": {
     "fa": [
-      "راه‌حل را برای موبایل یا وب واکنش‌گرا طراحی کنید و حداکثر پنج صفحه یا مرحلهٔ اصلی داشته باشید.",
-      "از زبان ساده، اندازهٔ متن خوانا و وضعیت‌های واضح برای موجودی، زمان تحویل و موعد بازگرداندن استفاده کنید.",
-      "فرآیند نباید به سابقهٔ خصوصی کاربر یا شناخت قبلی او از ابزارها وابسته باشد؛ راهنمای ایمنی کوتاه و غیرترساننده ارائه دهید."
+      "برای هر اثر، دست‌کم سه شیوهٔ دریافت اطلاعات را در نظر بگیرید؛ مانند متن ساده، صوت، زبان اشاره، ترجمه یا توضیح لمسی.",
+      "کاربر نباید برای فهمیدن گزینه‌های اصلی به ثبت‌نام، ساخت حساب کاربری یا استفاده از تلفن هوشمند نیاز داشته باشد.",
+      "از نشانه‌گذاری واضح، کنتراست مناسب، متن قابل فهم و وضعیت‌های قابل تشخیص برای افرادی با توانایی‌ها و زبان‌های مختلف استفاده کنید."
     ],
     "en": [
-      "Design for mobile or responsive web, with no more than five main screens or steps.",
-      "Use plain language, readable type, and clear states for availability, collection time, and return due date.",
-      "Do not rely on private user history or prior tool knowledge; include a brief, non-alarming safety note."
+      "For each exhibit, account for at least three ways to receive information, such as plain text, audio, sign language, translation, or a tactile description.",
+      "Users must not need to sign up, create an account, or use a smartphone to understand the main options.",
+      "Use clear labeling, appropriate contrast, plain language, and recognizable states for people with different abilities and language needs."
     ]
   },
   "deliverables": {
     "fa": [
-      "یک نقشهٔ جریان یا استوری‌بورد کوتاه از مسیر اصلی و یک وضعیت جایگزین.",
-      "دو تا چهار وایرفریم یا طرح رابط برای مرور ابزار، جزئیات ابزار و تأیید امانت.",
-      "سه تصمیم طراحی را همراه با دلیل، از جمله حداقل یک تصمیم مرتبط با دسترس‌پذیری، توضیح دهید."
+      "یک وایرفریم یا طرح صفحهٔ معرفی نمایشگاه، شامل انتخاب زبان، قالب محتوا و مسیر پیشنهادی.",
+      "دو تا چهار صفحه یا حالت از جریان داخل موزه؛ مثلاً انتخاب یک اثر، دریافت راهنمای چاپی و بازگشت به مسیر.",
+      "توضیح کوتاه دربارهٔ دو تصمیم طراحی و یک فهرست بررسی دسترس‌پذیری برای ارزیابی طرح."
     ],
     "en": [
-      "A short flow map or storyboard for the happy path and one alternate state.",
-      "Two to four wireframes or interface screens covering tool browsing, tool details, and borrowing confirmation.",
-      "A brief rationale for three design decisions, including at least one accessibility decision."
+      "One wireframe or mockup of the exhibition overview, including language, content-format, and suggested-route choices.",
+      "Two to four screens or states for the on-site flow, such as selecting an exhibit, getting a printed guide, and returning to the route.",
+      "A brief explanation of two design decisions and an accessibility checklist for evaluating the concept."
     ]
   },
   "hint": {
-    "fa": "قبل از طراحی صفحه‌ها، نیازهای تصمیم‌گیری کاربر را فهرست کنید: آیا این ابزار برای کار من مناسب است؟ چه زمانی و چگونه آن را تحویل می‌گیرم؟ اگر برنامه‌ام تغییر کرد، چه گزینه‌ای دارم؟",
-    "en": "Before drawing screens, list the decisions a user must make: Is this tool suitable for my task? When and how will I collect it? What can I do if my plans change?"
+    "fa": "به‌جای اینکه یک مسیر «درست» برای همه بسازید، اطلاعات لازم برای انتخاب آگاهانه را در زمان مناسب ارائه کنید. بررسی کنید آیا کسی بدون دیدن رنگ، شنیدن صدا یا استفاده از تلفن می‌تواند قدم بعدی را بفهمد.",
+    "en": "Instead of creating one “correct” route for everyone, provide the information needed to make an informed choice at the right moment. Check whether someone can understand the next step without relying on color, sound, or a phone."
   }
 }
