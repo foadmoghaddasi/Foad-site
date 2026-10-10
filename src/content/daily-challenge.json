@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-03",
+  "date": "2026-10-10",
   "difficulty": {
     "fa": "متوسط",
     "en": "Intermediate"
@@ -10,46 +10,46 @@
   },
   "category": {
     "fa": "طراحی تعامل و دسترس‌پذیری",
-    "en": "Interaction Design & Accessibility"
+    "en": "Interaction design and accessibility"
   },
   "title": {
-    "fa": "راهنمای فراگیر برای بازدید از یک نمایشگاه",
-    "en": "An Inclusive Guide to Exploring an Exhibition"
+    "fa": "شروع بازدید از موزه بدون نصب اپلیکیشن",
+    "en": "Starting a Museum Visit Without the App"
   },
   "scenario": {
-    "fa": "یک موزهٔ محلی نمایشگاه کوچکی دربارهٔ زندگی روزمره در محله برگزار کرده است. بازدیدکنندگان می‌توانند از توضیحات چاپی، فایل صوتی و چند عنصر لمسی استفاده کنند، اما در حال حاضر نمی‌دانند هر اثر چه نوع محتوایی دارد یا از کجا باید شروع کنند. برخی بازدیدکنندگان کم‌بینا یا ناشنوا هستند، بعضی با زبان اصلی نمایشگاه آشنایی ندارند و برخی ترجیح می‌دهند بدون استفاده از تلفن همراه از نمایشگاه بازدید کنند.",
-    "en": "A local museum is hosting a small exhibition about everyday life in the neighborhood. Visitors can use printed descriptions, audio content, and several tactile elements, but they currently do not know which formats are available for each exhibit or where to begin. Some visitors are blind or have low vision, some are not familiar with the exhibition’s primary language, and others prefer to explore without using a phone."
+    "fa": "یک موزهٔ محلی برای برخی آثار خود راهنمای صوتی و متنی ارائه می‌کند. بازدیدکنندگان با اسکن یک کد کنار اثر به صفحهٔ راهنما می‌رسند، اما همه تلفن هوشمند، اینترنت پایدار، هدفون یا توانایی استفاده از صدا را ندارند. کارکنان موزه می‌خواهند شروع این تجربه برای افراد مختلف روشن و کم‌دردسر باشد، بدون اینکه کسی مجبور به ساخت حساب کاربری یا نصب اپلیکیشن شود.",
+    "en": "A local museum offers audio and text guides for selected exhibits. Visitors scan a code beside an exhibit to open the guide, but not everyone has a smartphone, reliable internet, headphones, or the ability to use audio. The museum wants the experience to be clear and low-friction for different visitors, without requiring an account or an app download."
   },
   "challenge": {
-    "fa": "یک تجربهٔ راهنما طراحی کنید که پیش از ورود و در طول بازدید، گزینه‌های دسترس‌پذیر هر بخش را به‌وضوح معرفی کند و به افراد اجازه دهد مسیر و شیوهٔ دریافت اطلاعات را خودشان انتخاب کنند. روی یک صفحهٔ معرفی نمایشگاه و یک جریان کوتاه در محل تمرکز کنید؛ لازم نیست کل وب‌سایت یا هویت بصری موزه را طراحی کنید.",
-    "en": "Design a guidance experience that clearly presents the accessible options for each part of the exhibition before and during the visit, while letting people choose their own route and way of receiving information. Focus on one exhibition overview screen and a short on-site flow; you do not need to design the museum’s entire website or visual identity."
+    "fa": "یک تجربهٔ آغازین برای راهنمای آثار طراحی کنید که بازدیدکننده را از کنار اثر تا انتخاب روش مناسب دریافت محتوا هدایت کند. نشان دهید چگونه گزینه‌های متن، صدا، زیرنویس یا دریافت کمک حضوری را معرفی می‌کنید و در صورت نبود اینترنت یا سازگار نبودن دستگاه، مسیر جایگزین ارائه می‌دهید.",
+    "en": "Design the entry experience for an exhibit guide, from standing beside the artwork to choosing a suitable way to access its content. Show how you introduce text, audio, captions, and in-person help, and how you provide an alternative when the visitor has no connection or an incompatible device."
   },
   "constraints": {
     "fa": [
-      "برای هر اثر، دست‌کم سه شیوهٔ دریافت اطلاعات را در نظر بگیرید؛ مانند متن ساده، صوت، زبان اشاره، ترجمه یا توضیح لمسی.",
-      "کاربر نباید برای فهمیدن گزینه‌های اصلی به ثبت‌نام، ساخت حساب کاربری یا استفاده از تلفن هوشمند نیاز داشته باشد.",
-      "از نشانه‌گذاری واضح، کنتراست مناسب، متن قابل فهم و وضعیت‌های قابل تشخیص برای افرادی با توانایی‌ها و زبان‌های مختلف استفاده کنید."
+      "تجربه باید بدون حساب کاربری، نصب اپلیکیشن و وارد کردن اطلاعات شخصی قابل استفاده باشد.",
+      "حداقل چهار گزینهٔ دسترسی را پوشش دهید: متن، صدا، زیرنویس یا متن کامل صدا، و کمک حضوری.",
+      "برای اینترنت ضعیف، دستگاه قدیمی، و کاربرانی که نمی‌خواهند از تلفن خود استفاده کنند مسیر جایگزین نشان دهید."
     ],
     "en": [
-      "For each exhibit, account for at least three ways to receive information, such as plain text, audio, sign language, translation, or a tactile description.",
-      "Users must not need to sign up, create an account, or use a smartphone to understand the main options.",
-      "Use clear labeling, appropriate contrast, plain language, and recognizable states for people with different abilities and language needs."
+      "The experience must work without an account, app installation, or entering personal information.",
+      "Cover at least four access options: text, audio, captions or an audio transcript, and in-person assistance.",
+      "Show an alternative for weak connectivity, older devices, and visitors who do not want to use their own phone."
     ]
   },
   "deliverables": {
     "fa": [
-      "یک وایرفریم یا طرح صفحهٔ معرفی نمایشگاه، شامل انتخاب زبان، قالب محتوا و مسیر پیشنهادی.",
-      "دو تا چهار صفحه یا حالت از جریان داخل موزه؛ مثلاً انتخاب یک اثر، دریافت راهنمای چاپی و بازگشت به مسیر.",
-      "توضیح کوتاه دربارهٔ دو تصمیم طراحی و یک فهرست بررسی دسترس‌پذیری برای ارزیابی طرح."
+      "یک فلو یا استوری‌بورد ۵ تا ۷ مرحله‌ای از شروع تا دریافت محتوا.",
+      "دو وایرفریم با جزئیات کافی: صفحهٔ آغاز و صفحهٔ انتخاب روش دسترسی یا خطا.",
+      "یک یادداشت کوتاه دربارهٔ دو تصمیم طراحی، از جمله اینکه چگونه دسترس‌پذیری و حریم خصوصی را در نظر گرفته‌اید."
     ],
     "en": [
-      "One wireframe or mockup of the exhibition overview, including language, content-format, and suggested-route choices.",
-      "Two to four screens or states for the on-site flow, such as selecting an exhibit, getting a printed guide, and returning to the route.",
-      "A brief explanation of two design decisions and an accessibility checklist for evaluating the concept."
+      "A five- to seven-step flow or storyboard from arrival to accessing the content.",
+      "Two sufficiently detailed wireframes: the welcome screen and the access-choice or error state.",
+      "A short note explaining two design decisions, including how you addressed accessibility and privacy."
     ]
   },
   "hint": {
-    "fa": "به‌جای اینکه یک مسیر «درست» برای همه بسازید، اطلاعات لازم برای انتخاب آگاهانه را در زمان مناسب ارائه کنید. بررسی کنید آیا کسی بدون دیدن رنگ، شنیدن صدا یا استفاده از تلفن می‌تواند قدم بعدی را بفهمد.",
-    "en": "Instead of creating one “correct” route for everyone, provide the information needed to make an informed choice at the right moment. Check whether someone can understand the next step without relying on color, sound, or a phone."
+    "fa": "از خودتان بپرسید بازدیدکننده قبل از اسکن کد چه چیزی باید بداند و اگر هیچ‌کدام از گزینه‌های دیجیتال برایش مناسب نبود، کارکنان موزه دقیقاً چگونه باید وارد تجربه شوند.",
+    "en": "Ask what a visitor needs to know before scanning the code, and if none of the digital options work, exactly how museum staff should enter the experience."
   }
 }
