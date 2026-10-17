@@ -718,5 +718,60 @@
       "fa": "به‌جای اینکه یک مسیر «درست» برای همه بسازید، اطلاعات لازم برای انتخاب آگاهانه را در زمان مناسب ارائه کنید. بررسی کنید آیا کسی بدون دیدن رنگ، شنیدن صدا یا استفاده از تلفن می‌تواند قدم بعدی را بفهمد.",
       "en": "Instead of creating one “correct” route for everyone, provide the information needed to make an informed choice at the right moment. Check whether someone can understand the next step without relying on color, sound, or a phone."
     }
+  },
+  {
+    "date": "2026-10-10",
+    "difficulty": {
+      "fa": "متوسط",
+      "en": "Intermediate"
+    },
+    "timebox": {
+      "fa": "۷۵ تا ۹۰ دقیقه",
+      "en": "75–90 minutes"
+    },
+    "category": {
+      "fa": "طراحی تعامل و دسترس‌پذیری",
+      "en": "Interaction design and accessibility"
+    },
+    "title": {
+      "fa": "شروع بازدید از موزه بدون نصب اپلیکیشن",
+      "en": "Starting a Museum Visit Without the App"
+    },
+    "scenario": {
+      "fa": "یک موزهٔ محلی برای برخی آثار خود راهنمای صوتی و متنی ارائه می‌کند. بازدیدکنندگان با اسکن یک کد کنار اثر به صفحهٔ راهنما می‌رسند، اما همه تلفن هوشمند، اینترنت پایدار، هدفون یا توانایی استفاده از صدا را ندارند. کارکنان موزه می‌خواهند شروع این تجربه برای افراد مختلف روشن و کم‌دردسر باشد، بدون اینکه کسی مجبور به ساخت حساب کاربری یا نصب اپلیکیشن شود.",
+      "en": "A local museum offers audio and text guides for selected exhibits. Visitors scan a code beside an exhibit to open the guide, but not everyone has a smartphone, reliable internet, headphones, or the ability to use audio. The museum wants the experience to be clear and low-friction for different visitors, without requiring an account or an app download."
+    },
+    "challenge": {
+      "fa": "یک تجربهٔ آغازین برای راهنمای آثار طراحی کنید که بازدیدکننده را از کنار اثر تا انتخاب روش مناسب دریافت محتوا هدایت کند. نشان دهید چگونه گزینه‌های متن، صدا، زیرنویس یا دریافت کمک حضوری را معرفی می‌کنید و در صورت نبود اینترنت یا سازگار نبودن دستگاه، مسیر جایگزین ارائه می‌دهید.",
+      "en": "Design the entry experience for an exhibit guide, from standing beside the artwork to choosing a suitable way to access its content. Show how you introduce text, audio, captions, and in-person help, and how you provide an alternative when the visitor has no connection or an incompatible device."
+    },
+    "constraints": {
+      "fa": [
+        "تجربه باید بدون حساب کاربری، نصب اپلیکیشن و وارد کردن اطلاعات شخصی قابل استفاده باشد.",
+        "حداقل چهار گزینهٔ دسترسی را پوشش دهید: متن، صدا، زیرنویس یا متن کامل صدا، و کمک حضوری.",
+        "برای اینترنت ضعیف، دستگاه قدیمی، و کاربرانی که نمی‌خواهند از تلفن خود استفاده کنند مسیر جایگزین نشان دهید."
+      ],
+      "en": [
+        "The experience must work without an account, app installation, or entering personal information.",
+        "Cover at least four access options: text, audio, captions or an audio transcript, and in-person assistance.",
+        "Show an alternative for weak connectivity, older devices, and visitors who do not want to use their own phone."
+      ]
+    },
+    "deliverables": {
+      "fa": [
+        "یک فلو یا استوری‌بورد ۵ تا ۷ مرحله‌ای از شروع تا دریافت محتوا.",
+        "دو وایرفریم با جزئیات کافی: صفحهٔ آغاز و صفحهٔ انتخاب روش دسترسی یا خطا.",
+        "یک یادداشت کوتاه دربارهٔ دو تصمیم طراحی، از جمله اینکه چگونه دسترس‌پذیری و حریم خصوصی را در نظر گرفته‌اید."
+      ],
+      "en": [
+        "A five- to seven-step flow or storyboard from arrival to accessing the content.",
+        "Two sufficiently detailed wireframes: the welcome screen and the access-choice or error state.",
+        "A short note explaining two design decisions, including how you addressed accessibility and privacy."
+      ]
+    },
+    "hint": {
+      "fa": "از خودتان بپرسید بازدیدکننده قبل از اسکن کد چه چیزی باید بداند و اگر هیچ‌کدام از گزینه‌های دیجیتال برایش مناسب نبود، کارکنان موزه دقیقاً چگونه باید وارد تجربه شوند.",
+      "en": "Ask what a visitor needs to know before scanning the code, and if none of the digital options work, exactly how museum staff should enter the experience."
+    }
   }
 ]
