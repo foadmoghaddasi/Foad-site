@@ -41,6 +41,9 @@ import gestaltPragnanzDesignCoverThumbImage from "../assets/images/articles/gest
 import designSystemMaturityCoverImage from "../assets/images/articles/design-system-maturity/cover.webp";
 import designSystemMaturityCoverThumbImage from "../assets/images/articles/design-system-maturity/cover-thumb.webp";
 import designSystemMaturityRadarImage from "../assets/images/articles/design-system-maturity/radar.webp";
+import aiProductDesignRelationshipCoverImage from "../assets/images/articles/ai-product-design-relationship/cover.webp";
+import aiProductDesignRelationshipCoverThumbImage from "../assets/images/articles/ai-product-design-relationship/cover-thumb.webp";
+
 
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
@@ -1756,6 +1759,128 @@ export const articles: Article[] = ([
           "text": "قانون Prägnanz گشتالت یک لنز تحلیلی است که نشان می‌دهد کاربران به ساده‌ترین تفسیر ادراکی تمایل دارند؛ این واقعیت باید به‌عنوان یک constraint در طراحی محصول نگریسته شود. اصل قابل‌اجرا: هر تصمیم بصری را با سوال «اگر کاربر بخواهد ساده‌ترین الگو را بسازد، کدام رفتار را خواهد دید؟» ارزیابی کنید. پاسخ به این سوال تیم را وادار می‌کند تا سلسله‌مراتب، گروه‌بندی، و حالات تعاملی را به‌صورت آگاهانه طراحی کرده و تغییرات را برای جلوگیری از سوءتعبیر ادراکی کنترل کند."
         }
       ]
+    },
+
+    {
+      "slug": "ai-product-design-relationship",
+      "title": "ارتباط هوش مصنوعی با طراحی محصول: از تصمیم‌سازی تا تعامل کاربر",
+      "excerpt": "تحلیل عملیاتی از چگونگی وارد شدن هوش مصنوعی به فرایند Product Design، پیامدهای طراحی رابط و تعامل، ملاحظات داده‌ای و مهندسی، و راهنمایی برای تصمیم‌گیری‌های تیمی در شرایط محدودیت پروژه.",
+      "category": "طراحی محصول",
+      "publishedAt": "۲۶ مهر ۱۴۰۵",
+      "readingTime": "7 دقیقه مطالعه",
+      "cover": aiProductDesignRelationshipCoverImage,
+      "coverThumb": aiProductDesignRelationshipCoverThumbImage,
+      "direction": "rtl",
+      "content": [
+        {
+          "type": "heading",
+          "text": "خلاصه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "هوش مصنوعی دیگر فقط یک قابلیت فنی نیست؛ وقتی به Product Design وارد می‌شود، ساختار تصمیم‌گیری، جریان‌های کاربری و نیازهای مهندسی را تغییر می‌دهد. نتیجه برای طراحان و Developerها این است که باید همزمان روی مدل‌ها، داده‌ها و تعاملات کاربر تمرکز کنند تا محصولی قابل پیش‌بینی، قابل کنترل و ارزش‌آفرین بسازند."
+        },
+        {
+          "type": "heading",
+          "text": "در این مقاله",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "نخست ماهیت ورود AI به محصول را تعریف می‌کنیم، سپس دامنه و فروض را مشخص می‌کنیم. بعد پنج بخش تحلیلی دربارهٔ نقش AI در محصول، محدودیت‌های داده‌ای و حریم خصوصی، الگوهای تعاملی (از جمله explainability)، Design System و مهندسی، و سنجش موفقیت را بررسی می‌کنیم. در ادامه خطاها و Trade-offهای رایج، راهنمای عملی برای تیم‌ها و جمع‌بندی با یک اصل تصمیم‌گیری ارائه خواهد شد."
+        },
+        {
+          "type": "heading",
+          "text": "مقدمه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "وقتی یک قابلیت مبتنی بر AI به محصول افزوده می‌شود، سه حوزهٔ کاری مستقیماً تحت تأثیر قرار می‌گیرند: رفتار سیستم (چه خروجی‌ای تولید می‌کند)، تجربهٔ کاربری (چگونه کاربر آن خروجی را می‌فهمد و کنترل می‌کند) و مهندسی زیرساخت (چگونه مدل‌ها، داده‌ها و latency مدیریت می‌شوند). این مقاله به طراحان محصول و Developerها کمک می‌کند تا تصمیمات طراحی را با درک چالش‌ها و پیامدها اتخاذ کنند — نه تنها از منظر قابلیت، بلکه از منظر هزینه‌های توسعه، ریسک‌ها و کیفیت تجربه."
+        },
+        {
+          "type": "heading",
+          "text": "زمینه و دامنه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "فرد خواننده معمولاً عضو تیم Product Design، UX، یا Front-end است که روی یک محصول دارای یک یا چند قابلیت AI کار می‌کند: مثلاً پیشنهادگر محتوا، تکمیل خودکار هوشمند، طبقه‌بندی متن، یا یک ابزار تولید محتوا. فرض می‌کنیم تیم محدودیت‌های رایج دارد: زمان برای MVP، دسترسی محدود به داده‌های برچسب‌خورده، نیاز به رعایت حریم خصوصی و یک Design System موجود که باید تکامل یابد. هدف ما ارائه راهکارهای عملی است که در پروژه‌های واقعی، بین نیاز کسب‌وکار و اهداف کاربر بالانس کنند."
+        },
+        {
+          "type": "heading",
+          "text": "AI به‌عنوان قابلیت محصول در برابر AI به‌عنوان فرآیند داخلی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله: تیم‌ها گاهی AI را فقط به‌عنوان یک موتور پیش‌بینی یا بهبود فنی می‌بینند و ایزوله عمل می‌کنند؛ در حالی که این انتخاب روی طراحی تعامل، مسئولیت‌ها و metricها تأثیر می‌گذارد. چرا رخ می‌دهد: AI به‌سرعت به‌عنوان «قابلیت جادویی» فروخته می‌شود و تیم مهندسی آن را پیاده‌سازی می‌کند بدون آنکه طراحی محصول درباره انتظارات شفاف باشد. اهمیت: وقتی AI تنها بخشی از لایهٔ backend باشد، کاربران با خروجی‌هایی مواجه می‌شوند که قابل پیش‌بینی، قابل فهم یا قابل کنترل نیستند؛ UX آسیب می‌بیند و Adoption افت می‌کند. سناریو: محصولی با پیشنهادگر هوشمند که بدون نشان دادن ضریب اطمینان یا گزینهٔ بازبینی توصیه‌ها منتشر می‌شود؛ در نتیجه کاربر پیشنهادها را نمی‌پذیرد یا اعتمادش کم می‌شود. توصیه: از ابتدا مشخص کنید آیا AI بخشی از تجربهٔ مستقیم کاربر است (Direct UX touchpoint) یا فقط برای بهینه‌سازی داخلی خواهد بود؛ برای هر حالت معیارهای متفاوتی تعریف کنید — مثلاً explainability و undo برای touchpointهای کاربر، و monitoring و fairness برای پردازش‌های داخلی."
+        },
+        {
+          "type": "heading",
+          "text": "محدودیت‌ها و کیفیت داده: پیامدهای طراحی و حقوقی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله: کیفیت و خصوصیت داده‌ها محدودیت‌هایی ایجاد می‌کند که رفتار مدل‌ها و در نتیجه تجربهٔ کاربر را شکل می‌دهد. چرا رخ می‌دهد: داده‌ها پراکنده، ناقص یا دارای سوگیری‌های ساختاری هستند و همزمان قوانین حریم خصوصی ممکن است دسترسی یا توان نگهداری داده را محدود کنند. اهمیت: مدل‌های آموزش‌دیده روی داده‌های نامناسب خروجی‌های غیرقابل‌اعتماد یا تبعیض‌آمیز تولید می‌کنند؛ این نه تنها UX را خراب می‌کند بلکه ریسک حقوقی و اعتباری ایجاد می‌کند. سناریو: یک Feature طبقه‌بندی محتوا که در یک منطقه جغرافیایی اطلاعات آموزشی کافی ندارد و در نتیجه نرخ خطای بالاتری نشان می‌دهد؛ کاربران محلی از محصول ناراضی شده و تیم مجبور به Rollback می‌شود. توصیه: طراحی محصول باید شامل «نقشهٔ داده» (چه داده‌ای، از کجا، چه فرایندی برای به‌روزرسانی) باشد، همراه با حداقل سیستم‌های fallback و قابلیت مشاهدهٔ خطا برای کاربر. اگر دسترسی به داده محدود است، ارزیابی کنید که آیا یک rule-based fallback بهتر از یک مدل ضعیف است."
+        },
+        {
+          "type": "heading",
+          "text": "الگوهای تعاملی: قابل توضیح بودن و کنترل کاربر",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله: تعامل با خروجی‌های AI نیازمند الگوهایی فراتر از نمایش سادهٔ نتایج است؛ کاربران باید دلیل، میزان اطمینان و امکان اصلاح را ببینند. چرا رخ می‌دهد: خروجی مدل‌ها معمولاً probabilistic است و ممکن است خطا کنند؛ بدون affordance مناسب کاربران سردرگم یا بی‌اعتماد می‌شوند. اهمیت: نقص در explainability (قابلیت توضیح‌پذیری) یا کنترل باعث افزایش Cognitive Load، کاهش Discoverability و خطاهای عملیاتی می‌شود. سناریو: در یک ویرایشگر متن با تکمیل هوشمند، پیشنهادات تهاجمی و حذف آسان گزینهٔ undo باعث می‌شود کاربر احساس کند کنترل را از دست داده است؛ نتیجهٔ آن افزایش نرخ ریتنشن منفی. توصیه: طراحی الگوهایی برای نمایش confidence، منبع پیشنهاد (مثلاً «پیشنهاد بر اساس تنظیمات شما»)، گزینهٔ بازبینی و undo و مسیرهای واضح برای بازخورد کاربر. در موارد حساس، از طراحی شبه‌مستقل (human-in-the-loop) استفاده کنید تا تصمیم نهایی با کاربر باشد."
+        },
+        {
+          "type": "heading",
+          "text": "Design System، Componentها و هزینه‌های فنی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله: افزودن رفتارهای AI به Componentهای موجود Design System بدون بازطراحی می‌تواند ناسازگاری و Technical Debt ایجاد کند. چرا رخ می‌دهد: تیم‌ها سعی می‌کنند قابلیت AI را سریع به UI Kit و Componentهای فعلی وصل کنند تا زمان عرضه را کوتاه کنند، اما این Componentها برای حالت‌های اکتیو، پردازش آسنکرون یا نمایش خطا طراحی نشده‌اند. اهمیت: نتیجهٔ این شتاب‌زدگی مشکلاتی در عملکرد، تست‌پذیری و نگهداری ایجاد می‌کند؛ همچنین UX خواهد لرزید چون حالات جدید (بارگزاری، خطا، تأخیر) به‌خوبی نمایش داده نمی‌شوند. سناریو: یک Component جعبهٔ جستجو که قرار است پیشنهادات زنده نشان دهد اما برای حالت‌های با Latency بالا طراحی نشده؛ هنگام کندی شبکه UI به‌هم‌ می‌ریزد و تجربهٔ کاربری کم می‌شود. توصیه: بازبینی Design System برای اضافه کردن الگوهای استاندارد برای states مرتبط با AI: loading with progressive disclosure، confidence badges، graceful degradation و fallback UI. همچنین مشخص کنید چه وظایفی مربوط به Component-level و چه وظایفی مربوط به محصول (product-level orchestration) است."
+        },
+        {
+          "type": "heading",
+          "text": "سنجش موفقیت: KPIها، آزمایش و نظارت",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "مسئله: معیارهای سنتی محصول (MAU، conversion) کافی نیستند تا عملکرد یک قابلیت AI را به درستی منعکس کنند. چرا رخ می‌دهد: AI رفتار پیچیده‌تری دارد—خطاها، تغییر توزیع داده‌ها، drift—و اثر آن بر UX ممکن است ناگهانی یا پراکنده باشد. اهمیت: بدون KPIهای مناسب و نظارت مستمر، یک مدل با خطای فزاینده ممکن است به تولید نتایج مضر ادامه دهد تا زمانی که کاربران عکس‌العمل نشان دهند یا آسیب قبلاً اتفاق افتاده باشد. سناریو: تیمی فقط نرخ پذیرش پیشنهادات را به عنوان معیار موفقیت در نظر می‌گیرد؛ اما پذیرش بالا ممکن است به خاطر پیشنهادهای ساده و کم‌خطر باشد، در حالی که کیفیت بلندمدت تجربه پایین آمده است. توصیه: تعریف مجموعه‌ای از KPIها که شامل کیفیت (precision/recall proxies قابل فهم برای Product)، UX metrics (task success, time-to-complete) و معیارهای سالمندی مدل (data drift, distribution shift) باشد. پیاده‌سازی monitoring و alerting برای تغییرات غیرمنتظره و برنامه‌ریزی آزمایش‌های A/B و آزمایش‌های فازبندی (gradual rollouts)."
+        },
+        {
+          "type": "heading",
+          "text": "خطاهای رایج یا Trade-offها",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "طیف خطاها شامل عرضهٔ یک مدل ضعیف به‌عنوان MVP بدون fallback، عدم شفافیت برای کاربر دربارهٔ منشأ پیشنهادات، و درنظر نگرفتن هزینهٔ نگهداری مدل در Roadmap است. Trade-off اصلی بین دقت (accuracy) و قابل‌فهمی (explainability) اغلب به تعارض تبدیل می‌شود: مدل‌های پیچیده دقت بالاتری دارند اما توضیح‌پذیری کمتری ارائه می‌دهند. همچنین بین زمان عرضه و زیرساخت پایدار همواره کشمکش وجود دارد. برای هر trade-off، تیم باید هزینه‌های بلندمدت (مانند Technical Debt یا ریسک محتوا) را در برابر سود کوتاه‌مدت بسنجد و مستند کند."
+        },
+        {
+          "type": "heading",
+          "text": "راهنمای عملی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "۱) مشخص کنید AI نقش کاربری دارد یا کمک داخلی؛ برای هر حالت معیارها و الگوهای تعامل متفاوت تعریف کنید. ۲) از ابتدا نقشهٔ داده و محدودیت‌ها را مستندسازی کنید؛ اگر دادهٔ کافی نیست، از fallback‌های مبتنی بر قوانین یا progressive rollout استفاده کنید. ۳) به Design System حالات مرتبط با AI را اضافه کنید: loading, confidence, correction, undo. ۴) در Handoff بین Designer و Developer، ریسک‌های عملکردی و الزامات monitoring را صریح کنید: latency budget، privacy constraints و نیاز به logging برای تحلیل خطا. ۵) معیارهای موفقیت ترکیبی تعریف کنید: شاخص‌های کیفی برای UX و شاخص‌های فنی برای drift، و برنامهٔ فازبندی برای رهاسازی و rollback. ۶) یک سیاست بازخورد کاربر و مسیر انسانی برای موارد حساس طراحی کنید تا human-in-the-loop قابل استفاده باشد."
+        },
+        {
+          "type": "heading",
+          "text": "جمع‌بندی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "اصل تصمیم‌گیری نهایی این است: وقتی AI بخشی از تعامل کاربر است، طراحی باید رفتار مدل را بخشی از محصول بپذیرد و نه صرفاً یک خروجی فنی. این به معنی برنامه‌ریزی برای داده، شفافیت در تعامل، سازگارسازی Design System و نظارت مستمر است. یک تیم که این موارد را هم‌زمان در نظر می‌گیرد، احتمال بیشتری دارد تا محصولی بسازد که هم ارزش کسب‌وکار ایجاد کند و هم برای کاربر قابل‌فهم و قابل‌اعتماد باشد."
+        }
+      ]
     }
 ] satisfies Article[]).filter((article) => !hiddenArticleSlugs.has(article.slug));
 
@@ -2984,6 +3109,128 @@ export const articlesEn: Article[] = ([
         {
           "type": "paragraph",
           "text": "The Gestalt law of Prägnanz is a practical constraint: users will default to the simplest perceptual interpretation. Treat that tendency as a design parameter, not noise. Actionable principle: before finalizing any visual or interaction decision, ask: “If the user constructs the simplest possible pattern from this screen, what will they think each element does?” If the answer aligns with product goals, proceed; if not, adjust spacing, weight, or state cues until the default perception leads users to the intended outcome."
+        }
+      ]
+    },
+
+    {
+      "slug": "ai-product-design-relationship",
+      "title": "How AI Integrates with Product Design: Decisions, Constraints, and Interaction",
+      "excerpt": "A practical analysis of how AI changes product decision-making, user interaction, data and engineering constraints, and clear guidelines teams can use to design reliable, explainable AI-driven features.",
+      "category": "Product Design",
+      "publishedAt": "October 18, 2026",
+      "readingTime": "5 min read",
+      "cover": aiProductDesignRelationshipCoverImage,
+      "coverThumb": aiProductDesignRelationshipCoverThumbImage,
+      "direction": "ltr",
+      "content": [
+        {
+          "type": "heading",
+          "text": "Summary",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "AI is not just a backend optimization; when it becomes part of the Product Design, it reshapes decision flows, user interactions, and engineering requirements. Designers and Developers must align on models, data, and interaction patterns to deliver predictable, controllable, and valuable features."
+        },
+        {
+          "type": "heading",
+          "text": "In This Article",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "We define how AI enters a product, set scope and assumptions, then analyze five areas: AI as a product capability vs internal process, data constraints and privacy, interaction patterns and explainability, Design System and engineering constraints, and measurement. Finally we cover common mistakes, practical guidelines, and a concise decision principle."
+        },
+        {
+          "type": "heading",
+          "text": "Introduction",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "When an AI-powered feature is added to a product, three domains change: system behavior (what outputs are generated), user experience (how users understand and control outputs), and engineering (how models, data, and latency are managed). This article gives Product Design and Developer teams practical reasoning to make decisions that balance business value, technical cost, and user needs."
+        },
+        {
+          "type": "heading",
+          "text": "Context and Scope",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Readers are typically Product Designers, UX professionals, or Front-end Developers working on a product with one or more AI-driven features—recommendation engines, smart autocomplete, text classification, or content generation. We assume common project constraints: an MVP timeline, limited labeled data, privacy regulations, and an existing Design System that needs to evolve. The goal is pragmatic: provide actions and trade-offs that apply in real projects."
+        },
+        {
+          "type": "heading",
+          "text": "AI as a Product Capability vs AI as an Internal Process",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: teams sometimes treat AI as an isolated predictive engine rather than a component of the UX; this leads to mismatched expectations and poor outcomes. Why it happens: AI is often sold or prioritized as a technical capability and implemented by engineering with little product-level alignment. Why it matters: if AI is part of the user's direct experience, it requires different affordances—visibility, control, and error handling—than when it only optimizes backend decisions. Scenario: a recommendation feature deployed without confidence indicators or edit controls; users distrust suggestions and adoption suffers. Recommendation: explicitly classify whether AI will be a direct touchpoint; for touchpoints define explainability, undo, and feedback needs; for internal uses focus on monitoring, fairness, and performance."
+        },
+        {
+          "type": "heading",
+          "text": "Data Constraints, Quality, and Privacy",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: model behavior depends on data quality and availability; constraints distort output and UX. Why it happens: training data may be sparse, biased, or legally limited; teams may underestimate the cost of collecting and maintaining labeled data. Why it matters: models trained on poor data can produce unreliable or discriminatory outputs, harming UX and exposing legal or reputational risk. Scenario: a content classification feature performs poorly in a region with limited training examples, causing higher error rates and a rollback. Recommendation: map data sources and constraints early, design fallback behaviors and progressive rollouts, and prefer rule-based fallbacks over weak models when data is insufficient."
+        },
+        {
+          "type": "heading",
+          "text": "Interaction Patterns: Explainability and User Control",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: interacting with probabilistic AI outputs requires more than rendering results; users need reason, confidence, and the ability to correct. Why it happens: model outputs are inherently uncertain and can be opaque, increasing cognitive load and reducing trust. Why it matters: lack of explainability (قابلیت توضیح‌پذیری) and control increases errors, lowers discoverability, and raises interaction cost. Scenario: an editor with aggressive smart-complete that lacks undo and provenance; users feel they’ve lost control and drop usage. Recommendation: surface confidence, source signals (e.g., “suggested based on X”), provide undo and explicit correction flows, and use human-in-the-loop designs for sensitive decisions."
+        },
+        {
+          "type": "heading",
+          "text": "Design System, Components and Engineering Costs",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: grafting AI behavior onto existing Components without redesign causes inconsistency and technical debt. Why it happens: teams prioritize speed-to-market and append AI to current UI Kits that lack patterns for asynchronous, uncertain, or error states. Why it matters: this leads to performance problems, brittle tests, and poor UX because new states (loading, error, latency) are not properly represented. Scenario: a search Component intended to show live suggestions but not designed for high latency, resulting in UI breakage when network slows. Recommendation: extend the Design System with standard AI-related states—progressive loading, confidence badges, graceful degradation—and clarify component vs product-level responsibilities."
+        },
+        {
+          "type": "heading",
+          "text": "Measuring Success: KPIs, Experimentation, and Monitoring",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The problem: classic product KPIs alone don't capture AI feature health. Why it happens: AI introduces complex failure modes—gradual performance drift, distribution shifts, and user behavior changes—that aren't visible through MAU or simple conversion metrics. Why it matters: without appropriate KPIs and monitoring, a degraded model can damage UX before detection. Scenario: a team tracks only suggestion acceptance rate; high acceptance masks low long-term quality causing user churn later. Recommendation: set composite KPIs: proxies for model quality (interpretable precision/recall proxies), UX metrics (task success, time-on-task), and technical health signals (data drift, inference latency). Implement monitoring, alerts, and phased rollouts with rollback plans."
+        },
+        {
+          "type": "heading",
+          "text": "Common Mistakes or Trade-offs",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Common mistakes include shipping a weak model as an MVP without fallback, failing to communicate the origin of suggestions, and neglecting ongoing maintenance costs. A central trade-off is accuracy versus explainability: complex models often yield higher raw performance but are harder to interpret for users. Another trade-off is speed-to-market versus long-term maintainability. Teams should explicitly document these trade-offs, estimate ongoing costs like data labeling and monitoring, and choose an approach consistent with product risk tolerance."
+        },
+        {
+          "type": "heading",
+          "text": "Practical Guidelines",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "1) Decide early whether AI is a user-facing capability and define different requirements for touchpoints versus backend optimizations. 2) Create a data map and document constraints; when data is limited, favor deterministic fallbacks or phased approaches. 3) Evolve the Design System with AI states—loading, confidence, correction, undo—rather than patching components in an ad hoc way. 4) In Handoff, clarify performance budgets, privacy needs, and monitoring requirements so Developers can build reliable systems. 5) Define multi-dimensional KPIs covering UX quality and model health, and design experiments and staged rollouts. 6) Provide a clear feedback channel and human-in-the-loop paths for sensitive or high-risk outputs."
+        },
+        {
+          "type": "heading",
+          "text": "Conclusion",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Decision principle: treat model behavior as part of the product surface when AI affects users directly. This requires planning for data, transparency in interaction, Design System updates, and continuous monitoring. Teams that integrate these concerns upfront are more likely to ship AI features that create business value while remaining understandable and trustworthy for users."
         }
       ]
     }
