@@ -12,6 +12,7 @@
 @import "@heroui/styles/components/switch.css" layer(components);
 @import "@heroui/styles/utilities";
 @import "@heroui/styles/variants";
+@source not "../telegram-bot-serverless";
 
 html,
 body,

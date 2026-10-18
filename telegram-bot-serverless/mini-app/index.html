@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex, nofollow">
+    <title>تنظیمات خصوصی بات</title>
+    <link rel="stylesheet" href="./settings.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="./settings.js" defer></script>
+  </head>
+  <body>
+    <main class="settings-card">
+      <div class="eyebrow">تنظیمات بات</div>
+      <h1>اتصال سرویس‌ها</h1>
+      <p class="intro">کلیدها را ثبت یا تعویض کنید. مقدار ذخیره‌شده هرگز در این صفحه نمایش داده نمی‌شود.</p>
+      <p id="access-status" class="status" role="status" aria-live="polite">در حال بررسی دسترسی…</p>
+      <form id="credentials-form" autocomplete="off" hidden>
+        <fieldset id="credentials-fields" disabled>
+          <legend class="sr-only">کلیدهای اتصال</legend>
+          <label for="openai-key" lang="en" dir="ltr">OpenAI API Key</label>
+          <input id="openai-key" type="password" maxlength="4096" autocomplete="off" autocapitalize="none" spellcheck="false" dir="ltr" aria-describedby="credentials-help">
+          <label for="github-token" lang="en" dir="ltr">GitHub Token</label>
+          <input id="github-token" type="password" maxlength="4096" autocomplete="off" autocapitalize="none" spellcheck="false" dir="ltr" aria-describedby="credentials-help">
+          <p id="credentials-help" class="help">برای حفظ کلید قبلی، فیلد آن را خالی بگذارید. حداقل یک کلید جدید وارد کنید.</p>
+          <button id="save-credentials" type="submit" lang="en" dir="ltr">Save Credentials</button>
+        </fieldset>
+        <p id="save-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </main>
+  </body>
+</html>

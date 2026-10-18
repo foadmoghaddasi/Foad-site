@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
 import Certifications from "../components/Certifications";
+import mizoonLogo from "../assets/images/mizoon-logo-transparent.png";
 import "./CV.css";
 import { useLanguage } from "../context/LanguageContext";
 import SEO from "../components/SEO";
@@ -218,6 +219,64 @@ const projectsFa = [
   ["Voices to Action", "اپلیکیشن کنشگری مبتنی بر کمپین."],
 ];
 
+const aiCapabilitiesEn = [
+  {
+    number: "01",
+    title: "AI-assisted product design",
+    description:
+      "Turning early product ideas into clear flows, interfaces, and polished prototypes.",
+  },
+  {
+    number: "02",
+    title: "AI-powered building",
+    description:
+      "Using Codex to move from concept to working product faster, with a design-minded eye on the final experience.",
+  },
+  {
+    number: "03",
+    title: "Generative visual exploration",
+    description:
+      "Exploring visual directions, concepts, and production-ready assets with generative tools.",
+  },
+];
+
+const aiCapabilitiesFa = [
+  {
+    number: "۰۱",
+    title: "طراحی محصول با کمک AI",
+    description:
+      "تبدیل ایده‌های اولیه به جریان‌های روشن، رابط‌های کاربری و پروتوتایپ‌های دقیق.",
+  },
+  {
+    number: "۰۲",
+    title: "ساخت محصول با AI",
+    description:
+      "استفاده از Codex برای حرکت سریع‌تر از ایده به محصول قابل‌استفاده، با نگاه طراحانه به تجربه نهایی.",
+  },
+  {
+    number: "۰۳",
+    title: "اکتشاف بصری مولد",
+    description:
+      "بررسی مسیرهای بصری، کانسپت‌ها و ساخت دارایی‌های آمادهٔ استفاده با ابزارهای مولد.",
+  },
+];
+
+const atsCertificationsEn = [
+  ["Figma: Designing with Variables and Conditionals", "LinkedIn", "Feb 2025"],
+  ["Data-Driven Product Research and Design", "Project Management Institute", "Feb 2025"],
+  ["Accessibility and Inclusion with Figma", "LinkedIn", "Feb 2025"],
+  ["Designing Microinteractions with Figma", "LinkedIn", "Feb 2025"],
+  ["1 Mentorship Sessions", "ADPList", "Dec 2023"],
+];
+
+const atsCertificationsFa = [
+  ["فیگما: طراحی با متغیرها و شرط‌ها", "لینکدین", "فوریه ۱۴۰۴"],
+  ["تحقیق و طراحی محصول داده‌محور", "مؤسسه مدیریت پروژه", "فوریه ۱۴۰۴"],
+  ["دسترس‌پذیری و طراحی فراگیر با فیگما", "لینکدین", "فوریه ۱۴۰۴"],
+  ["طراحی ریزتعامل‌ها با فیگما", "لینکدین", "فوریه ۱۴۰۴"],
+  ["یک جلسه منتورشیپ", "ADPList", "دسامبر ۱۴۰۲"],
+];
+
 const DESIGN_CAREER_START_YEAR = 2021;
 const HESABO_START_YEAR = 2022;
 const HESABO_START_MONTH = 6; // July (JavaScript months are zero-based)
@@ -241,6 +300,8 @@ export default function CV() {
   const experiences = isFa ? experiencesFa : experiencesEn;
   const skillGroups = isFa ? skillGroupsFa : skillGroupsEn;
   const projects = isFa ? projectsFa : projectsEn;
+  const aiCapabilities = isFa ? aiCapabilitiesFa : aiCapabilitiesEn;
+  const atsCertifications = isFa ? atsCertificationsFa : atsCertificationsEn;
   const [progress, setProgress] = useState(0);
   const yearsOfExperience = new Date().getFullYear() - DESIGN_CAREER_START_YEAR;
   const hesaboDuration = getDurationSince(
@@ -260,14 +321,18 @@ export default function CV() {
     return () => window.removeEventListener("scroll", updateProgress);
   }, []);
 
+  const printAtsResume = () => {
+    window.print();
+  };
+
   return (
     <main className="cv-page" dir={direction}>
       <SEO
         title={isFa ? "رزومه فؤاد مقدسی | طراح محصول و UI/UX" : "Foad Moghaddasi Resume | Product & UI/UX Designer"}
         description={
           isFa
-            ? "رزومه فؤاد مقدسی، طراح محصول و UI/UX در تهران؛ تجربه کاری، مهارت‌های طراحی محصول، تحقیق کاربر، Figma و دیزاین سیستم."
-            : "Resume of Foad Moghaddasi, Product and UI/UX Designer in Tehran, covering product design, user research, Figma, design systems, and professional experience."
+            ? "رزومه فؤاد مقدسی، طراح محصول و UI/UX در تهران؛ تجربه طراحی محصول، تحقیق کاربر، Figma، دیزاین سیستم و ساخت محصول با هوش مصنوعی."
+            : "Resume of Foad Moghaddasi, Product and UI/UX Designer in Tehran, covering product design, user research, Figma, design systems, and AI-powered product building."
         }
         path={isFa ? "/cv?lang=fa" : "/cv"}
         locale={isFa ? "fa_IR" : "en_US"}
@@ -305,6 +370,13 @@ export default function CV() {
                   variant="Broken"
                 />
               </a>
+              <button
+                type="button"
+                className="cv-print-button"
+                onClick={printAtsResume}
+              >
+                {isFa ? "خروجی تک‌صفحه‌ای ATS" : "Export one-page ATS PDF"}
+              </button>
               <Link
                 href="mailto:moghadasi.foad@gmail.com"
                 className="cv-contact-link"
@@ -435,12 +507,78 @@ export default function CV() {
         </aside>
       </div>
 
+      <section className="cv-ai-section" aria-labelledby="ai-heading">
+        <div className="cv-ai-orb cv-ai-orb-one" aria-hidden="true" />
+        <div className="cv-ai-orb cv-ai-orb-two" aria-hidden="true" />
+        <div className="cv-shell cv-ai-layout">
+          <Reveal className="cv-ai-intro">
+            <div className="cv-section-heading">
+              <span>02</span>
+              <div>
+                <small>{isFa ? "طراحی × هوش مصنوعی" : "Design × artificial intelligence"}</small>
+                <h2 id="ai-heading">{isFa ? "توانمندی‌های AI" : "AI capabilities"}</h2>
+              </div>
+            </div>
+            <p>
+              {isFa
+                ? "هوش مصنوعی را بخشی از فرایند طراحی و ساخت محصول می‌بینم؛ از شکل‌دادن به ایده و تجربه، تا توسعه و تحویل محصولی که واقعاً به دست کاربر می‌رسد."
+                : "I use AI as part of the product-making process—from shaping an idea and experience to building and shipping something people can actually use."}
+            </p>
+            <div className="cv-ai-tool-list" aria-label={isFa ? "ابزارهای هوش مصنوعی" : "AI tools"}>
+              <span>Codex</span>
+              <span>Figma AI</span>
+              <span>{isFa ? "ابزارهای مولد" : "Generative tools"}</span>
+              <span>OpenAI APIs</span>
+            </div>
+          </Reveal>
+
+          <div className="cv-ai-capability-grid">
+            {aiCapabilities.map((capability, index) => (
+              <Reveal
+                className="cv-ai-capability"
+                delay={index * 70}
+                key={capability.title}
+              >
+                <span>{capability.number}</span>
+                <h3>{capability.title}</h3>
+                <p>{capability.description}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="cv-ai-launch" delay={180}>
+            <img className="cv-ai-launch-logo" src={mizoonLogo} alt="Mizoon logo" />
+            <small>{isFa ? "از ایده تا لانچ" : "From idea to launch"}</small>
+            <h3>{isFa ? "میزون، یک محصول لانچ‌شده" : "Mizoon, a launched product"}</h3>
+            <p>
+              {isFa
+                ? "تجربهٔ ساخت میزون با ابزارهای AI، نمونه‌ای از ترکیب طراحی محصول، توسعه و استفادهٔ عملی از APIهای OpenAI است."
+                : "Building Mizoon with AI tools is an example of combining product design, development, and practical OpenAI API integration."}
+            </p>
+            <div className="cv-ai-launch-actions">
+              <span className="cv-ai-status">
+                <b aria-hidden="true" />
+                {isFa ? "لانچ شده" : "Launched"}
+              </span>
+              <a
+                className="cv-ai-launch-link"
+                href="https://mizoon-app.ir/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {isFa ? "مشاهده اپ میزون ↗" : "Explore Mizoon app ↗"}
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <Certifications context="cv" />
 
       <section className="cv-projects-section">
         <div className="cv-shell">
           <Reveal className="cv-section-heading">
-            <span>02</span>
+            <span>03</span>
             <div>
               <small>{isFa ? "کارهای منتخب" : "Selected work"}</small>
               <h2>{isFa ? "پروژه‌ها" : "Projects"}</h2>
@@ -466,14 +604,17 @@ export default function CV() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="cv-portfolio-cta">
+          <p className="cv-project-note">
+            {isFa
+              ? "این پروژه‌ها از میان بیش از ۱۰ پروژه‌ای که انجام داده‌ام انتخاب شده‌اند؛ پروژه‌های بیشتری در پورتفولیو و کیس‌استادی‌ها در دسترس‌اند."
+              : "Selected from 10+ projects I’ve worked on. More work is available in my portfolio and case studies."}
+          </p>
+          <Reveal className="cv-more-work">
             <div>
-              <small>{isFa ? "پورتفولیو و کیس‌استادی‌ها" : "Portfolio & Case Studies"}</small>
-              <h2>{isFa ? "فرایند شکل‌گرفتن پروژه‌ها را ببینید." : "See how the work comes together."}</h2>
+              <small>{isFa ? "کارهای بیشتر" : "More work"}</small>
+              <h2>{isFa ? "پروژه‌های بیشتر و کیس‌استادی‌ها را در سایت ببینید." : "See more projects and case studies on my website."}</h2>
             </div>
-            <Link href="/#case-studies">
-              {isFa ? "مشاهده کیس‌استادی‌ها ←" : "Explore case studies →"}
-            </Link>
+            <a href="https://foadmoghaddasi.com">foadmoghaddasi.com ↗</a>
           </Reveal>
         </div>
       </section>
@@ -481,6 +622,111 @@ export default function CV() {
       <div className="cv-footer-wrap">
         <Footer />
       </div>
+
+      <section className="cv-ats-sheet" aria-label={isFa ? "رزومه تک‌صفحه‌ای" : "One-page resume"}>
+        <header className="cv-ats-header">
+          <div>
+            <h1>{isFa ? "فؤاد مقدسی" : "Foad Moghaddasi"}</h1>
+            <p>{isFa ? "طراح محصول و UI/UX" : "Product & UI/UX Designer"}</p>
+          </div>
+          <address>
+            <a href="mailto:moghadasi.foad@gmail.com">moghadasi.foad@gmail.com</a>
+            <a href="tel:+989192463569">+98 919 246 3569</a>
+            <a href="https://www.linkedin.com/in/foadmoghaddasi">linkedin.com/in/foadmoghaddasi</a>
+            <span>{isFa ? "تهران، ایران" : "Tehran, Iran"}</span>
+          </address>
+        </header>
+
+        <div className="cv-ats-columns">
+          <section className="cv-ats-section cv-ats-experience-section">
+            <h2>{isFa ? "تجربه کاری" : "Experience"}</h2>
+            <div className="cv-ats-experience-list">
+              {experiences.map((experience, index) => (
+                <article className="cv-ats-experience" key={`${experience.company}-${experience.role}`}>
+                  <div>
+                    <h3>{experience.role}</h3>
+                    <span>{experience.company} · {experience.location}</span>
+                  </div>
+                  <time>
+                    {experience.date}
+                    <small>{index === 0 ? hesaboDuration : experience.duration}</small>
+                  </time>
+                  <p>{experience.intro}</p>
+                  {experience.work.length > 0 && (
+                    <ul>
+                      {experience.work.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  )}
+                  <div className="cv-ats-impact">
+                    <strong>{isFa ? "دستاوردها:" : "Impact:"}</strong>
+                    <ul>
+                      {experience.achievements.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <aside className="cv-ats-side">
+            <section className="cv-ats-section">
+              <h2>{isFa ? "مهارت‌ها و ابزارها" : "Skills & Tools"}</h2>
+              {skillGroups.map(([title, skills]) => (
+                <p className="cv-ats-group" key={title as string}>
+                  <strong>{title}:</strong> {(skills as string[]).join(" · ")}
+                </p>
+              ))}
+            </section>
+
+            <section className="cv-ats-section">
+              <h2>{isFa ? "توانمندی‌های AI" : "AI Capabilities"}</h2>
+              <p className="cv-ats-ai-tools">Codex · Figma AI · {isFa ? "ابزارهای مولد" : "Generative tools"} · OpenAI APIs</p>
+              {aiCapabilities.map((capability) => (
+                <p className="cv-ats-group" key={capability.title}>
+                  <strong>{capability.title}:</strong> {capability.description}
+                </p>
+              ))}
+              <p className="cv-ats-group">
+                <strong>{isFa ? "Mizoon:" : "Mizoon:"}</strong> {isFa ? "محصول لانچ‌شده با ترکیب طراحی محصول، توسعه و APIهای OpenAI." : "Launched product combining product design, development, and OpenAI APIs."}
+              </p>
+            </section>
+
+            <section className="cv-ats-section">
+              <h2>{isFa ? "تحصیلات" : "Education"}</h2>
+              <p className="cv-ats-group"><strong>{isFa ? "کارشناسی ارشد طراحی صنعتی:" : "M.A. Industrial Design:"}</strong> {isFa ? "در حال تحصیل · دانشگاه آزاد تهران مرکز" : "In progress · Azad University, Central Tehran"}</p>
+              <p className="cv-ats-group"><strong>{isFa ? "کارشناسی طراحی صنعتی:" : "B.A. Industrial Design:"}</strong> {isFa ? "دانشگاه آزاد تهران جنوب" : "Azad University, Tehran South"}</p>
+            </section>
+
+            <section className="cv-ats-section">
+              <h2>{isFa ? "گواهینامه‌ها" : "Certifications"}</h2>
+              {atsCertifications.map(([title, issuer, date]) => (
+                <p className="cv-ats-group" key={title}>
+                  <strong>{title}</strong> · {issuer} · {date}
+                </p>
+              ))}
+            </section>
+          </aside>
+        </div>
+
+        <section className="cv-ats-section cv-ats-projects-section">
+          <h2>{isFa ? "پروژه‌های منتخب" : "Selected Projects"}</h2>
+          <p className="cv-ats-project-note">
+            {isFa ? "منتخب از میان بیش از ۱۰ پروژه انجام‌شده؛ پروژه‌های بیشتر در پورتفولیو و کیس‌استادی‌ها موجود است." : "Selected from 10+ completed projects; additional work is available in the portfolio and case studies."}
+          </p>
+          <div className="cv-ats-project-grid">
+            {projects.map(([name, description]) => (
+              <p className="cv-ats-group" key={name}>
+                <strong>{name}:</strong> {description}
+              </p>
+            ))}
+          </div>
+          <div className="cv-ats-more-work">
+            <span>{isFa ? "کارهای بیشتر" : "More work"}</span>
+            <p>{isFa ? "برای مشاهدهٔ پروژه‌های بیشتر و کیس‌استادی‌ها، به سایت من سر بزنید." : "For more projects and case studies, visit my website."}</p>
+            <a href="https://foadmoghaddasi.com">foadmoghaddasi.com</a>
+          </div>
+        </section>
+      </section>
     </main>
   );
 }
