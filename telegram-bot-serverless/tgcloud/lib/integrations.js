@@ -70,7 +70,7 @@ export function createIntegrations({ api, fetch, FormData, InputFile, config, re
       if (bytes.byteLength > config.maxVoiceBytes) throw new UserError('حجم ویس بیش از حد مجاز است.', 'VOICE_LIMIT');
       const form = new FormData();
       form.append('model', config.transcriptionModel);
-      form.append('language', 'fa');
+      form.append('languages[]', 'fa');
       form.append('response_format', 'json');
       form.append('file', new InputFile(bytes, 'voice.ogg', { type: 'audio/ogg' }));
       let response;

@@ -6,7 +6,7 @@ export const config = Object.freeze({
   githubRef: 'main',
   workflowFile: 'generate-bilingual-article.yml',
   githubApiVersion: '2026-03-10',
-  transcriptionModel: 'gpt-4o-mini-transcribe',
+  transcriptionModel: 'gpt-transcribe',
   confirmationTtlMs: 15 * 60_000,
   maxTopicLength: 2500,
   maxVoiceBytes: 20 * 1024 * 1024,

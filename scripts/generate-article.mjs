@@ -6,7 +6,7 @@ import sharp from "sharp";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const envPath = path.join(root, ".env");
 const outputDirectory = path.join(root, "generated-articles");
-const defaultModels = { article: "gpt-5-mini", image: "gpt-image-1-mini" };
+const defaultModels = { article: "gpt-6-luna", image: "gpt-image-1-mini" };
 const sitePalette = "deep navy #090B10, surface navy #11141B, electric blue #315EFB, periwinkle #7596FF, and cool sky blue #60A5FA";
 
 const fail = (message) => { throw new Error(message); };

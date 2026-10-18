@@ -27,18 +27,20 @@ function fixture(overrides = {}) {
   return { services, calls, config };
 }
 
-test('voice uses the SDK file helpers and multipart form, preserving the existing model', async () => {
+test('voice uses GPT-Transcribe with the SDK file helpers and new language hints', async () => {
   let form;
   const { services } = fixture({ fetch: async (url, options) => {
     assert.equal(url, 'https://api.openai.com/v1/audio/transcriptions');
     assert.equal(options.method, 'POST');
     assert.equal(options.headers['Content-Type'], undefined);
     form = options.body;
-    return response({ text: 'متن ویس' });
+    return response({ text: 'متن ویس', languages: [{ code: 'fa' }] });
   } });
   assert.equal(await services.transcribe({ file_id: 'fixture', file_size: 3 }), 'متن ویس');
-  assert.equal(form.fields.get('model'), 'gpt-4o-mini-transcribe');
-  assert.equal(form.fields.get('language'), 'fa');
+  assert.equal(form.fields.get('model'), 'gpt-transcribe');
+  assert.equal(form.fields.get('languages[]'), 'fa');
+  assert.equal(form.fields.has('language'), false);
+  assert.equal(form.fields.get('response_format'), 'json');
   assert.equal(form.fields.get('file').name, 'voice.ogg');
   assert.equal(form.fields.get('file').options.type, 'audio/ogg');
 });

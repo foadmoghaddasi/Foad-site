@@ -63,7 +63,7 @@ Merge با SHA کامل نسخهٔ بررسی‌شده ارسال می‌شود 
 
 - handlerها فقط `sdk` و ماژول‌های خود پروژه را import می‌کنند؛ Node.js، npm runtime، فایل‌سیستم و تایمر استفاده نشده است. [ماژول‌ها](https://core.telegram.org/bots/serverless#the-module-system)
 - دانلود ویس از API داخلی پلتفرم انجام می‌شود؛ سقف مستند دانلود ۲۰ مگابایت و سقف پاسخ HTTP خارجی ۳۰ مگابایت است. FormData و InputFile متعلق به SDK هستند. [فایل‌ها و HTTP](https://core.telegram.org/bots/serverless#files)
-- مدل قبلی `gpt-4o-mini-transcribe`، زبان `fa` و فایل OGG حفظ شده‌اند. [مرجع OpenAI](https://developers.openai.com/api/reference/resources/audio/subresources/transcriptions/methods/create)
+- تبدیل ویس با مدل `gpt-transcribe`، راهنمای زبان `languages[]=fa`، خروجی JSON و فایل OGG انجام می‌شود. [راهنمای OpenAI](https://developers.openai.com/api/docs/guides/speech-to-text#add-transcription-context)
 - عدد قطعی سقف زمان handler، حافظه و سهمیهٔ کل DB در مرجع عمومی فعلی مشخص نشده است. بدون تست واقعی نمی‌توان موفقیت هر ویس طولانی را تضمین کرد. اجرای طولانی تولید مقاله و Build در GitHub می‌ماند.
 - دریافت تصویر و لینک عمومی مقاله قابلیت نسخهٔ اصلی نبود؛ این انتقال همان لینک PR و اطلاعات مقاله را حفظ می‌کند. موفقیت انتشار لیارا جدا از Merge است.
 

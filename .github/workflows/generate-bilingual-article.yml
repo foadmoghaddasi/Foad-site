@@ -32,7 +32,7 @@ jobs:
         env:
           TOPIC: ${{ inputs.topic }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          ARTICLE_MODEL: ${{ vars.ARTICLE_MODEL || vars.OPENAI_MODEL }}
+          ARTICLE_MODEL: gpt-6-luna
           IMAGE_MODEL: ${{ vars.IMAGE_MODEL }}
         run: npm run article:generate -- "$TOPIC"
 
