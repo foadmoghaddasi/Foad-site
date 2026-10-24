@@ -1,55 +1,55 @@
 {
-  "date": "2026-10-17",
+  "date": "2026-10-24",
   "difficulty": {
     "fa": "متوسط",
     "en": "Intermediate"
   },
   "timebox": {
-    "fa": "۶۰ تا ۹۰ دقیقه",
-    "en": "60–90 minutes"
+    "fa": "۷۵ تا ۹۰ دقیقه",
+    "en": "75–90 minutes"
   },
   "category": {
-    "fa": "طراحی خدمات و تعامل",
+    "fa": "طراحی خدمات و طراحی تعامل",
     "en": "Service and interaction design"
   },
   "title": {
-    "fa": "بازگرداندن آسان ظرف‌های چندبارمصرف بیرون‌بر",
-    "en": "Making Reusable Takeaway Containers Easy to Return"
+    "fa": "عضویت ساده و فراگیر در باشگاه کتاب محله",
+    "en": "Designing an Accessible Neighborhood Book Club Signup"
   },
   "scenario": {
-    "fa": "چند کافهٔ محلی برای کاهش زباله، غذا و نوشیدنی بیرون‌بر را در ظرف‌های چندبارمصرف ارائه می‌کنند. مشتری می‌تواند ظرف را به هر یک از نقاط عضو طرح برگرداند، اما در عمل نمی‌داند کدام مکان‌ها چه نوع ظرفی را می‌پذیرند، آیا نقطهٔ تحویل باز است، و پس از تحویل چه اتفاقی می‌افتد.",
-    "en": "Several local cafés offer takeaway food and drinks in reusable containers to reduce waste. Customers can return a container to any participating location, but they are often unsure which locations accept each container type, whether a drop-off point is open, and what happens after the return."
+    "fa": "کتابخانهٔ محله هر ماه چند نشست کتاب‌خوانی برگزار می‌کند. افراد می‌توانند حضوری یا از راه دور شرکت کنند، اما اطلاعات پراکنده دربارهٔ موضوع نشست، زبان جلسه، قالب دسترسی و شیوهٔ ثبت‌نام باعث شده بعضی افراد از پیوستن منصرف شوند. کتابخانه می‌خواهد یک مسیر ثبت‌نام روشن و محترمانه طراحی کند، بدون اینکه از کاربران اطلاعات غیرضروری بخواهد.",
+    "en": "A neighborhood library hosts several book-club sessions each month. People can join in person or remotely, but scattered information about the topic, session language, accessibility options, and sign-up process discourages some participants. The library wants a clear, respectful registration journey without asking for unnecessary personal information."
   },
   "challenge": {
-    "fa": "یک تجربهٔ ساده و قابل‌اعتماد برای پیدا کردن نقطهٔ مناسب و تحویل ظرف طراحی کنید؛ تجربه‌ای که از لحظهٔ تصمیم به بازگرداندن ظرف تا دریافت تأیید تحویل را پوشش دهد. روی کاهش ابهام، نمایش محدودیت‌های هر نقطه، و ارائهٔ یک مسیر جایگزین هنگام بسته بودن یا پر بودن محل تمرکز کنید.",
-    "en": "Design a simple, trustworthy experience for finding an appropriate return point and handing back a container—from the moment someone decides to return it through confirmation of the handoff. Focus on reducing uncertainty, showing each location’s limitations, and offering an alternative when a point is closed or full."
+    "fa": "یک تجربهٔ ثبت‌نام برای یکی از نشست‌های کتاب‌خوانی طراحی کنید که به افراد کمک کند پیش از ثبت‌نام، موضوع، زمان، شیوهٔ برگزاری و امکانات دسترسی را بفهمند و گزینهٔ مناسب خود را انتخاب کنند. مسیر باید برای کاربرانی که صفحه‌خوان یا صفحه‌نمایش کوچک استفاده می‌کنند نیز قابل استفاده باشد و پس از ثبت‌نام، اطلاعات لازم برای حضور را به‌روشنی ارائه دهد.",
+    "en": "Design a signup experience for one book-club session that helps people understand the topic, time, format, and accessibility options before registering, then choose the option that works for them. The flow should work for screen-reader users and small screens, and provide clear attendance details after signup."
   },
   "constraints": {
     "fa": [
-      "کاربر نباید برای دیدن نقاط تحویل یا شروع فرایند مجبور به ساخت حساب شود.",
-      "برای هر نقطه، ساعت فعالیت، نوع ظرف قابل‌پذیرش، ظرفیت فعلی و دسترسی ورودی را واضح نمایش دهید.",
-      "راهکار باید برای استفاده با صفحه‌خوان، متن بزرگ و اتصال اینترنت ناپایدار قابل‌استفاده باشد."
+      "فقط یک نشست فرضی را با جزئیات کافی تعریف کنید؛ از طراحی سامانهٔ کامل کتابخانه خودداری کنید.",
+      "حداکثر ۵ فیلد ضروری در فرم ثبت‌نام داشته باشید و برای هر نیاز دسترسی، گزینهٔ «ترجیح می‌دهم توضیح بدهم» ارائه کنید.",
+      "ثبت‌نام باید بدون ساخت حساب کاربری و در حداکثر سه گام ممکن باشد."
     ],
     "en": [
-      "Users must not be required to create an account to view return points or begin the process.",
-      "Clearly show each point’s opening hours, accepted container types, current capacity, and entrance accessibility.",
-      "The experience should work for screen-reader users, large-text settings, and unreliable internet connections."
+      "Define only one sample session with enough detail; do not design the library’s entire system.",
+      "Use no more than five required signup fields, and include an “I’d prefer to explain” option for accessibility needs.",
+      "Signup must work without account creation and take no more than three steps."
     ]
   },
   "deliverables": {
     "fa": [
-      "یک فلوچارت کوتاه از مسیر اصلی و مسیرهای جایگزین، در حداکثر یک صفحه",
-      "دو تا چهار وایرفریم برای پیدا کردن نقطه، بررسی جزئیات و تأیید تحویل",
-      "سه تصمیم طراحی را همراه با دلیل و یک فرض قابل‌آزمایش توضیح دهید"
+      "یک فلو یا استوری‌بورد کوتاه از مسیر آگاهی تا تأیید ثبت‌نام، در ۴ تا ۶ مرحله.",
+      "یک طرح وایرفریم برای صفحهٔ معرفی نشست و فرم ثبت‌نام، همراه با وضعیت خطا یا دادهٔ ناقص.",
+      "یک تأییدیهٔ پس از ثبت‌نام که زمان، مکان یا لینک جلسه، گزینه‌های دسترسی و راه لغو ثبت‌نام را نشان دهد."
     ],
     "en": [
-      "A one-page flowchart covering the primary and fallback paths",
-      "Two to four wireframes for finding a point, checking its details, and confirming the return",
-      "Explain three design decisions and one testable assumption"
+      "A short flow or storyboard covering discovery through signup confirmation in 4–6 steps.",
+      "A wireframe for the session details page and signup form, including an error or incomplete-input state.",
+      "A post-signup confirmation showing the time, location or meeting link, accessibility options, and how to cancel."
     ]
   },
   "hint": {
-    "fa": "قبل از طراحی صفحه‌ها، وضعیت‌های دشوار را فهرست کنید: ظرف پذیرفته نمی‌شود، محل بسته است، ظرفیت تکمیل شده، یا کاربر نمی‌تواند نقطهٔ نزدیک را پیدا کند. سپس ببینید چگونه می‌توان بدون سرزنش، گزینهٔ بعدی را پیشنهاد داد.",
-    "en": "List the difficult states before designing screens: the container is not accepted, the point is closed, capacity is full, or the user cannot find a nearby location. Then consider how to suggest the next option without blaming the user."
+    "fa": "اطلاعاتی را که فرد پیش از تصمیم‌گیری لازم دارد از اطلاعاتی که فقط برای هماهنگی بعدی لازم است جدا کنید. ترتیب و متن بخش‌ها می‌تواند به اندازهٔ خود فرم، بار شناختی را کاهش دهد.",
+    "en": "Separate what someone needs to decide before signing up from what the library only needs for follow-up coordination. The order and wording of information can reduce cognitive load as much as the form itself."
   }
 }
