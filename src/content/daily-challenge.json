@@ -1,55 +1,55 @@
 {
-  "date": "2026-10-24",
+  "date": "2026-10-31",
   "difficulty": {
     "fa": "متوسط",
     "en": "Intermediate"
   },
   "timebox": {
-    "fa": "۷۵ تا ۹۰ دقیقه",
-    "en": "75–90 minutes"
+    "fa": "۹۰ دقیقه",
+    "en": "90 minutes"
   },
   "category": {
-    "fa": "طراحی خدمات و طراحی تعامل",
+    "fa": "طراحی خدمات و تعامل",
     "en": "Service and interaction design"
   },
   "title": {
-    "fa": "عضویت ساده و فراگیر در باشگاه کتاب محله",
-    "en": "Designing an Accessible Neighborhood Book Club Signup"
+    "fa": "نوبت شفاف برای رخت‌شویی مشترک ساختمان",
+    "en": "A Fairer Turn for the Shared Laundry Room"
   },
   "scenario": {
-    "fa": "کتابخانهٔ محله هر ماه چند نشست کتاب‌خوانی برگزار می‌کند. افراد می‌توانند حضوری یا از راه دور شرکت کنند، اما اطلاعات پراکنده دربارهٔ موضوع نشست، زبان جلسه، قالب دسترسی و شیوهٔ ثبت‌نام باعث شده بعضی افراد از پیوستن منصرف شوند. کتابخانه می‌خواهد یک مسیر ثبت‌نام روشن و محترمانه طراحی کند، بدون اینکه از کاربران اطلاعات غیرضروری بخواهد.",
-    "en": "A neighborhood library hosts several book-club sessions each month. People can join in person or remotely, but scattered information about the topic, session language, accessibility options, and sign-up process discourages some participants. The library wants a clear, respectful registration journey without asking for unnecessary personal information."
+    "fa": "در یک مجتمع مسکونی، چند ماشین لباس‌شویی و خشک‌کن بین ساکنان مشترک است. ساکنان برای پیدا کردن دستگاه خالی، فهمیدن زمان پایان چرخه و برداشتن لباس‌های خود با مشکل روبه‌رو می‌شوند. مدیر ساختمان می‌خواهد تجربه‌ای ساده و منصفانه ایجاد کند؛ بدون الزام به نصب اپلیکیشن یا افشای اطلاعات شخصی.",
+    "en": "In an apartment building, several washers and dryers are shared by residents. People struggle to find an available machine, know when a cycle will finish, and collect their laundry on time. The building manager wants a simple, fair experience that does not require an app or expose personal information."
   },
   "challenge": {
-    "fa": "یک تجربهٔ ثبت‌نام برای یکی از نشست‌های کتاب‌خوانی طراحی کنید که به افراد کمک کند پیش از ثبت‌نام، موضوع، زمان، شیوهٔ برگزاری و امکانات دسترسی را بفهمند و گزینهٔ مناسب خود را انتخاب کنند. مسیر باید برای کاربرانی که صفحه‌خوان یا صفحه‌نمایش کوچک استفاده می‌کنند نیز قابل استفاده باشد و پس از ثبت‌نام، اطلاعات لازم برای حضور را به‌روشنی ارائه دهد.",
-    "en": "Design a signup experience for one book-club session that helps people understand the topic, time, format, and accessibility options before registering, then choose the option that works for them. The flow should work for screen-reader users and small screens, and provide clear attendance details after signup."
+    "fa": "یک تجربهٔ یکپارچه طراحی کنید که به ساکنان کمک کند وضعیت دستگاه‌ها را ببینند، یک نوبت را آغاز کنند، و در زمان مناسب برای جابه‌جایی لباس‌ها باخبر شوند. راهکاری برای ساکنانی که گوشی هوشمند ندارند یا به اعلان‌های صوتی و تصویری دسترسی یکسانی ندارند نیز در نظر بگیرید.",
+    "en": "Design an end-to-end experience that helps residents see machine availability, start a turn, and know when to move their laundry. Include an equitable option for residents who do not have a smartphone or have different access to visual and audio notifications."
   },
   "constraints": {
     "fa": [
-      "فقط یک نشست فرضی را با جزئیات کافی تعریف کنید؛ از طراحی سامانهٔ کامل کتابخانه خودداری کنید.",
-      "حداکثر ۵ فیلد ضروری در فرم ثبت‌نام داشته باشید و برای هر نیاز دسترسی، گزینهٔ «ترجیح می‌دهم توضیح بدهم» ارائه کنید.",
-      "ثبت‌نام باید بدون ساخت حساب کاربری و در حداکثر سه گام ممکن باشد."
+      "راهکار باید هم از طریق یک صفحهٔ وب ساده و هم از طریق تابلوی فیزیکی در نزدیکی رخت‌شویی قابل استفاده باشد.",
+      "رزرو هر دستگاه حداکثر ۱۵ دقیقه پیش از شروع چرخه ممکن است و برای جلوگیری از انحصار، هر فرد فقط یک نوبت فعال داشته باشد.",
+      "وضعیت دستگاه‌ها باید بدون نمایش نام، شمارهٔ واحد یا دیگر اطلاعات شخصی قابل فهم باشد؛ متن‌ها و رنگ‌ها نیز باید خوانا و قابل دسترس باشند."
     ],
     "en": [
-      "Define only one sample session with enough detail; do not design the library’s entire system.",
-      "Use no more than five required signup fields, and include an “I’d prefer to explain” option for accessibility needs.",
-      "Signup must work without account creation and take no more than three steps."
+      "The experience must work through both a simple web page and a physical display near the laundry room.",
+      "A machine may be held for no more than 15 minutes before a cycle starts, and each person may have only one active turn to prevent monopolization.",
+      "Machine status must be understandable without showing names, apartment numbers, or other personal information; text and color use must remain readable and accessible."
     ]
   },
   "deliverables": {
     "fa": [
-      "یک فلو یا استوری‌بورد کوتاه از مسیر آگاهی تا تأیید ثبت‌نام، در ۴ تا ۶ مرحله.",
-      "یک طرح وایرفریم برای صفحهٔ معرفی نشست و فرم ثبت‌نام، همراه با وضعیت خطا یا دادهٔ ناقص.",
-      "یک تأییدیهٔ پس از ثبت‌نام که زمان، مکان یا لینک جلسه، گزینه‌های دسترسی و راه لغو ثبت‌نام را نشان دهد."
+      "یک جریان کار یا استوری‌بورد کوتاه از مشاهدهٔ وضعیت تا پایان چرخه، شامل حالت‌های استثنایی مانند لغو یا دیر رسیدن.",
+      "طرح اولیهٔ دو صفحهٔ وب و یک نمای تابلوی فیزیکی، با نمایش وضعیت خالی، در حال استفاده و نیازمند تخلیه.",
+      "فهرستی کوتاه از تصمیم‌های طراحی، فرضیات و دو معیار برای سنجش موفقیت تجربه."
     ],
     "en": [
-      "A short flow or storyboard covering discovery through signup confirmation in 4–6 steps.",
-      "A wireframe for the session details page and signup form, including an error or incomplete-input state.",
-      "A post-signup confirmation showing the time, location or meeting link, accessibility options, and how to cancel."
+      "A short flow or storyboard from checking availability to cycle completion, including exceptions such as cancellation or arriving late.",
+      "Wireframes for two web views and one physical-board view, showing available, in-use, and ready-to-empty states.",
+      "A brief list of design decisions, assumptions, and two measures of success for the experience."
     ]
   },
   "hint": {
-    "fa": "اطلاعاتی را که فرد پیش از تصمیم‌گیری لازم دارد از اطلاعاتی که فقط برای هماهنگی بعدی لازم است جدا کنید. ترتیب و متن بخش‌ها می‌تواند به اندازهٔ خود فرم، بار شناختی را کاهش دهد.",
-    "en": "Separate what someone needs to decide before signing up from what the library only needs for follow-up coordination. The order and wording of information can reduce cognitive load as much as the form itself."
+    "fa": "به‌جای تمرکز صرف بر رزرو، تمام لحظه‌های بین «پیدا کردن دستگاه» تا «آزاد شدن آن برای نفر بعد» را بررسی کنید. یک راه ارتباطی جایگزین برای کسی در نظر بگیرید که اعلان تلفن را دریافت نمی‌کند.",
+    "en": "Look beyond booking and map every moment between finding a machine and making it available to the next person. Include an alternative way to communicate with someone who may not receive phone notifications."
   }
 }
