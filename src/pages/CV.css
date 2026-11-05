@@ -102,27 +102,6 @@
   transform: translateY(-2px);
   box-shadow: 0 14px 34px color-mix(in srgb, var(--cv-accent), transparent 58%);
 }
-.cv-print-button {
-  display: inline-flex;
-  min-height: 48px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 18px;
-  border: 1px solid #ffffff2e;
-  border-radius: 14px;
-  background: transparent;
-  color: var(--cv-text);
-  cursor: pointer;
-  font: inherit;
-  font-size: 0.82rem;
-  font-weight: 700;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-}
-.cv-print-button:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--cv-accent), transparent 25%);
-  background: color-mix(in srgb, var(--cv-accent), transparent 88%);
-}
 .cv-contact-link {
   color: var(--cv-text);
   font-size: 0.9rem;
@@ -629,9 +608,6 @@
   border-color: #14204412;
   box-shadow: 0 10px 35px #1725540a;
 }
-[data-theme="light"] .cv-print-button {
-  border-color: #14204424;
-}
 [data-theme="light"] .cv-stat-grid {
   background: #ffffffc9;
 }
@@ -921,8 +897,7 @@
     scroll-behavior: auto !important;
   }
   .cv-project-card,
-  .cv-skill-group span,
-  .cv-print-button {
+  .cv-skill-group span {
     transition: none;
   }
 }
@@ -1239,231 +1214,5 @@
   .cv-page[dir="rtl"] .cv-ai-launch-logo {
     float: right;
     margin: 4mm 0 1mm 3mm;
-  }
-}
-
-/* A compact, semantic resume rendered only by the browser's print-to-PDF flow. */
-.cv-ats-sheet {
-  display: none;
-}
-
-@page {
-  size: A4;
-  margin: 8mm 10mm;
-}
-
-@media print {
-  .cv-page > :not(.cv-ats-sheet) {
-    display: none !important;
-  }
-  .cv-ats-sheet {
-    display: block;
-    width: 100%;
-    color: #171717;
-    font-family: Arial, "Helvetica Neue", sans-serif;
-    font-size: 8.1pt;
-    line-height: 1.42;
-  }
-  .cv-page[dir="rtl"] .cv-ats-sheet,
-  .cv-page[dir="rtl"] .cv-ats-sheet * {
-    font-family: Kook, Tahoma, Arial, sans-serif;
-  }
-  .cv-ats-sheet h1,
-  .cv-ats-sheet h2,
-  .cv-ats-sheet h3,
-  .cv-ats-sheet p,
-  .cv-ats-sheet ul {
-    margin: 0;
-  }
-  .cv-ats-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 9mm;
-    padding-bottom: 2.5mm;
-    border-bottom: 1px solid #174ea6;
-  }
-  .cv-ats-header h1 {
-    font-size: 18pt;
-    line-height: 1;
-    letter-spacing: -0.04em;
-  }
-  .cv-ats-header > div > p {
-    margin-top: 1mm;
-    color: #174ea6;
-    font-size: 8.5pt;
-    font-weight: 700;
-  }
-  .cv-ats-header address {
-    display: grid;
-    gap: 0.5mm;
-    color: #303030;
-    font-style: normal;
-    font-size: 6.8pt;
-    text-align: right;
-  }
-  .cv-ats-header address a {
-    color: #303030 !important;
-  }
-  .cv-ats-columns {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: start;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 5mm;
-    margin-top: 3mm;
-  }
-  .cv-ats-side {
-    padding-left: 3mm;
-    border-left: 1px solid #d4d4d4;
-  }
-  .cv-ats-section + .cv-ats-section {
-    margin-top: 2.5mm;
-  }
-  .cv-ats-sheet h2 {
-    margin-bottom: 1mm;
-    padding-bottom: 0.6mm;
-    border-bottom: 0.5px solid #d4d4d4;
-    color: #174ea6;
-    font-size: 8.3pt;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .cv-ats-experience-list {
-    display: grid;
-    gap: 2.5mm;
-  }
-  .cv-ats-experience {
-    position: relative;
-    padding-right: 26mm;
-    break-inside: avoid;
-  }
-  .cv-ats-experience h3 {
-    display: inline;
-    font-size: 8.4pt;
-  }
-  .cv-ats-experience h3::after {
-    content: " · ";
-  }
-  .cv-ats-experience span {
-    color: #174ea6;
-    font-weight: 700;
-  }
-  .cv-ats-experience time {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: #444;
-    font-size: 6.3pt;
-    white-space: nowrap;
-  }
-  .cv-ats-experience time small {
-    display: block;
-    margin-top: 0.25mm;
-    color: #174ea6;
-    font-size: 5.8pt;
-    font-weight: 700;
-  }
-  .cv-ats-experience p {
-    margin-top: 0.55mm;
-    color: #292929;
-  }
-  .cv-ats-experience ul {
-    margin-top: 0.45mm;
-    padding-left: 3mm;
-    color: #292929;
-  }
-  .cv-ats-experience li + li {
-    margin-top: 0.25mm;
-  }
-  .cv-ats-impact {
-    display: flex;
-    gap: 0.8mm;
-    margin-top: 0.5mm;
-    color: #292929;
-  }
-  .cv-ats-impact strong {
-    flex: none;
-    color: #174ea6;
-  }
-  .cv-ats-impact ul {
-    margin: 0;
-  }
-  .cv-ats-group + .cv-ats-group {
-    margin-top: 1mm;
-  }
-  .cv-ats-group {
-    color: #292929;
-  }
-  .cv-ats-group strong {
-    color: #171717;
-  }
-  .cv-ats-project-note {
-    margin-bottom: 1mm !important;
-    color: #174ea6;
-    font-size: 7.2pt;
-    font-style: italic;
-  }
-  .cv-ats-projects-section {
-    margin-top: 3mm;
-    padding-top: 2.2mm;
-    border-top: 1px solid #174ea6;
-  }
-  .cv-ats-project-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2mm 5mm;
-  }
-  .cv-ats-more-work {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 2mm;
-    margin-top: 2.5mm;
-    padding: 1.6mm 2mm;
-    border: 0.75px solid #174ea6;
-    color: #174ea6;
-  }
-  .cv-ats-more-work span {
-    font-size: 7.1pt;
-    font-weight: 800;
-    text-transform: uppercase;
-  }
-  .cv-ats-more-work p {
-    color: #292929;
-  }
-  .cv-ats-more-work a {
-    color: #174ea6 !important;
-    font-size: 7.3pt;
-    font-weight: 800;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .cv-ats-ai-tools {
-    margin-bottom: 1mm !important;
-    color: #174ea6;
-    font-weight: 700;
-  }
-  .cv-page[dir="rtl"] .cv-ats-header address {
-    text-align: left;
-  }
-  .cv-page[dir="rtl"] .cv-ats-side {
-    padding-right: 3mm;
-    padding-left: 0;
-    border-right: 1px solid #d4d4d4;
-    border-left: 0;
-  }
-  .cv-page[dir="rtl"] .cv-ats-experience {
-    padding-right: 0;
-    padding-left: 26mm;
-  }
-  .cv-page[dir="rtl"] .cv-ats-experience time {
-    right: auto;
-    left: 0;
-  }
-  .cv-page[dir="rtl"] .cv-ats-experience ul {
-    padding-right: 3mm;
-    padding-left: 0;
   }
 }

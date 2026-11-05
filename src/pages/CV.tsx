@@ -4,32 +4,56 @@ import { DocumentDownload } from "iconsax-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
-import Certifications from "../components/Certifications";
-import mizoonLogo from "../assets/images/mizoon-logo-transparent.png";
 import "./CV.css";
 import { useLanguage } from "../context/LanguageContext";
 import SEO from "../components/SEO";
+import { RESUME_DOWNLOAD_NAME, RESUME_URL } from "../utils/resume";
 
-const experiencesEn = [
+type Experience = {
+  company: string;
+  location: string;
+  role: string;
+  date: string;
+  duration?: string;
+  startDate?: [number, number];
+  intro: string;
+  work: string[];
+  achievements: string[];
+};
+
+const experiencesEn: Experience[] = [
   {
     company: "Hesabo",
     location: "Tehran",
     role: "Product Designer",
     date: "Jul 2022 — Present",
-    duration: "3 yrs 5 mos",
-    intro:
-      "Hesabo is a fintech platform that enables employees to access their earned salaries daily.",
+    startDate: [2022, 6],
+    intro: "Hesabo is an Earned Wage Access (EWA) platform that lets employees access earned wages before payday. I design end-to-end experiences and information architecture for KYC, bank card applications and issuance, subscription plans, and employer/admin platforms, working closely with developers, product managers, business stakeholders, and other teams.",
     work: [
       "Designed and developed a comprehensive design system, ensuring consistency and efficiency across products.",
-      "Conducted usability testing, A/B testing, and user research, improving retention and engagement.",
+      "Conducted usability testing, A/B testing, and user research, leading to improved user retention and engagement.",
       "Led redesign and rebranding efforts, significantly enhancing product usability and aesthetics.",
-      "Collaborated with engineering, business, and product teams to align design goals with business objectives.",
+      "Collaborated with engineering, business, and product teams to align design goals with business objectives."
     ],
     achievements: [
-      "Increased user engagement by 35% through a complete UI/UX redesign and usability improvements.",
-      "Reduced salary withdrawal time by 40% by streamlining user flows and navigation.",
-      "Developed a customized design system, reducing front-end development time by 40%.",
-    ],
+      "Increased user engagement by 35% through a complete UI/UX redesign and usability improvements, optimizing the salary withdrawal process.",
+      "Shortened the salary withdrawal process by 25% by streamlining user flows and implementing a more efficient navigation system based on user behavior analysis.",
+      "Developed a customized design system, reducing front-end development time and ensuring consistent UI across all platforms.",
+      "Increased subscription purchases by redesigning plan cards to highlight savings and benefits more clearly, based on user research and beta feedback."
+    ]
+  },
+  {
+    company: "Sarmo Style",
+    location: "Remote",
+    role: "Product Design Consultant",
+    date: "Apr 2023 — Present",
+    startDate: [2023, 3],
+    intro: "Provide ongoing e-commerce UX consulting for a retailer specializing in scarves and hijabs.",
+    work: [],
+    achievements: [
+      "Style the Look: Designed complementary product recommendations in the add-to-cart flow, resulting in a 15% increase in completed purchases.",
+      "Product Discovery: Improved product browsing through category-based navigation, helping customers discover products faster and reducing reliance on search."
+    ]
   },
   {
     company: "Asanito",
@@ -37,14 +61,15 @@ const experiencesEn = [
     role: "UI/UX Designer",
     date: "Jul 2022 — Apr 2023",
     duration: "10 mos",
-    intro:
-      "Designed and improved user experiences for enterprise SaaS platforms, creating high-fidelity prototypes and refining usability through iterative design processes.",
+    intro: "Designed and improved user experiences for an enterprise CRM platform.",
     work: [
-      "Conducted UX research and prototyping, improving customer onboarding and feature adoption.",
+      "Created high-fidelity UI prototypes and refined usability through iterative design processes.",
+      "Conducted UX research and prototyping, improving customer onboarding and feature adoption."
     ],
     achievements: [
-      "Redesigned data visualization, enabling 25% faster data interpretation with 30% fewer user errors.",
-    ],
+      "Designed an in-app calling system to simplify customer follow-ups.",
+      "Designed a form builder that lets clients create and customize forms for internal processes."
+    ]
   },
   {
     company: "Freelance Product Designer",
@@ -52,13 +77,12 @@ const experiencesEn = [
     role: "UI/UX Designer",
     date: "Nov 2021 — Jul 2022",
     duration: "9 mos",
-    intro:
-      "Worked across fintech, e-commerce, and SaaS products, collaborating with diverse teams to create intuitive and high-impact digital experiences.",
+    intro: "Worked as a UI/UX Designer on multiple freelance projects across fintech, e-commerce, and SaaS platforms, collaborating with diverse teams to create intuitive and high-impact digital experiences.",
     work: [],
     achievements: [
-      "Improved usability across multiple platforms, refining navigation and interaction flows.",
-      "Redesigned and updated UI to align products with modern design standards.",
-    ],
+      "Improved usability across multiple platforms, refining navigation and interaction flows for a smoother user experience.",
+      "Redesigned and updated UI to enhance user experience and align with modern design standards."
+    ]
   },
   {
     company: "Jabama",
@@ -66,19 +90,100 @@ const experiencesEn = [
     role: "Employee Experience Designer (EXD)",
     date: "Feb 2021 — Nov 2021",
     duration: "10 mos",
-    intro:
-      "Focused on improving the overall employee experience through UCD, research, and digital solutions—identifying pain points, optimizing internal tools, and improving engagement.",
+    intro: "At Jabama, I worked as an Employee Experience Designer (EXD), focusing on improving the overall employee experience through user-centered design (UCD), research, and digital solutions. My role involved identifying pain points, optimizing internal tools, and enhancing engagement within the organization.",
     work: [],
     achievements: [
       "Redesigned internal tools, streamlining HR processes and boosting efficiency.",
-      "Improved onboarding with interactive guides for new hires.",
-      "Optimized internal communication and information flow.",
-      "Increased employee satisfaction by 40% by resolving key pain points.",
-    ],
-  },
+      "Improved onboarding, helping new hires adapt faster with interactive guides.",
+      "Optimized internal communication, enhancing information flow and engagement.",
+      "Increased employee satisfaction by resolving key pain points.",
+      "Boosted retention and loyalty through better onboarding and workplace tools."
+    ]
+  }
 ];
 
-const skillGroupsEn = [
+const experiencesFa: Experience[] = [
+  {
+    company: "حسابو",
+    location: "تهران",
+    role: "طراح محصول",
+    date: "تیر ۱۴۰۱ — اکنون",
+    startDate: [2022, 6],
+    intro: "حسابو یک پلتفرم دسترسی به حقوق کسب‌شده (EWA) است که به کارکنان امکان می‌دهد پیش از روز پرداخت، به حقوق خود دسترسی داشته باشند. طراحی تجربه‌های سرتاسری و معماری اطلاعات برای احراز هویت، درخواست و صدور کارت بانکی، طرح‌های اشتراک و پلتفرم‌های کارفرمایی و مدیریتی را با همکاری توسعه‌دهندگان، مدیران محصول، ذی‌نفعان کسب‌وکار و سایر تیم‌ها انجام می‌دهم.",
+    work: [
+      "طراحی و توسعه یک دیزاین سیستم جامع برای افزایش هماهنگی و کارایی در محصولات.",
+      "اجرای تست کاربردپذیری، A/B تست و تحقیق کاربر برای بهبود ماندگاری و تعامل کاربران.",
+      "رهبری بازطراحی و ری‌برندینگ برای بهبود کاربردپذیری و کیفیت بصری محصول.",
+      "همکاری با تیم‌های مهندسی، کسب‌وکار و محصول برای هم‌راستایی اهداف طراحی با اهداف کسب‌وکار."
+    ],
+    achievements: [
+      "افزایش ۳۵٪ تعامل کاربران با بازطراحی کامل UI/UX، بهبود کاربردپذیری و بهینه‌سازی فرایند برداشت حقوق.",
+      "کوتاه‌کردن فرایند برداشت حقوق به میزان ۲۵٪ با ساده‌سازی جریان‌ها و طراحی ناوبری کارآمدتر بر اساس تحلیل رفتار کاربران.",
+      "توسعه دیزاین سیستم اختصاصی برای کاهش زمان توسعه فرانت‌اند و هماهنگی رابط کاربری در تمام پلتفرم‌ها.",
+      "افزایش خرید اشتراک با بازطراحی کارت‌های پلن برای نمایش روشن‌تر صرفه‌جویی و مزایا، بر اساس تحقیق کاربر و بازخورد نسخه بتا."
+    ]
+  },
+  {
+    company: "سارمو استایل",
+    location: "دورکاری",
+    role: "مشاور طراحی محصول",
+    date: "فروردین ۱۴۰۲ — اکنون",
+    startDate: [2023, 3],
+    intro: "ارائه مشاوره مستمر تجربه کاربری تجارت الکترونیک به فروشگاهی تخصصی در حوزه شال و حجاب.",
+    work: [],
+    achievements: [
+      "Style the Look: طراحی پیشنهاد محصولات مکمل در جریان افزودن به سبد خرید که باعث افزایش ۱۵٪ خریدهای تکمیل‌شده شد.",
+      "کشف محصول: بهبود مرور محصولات با ناوبری مبتنی بر دسته‌بندی برای کشف سریع‌تر محصولات و کاهش وابستگی به جست‌وجو."
+    ]
+  },
+  {
+    company: "آسانیتو",
+    location: "تهران",
+    role: "طراح UI/UX",
+    date: "تیر ۱۴۰۱ — فروردین ۱۴۰۲",
+    duration: "۱۰ ماه",
+    intro: "طراحی و بهبود تجربه کاربری یک پلتفرم سازمانی مدیریت ارتباط با مشتری (CRM).",
+    work: [
+      "ساخت پروتوتایپ‌های دقیق رابط کاربری و بهبود کاربردپذیری با فرایند طراحی تکرارشونده.",
+      "تحقیق تجربه کاربری و پروتوتایپ برای بهبود ورود مشتری و استفاده از قابلیت‌ها."
+    ],
+    achievements: [
+      "طراحی سیستم تماس درون‌برنامه‌ای برای ساده‌سازی پیگیری مشتریان.",
+      "طراحی فرم‌ساز برای ساخت و شخصی‌سازی فرم‌های فرایندهای داخلی توسط مشتریان."
+    ]
+  },
+  {
+    company: "طراح محصول فریلنسر",
+    location: "دورکاری",
+    role: "طراح UI/UX",
+    date: "آبان ۱۴۰۰ — تیر ۱۴۰۱",
+    duration: "۹ ماه",
+    intro: "همکاری به‌عنوان طراح UI/UX در پروژه‌های فریلنسری فین‌تک، تجارت الکترونیک و SaaS با تیم‌های مختلف برای ساخت تجربه‌های ساده و اثرگذار.",
+    work: [],
+    achievements: [
+      "بهبود کاربردپذیری چند پلتفرم با اصلاح ناوبری و جریان‌های تعامل برای تجربه‌ای روان‌تر.",
+      "بازطراحی و به‌روزرسانی رابط‌ها برای بهبود تجربه کاربری و هماهنگی با استانداردهای جدید طراحی."
+    ]
+  },
+  {
+    company: "جاباما",
+    location: "تهران",
+    role: "طراح تجربه کارکنان (EXD)",
+    date: "بهمن ۱۳۹۹ — آبان ۱۴۰۰",
+    duration: "۱۰ ماه",
+    intro: "تمرکز بر بهبود تجربه کارکنان با طراحی کاربرمحور، تحقیق و راه‌حل‌های دیجیتال؛ از شناسایی نقاط درد تا بهینه‌سازی ابزارهای داخلی و افزایش تعامل در سازمان.",
+    work: [],
+    achievements: [
+      "بازطراحی ابزارهای داخلی و ساده‌سازی فرایندهای منابع انسانی برای افزایش کارایی.",
+      "بهبود آنبوردینگ با راهنماهای تعاملی برای سازگاری سریع‌تر نیروهای جدید.",
+      "بهینه‌سازی ارتباطات داخلی برای بهبود جریان اطلاعات و تعامل.",
+      "افزایش رضایت کارکنان با برطرف‌کردن نقاط درد کلیدی.",
+      "افزایش ماندگاری و وفاداری کارکنان با بهبود آنبوردینگ و ابزارهای محیط کار."
+    ]
+  }
+];
+
+const skillGroupsEn: [string, string[]][] = [
   [
     "Product Design & UX Research",
     [
@@ -88,198 +193,165 @@ const skillGroupsEn = [
       "User Flows",
       "Usability Testing",
       "A/B Testing",
+      "Data-Driven Design",
       "UX Writing",
-      "Accessibility",
-    ],
+      "Accessibility Design"
+    ]
   ],
   [
     "Design Systems & UI Development",
     [
-      "Design Systems",
-      "Auto Layout",
+      "Design Systems Creation & Management",
+      "Figma Auto Layout",
       "Component Libraries",
-      "Tokens",
-      "Variables",
-    ],
+      "Tokens & Variables"
+    ]
   ],
   [
     "Tools & Technologies",
     [
       "Figma",
       "Sketch",
-      "Zeplin",
       "Adobe XD",
       "FigJam",
       "Miro",
       "Jira",
       "Clarity",
-      "Hotjar",
-    ],
-  ],
+      "Google Analytics"
+    ]
+  ]
 ];
 
-const projectsEn = [
-  ["Charisma Crowd", "Crowdfunding platform optimized for user engagement."],
-  ["Nazari Cake", "E-commerce experience for an online cake business."],
-  ["Sarmo Store", "Storefront with an improved checkout experience."],
-  ["Qursat", "Medication management and prescription tracking app."],
-  ["Tadatoon", "AI-powered storytelling platform for children."],
-  ["Voices to Action", "Campaign-based advocacy application."],
-];
-
-const experiencesFa = [
-  {
-    company: "حسابو",
-    location: "تهران",
-    role: "طراح محصول",
-    date: "تیر ۱۴۰۱ — اکنون",
-    duration: "",
-    intro:
-      "حسابو یک پلتفرم فین‌تک است که دسترسی روزانه کارکنان به حقوق کسب‌شده‌شان را فراهم می‌کند.",
-    work: [
-      "طراحی و توسعه یک دیزاین سیستم جامع برای افزایش هماهنگی و سرعت در محصولات.",
-      "اجرای تست کاربردپذیری، A/B تست و تحقیق کاربر برای بهبود ماندگاری و تعامل.",
-      "رهبری بازطراحی و ری‌برندینگ با هدف بهبود کاربردپذیری و کیفیت بصری محصول.",
-      "همکاری نزدیک با تیم‌های مهندسی، کسب‌وکار و محصول برای هم‌راستایی اهداف طراحی.",
-    ],
-    achievements: [
-      "افزایش ۳۵٪ تعامل کاربران با بازطراحی کامل UI/UX و بهبود کاربردپذیری.",
-      "کاهش ۴۰٪ زمان برداشت حقوق با ساده‌سازی جریان‌ها و ناوبری.",
-      "کاهش ۴۰٪ زمان توسعه فرانت‌اند با ساخت دیزاین سیستم اختصاصی.",
-    ],
-  },
-  {
-    company: "آسانیتو",
-    location: "تهران",
-    role: "طراح UI/UX",
-    date: "تیر ۱۴۰۱ — فروردین ۱۴۰۲",
-    duration: "۱۰ ماه",
-    intro:
-      "طراحی و بهبود تجربه محصولات سازمانی SaaS با پروتوتایپ‌های دقیق و تکرار راه‌حل‌ها بر اساس ارزیابی کاربردپذیری.",
-    work: [
-      "تحقیق تجربه کاربری و پروتوتایپ برای بهبود ورود مشتری و استفاده از قابلیت‌ها.",
-    ],
-    achievements: [
-      "بازطراحی نمایش داده‌ها برای درک ۲۵٪ سریع‌تر اطلاعات و کاهش ۳۰٪ خطاهای کاربران.",
-    ],
-  },
-  {
-    company: "طراح محصول فریلنسر",
-    location: "دورکاری",
-    role: "طراح UI/UX",
-    date: "آبان ۱۴۰۰ — تیر ۱۴۰۱",
-    duration: "۹ ماه",
-    intro:
-      "همکاری با تیم‌های مختلف در محصولات فین‌تک، تجارت الکترونیک و SaaS برای ساخت تجربه‌های ساده و اثرگذار.",
-    work: [],
-    achievements: [
-      "بهبود کاربردپذیری چند پلتفرم با اصلاح ناوبری و جریان‌های تعامل.",
-      "بازطراحی رابط‌ها برای هماهنگی با استانداردهای جدید طراحی محصول.",
-    ],
-  },
-  {
-    company: "جاباما",
-    location: "تهران",
-    role: "طراح تجربه کارکنان (EXD)",
-    date: "بهمن ۱۳۹۹ — آبان ۱۴۰۰",
-    duration: "۱۰ ماه",
-    intro:
-      "تمرکز بر بهبود تجربه کارکنان با طراحی کاربرمحور، تحقیق و راه‌حل‌های دیجیتال؛ از شناسایی نقاط درد تا بهینه‌سازی ابزارهای داخلی.",
-    work: [],
-    achievements: [
-      "بازطراحی ابزارهای داخلی و ساده‌سازی فرایندهای منابع انسانی.",
-      "بهبود آنبوردینگ با راهنماهای تعاملی برای نیروهای جدید.",
-      "بهینه‌سازی ارتباطات داخلی و جریان اطلاعات.",
-      "افزایش ۴۰٪ رضایت کارکنان با حل نقاط درد کلیدی.",
-    ],
-  },
-];
-
-const skillGroupsFa = [
+const skillGroupsFa: [string, string[]][] = [
   [
     "طراحی محصول و تحقیق تجربه کاربری",
-    ["تحقیق کاربر", "وایرفریم", "پروتوتایپ", "جریان کاربر", "تست کاربردپذیری", "A/B تست", "UX Writing", "دسترس‌پذیری"],
+    [
+      "تحقیق کاربر",
+      "وایرفریم",
+      "پروتوتایپ",
+      "جریان کاربر",
+      "تست کاربردپذیری",
+      "A/B تست",
+      "طراحی داده‌محور",
+      "UX Writing",
+      "طراحی دسترس‌پذیر"
+    ]
   ],
   [
     "دیزاین سیستم و توسعه رابط",
-    ["دیزاین سیستم", "Auto Layout", "کتابخانه کامپوننت", "توکن‌ها", "متغیرها"],
+    [
+      "ساخت و مدیریت دیزاین سیستم",
+      "Figma Auto Layout",
+      "کتابخانه کامپوننت",
+      "توکن‌ها و متغیرها"
+    ]
   ],
   [
     "ابزارها و فناوری‌ها",
-    ["Figma", "Sketch", "Zeplin", "Adobe XD", "FigJam", "Miro", "Jira", "Clarity", "Hotjar"],
+    [
+      "Figma",
+      "Sketch",
+      "Adobe XD",
+      "FigJam",
+      "Miro",
+      "Jira",
+      "Clarity",
+      "Google Analytics"
+    ]
+  ]
+];
+
+const projectsEn = [
+  [
+    "Charisma Crowd",
+    "Created a crowdfunding platform to optimize user engagement."
   ],
+  [
+    "Nazari Cake",
+    "Created an e-commerce platform for an online cake business."
+  ],
+  [
+    "Sarmo Store",
+    "Developed an e-commerce website with an improved checkout experience."
+  ],
+  [
+    "Qursat",
+    "Designed a medication management app for better prescription tracking."
+  ],
+  [
+    "Tadatoon",
+    "Designing a user-generated content platform to educate children aged 5 to 12 through AI-powered storytelling."
+  ],
+  [
+    "Voices to Action",
+    "Designed a campaign-based app for advocacy engagement."
+  ]
 ];
 
 const projectsFa = [
-  ["کاریزما کراد", "پلتفرم تأمین مالی جمعی با تمرکز بر تعامل کاربران."],
-  ["کیک نظری", "تجربه تجارت الکترونیک برای یک کسب‌وکار آنلاین کیک."],
-  ["فروشگاه سارمو", "فروشگاه آنلاین با فرایند خرید بهینه‌شده."],
-  ["قرصات", "اپلیکیشن مدیریت دارو و پیگیری نسخه."],
-  ["تاداتون", "پلتفرم داستان‌گویی کودک با کمک هوش مصنوعی."],
-  ["Voices to Action", "اپلیکیشن کنشگری مبتنی بر کمپین."],
+  [
+    "کاریزما کراد",
+    "ساخت پلتفرم تأمین مالی جمعی با هدف بهینه‌سازی تعامل کاربران."
+  ],
+  [
+    "کیک نظری",
+    "ساخت پلتفرم تجارت الکترونیک برای یک کسب‌وکار آنلاین کیک."
+  ],
+  [
+    "فروشگاه سارمو",
+    "توسعه وب‌سایت تجارت الکترونیک با تجربه پرداخت بهبودیافته."
+  ],
+  [
+    "قرصات",
+    "طراحی اپلیکیشن مدیریت دارو برای پیگیری بهتر نسخه‌ها."
+  ],
+  [
+    "تاداتون",
+    "طراحی پلتفرم محتوای کاربرساخته برای آموزش کودکان ۵ تا ۱۲ سال با داستان‌گویی مبتنی بر هوش مصنوعی."
+  ],
+  [
+    "Voices to Action",
+    "طراحی اپلیکیشن مبتنی بر کمپین برای مشارکت در کنشگری."
+  ]
 ];
 
 const aiCapabilitiesEn = [
   {
     number: "01",
-    title: "AI-assisted product design",
-    description:
-      "Turning early product ideas into clear flows, interfaces, and polished prototypes.",
+    title: "AI Agents",
+    description: "Set up agents with clear instructions, design guidelines, and project requirements."
   },
   {
     number: "02",
-    title: "AI-powered building",
-    description:
-      "Using Codex to move from concept to working product faster, with a design-minded eye on the final experience.",
+    title: "Design Workflow",
+    description: "Use AI for UX writing, research, ideation, and visual design."
   },
   {
     number: "03",
-    title: "Generative visual exploration",
-    description:
-      "Exploring visual directions, concepts, and production-ready assets with generative tools.",
-  },
+    title: "Quality Control",
+    description: "Review and refine AI outputs to meet design standards and project goals."
+  }
 ];
 
 const aiCapabilitiesFa = [
   {
     number: "۰۱",
-    title: "طراحی محصول با کمک AI",
-    description:
-      "تبدیل ایده‌های اولیه به جریان‌های روشن، رابط‌های کاربری و پروتوتایپ‌های دقیق.",
+    title: "ایجنت‌های هوش مصنوعی",
+    description: "راه‌اندازی ایجنت‌ها با دستورهای روشن، راهنماهای طراحی و الزامات پروژه."
   },
   {
     number: "۰۲",
-    title: "ساخت محصول با AI",
-    description:
-      "استفاده از Codex برای حرکت سریع‌تر از ایده به محصول قابل‌استفاده، با نگاه طراحانه به تجربه نهایی.",
+    title: "فرایند طراحی",
+    description: "استفاده از هوش مصنوعی برای UX Writing، تحقیق، ایده‌پردازی و طراحی بصری."
   },
   {
     number: "۰۳",
-    title: "اکتشاف بصری مولد",
-    description:
-      "بررسی مسیرهای بصری، کانسپت‌ها و ساخت دارایی‌های آمادهٔ استفاده با ابزارهای مولد.",
-  },
-];
-
-const atsCertificationsEn = [
-  ["Figma: Designing with Variables and Conditionals", "LinkedIn", "Feb 2025"],
-  ["Data-Driven Product Research and Design", "Project Management Institute", "Feb 2025"],
-  ["Accessibility and Inclusion with Figma", "LinkedIn", "Feb 2025"],
-  ["Designing Microinteractions with Figma", "LinkedIn", "Feb 2025"],
-  ["1 Mentorship Sessions", "ADPList", "Dec 2023"],
-];
-
-const atsCertificationsFa = [
-  ["فیگما: طراحی با متغیرها و شرط‌ها", "لینکدین", "فوریه ۱۴۰۴"],
-  ["تحقیق و طراحی محصول داده‌محور", "مؤسسه مدیریت پروژه", "فوریه ۱۴۰۴"],
-  ["دسترس‌پذیری و طراحی فراگیر با فیگما", "لینکدین", "فوریه ۱۴۰۴"],
-  ["طراحی ریزتعامل‌ها با فیگما", "لینکدین", "فوریه ۱۴۰۴"],
-  ["یک جلسه منتورشیپ", "ADPList", "دسامبر ۱۴۰۲"],
+    title: "کنترل کیفیت",
+    description: "بازبینی و اصلاح خروجی‌های هوش مصنوعی برای هماهنگی با استانداردهای طراحی و اهداف پروژه."
+  }
 ];
 
 const DESIGN_CAREER_START_YEAR = 2021;
-const HESABO_START_YEAR = 2022;
-const HESABO_START_MONTH = 6; // July (JavaScript months are zero-based)
 
 const getDurationSince = (startYear: number, startMonth: number, isFa = false) => {
   const now = new Date();
@@ -301,14 +373,8 @@ export default function CV() {
   const skillGroups = isFa ? skillGroupsFa : skillGroupsEn;
   const projects = isFa ? projectsFa : projectsEn;
   const aiCapabilities = isFa ? aiCapabilitiesFa : aiCapabilitiesEn;
-  const atsCertifications = isFa ? atsCertificationsFa : atsCertificationsEn;
   const [progress, setProgress] = useState(0);
   const yearsOfExperience = new Date().getFullYear() - DESIGN_CAREER_START_YEAR;
-  const hesaboDuration = getDurationSince(
-    HESABO_START_YEAR,
-    HESABO_START_MONTH,
-    isFa,
-  );
 
   useEffect(() => {
     const updateProgress = () => {
@@ -320,10 +386,6 @@ export default function CV() {
     window.addEventListener("scroll", updateProgress, { passive: true });
     return () => window.removeEventListener("scroll", updateProgress);
   }, []);
-
-  const printAtsResume = () => {
-    window.print();
-  };
 
   return (
     <main className="cv-page" dir={direction}>
@@ -354,13 +416,13 @@ export default function CV() {
             </h1>
             <p>
               {isFa
-                ? `طراح محصول با ${yearsOfExperience.toLocaleString("fa-IR")} سال تجربه در UI/UX، توسعه محصولات دیجیتال و دیزاین سیستم. مسئله‌های پیچیده محصول را به تجربه‌هایی ساده و قابل‌فهم تبدیل می‌کنم.`
-                : `Product Designer with ${yearsOfExperience} years of experience in UI/UX, digital product development, and design systems. I turn complex product problems into seamless, intuitive experiences.`}
+                ? `طراح محصول با ${yearsOfExperience.toLocaleString("fa-IR")} سال تجربه در UI/UX، توسعه محصولات دیجیتال و دیزاین سیستم. مسلط به طراحی کاربرمحور (UCD)، تفکر طراحی و راهبردهای داده‌محور؛ با تجربه همکاری با تیم‌های توسعه برای ساخت تجربه‌هایی روان، ساده و اثرگذار.`
+                : `Product Designer with ${yearsOfExperience} years of experience in UI/UX, digital product development, and design systems. Skilled in User-Centered Design (UCD), Design Thinking, and data-driven strategies. Adept at collaborating with development teams to create seamless, intuitive, and high-impact user experiences.`}
             </p>
             <div className="cv-actions">
               <a
-                href="/FoadMoghaddasi-CV.pdf"
-                download="FoadMoghaddasi-CV.pdf"
+                href={RESUME_URL}
+                download={RESUME_DOWNLOAD_NAME}
                 className="cv-download-button"
               >
                 {isFa ? "دانلود PDF" : "Download PDF"}
@@ -370,13 +432,6 @@ export default function CV() {
                   variant="Broken"
                 />
               </a>
-              <button
-                type="button"
-                className="cv-print-button"
-                onClick={printAtsResume}
-              >
-                {isFa ? "خروجی تک‌صفحه‌ای ATS" : "Export one-page ATS PDF"}
-              </button>
               <Link
                 href="mailto:moghadasi.foad@gmail.com"
                 className="cv-contact-link"
@@ -392,15 +447,15 @@ export default function CV() {
             </div>
             <div>
               <strong>10+</strong>
-              <span>{isFa ? "محصول منتشرشده" : "Products shipped"}</span>
+              <span>{isFa ? "پروژه" : "Projects"}</span>
             </div>
             <div>
               <strong>35%</strong>
               <span>{isFa ? "رشد تعامل" : "Engagement growth"}</span>
             </div>
             <div>
-              <strong>40%</strong>
-              <span>{isFa ? "جریان‌های کلیدی سریع‌تر" : "Faster key flows"}</span>
+              <strong>25%</strong>
+              <span>{isFa ? "فرایند برداشت کوتاه‌تر" : "Shorter withdrawal process"}</span>
             </div>
           </Reveal>
         </div>
@@ -436,8 +491,8 @@ export default function CV() {
                   <p>
                     {experience.date}
                     <small>
-                      {index === 0
-                        ? hesaboDuration
+                      {experience.startDate
+                        ? getDurationSince(...experience.startDate, isFa)
                         : experience.duration}
                     </small>
                   </p>
@@ -483,21 +538,21 @@ export default function CV() {
             <small>{isFa ? "تحصیلات" : "Education"}</small>
             <div className="cv-education">
               <strong>{isFa ? "کارشناسی ارشد طراحی صنعتی" : "Master’s Degree in Industrial Design"}</strong>
-              <span>{isFa ? "در حال تحصیل · دانشگاه آزاد تهران مرکز" : "In progress · Azad University, Central Tehran"}</span>
+              <span>{isFa ? "در حال تحصیل · دانشگاه آزاد، واحد تهران مرکز" : "In progress · Azad University, Central Tehran Branch"}</span>
             </div>
             <div className="cv-education">
               <strong>{isFa ? "کارشناسی طراحی صنعتی" : "Bachelor’s Degree in Industrial Design"}</strong>
-              <span>{isFa ? "دانشگاه آزاد تهران جنوب" : "Azad University, Tehran South"}</span>
+              <span>{isFa ? "دانشگاه آزاد، واحد تهران جنوب" : "Azad University, Tehran South Branch"}</span>
             </div>
           </Reveal>
 
           <Reveal className="cv-side-card" delay={100}>
             <small>{isFa ? "مهارت‌ها و ابزارها" : "Skills & Tools"}</small>
             {skillGroups.map(([title, skills]) => (
-              <div className="cv-skill-group" key={title as string}>
+              <div className="cv-skill-group" key={title}>
                 <strong>{title}</strong>
                 <div>
-                  {(skills as string[]).map((skill) => (
+                  {skills.map((skill) => (
                     <span key={skill}>{skill}</span>
                   ))}
                 </div>
@@ -516,20 +571,14 @@ export default function CV() {
               <span>02</span>
               <div>
                 <small>{isFa ? "طراحی × هوش مصنوعی" : "Design × artificial intelligence"}</small>
-                <h2 id="ai-heading">{isFa ? "توانمندی‌های AI" : "AI capabilities"}</h2>
+                <h2 id="ai-heading">{isFa ? "هوش مصنوعی در طراحی" : "AI in Design"}</h2>
               </div>
             </div>
             <p>
               {isFa
-                ? "هوش مصنوعی را بخشی از فرایند طراحی و ساخت محصول می‌بینم؛ از شکل‌دادن به ایده و تجربه، تا توسعه و تحویل محصولی که واقعاً به دست کاربر می‌رسد."
-                : "I use AI as part of the product-making process—from shaping an idea and experience to building and shipping something people can actually use."}
+                ? "استفاده از هوش مصنوعی در فرایند طراحی، از تنظیم ایجنت‌ها و ایده‌پردازی تا بازبینی خروجی‌ها بر اساس استانداردهای طراحی و اهداف پروژه."
+                : "I use AI throughout the design workflow, from setting up agents and exploring ideas to reviewing outputs against design standards and project goals."}
             </p>
-            <div className="cv-ai-tool-list" aria-label={isFa ? "ابزارهای هوش مصنوعی" : "AI tools"}>
-              <span>Codex</span>
-              <span>Figma AI</span>
-              <span>{isFa ? "ابزارهای مولد" : "Generative tools"}</span>
-              <span>OpenAI APIs</span>
-            </div>
           </Reveal>
 
           <div className="cv-ai-capability-grid">
@@ -545,35 +594,8 @@ export default function CV() {
               </Reveal>
             ))}
           </div>
-
-          <Reveal className="cv-ai-launch" delay={180}>
-            <img className="cv-ai-launch-logo" src={mizoonLogo} alt="Mizoon logo" />
-            <small>{isFa ? "از ایده تا لانچ" : "From idea to launch"}</small>
-            <h3>{isFa ? "میزون، یک محصول لانچ‌شده" : "Mizoon, a launched product"}</h3>
-            <p>
-              {isFa
-                ? "تجربهٔ ساخت میزون با ابزارهای AI، نمونه‌ای از ترکیب طراحی محصول، توسعه و استفادهٔ عملی از APIهای OpenAI است."
-                : "Building Mizoon with AI tools is an example of combining product design, development, and practical OpenAI API integration."}
-            </p>
-            <div className="cv-ai-launch-actions">
-              <span className="cv-ai-status">
-                <b aria-hidden="true" />
-                {isFa ? "لانچ شده" : "Launched"}
-              </span>
-              <a
-                className="cv-ai-launch-link"
-                href="https://mizoon-app.ir/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {isFa ? "مشاهده اپ میزون ↗" : "Explore Mizoon app ↗"}
-              </a>
-            </div>
-          </Reveal>
         </div>
       </section>
-
-      <Certifications context="cv" />
 
       <section className="cv-projects-section">
         <div className="cv-shell">
@@ -583,7 +605,7 @@ export default function CV() {
               <small>{isFa ? "کارهای منتخب" : "Selected work"}</small>
               <h2>{isFa ? "پروژه‌ها" : "Projects"}</h2>
               <p className="cv-section-description">
-                {isFa ? "منتخبی از پروژه‌هایی که روی آن‌ها کار کرده‌ام." : "A selection of projects I’ve worked on."}
+                {isFa ? "تجربه کار روی بیش از ۱۰ پروژه در حوزه فین‌تک، تجارت الکترونیک، سلامت و پلتفرم‌های اجتماعی؛ در ادامه چند نمونه آمده است." : "I have worked on 10+ projects across fintech, e-commerce, healthcare, and social platforms. Here are some notable ones."}
               </p>
             </div>
           </Reveal>
@@ -611,8 +633,8 @@ export default function CV() {
           </p>
           <Reveal className="cv-more-work">
             <div>
-              <small>{isFa ? "کارهای بیشتر" : "More work"}</small>
-              <h2>{isFa ? "پروژه‌های بیشتر و کیس‌استادی‌ها را در سایت ببینید." : "See more projects and case studies on my website."}</h2>
+              <small>{isFa ? "پورتفولیو و توسعه" : "Portfolio & Development"}</small>
+              <h2>{isFa ? "پورتفولیوی خود را از ابتدا با React و با کمک OpenAI Codex برای توسعه ساخته‌ام." : "Designed and built my portfolio from scratch with React, using OpenAI Codex for AI-assisted development."}</h2>
             </div>
             <a href="https://foadmoghaddasi.com">foadmoghaddasi.com ↗</a>
           </Reveal>
@@ -622,111 +644,6 @@ export default function CV() {
       <div className="cv-footer-wrap">
         <Footer />
       </div>
-
-      <section className="cv-ats-sheet" aria-label={isFa ? "رزومه تک‌صفحه‌ای" : "One-page resume"}>
-        <header className="cv-ats-header">
-          <div>
-            <h1>{isFa ? "فؤاد مقدسی" : "Foad Moghaddasi"}</h1>
-            <p>{isFa ? "طراح محصول و UI/UX" : "Product & UI/UX Designer"}</p>
-          </div>
-          <address>
-            <a href="mailto:moghadasi.foad@gmail.com">moghadasi.foad@gmail.com</a>
-            <a href="tel:+989192463569">+98 919 246 3569</a>
-            <a href="https://www.linkedin.com/in/foadmoghaddasi">linkedin.com/in/foadmoghaddasi</a>
-            <span>{isFa ? "تهران، ایران" : "Tehran, Iran"}</span>
-          </address>
-        </header>
-
-        <div className="cv-ats-columns">
-          <section className="cv-ats-section cv-ats-experience-section">
-            <h2>{isFa ? "تجربه کاری" : "Experience"}</h2>
-            <div className="cv-ats-experience-list">
-              {experiences.map((experience, index) => (
-                <article className="cv-ats-experience" key={`${experience.company}-${experience.role}`}>
-                  <div>
-                    <h3>{experience.role}</h3>
-                    <span>{experience.company} · {experience.location}</span>
-                  </div>
-                  <time>
-                    {experience.date}
-                    <small>{index === 0 ? hesaboDuration : experience.duration}</small>
-                  </time>
-                  <p>{experience.intro}</p>
-                  {experience.work.length > 0 && (
-                    <ul>
-                      {experience.work.map((item) => <li key={item}>{item}</li>)}
-                    </ul>
-                  )}
-                  <div className="cv-ats-impact">
-                    <strong>{isFa ? "دستاوردها:" : "Impact:"}</strong>
-                    <ul>
-                      {experience.achievements.map((item) => <li key={item}>{item}</li>)}
-                    </ul>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <aside className="cv-ats-side">
-            <section className="cv-ats-section">
-              <h2>{isFa ? "مهارت‌ها و ابزارها" : "Skills & Tools"}</h2>
-              {skillGroups.map(([title, skills]) => (
-                <p className="cv-ats-group" key={title as string}>
-                  <strong>{title}:</strong> {(skills as string[]).join(" · ")}
-                </p>
-              ))}
-            </section>
-
-            <section className="cv-ats-section">
-              <h2>{isFa ? "توانمندی‌های AI" : "AI Capabilities"}</h2>
-              <p className="cv-ats-ai-tools">Codex · Figma AI · {isFa ? "ابزارهای مولد" : "Generative tools"} · OpenAI APIs</p>
-              {aiCapabilities.map((capability) => (
-                <p className="cv-ats-group" key={capability.title}>
-                  <strong>{capability.title}:</strong> {capability.description}
-                </p>
-              ))}
-              <p className="cv-ats-group">
-                <strong>{isFa ? "Mizoon:" : "Mizoon:"}</strong> {isFa ? "محصول لانچ‌شده با ترکیب طراحی محصول، توسعه و APIهای OpenAI." : "Launched product combining product design, development, and OpenAI APIs."}
-              </p>
-            </section>
-
-            <section className="cv-ats-section">
-              <h2>{isFa ? "تحصیلات" : "Education"}</h2>
-              <p className="cv-ats-group"><strong>{isFa ? "کارشناسی ارشد طراحی صنعتی:" : "M.A. Industrial Design:"}</strong> {isFa ? "در حال تحصیل · دانشگاه آزاد تهران مرکز" : "In progress · Azad University, Central Tehran"}</p>
-              <p className="cv-ats-group"><strong>{isFa ? "کارشناسی طراحی صنعتی:" : "B.A. Industrial Design:"}</strong> {isFa ? "دانشگاه آزاد تهران جنوب" : "Azad University, Tehran South"}</p>
-            </section>
-
-            <section className="cv-ats-section">
-              <h2>{isFa ? "گواهینامه‌ها" : "Certifications"}</h2>
-              {atsCertifications.map(([title, issuer, date]) => (
-                <p className="cv-ats-group" key={title}>
-                  <strong>{title}</strong> · {issuer} · {date}
-                </p>
-              ))}
-            </section>
-          </aside>
-        </div>
-
-        <section className="cv-ats-section cv-ats-projects-section">
-          <h2>{isFa ? "پروژه‌های منتخب" : "Selected Projects"}</h2>
-          <p className="cv-ats-project-note">
-            {isFa ? "منتخب از میان بیش از ۱۰ پروژه انجام‌شده؛ پروژه‌های بیشتر در پورتفولیو و کیس‌استادی‌ها موجود است." : "Selected from 10+ completed projects; additional work is available in the portfolio and case studies."}
-          </p>
-          <div className="cv-ats-project-grid">
-            {projects.map(([name, description]) => (
-              <p className="cv-ats-group" key={name}>
-                <strong>{name}:</strong> {description}
-              </p>
-            ))}
-          </div>
-          <div className="cv-ats-more-work">
-            <span>{isFa ? "کارهای بیشتر" : "More work"}</span>
-            <p>{isFa ? "برای مشاهدهٔ پروژه‌های بیشتر و کیس‌استادی‌ها، به سایت من سر بزنید." : "For more projects and case studies, visit my website."}</p>
-            <a href="https://foadmoghaddasi.com">foadmoghaddasi.com</a>
-          </div>
-        </section>
-      </section>
     </main>
   );
 }

@@ -16,6 +16,7 @@ import { useLanguage } from "../context/LanguageContext";
 import LanguageNotice from "../components/LanguageNotice";
 import DailyDesignChallenge from "../components/DailyDesignChallenge";
 import SEO, { SITE_URL } from "../components/SEO";
+import { RESUME_DOWNLOAD_NAME, RESUME_URL } from "../utils/resume";
 
 const heroWordsEn = [
   "that feel effortless",
@@ -109,8 +110,8 @@ const Home = () => {
 
     hasAutoDownloadedCvDuringCurrentVisit = true;
     const link = document.createElement("a");
-    link.href = "/FoadMoghaddasi-CV.pdf"; // Ensure the file is in the 'public' folder
-    link.download = "Foad_Moghaddasi_CV.pdf"; // Set the filename for download
+    link.href = RESUME_URL;
+    link.download = RESUME_DOWNLOAD_NAME;
     document.body.appendChild(link);
     link.click();
     window.setTimeout(() => {
