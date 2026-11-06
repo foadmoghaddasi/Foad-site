@@ -43,6 +43,9 @@ import designSystemMaturityCoverThumbImage from "../assets/images/articles/desig
 import designSystemMaturityRadarImage from "../assets/images/articles/design-system-maturity/radar.webp";
 import aiProductDesignRelationshipCoverImage from "../assets/images/articles/ai-product-design-relationship/cover.webp";
 import aiProductDesignRelationshipCoverThumbImage from "../assets/images/articles/ai-product-design-relationship/cover-thumb.webp";
+import digitalProductDesignRoadmapCoverImage from "../assets/images/articles/digital-product-design-roadmap/cover.webp";
+import digitalProductDesignRoadmapCoverThumbImage from "../assets/images/articles/digital-product-design-roadmap/cover-thumb.webp";
+
 
 
 export type ArticleBlock =
@@ -1881,6 +1884,192 @@ export const articles: Article[] = ([
           "text": "اصل تصمیم‌گیری نهایی این است: وقتی AI بخشی از تعامل کاربر است، طراحی باید رفتار مدل را بخشی از محصول بپذیرد و نه صرفاً یک خروجی فنی. این به معنی برنامه‌ریزی برای داده، شفافیت در تعامل، سازگارسازی Design System و نظارت مستمر است. یک تیم که این موارد را هم‌زمان در نظر می‌گیرد، احتمال بیشتری دارد تا محصولی بسازد که هم ارزش کسب‌وکار ایجاد کند و هم برای کاربر قابل‌فهم و قابل‌اعتماد باشد."
         }
       ]
+    },
+
+    {
+      "slug": "digital-product-design-roadmap",
+      "title": "نقشه راه شروع طراحی محصول دیجیتال",
+      "excerpt": "شروع طراحی محصول دیجیتال با انتخاب ابزار یا ترسیم صفحه آغاز نمی‌شود؛ این مقاله مسیر را از تعریف مسئله تا اعتبارسنجی و Handoff توضیح می‌دهد و نشان می‌دهد در هر مرحله چه تصمیمی باید گرفته شود.",
+      "category": "طراحی محصول",
+      "publishedAt": "۹ آبان ۱۴۰۵",
+      "readingTime": "11 دقیقه مطالعه",
+      "cover": digitalProductDesignRoadmapCoverImage,
+      "coverThumb": digitalProductDesignRoadmapCoverThumbImage,
+      "direction": "rtl",
+      "content": [
+        {
+          "type": "heading",
+          "text": "خلاصه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "شروع طراحی محصول دیجیتال یعنی تبدیل یک نیاز مبهم به تجربه‌ای که بتوان آن را ساخت، آزمود و بهبود داد. مسیر قابل اتکا از فهم مسئله و محدودیت‌ها آغاز می‌شود، سپس به طراحی User Flow، Prototype، ارزیابی و آماده‌سازی برای توسعه می‌رسد. خواننده با این چارچوب می‌تواند پیش از تصمیم درباره ظاهر UI، مشخص کند چه چیزی را باید بداند و کدام تصمیم‌ها هنوز زودهنگام‌اند."
+        },
+        {
+          "type": "heading",
+          "text": "در این مقاله",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "ابتدا دامنه و شرایط واقعی شروع یک پروژه را روشن می‌کنیم؛ سپس به تعریف مسئله، تبدیل آن به جریان و ساختار تجربه، نمونه‌سازی و اعتبارسنجی، و هماهنگی با تیم توسعه می‌پردازیم. در ادامه، خطاهای رایج و یک راهنمای عملی برای انتخاب گام بعدی را مرور می‌کنیم."
+        },
+        {
+          "type": "heading",
+          "text": "مقدمه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "در آغاز یک محصول دیجیتال، معمولاً داده‌ها ناقص‌اند، Stakeholderها انتظارهای متفاوتی دارند و زمان یا بودجه محدود است. در چنین وضعی، شروع مستقیم با صفحه‌های نهایی ممکن است حس پیشرفت ایجاد کند، اما هنوز معلوم نیست کدام مسئله حل می‌شود، چه کسی آن را تجربه می‌کند و چه محدودیت‌هایی بر راه‌حل اثر می‌گذارند. طراحی صفحه پیش از پاسخ به این پرسش‌ها، فرض‌های پنهان را به تصمیم‌های بصری تبدیل می‌کند؛ تغییر همان فرض‌ها بعداً می‌تواند User Flow و حتی معماری محصول را تحت تأثیر قرار دهد."
+        },
+        {
+          "type": "paragraph",
+          "text": "نقشه راه در این مقاله نسخه‌ای ثابت برای همه پروژه‌ها نیست؛ چارچوبی برای ترتیب‌دادن تصمیم‌هاست. هدف این است که تیم از مسئله‌ای قابل بررسی به راه‌حلی قابل ارزیابی برسد و در هر مرحله بداند چه میزان قطعیت دارد. جزئیات مسیر با نوع محصول، دسترسی به کاربران، پیچیدگی فنی و مرحله کسب‌وکار تغییر می‌کند، اما منطق تصمیم‌گیری در پروژه‌های مختلف کاربرد دارد."
+        },
+        {
+          "type": "heading",
+          "text": "زمینه و دامنه",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "فرض کنیم تیم در حال ساخت یک سرویس رزرو آنلاین است. ممکن است درخواست اولیه فقط «طراحی صفحه رزرو» باشد، اما کاربر برای تکمیل رزرو به انتخاب زمان، واردکردن اطلاعات، پرداخت و دریافت تأیید نیاز دارد. هر یک از این مراحل به وضعیت‌های متفاوتی مانند نبود ظرفیت، خطای پرداخت یا قطع ارتباط وابسته است. بنابراین دامنه طراحی فقط مجموعه‌ای از صفحه‌ها نیست؛ شامل تصمیم‌ها و حالت‌هایی است که تجربه را در طول کاربرِ واقعی شکل می‌دهند."
+        },
+        {
+          "type": "paragraph",
+          "text": "افراد درگیر نیز فقط Designer و Developer نیستند. Product Manager ممکن است مسئول اولویت کسب‌وکار باشد، پشتیبانی الگوهای شکست را بشناسد و تیم فنی محدودیت‌های API یا داده را بداند. در یک محصول در حال توسعه، دسترسی به User Research یا کاربران ممکن است آسان باشد؛ در یک MVP یا پروژه داخلی، چنین دسترسی‌ای می‌تواند محدود باشد. در هر دو حالت باید فرض‌ها ثبت شوند و میزان اطمینان به آن‌ها روشن بماند؛ محدودیت دسترسی دلیل مناسبی برای وانمودکردن به قطعیت نیست."
+        },
+        {
+          "type": "heading",
+          "text": "۱. مسئله را پیش از راه‌حل صورت‌بندی کنید",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "نخستین کار، جداکردن نشانه از مسئله است. «کاربران صفحه را ترک می‌کنند» یک نشانه است؛ ممکن است علت، ابهام در قیمت، نبود اطلاعات لازم یا خطای فنی باشد. وقتی تیم زودهنگام یک راه‌حل را انتخاب می‌کند، مثلاً افزودن دکمه‌ای برجسته، احتمال دارد به نشانه پاسخ دهد نه به علت. این تفاوت اهمیت دارد، چون تصمیم اشتباه می‌تواند Interaction Cost را بالا ببرد و در عین حال مانع اصلی را دست‌نخورده باقی بگذارد."
+        },
+        {
+          "type": "paragraph",
+          "text": "در پروژه رزرو، Stakeholder ممکن است کاهش تکمیل خرید را به کم‌بودن جذابیت صفحه نسبت دهد، در حالی که کاربران پیش از پرداخت از هزینه نهایی مطمئن نیستند. اگر Designer فوراً کارت‌های محصول را بازطراحی کند، تیم زمان صرف می‌کند بی‌آنکه تردید اصلی را برطرف کند. با گفت‌وگو با پشتیبانی، بررسی قیف موجود یا User Research محدود می‌توان فرضیه‌ها را دقیق‌تر کرد. توصیه عملی این است که مسئله را با کاربر، موقعیت، مانع و پیامد توصیف کنید و راه‌حل پیشنهادی را جداگانه ثبت کنید."
+        },
+        {
+          "type": "paragraph",
+          "text": "لازم نیست هر شروعی به پژوهش طولانی تبدیل شود. ممکن است زمان‌بندی Sprint اجازه نمونه‌گیری گسترده ندهد یا داده رفتاری قابل اعتماد نباشد. بااین‌حال، یک بررسی هدفمند از درخواست‌های پشتیبانی یا چند گفت‌وگوی کوتاه می‌تواند فرضی را که بر تصمیم‌های بزرگ اثر دارد، به چالش بکشد. اگر شواهد در دسترس نیست، فرض را صریح نگه دارید و راهی برای آزمودن آن در ادامه تعریف کنید."
+        },
+        {
+          "type": "heading",
+          "text": "۲. محدوده را به نتیجه و معیار تصمیم پیوند دهید",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "پس از صورت‌بندی مسئله، تیم باید روشن کند کدام بخش از تجربه در این مرحله بررسی می‌شود و موفقیت چه معنایی دارد. درخواست‌هایی مانند «بهبود تجربه» برای برنامه‌ریزی کافی نیستند، چون می‌توانند به تغییرات نامحدود در UI منجر شوند. در مقابل، محدودکردن کار به «ساخت صفحه پرداخت» نیز ممکن است مرحله‌ای را که مشکل در آن آغاز می‌شود از دامنه بیرون بگذارد. محدوده مؤثر، یک نیاز کاربر را به نتیجه‌ای قابل مشاهده و تصمیمی قابل ارزیابی پیوند می‌دهد."
+        },
+        {
+          "type": "paragraph",
+          "text": "برای مثال، تیم می‌تواند هدف این مرحله را بررسی این موضوع تعریف کند که آیا کاربر پیش از تأیید رزرو، هزینه نهایی و زمان انتخاب‌شده را می‌فهمد یا نه. این صورت‌بندی، بحث را از سلیقه درباره چیدمان به شواهدی درباره وضوح تجربه منتقل می‌کند. معیار ممکن است ترکیبی از تکمیل وظیفه در Usability Test، پرسش‌های کاربران و داده‌های محصول باشد؛ لازم نیست از ابتدا یک شاخص واحد یا هدف عددی ساختگی تعیین شود. پیشنهاد این است که معیار را طوری انتخاب کنید که تصمیم بعدی را روشن کند، نه اینکه فقط گزارش‌پذیر باشد."
+        },
+        {
+          "type": "paragraph",
+          "text": "محدودیت فنی نیز باید از همین ابتدا وارد گفت‌وگو شود. اگر قیمت نهایی فقط پس از دریافت پاسخ API معلوم می‌شود، طراحی نمایش زودهنگام آن شاید به تغییرات Back-end نیاز داشته باشد. این محدودیت الزاماً به معنای کنارگذاشتن راه‌حل نیست؛ اما هزینه، ریسک و گزینه‌های جایگزین را تغییر می‌دهد. ثبت وابستگی‌ها کمک می‌کند تیم به‌جای مواجهه دیرهنگام در Handoff، درباره دامنه و ترتیب اجرا تصمیم آگاهانه بگیرد."
+        },
+        {
+          "type": "heading",
+          "text": "۳. تجربه را با User Flow و حالت‌ها طراحی کنید",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "بعد از روشن‌شدن مسئله و محدوده، مسیر کاربر را پیش از پرداختن به جزئیات بصری ترسیم کنید. User Flow نشان می‌دهد کاربر از کجا شروع می‌کند، چه تصمیم‌هایی می‌گیرد و برای رسیدن به نتیجه چه اطلاعاتی لازم دارد. این کار به‌ویژه در فرایندهای چندمرحله‌ای مهم است، چون صفحه‌های جداگانه ممکن است به‌تنهایی ساده به نظر برسند، اما کنار هم مسیر طولانی یا متناقضی بسازند. طراحی فقط حالت موفق کافی نیست؛ خطا، انتظار، بازگشت و نیمه‌تمام‌ماندن مسیر هم بخشی از تجربه‌اند."
+        },
+        {
+          "type": "paragraph",
+          "text": "در همان سرویس رزرو، کاربری که زمان را انتخاب کرده و به صفحه پرداخت رسیده ممکن است به‌دلیل تماس تلفنی از برنامه خارج شود. اگر با بازگشت، انتخاب زمان از بین رفته باشد، محصول کاربر را مجبور به تکرار می‌کند و احتمال ترک مسیر بیشتر می‌شود. این پیامد ناشی از تصمیمی درباره نگهداری state است، نه صرفاً ظاهر صفحه. Designer باید رفتار بازگشت و ذخیره اطلاعات را با Developer بررسی کند و برای وضعیت‌هایی مثل منقضی‌شدن ظرفیت نیز پاسخ مشخصی طراحی کند."
+        },
+        {
+          "type": "paragraph",
+          "text": "برای مسیرهای پیچیده، Wireframe (طرح ساده برای بررسی ساختار و اولویت محتوا) می‌تواند پیش از ساخت UI دقیق، ترتیب اطلاعات و گزینه‌ها را آشکار کند. اگر تیم در این مرحله درباره برچسب‌ها، مسیر جایگزین یا وابستگی مراحل توافق ندارد، پرداختن زودهنگام به رنگ و سایه اختلاف را حل نمی‌کند. توصیه این است که ابتدا مسیر اصلی را همراه با حالت‌های مهم ترسیم کنید و فقط به‌اندازه‌ای جزئیات اضافه کنید که تصمیم بعدی ممکن شود."
+        },
+        {
+          "type": "heading",
+          "text": "۴. با Prototype فرض‌های پرریسک را بیازمایید",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Prototype ابزاری برای بررسی رفتار و فهم کاربر است، نه نسخه‌ای کوچک از محصول کامل. میزان وفاداری آن باید با پرسشی که تیم دارد تناسب داشته باشد. اگر هنوز معلوم نیست کاربران مراحل رزرو را درست می‌فهمند، Prototype ساده می‌تواند ترتیب و زبان را بیازماید؛ ساخت نمونه بسیار دقیق، در این حالت زمان را به جزئیاتی اختصاص می‌دهد که ممکن است کنار گذاشته شوند. اما اگر مسئله درباره تعامل ظریف، بازخورد یا دسترس‌پذیری باشد، نمونه‌ای با رفتار واقعی‌تر می‌تواند لازم باشد."
+        },
+        {
+          "type": "paragraph",
+          "text": "فرض کنید تیم بین نمایش هزینه نهایی در ابتدای مسیر و نمایش آن در مرحله آخر اختلاف دارد. هر طرف ممکن است بر اساس تجربه شخصی از الگوی مطلوب دفاع کند. با Prototype و یک Usability Test می‌توان دید آیا کاربر هزینه را پیدا می‌کند، آن را درست تفسیر می‌کند و با اطمینان تصمیم می‌گیرد. آزمون کوچک، نتیجه قطعی برای همه کاربران نمی‌دهد؛ ارزش آن در آشکارکردن ابهام و اصلاح فرضیه است. پرسش آزمون را پیشاپیش مشخص کنید و یافته را از برداشت شخصی یا ترجیح بصری جدا نگه دارید."
+        },
+        {
+          "type": "paragraph",
+          "text": "اگر دسترسی مستقیم به کاربران دشوار است، بررسی دسترس‌پذیری، مرور مسیر توسط اعضای پشتیبانی و تحلیل سناریوهای خطا همچنان می‌تواند کیفیت تصمیم را بهتر کند، هرچند جای User Research را به‌طور کامل نمی‌گیرد. مهم است بدانید هر روش چه چیزی را می‌سنجد و چه چیزی را نه. پیشنهاد می‌شود ریسک‌دارترین فرض را انتخاب کنید، آزمونی متناسب با آن انجام دهید و پیش از رفتن به مرحله بعد، مشخص کنید چه نتیجه‌ای باعث تغییر طرح خواهد شد."
+        },
+        {
+          "type": "heading",
+          "text": "۵. از تصمیم‌های طراحی تا Handoff قابل اجرا",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "پس از ارزیابی مسیر، طراحی باید به شکلی آماده شود که تیم توسعه بتواند رفتار مورد انتظار را بفهمد، نه اینکه فقط ظاهر یک صفحه را بازسازی کند. Handoff ناقص معمولاً زمانی رخ می‌دهد که فایل‌ها فقط حالت عادی را نشان می‌دهند و خطا، بارگذاری، محتوای طولانی، اندازه‌های مختلف صفحه یا رفتار بازگشت مشخص نیست. Developer در چنین شرایطی ناچار است بخشی از تصمیم محصول را خودش بگیرد؛ نتیجه ممکن است با قصد طراحی ناسازگار باشد و بازبینی‌های دیرهنگام را افزایش دهد."
+        },
+        {
+          "type": "paragraph",
+          "text": "برای نمونه، در Design Review مشخص می‌شود که یک Component موجود در Design System برای فرم رزرو مناسب نیست. تغییر آن شاید این کار را ساده کند، اما می‌تواند صفحات دیگر را نیز تحت تأثیر قرار دهد. اگر Designer بدون بررسی مورد استفاده‌های فعلی، Component را تغییر دهد، هزینه‌ای فراتر از همان جریان ایجاد می‌شود. پیش از تصمیم، باید روشن شود تغییر سراسری لازم است یا می‌توان از یک الگوی محدودتر استفاده کرد؛ همچنین اثر Design Tokenها، رفتار واکنش‌گرا و مالکیت Component با تیم توسعه هماهنگ شود."
+        },
+        {
+          "type": "paragraph",
+          "text": "برای Handoff مفید، تصمیم‌های تعاملی و حالت‌های مهم را کنار طرح قرار دهید، وابستگی‌های داده و خطا را توضیح دهید و سؤال‌های حل‌نشده را پنهان نکنید. هم‌کاری Designer و Developer در طول کار بهتر از واگذاری یک‌باره فایل نهایی است، چون محدودیت‌های پیاده‌سازی می‌توانند پیش از تثبیت راه‌حل آشکار شوند. هدف، سند مفصل برای هر جزء نیست؛ هدف کاهش ابهام‌هایی است که بر تجربه یا هزینه تغییر اثر می‌گذارند."
+        },
+        {
+          "type": "heading",
+          "text": "خطاهای رایج یا Trade-offها",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "یکی از خطاهای رایج، اشتباه‌گرفتن خروجی قابل مشاهده با پیشرفت واقعی است. صفحه‌های متعدد و UI نهایی ممکن است در جلسه ارائه قانع‌کننده باشند، اما اگر فرض مسئله بررسی نشده باشد، تیم فقط پاسخ را زودتر تولید کرده است. در سوی دیگر، تحلیل بی‌پایان هم هزینه دارد: پژوهش بیشتر همیشه تصمیم بهتر نمی‌سازد، به‌خصوص وقتی پرسش مشخصی برای پاسخ‌دادن وجود ندارد. انتخاب مناسب به اندازه ابهام و هزینه خطا بستگی دارد؛ هرچه برگشت از تصمیم دشوارتر باشد، بررسی پیش از اجرا ارزش بیشتری دارد."
+        },
+        {
+          "type": "paragraph",
+          "text": "فشار Sprint گاهی تیم را به حذف آزمون یا نادیده‌گرفتن حالت‌های شکست سوق می‌دهد. پیامد آن ممکن است انتقال ریسک به کاربر و تیم پشتیبانی باشد؛ مثلاً فرم رزرو فقط برای ورود موفق اطلاعات طراحی شود و خطای پرداخت مسیر را مسدود کند. از طرف دیگر، پوشش همه حالت‌های نادر در نسخه نخست می‌تواند MVP را بی‌جهت پیچیده کند. راه‌حل، نادیده‌گرفتن یکی از دو سوی Trade-off نیست: پیامد هر حالت را بسنجید، مسیرهای پرتأثیر را پوشش دهید و موارد کم‌خطر را با فرض و برنامه پیگیری مشخص کنار بگذارید."
+        },
+        {
+          "type": "paragraph",
+          "text": "اختلاف Designer و Developer نیز گاهی به‌اشتباه اختلاف سلیقه تلقی می‌شود، درحالی‌که ممکن است ریشه در محدودیت داده، نگهداری Component یا تعریفی متفاوت از نیاز کاربر داشته باشد. اگر بحث به «طراحی بهتر» در برابر «پیاده‌سازی آسان‌تر» تقلیل یابد، تصمیم واقعی پنهان می‌ماند. توصیه این است که هر طرف دلیل خود را به پیامد قابل بررسی وصل کند: این انتخاب چه اثری بر فهم کاربر دارد، چه هزینه‌ای برای تیم ایجاد می‌کند و آیا گزینه‌ای میانی وجود دارد؟"
+        },
+        {
+          "type": "heading",
+          "text": "راهنمای عملی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "برای شروع یک پروژه تازه، نخست درخواست اولیه را به مسئله، کاربر و موقعیت استفاده تبدیل کنید و شواهد موجود را کنار فرض‌ها ثبت کنید. سپس دامنه مرحله اول را طوری تعیین کنید که یک نتیجه معنادار قابل بررسی باشد، نه اینکه صرفاً مجموعه‌ای از صفحه‌ها تحویل شود. پیش از طراحی UI نهایی، User Flow را برای مسیر اصلی و حالت‌های مهم ترسیم کنید و با تیم فنی درباره وابستگی‌های داده، API و محدودیت‌های پیاده‌سازی گفت‌وگو کنید."
+        },
+        {
+          "type": "paragraph",
+          "text": "در گام بعد، Prototype را به اندازه ریسک و پرسش طراحی بسازید. آزمون یا بازبینی را با معیار تصمیم از پیش روشن انجام دهید؛ اگر نتیجه مبهم است، به‌جای ادعای اعتبارسنجی، ابهام باقی‌مانده را ثبت کنید. سپس حالت‌های لازم را در فایل طراحی و Handoff توضیح دهید، اثر تغییر Componentهای مشترک را بررسی کنید و پس از انتشار، داده‌ها و بازخوردها را برای بازنگری مسئله به کار ببرید. این مسیر خطی و یک‌باره نیست؛ یافته تازه ممکن است تیم را به بازبینی دامنه یا User Flow برگرداند."
+        },
+        {
+          "type": "paragraph",
+          "text": "در هر مرحله یک پرسش ساده را نگه دارید: کدام تصمیم را اکنون می‌توان با اطمینان کافی گرفت و برای کدام تصمیم هنوز اطلاعات کم است؟ اگر پاسخ روشن باشد، تیم می‌تواند بین پژوهش، طراحی یا توسعه انتخاب کند و به‌جای پیش‌بردن همه کارها با سرعت یکسان، تلاش را روی گلوگاه واقعی متمرکز سازد."
+        },
+        {
+          "type": "heading",
+          "text": "جمع‌بندی",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "نقشه راه شروع طراحی محصول دیجیتال، ترتیب منطقی کاهش ابهام است: فهم مسئله، تعیین دامنه و معیار، طراحی مسیر و حالت‌ها، آزمودن فرض‌های پرریسک، و آماده‌کردن تصمیم‌ها برای توسعه. این ترتیب مانع تغییر نمی‌شود؛ کمک می‌کند تغییر پیش از آن رخ دهد که فرض نادرست در صفحه‌ها و کد تثبیت شود. اصل قابل استفاده این است: پیش از هر خروجی بزرگ، روشن کنید کدام فرض را معتبر می‌دانید و چه شواهدی می‌تواند تصمیم بعدی را عوض کند."
+        }
+      ]
     }
 ] satisfies Article[]).filter((article) => !hiddenArticleSlugs.has(article.slug));
 
@@ -3231,6 +3420,192 @@ export const articlesEn: Article[] = ([
         {
           "type": "paragraph",
           "text": "Decision principle: treat model behavior as part of the product surface when AI affects users directly. This requires planning for data, transparency in interaction, Design System updates, and continuous monitoring. Teams that integrate these concerns upfront are more likely to ship AI features that create business value while remaining understandable and trustworthy for users."
+        }
+      ]
+    },
+
+    {
+      "slug": "digital-product-design-roadmap",
+      "title": "A Roadmap for Starting Digital Product Design",
+      "excerpt": "Digital product design should begin with the problem, not with tools or polished screens. This article traces the work from problem framing through flows, prototyping, validation, and handoff, explaining what to decide at each stage.",
+      "category": "Product Design",
+      "publishedAt": "October 31, 2026",
+      "readingTime": "10 min read",
+      "cover": digitalProductDesignRoadmapCoverImage,
+      "coverThumb": digitalProductDesignRoadmapCoverThumbImage,
+      "direction": "ltr",
+      "content": [
+        {
+          "type": "heading",
+          "text": "Summary",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Starting digital product design means turning an unclear need into an experience that can be built, evaluated, and improved. A dependable path begins with understanding the problem and constraints, then moves through user flows, prototyping, evaluation, and development handoff. This framework helps a team decide what it needs to learn before committing to the appearance of the interface—and which decisions are still premature."
+        },
+        {
+          "type": "heading",
+          "text": "In This Article",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "We first clarify the scope and conditions of a real project, then cover problem framing, structuring flows and experiences, prototyping and validation, and coordination with developers. The final sections address common mistakes and offer a practical way to choose the next step."
+        },
+        {
+          "type": "heading",
+          "text": "Introduction",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "At the start of a digital product project, evidence is often incomplete, stakeholders have different expectations, and time or budget is limited. Beginning with finished screens can create a sense of momentum, but the team may not yet know which problem it is solving, who experiences it, or which constraints shape a viable solution. Designing the interface before answering those questions turns hidden assumptions into visual decisions. If the assumptions change later, the user flow and even the product structure may need to change with them."
+        },
+        {
+          "type": "paragraph",
+          "text": "The roadmap here is not a fixed recipe for every project. It is a way to sequence decisions so a team can move from a question worth investigating to a solution worth evaluating, while keeping track of uncertainty. The details vary with product type, access to users, technical complexity, and business stage. The underlying decision logic, however, applies across projects."
+        },
+        {
+          "type": "heading",
+          "text": "Context and Scope",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Consider a team building an online booking service. The initial request might be no more specific than “design the booking page,” but a customer must choose a time, provide information, pay, and receive confirmation. Each step can also encounter different conditions: no availability, a payment error, or a lost connection. The design scope is therefore not merely a collection of screens. It includes the decisions and states that shape the experience as a person tries to complete a real task."
+        },
+        {
+          "type": "paragraph",
+          "text": "The people involved extend beyond the Designer and Developer. A Product Manager may own business priorities, support staff may recognize recurring failure patterns, and engineers may understand API or data constraints. In an established product, access to User Research or customers may be straightforward; for an MVP or internal tool, that access may be limited. In either case, assumptions should be documented and their confidence made visible. Limited access is not a reason to present uncertainty as certainty."
+        },
+        {
+          "type": "heading",
+          "text": "1. Frame the Problem Before Choosing a Solution",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "The first task is to distinguish a symptom from its cause. “Users leave the page” is a symptom; the cause might be unclear pricing, missing information, or a technical failure. If the team chooses a solution too early—for example, adding a more prominent button—it may respond to the symptom rather than the reason behind it. That distinction matters because an unsuitable intervention can increase interaction cost while leaving the actual obstacle untouched."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the booking example, a stakeholder might attribute fewer completed purchases to an unattractive page, while customers are actually unsure of the final cost before paying. If the Designer immediately redesigns the product cards, the team spends time without addressing the main hesitation. Reviewing support requests, examining an existing funnel, or conducting a small amount of User Research can make the competing explanations more precise. Describe the problem in terms of the user, situation, barrier, and consequence, and record the proposed solution separately."
+        },
+        {
+          "type": "paragraph",
+          "text": "Not every project needs an extended research phase. A Sprint may not allow broad recruitment, and behavioral data may be unreliable. Even so, a focused review of support cases or a few short conversations can challenge an assumption that would otherwise shape major decisions. When direct evidence is unavailable, keep the assumption explicit and define how it could be tested later."
+        },
+        {
+          "type": "heading",
+          "text": "2. Connect Scope to an Outcome and a Decision",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Once the problem is framed, the team needs to decide which part of the experience it will examine and what success would mean. Requests such as “improve the experience” are too broad to guide planning and can lead to unlimited UI changes. But restricting the work to “build the payment screen” may exclude the point where the problem actually begins. Useful scope connects a user need to an observable outcome and to a decision the team can evaluate."
+        },
+        {
+          "type": "paragraph",
+          "text": "For example, the team might define this stage as finding out whether customers understand the final cost and selected time before confirming a booking. That framing moves discussion from personal preferences about layout toward evidence about clarity. A decision measure could combine task completion in a Usability Test, questions from participants, and product data; it need not begin with a single metric or an invented numerical target. Choose a measure that will inform the next decision rather than one that is merely easy to report."
+        },
+        {
+          "type": "paragraph",
+          "text": "Technical constraints should enter the conversation early. If the final price is available only after an API response, showing it earlier might require Back-end changes. That constraint does not automatically rule out the design, but it changes the cost, risk, and available alternatives. Recording dependencies early helps the team make an informed call about scope and sequencing instead of discovering the issue during handoff."
+        },
+        {
+          "type": "heading",
+          "text": "3. Design the Experience Through Flows and States",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "After clarifying the problem and scope, map the user’s route before refining visual details. A user flow shows where a person starts, what decisions they make, and what information they need to reach an outcome. This matters in multi-step tasks because individual screens can look simple while the complete route is long or inconsistent. Designing only the successful state is insufficient: errors, waiting, returning, and abandoning partway through are also part of the experience."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the booking service, a customer who has selected a time and reached payment might leave the app to answer a phone call. If returning clears the selection, the product forces the customer to repeat work and may increase the chance of abandonment. That consequence stems from a decision about state persistence, not just the look of a screen. The Designer should align with the Developer on how returning works and define a response for conditions such as availability expiring."
+        },
+        {
+          "type": "paragraph",
+          "text": "For a complex route, a wireframe—a simple layout used to examine structure and content priority—can expose issues before detailed UI work. If the team has not agreed on labels, alternate paths, or step dependencies, polishing color and shadows will not resolve the underlying disagreement. Map the primary route and consequential states first, then add only enough detail to make the next decision possible."
+        },
+        {
+          "type": "heading",
+          "text": "4. Use Prototypes to Test High-Risk Assumptions",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "A prototype is a way to investigate behavior and understanding, not simply a smaller version of the finished product. Its fidelity should match the question. If the team does not yet know whether people understand the booking steps, a simple prototype can test sequence and language. Building a highly polished sample at this point invests time in details that may be discarded. If the uncertainty concerns subtle interaction, feedback, or accessibility, a prototype with more realistic behavior may be necessary."
+        },
+        {
+          "type": "paragraph",
+          "text": "Suppose the team disagrees about whether to show the final price at the start of the flow or at the last step. Each side may argue from personal experience. A prototype and Usability Test can reveal whether a customer can find the price, interpret it correctly, and make a decision with confidence. A small test does not establish a universal conclusion for every user; its value is in exposing confusion and refining an assumption. Set the test question in advance and distinguish observed behavior from personal interpretation or visual preference."
+        },
+        {
+          "type": "paragraph",
+          "text": "If direct access to customers is difficult, accessibility checks, a review by support staff, and analysis of failure scenarios can still improve the decision, though none fully replaces User Research. Each method answers different questions, so be clear about what it can and cannot establish. Select the riskiest assumption, use a method suited to it, and decide in advance what finding would cause the design to change."
+        },
+        {
+          "type": "heading",
+          "text": "5. Make Design Decisions Usable in Handoff",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "Once the flow has been evaluated, prepare the design so developers can understand the intended behavior rather than merely reproduce a screen. Handoff is often incomplete when files show only the default state and leave error, loading, long-content, responsive, or return behavior undefined. The Developer then has to make product decisions without the full context. That can produce an implementation that conflicts with the design intent and trigger costly revisions late in the process."
+        },
+        {
+          "type": "paragraph",
+          "text": "For instance, a Design Review might reveal that an existing Design System Component does not suit the booking form. Changing it could make this flow simpler but affect other screens. If the Designer modifies a shared Component without checking its current use, the consequences extend beyond the immediate task. Before deciding, determine whether a system-wide change is necessary or a more local pattern would work; then align with engineering on the implications for Design Tokens, responsive behavior, and Component ownership."
+        },
+        {
+          "type": "paragraph",
+          "text": "Useful handoff explains important interaction decisions and states, calls out data and error dependencies, and makes unresolved questions visible. Ongoing collaboration between Designer and Developer is generally safer than a one-time transfer of final files, because implementation constraints can surface before a solution becomes fixed. The aim is not to document every detail exhaustively; it is to reduce ambiguity where it affects the user experience or the cost of change."
+        },
+        {
+          "type": "heading",
+          "text": "Common Mistakes and Trade-offs",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "A common mistake is treating visible output as proof of progress. Many finished screens may look persuasive in a review, but if the problem assumption has not been examined, the team has only produced an answer sooner. Endless analysis has a cost too: more research does not automatically produce a better decision, especially when there is no defined question to answer. The right balance depends on uncertainty and the cost of being wrong. The harder a decision is to reverse, the more valuable it is to examine it before implementation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sprint pressure can lead a team to skip testing or ignore failure states. That transfers risk to customers and support staff; for example, a booking form may cover successful submission but leave a payment error with no way forward. Yet covering every rare condition in the first release can make an MVP unnecessarily complex. The choice is not simply to favor completeness or speed. Assess the consequence of each state, cover high-impact paths, and defer low-risk cases only with an explicit assumption and a plan to revisit them."
+        },
+        {
+          "type": "paragraph",
+          "text": "Disagreement between Designer and Developer is sometimes mislabeled as a matter of taste, when it may reflect different views of a user need, available data, or the maintenance cost of a shared Component. Reducing the debate to “better design” versus “easier implementation” conceals the actual decision. Connect each argument to a consequence: how would the option affect user understanding, what would it cost the team, and is there a workable middle ground?"
+        },
+        {
+          "type": "heading",
+          "text": "Practical Guidelines",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "For a new project, first translate the initial request into a user, a situation, and a problem, then record the available evidence alongside assumptions. Define the first scope around an outcome the team can meaningfully examine rather than a set of screens to deliver. Before polishing the UI, map the primary user flow and important states, and discuss data dependencies, APIs, and implementation constraints with engineering."
+        },
+        {
+          "type": "paragraph",
+          "text": "Next, build a prototype in proportion to the design question and its risk. Run a test or review against an explicit decision measure. If the result is inconclusive, record what remains uncertain rather than claiming validation. Then explain necessary states in the design and handoff, check the impact of shared Component changes, and use product data and feedback after release to revisit the problem. This process is iterative, not a one-way sequence: new evidence may send the team back to scope or flow design."
+        },
+        {
+          "type": "paragraph",
+          "text": "Keep one question in view at every stage: which decision can we make now with enough confidence, and which still lacks information? A clear answer helps the team choose between research, design, and development. Instead of advancing every activity at the same pace, the team can focus effort on the actual bottleneck."
+        },
+        {
+          "type": "heading",
+          "text": "Conclusion",
+          "level": 2
+        },
+        {
+          "type": "paragraph",
+          "text": "A roadmap for starting digital product design is a sequence for reducing uncertainty: understand the problem, define scope and a decision measure, design flows and states, test high-risk assumptions, and prepare decisions for implementation. This sequence does not prevent change; it helps change happen before a mistaken assumption becomes embedded in screens and code. A useful principle is to name the assumption behind each major output and identify what evidence could change the next decision."
         }
       ]
     }
