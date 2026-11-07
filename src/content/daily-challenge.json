@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-31",
+  "date": "2026-11-07",
   "difficulty": {
     "fa": "متوسط",
     "en": "Intermediate"
@@ -9,47 +9,47 @@
     "en": "90 minutes"
   },
   "category": {
-    "fa": "طراحی خدمات و تعامل",
-    "en": "Service and interaction design"
+    "fa": "طراحی خدمات و دسترس‌پذیری",
+    "en": "Service Design & Accessibility"
   },
   "title": {
-    "fa": "نوبت شفاف برای رخت‌شویی مشترک ساختمان",
-    "en": "A Fairer Turn for the Shared Laundry Room"
+    "fa": "پیوستن آسان‌تر به جلسهٔ کار در باغچهٔ محله",
+    "en": "Making Neighborhood Garden Work Sessions Easier to Join"
   },
   "scenario": {
-    "fa": "در یک مجتمع مسکونی، چند ماشین لباس‌شویی و خشک‌کن بین ساکنان مشترک است. ساکنان برای پیدا کردن دستگاه خالی، فهمیدن زمان پایان چرخه و برداشتن لباس‌های خود با مشکل روبه‌رو می‌شوند. مدیر ساختمان می‌خواهد تجربه‌ای ساده و منصفانه ایجاد کند؛ بدون الزام به نصب اپلیکیشن یا افشای اطلاعات شخصی.",
-    "en": "In an apartment building, several washers and dryers are shared by residents. People struggle to find an available machine, know when a cycle will finish, and collect their laundry on time. The building manager wants a simple, fair experience that does not require an app or expose personal information."
+    "fa": "یک باغچهٔ محلی هر هفته جلسه‌هایی برای کاشت، آبیاری، هرس و تمیزکاری برگزار می‌کند. افراد از طریق یک صفحهٔ سادهٔ وب با زمان و نوع کار آشنا می‌شوند، اما نمی‌دانند کدام فعالیت برایشان مناسب است، چه وسایلی لازم دارند یا اگر دیر برسند از کجا باید شروع کنند. برگزارکنندگان هم می‌خواهند ظرفیت هر جلسه و نیازهای دسترس‌پذیری افراد را بدون جمع‌آوری اطلاعات غیرضروری مدیریت کنند.",
+    "en": "A neighborhood garden hosts weekly sessions for planting, watering, pruning, and cleanup. People use a simple web page to learn about the time and type of work, but they are unsure which activity suits them, what to bring, or where to start if they arrive late. Organizers also need to manage each session’s capacity and accessibility needs without collecting unnecessary personal information."
   },
   "challenge": {
-    "fa": "یک تجربهٔ یکپارچه طراحی کنید که به ساکنان کمک کند وضعیت دستگاه‌ها را ببینند، یک نوبت را آغاز کنند، و در زمان مناسب برای جابه‌جایی لباس‌ها باخبر شوند. راهکاری برای ساکنانی که گوشی هوشمند ندارند یا به اعلان‌های صوتی و تصویری دسترسی یکسانی ندارند نیز در نظر بگیرید.",
-    "en": "Design an end-to-end experience that helps residents see machine availability, start a turn, and know when to move their laundry. Include an equitable option for residents who do not have a smartphone or have different access to visual and audio notifications."
+    "fa": "یک تجربهٔ ثبت‌نام و ورود به جلسه طراحی کنید که به افراد کمک کند فعالیت مناسب خود را انتخاب کنند، با آمادگی به باغچه برسند و در محل بدانند چه کاری انجام دهند. نشان دهید این تجربه چگونه برای توانایی‌های حرکتی و حسی متفاوت، حضور کوتاه‌مدت یا بدون تجهیزات شخصی، و تغییر برنامه در آخرین لحظه قابل استفاده می‌ماند.",
+    "en": "Design a signup and arrival experience that helps people choose a suitable activity, arrive prepared, and know what to do on site. Show how the experience remains usable for different mobility and sensory needs, short visits, people without personal equipment, and last-minute schedule changes."
   },
   "constraints": {
     "fa": [
-      "راهکار باید هم از طریق یک صفحهٔ وب ساده و هم از طریق تابلوی فیزیکی در نزدیکی رخت‌شویی قابل استفاده باشد.",
-      "رزرو هر دستگاه حداکثر ۱۵ دقیقه پیش از شروع چرخه ممکن است و برای جلوگیری از انحصار، هر فرد فقط یک نوبت فعال داشته باشد.",
-      "وضعیت دستگاه‌ها باید بدون نمایش نام، شمارهٔ واحد یا دیگر اطلاعات شخصی قابل فهم باشد؛ متن‌ها و رنگ‌ها نیز باید خوانا و قابل دسترس باشند."
+      "راهکار باید با یک صفحهٔ وب واکنش‌گرا و پیامک اختیاری قابل استفاده باشد؛ نصب اپلیکیشن الزامی نیست.",
+      "حداقل سه نوع فعالیت با مدت، میزان تلاش بدنی، تجهیزات موجود و گزینه‌های دسترس‌پذیری متفاوت تعریف کنید.",
+      "اطلاعات حساس یا غیرضروری جمع‌آوری نکنید؛ افراد باید بتوانند فقط نیاز عملی خود را، در صورت تمایل، بیان کنند."
     ],
     "en": [
-      "The experience must work through both a simple web page and a physical display near the laundry room.",
-      "A machine may be held for no more than 15 minutes before a cycle starts, and each person may have only one active turn to prevent monopolization.",
-      "Machine status must be understandable without showing names, apartment numbers, or other personal information; text and color use must remain readable and accessible."
+      "The solution must work through a responsive web page with optional SMS; installing an app cannot be required.",
+      "Define at least three activities with different durations, physical demands, available equipment, and accessibility options.",
+      "Do not collect sensitive or unnecessary information; people should be able to share only a practical need, if they choose."
     ]
   },
   "deliverables": {
     "fa": [
-      "یک جریان کار یا استوری‌بورد کوتاه از مشاهدهٔ وضعیت تا پایان چرخه، شامل حالت‌های استثنایی مانند لغو یا دیر رسیدن.",
-      "طرح اولیهٔ دو صفحهٔ وب و یک نمای تابلوی فیزیکی، با نمایش وضعیت خالی، در حال استفاده و نیازمند تخلیه.",
-      "فهرستی کوتاه از تصمیم‌های طراحی، فرضیات و دو معیار برای سنجش موفقیت تجربه."
+      "یک فلو یا نقشهٔ تجربه از انتخاب جلسه تا ورود و شروع کار",
+      "دو تا چهار وایرفریم برای فهرست فعالیت‌ها، ثبت‌نام و دستورالعمل ورود",
+      "سه تصمیم طراحی را همراه با دلیل، از جمله یک تصمیم دربارهٔ دسترس‌پذیری، توضیح دهید."
     ],
     "en": [
-      "A short flow or storyboard from checking availability to cycle completion, including exceptions such as cancellation or arriving late.",
-      "Wireframes for two web views and one physical-board view, showing available, in-use, and ready-to-empty states.",
-      "A brief list of design decisions, assumptions, and two measures of success for the experience."
+      "A flow or journey map from choosing a session through arrival and getting started",
+      "Two to four wireframes for the activity list, signup, and arrival instructions",
+      "Explain three design decisions and their rationale, including at least one accessibility decision."
     ]
   },
   "hint": {
-    "fa": "به‌جای تمرکز صرف بر رزرو، تمام لحظه‌های بین «پیدا کردن دستگاه» تا «آزاد شدن آن برای نفر بعد» را بررسی کنید. یک راه ارتباطی جایگزین برای کسی در نظر بگیرید که اعلان تلفن را دریافت نمی‌کند.",
-    "en": "Look beyond booking and map every moment between finding a machine and making it available to the next person. Include an alternative way to communicate with someone who may not receive phone notifications."
+    "fa": "به‌جای پرسیدن «چه محدودیتی دارید؟»، از ویژگی‌های قابل مشاهدهٔ هر فعالیت شروع کنید: مدت، سطح تلاش، امکان نشستن، ابزار موجود و مسیر ورود. برای تغییر برنامه نیز یک مسیر سادهٔ لغو یا جابه‌جایی در نظر بگیرید.",
+    "en": "Instead of asking “What is your limitation?”, start with observable activity details: duration, effort level, seating, available tools, and the arrival route. Include a simple way to cancel or switch when plans change."
   }
 }
